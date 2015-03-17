@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="EnableApp">
 
-  <head>
+<head lang="en">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Full Screen">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+
     <title>Enable portal</title>
-  </head>
 
-  <body>
-  
-  Test
-  
-  </body>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Framework libraries -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+
+    <!-- Application files  -->
+    <script type="text/javascript" src="js/clientapp.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+
+</head>
+
+
+<body layout="row" ng-controller="HomeCtrl">
+<!-- Page Content -->
+<div layout flex ng-view></div>
+</body>
+
 </html>
