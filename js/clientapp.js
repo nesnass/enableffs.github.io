@@ -13,7 +13,7 @@ var options = {};
 options.api = {};
 
 enableApp.config(['$locationProvider', '$routeProvider',
-    function($location, $routeProvider) {
+    function($locationProvider, $routeProvider) {
         $routeProvider.
             when('/', {
                 templateUrl: 'partials/home.html',
@@ -21,6 +21,11 @@ enableApp.config(['$locationProvider', '$routeProvider',
             }).
             otherwise({
                 redirectTo: '/'
+            });
+        $locationProvider
+            .html5Mode({
+                enabled: true,
+                requireBase: false
             });
     }]);
 
