@@ -19,13 +19,12 @@ enableApp.config(['$locationProvider', '$routeProvider',
                 templateUrl: 'partials/home.html',
                 controller: 'HomeCtrl'
             }).
+            when('/h', {
+                templateUrl: 'partials/hometemp.html',
+                controller: 'HomeCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
-            });
-        $locationProvider
-            .html5Mode({
-                enabled: true,
-                requireBase: false
             });
     }]);
 

@@ -1,19 +1,14 @@
 <div ng-controller="HomeCtrl">
-    <div>
-        <button ng-click="changeLanguage('fr')">FR</button>
-        <button ng-click="changeLanguage('en')">EN</button>
-    </div>
 
+    <h2><!-- START headline -->Hello there, This is my awesome app!<!-- END headline --></h2>
 
-    <h2><!-- START place the headline here -->Hello there, This is my awesome app!<!-- END place the headline here --></h2>
-
-    <p><!-- START place the intro text here -->And it has i18n support!<!-- END place the intro text here --></p>
+    <p><!-- START intro -->And it has i18n support!<!-- END intro --></p>
 
     <hr>
 
 
     <div ng-show="!localmode">
-        <h2><!-- START place video title text here -->Video loaded from youtube<!-- END place video title text here --></h2>
+        <h2><!-- START video title -->Video loaded from youtube<!-- END video title --></h2>
 
         <iframe width="640" height="360" src="//www.youtube.com/embed/AZhcZ7AILf0" frameborder="0" allowfullscreen=""></iframe>
 
@@ -21,12 +16,11 @@
     </div>
 
     <div ng-show="localmode">
-        <h2><!-- START place video title text here -->Video loaded locally<!-- END place video title text here --></h2>
+        <h2><!-- START video title -->Video loaded locally<!-- END video title --></h2>
 
         <video width="640" height="360" controls="" poster="assets/pics/enable__00_00_00_00.png">
             <source src="assets/vids/enable-1000.mp4" type="video/mp4">
             <track kind="captions" src="assets/vids/subs.srt" type="text/vtt" srclang="en" label="English Subtitles" default=""></track>
         </video>
     </div>
-    <!-- END: DO NOT EDIT -->
 </div>
