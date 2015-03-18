@@ -1,10 +1,20 @@
-<h2>Video loaded from youtube</h2>
+<div>
+    <button ng-click="changeLanguage('fr')">FR</button>
+    <button ng-click="changeLanguage('en')">EN</button>
+</div>
+
+<h2>{{ 'HEADLINE' | translate }}</h2>
+<p>{{ 'INTRO_TEXT' | translate }}</p>
+
+<hr>
+
+<h2>{{ 'VIDEO_YOUTUBE' | translate }}</h2>
 
 <iframe width="640" height="360" src="//www.youtube.com/embed/AZhcZ7AILf0" frameborder="0" allowfullscreen=""></iframe>
 
 <hr>
 
-<h2>Video loaded locally</h2>
+<h2>{{ 'VIDEO_LOCAL' | translate }}</h2>
 
 <video width="640" height="360" controls="" poster="assets/pics/enable__00_00_00_00.png">
     <source src="assets/vids/enable-1000.mp4" type="video/mp4">

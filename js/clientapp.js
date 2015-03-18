@@ -2,7 +2,7 @@
  * Created by jeremyt on 10/10/14.
  */
 
-var enableApp = angular.module('EnableApp', ['ngRoute', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngRoute', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
 
 var enableAppControllers = angular.module('EnableAppControllers', []);
 var enableAppServices = angular.module('EnableAppServices', []);
@@ -22,4 +22,13 @@ enableApp.config(['$locationProvider', '$routeProvider',
             otherwise({
                 redirectTo: '/'
             });
+    }]);
+
+enableApp.config(['$translateProvider',
+    function($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'languages/',
+            suffix: '.json'
+        });
+        $translateProvider.preferredLanguage('en');
     }]);
