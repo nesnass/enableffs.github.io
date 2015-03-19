@@ -1,3 +1,10 @@
+/**
+ * @ngdoc controller
+ * @name HomeCtrl
+ * @description
+ * Controller for the default partial: home.html
+ */
+
 enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
         console.log('--> home started');
 

@@ -1,5 +1,8 @@
 /**
- * Created by jeremyt on 10/10/14.
+ * @description
+ *
+ * This is the angular app definition. It declares its name, as well as injection modules
+ *
  */
 
 var enableApp = angular.module('EnableApp', ['ngRoute', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
