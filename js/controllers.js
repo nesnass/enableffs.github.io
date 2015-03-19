@@ -18,6 +18,17 @@ enableAppControllers.controller("HomeCtrl", function ($scope, $location, $transl
         }
 
 
+        /**
+         * @ngdoc function
+         * @name HomeCtrl.changeLanguage
+         * @kind function
+         *
+         * @description
+         * Sets the locale to use by the module angular-translate
+         *          *
+         * @param {String} langKey local name, i.e. 'en', 'fr, etc
+         *
+         */
         $scope.changeLanguage = function (langKey) {
             $translate.use(langKey);
         };
