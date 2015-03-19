@@ -12,19 +12,21 @@ var enableAppDirectives = angular.module('EnableAppDirectives', []);
 var options = {};
 options.api = {};
 
-enableApp.config(['$locationProvider', '$routeProvider',
-    function($locationProvider, $routeProvider) {
+enableApp.config(['$routeProvider',
+    function($routeProvider) {
         $routeProvider.
-            when('/', {
-                templateUrl: 'partials/home.html',
-                controller: 'HomeCtrl'
+            when('/:page', {
+                templateUrl: function(routeParams) {
+                    return '/partials/'+routeParams.page+'.html';
+                }
             }).
-            when('/h', {
-                templateUrl: 'partials/hometemp.html',
-                controller: 'HomeCtrl'
+            when('/:level/:page', {
+                templateUrl: function(routeParams) {
+                    return '/partials/'+routeParams.level+'/'+routeParams.page+'.html';
+                }
             }).
             otherwise({
-                redirectTo: '/'
+                redirectTo: '/home'
             });
     }]);
 
