@@ -5,7 +5,7 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngRoute', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
 
 var enableAppControllers = angular.module('EnableAppControllers', []);
 var enableAppServices = angular.module('EnableAppServices', []);
@@ -29,7 +29,7 @@ enableApp.config(['$routeProvider',
                 }
             }).
             otherwise({
-                redirectTo: '/home'
+                redirectTo: '/basic'
             });
     }]);
 

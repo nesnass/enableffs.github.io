@@ -7,10 +7,12 @@
  *
  */
 
-enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
-        console.log('--> home started');
+enableAppControllers.controller("MenuCtrl", function ($scope, $location) {
+        console.log('--> menu started');
 
         $scope.localmode = false;
+        $scope.m1 = true;
+        $scope.m2 = false;
 
         //create the global (client) API url based on location object
         options.api.base_url = $location.$$protocol+'://'+$location.$$host+':'+$location.$$port;
@@ -18,7 +20,17 @@ enableAppControllers.controller("HomeCtrl", function ($scope, $location, $transl
         if($location.$$host == 'localhost') {
             $scope.localmode = true;
         }
+    }
+);
 
+
+enableAppControllers.controller("BasicCtrl", function ($scope, $location, $translate) {
+        console.log('--> basic started');
+
+    }
+);
+
+enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
 
         /**
          * @ngdoc function

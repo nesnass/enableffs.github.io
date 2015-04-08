@@ -12,14 +12,17 @@
     <title>Enable portal</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Framework libraries -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
 
     <!-- Application files  -->
     <script type="text/javascript" src="js/clientapp.js"></script>
@@ -28,9 +31,41 @@
 </head>
 
 
-<body layout="row">
-    <!-- Page Content -->
-    <div layout flex ng-view></div>
+<body layout="row" ng-controller="MenuCtrl">
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
+        <md-toolbar class="md-default-theme">Menu</md-toolbar>
+        <nav>
+            <dl>
+                <dt tabindex="0" role="tab" aria-expanded="true" ng-click="m1=!m1">Facts about deafblindness</dt>
+                <div style="overflow: hidden;" ng-show="m1">
+                    <dd layout="column">
+                        <a class="" href="#/home">definitions/clarifications of terms</a>
+                        <a class="" href="#/">causes and symptoms</a>
+                        <a class="" href="#/">categories</a>
+                        <a class="" href="#/">characteristics</a>
+                        <a class="" href="#/">incidences</a>
+                    </dd>
+                </div>
+                <dt tabindex="0" role="tab" aria-expanded="false" ng-click="m2=!m2">Functional assessment</dt>
+                <div style="overflow: hidden;" ng-show="m2">
+                    <dd layout="column">
+                        <a class="" href="#/">clarification of the terms</a>
+                        <a class="" href="#/">assessment of all senses</a>
+                        <a class="" href="#/">communication</a>
+                        <a class="" href="#/">motor of development</a>
+                    </dd>
+                </div>
+            </dl>
+        </nav>
+    </md-sidenav>
+
+    <div layout="column" tabindex="-1" role="main" flex>
+        <md-toolbar class="md-default-theme">123123</md-toolbar>
+
+        <!-- ngView:  -->
+        <md-content ng-view md-scroll-y flex></md-content>
+    </div>
 </body>
 
 </html>
