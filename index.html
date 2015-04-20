@@ -37,25 +37,25 @@
         <md-toolbar class="md-default-theme">Menu</md-toolbar>
         <nav>
             <dl>
-                <dt tabindex="0" role="tab" aria-expanded="true" ng-click="m1=!m1">Facts about deafblindness</dt>
-                <div style="overflow: hidden;" ng-show="m1">
-                    <dd layout="column">
+                <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness</dt>
+
+                    <dd layout="column" ng-show="m1">
                         <a class="" href="#/home">definitions/clarifications of terms</a>
                         <a class="" href="#/">causes and symptoms</a>
                         <a class="" href="#/">categories</a>
                         <a class="" href="#/">characteristics</a>
                         <a class="" href="#/">incidences</a>
                     </dd>
-                </div>
-                <dt tabindex="0" role="tab" aria-expanded="false" ng-click="m2=!m2">Functional assessment</dt>
-                <div style="overflow: hidden;" ng-show="m2">
-                    <dd layout="column">
+
+                <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment</dt>
+
+                    <dd layout="column" ng-show="m2">
                         <a class="" href="#/">clarification of the terms</a>
                         <a class="" href="#/">assessment of all senses</a>
                         <a class="" href="#/">communication</a>
                         <a class="" href="#/">motor of development</a>
                     </dd>
-                </div>
+
             </dl>
         </nav>
     </md-sidenav>

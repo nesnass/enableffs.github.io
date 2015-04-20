@@ -5,3 +5,12 @@ html {
 
 body {
     margin: 0; }
+
+dt:focus,
+a:focus {
+    background-color: #c0c0c0;
+}
+
+dd {
+    overflow: hidden;
+}

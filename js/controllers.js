@@ -20,6 +20,11 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location) {
         if($location.$$host == 'localhost') {
             $scope.localmode = true;
         }
+
+        $scope.toggle = function(toggleEvent){
+
+            console.log('--> click');
+        };
     }
 );
 
