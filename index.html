@@ -34,12 +34,18 @@
 <body layout="row" ng-controller="MenuCtrl">
 
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
-        <md-toolbar class="md-default-theme">Menu</md-toolbar>
+        <md-toolbar class="md-default-theme">
+            <div class="md-toolbar-tools" tabindex="-1">
+                <div class="fill-height" layout="row" flex>
+                    <h2>Menu</h2>
+                </div>
+            </div>
+        </md-toolbar>
         <nav>
             <dl>
                 <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness</dt>
 
-                    <dd layout="column" ng-show="m1">
+                    <dd class="submenuitem" layout="column" ng-show="m1">
                         <a class="" href="#/home">definitions/clarifications of terms</a>
                         <a class="" href="#/" target="main">causes and symptoms</a>
                         <a class="" href="#/">categories</a>
@@ -49,7 +55,7 @@
 
                 <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment</dt>
 
-                    <dd layout="column" ng-show="m2">
+                    <dd class="submenuitem" layout="column" ng-show="m2">
                         <a class="" href="#/">clarification of the terms</a>
                         <a class="" href="#/">assessment of all senses</a>
                         <a class="" href="#/">communication</a>
@@ -61,7 +67,16 @@
     </md-sidenav>
 
     <div layout="column" tabindex="-1" role="main" flex>
-        <md-toolbar class="md-default-theme" >123123</md-toolbar>
+        <md-toolbar class="md-default-theme" >
+            <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()">
+                <button class="md-icon-button md-button" aria-label="Toggle Menu" hide-gt-sm>
+                    <md-icon class="hamburger" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
+                </button>
+                <div class="fill-height" layout="row" flex>
+                    <h2>123123</h2>
+                </div>
+            </div>
+        </md-toolbar>
 
         <!-- ngView:  -->
         <md-content ng-view md-scroll-y flex></md-content>
