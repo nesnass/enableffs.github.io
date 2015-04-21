@@ -7,7 +7,7 @@
  *
  */
 
-enableAppControllers.controller("MenuCtrl", function ($scope, $location) {
+enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSidenav) {
         console.log('--> menu started');
 
         $scope.localmode = false;
@@ -21,9 +21,9 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location) {
             $scope.localmode = true;
         }
 
-        $scope.toggle = function(toggleEvent){
+        $scope.openMenu = function(){
 
-            console.log('--> click');
+            $mdSidenav('left').open();
         };
     }
 );
