@@ -38,12 +38,18 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
 enableAppControllers.controller("BasicCtrl", function ($scope, $location, $translate) {
         console.log('--> basic started');
 
+        var myEl = angular.element( document.querySelector( '#focusHeader' ) );
+        myEl.attr('tabIndex', -1);
+        myEl.focus();
+
     }
 );
 
 enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
 
-
+        var myEl = angular.element( document.querySelector( '#focusHeader' ) );
+        myEl.attr('tabIndex', -1);
+        myEl.focus();
 
 
         /**
