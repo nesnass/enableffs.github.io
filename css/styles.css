@@ -23,3 +23,9 @@ dd {
 .hamburger {
     fill: #FFFFFF;
 }
+
+.screenReadersOnly {
+    width: 1px;
+    height: 1px;
+    color: transparent;
+}
