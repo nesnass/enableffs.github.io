@@ -27,9 +27,10 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
         };
 
         $scope.focusSection = function() {
-            $scope.focusHeader = false;
             $mdSidenav('left').close();
-            $scope.focusHeader = true;
+
+            var myEl = angular.element( document.querySelector( '#focusHeader' ) );
+            myEl.focus();
         };
     }
 );
@@ -45,7 +46,10 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $location, $trans
 
 enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
 
-                /**
+
+
+
+        /**
          * @ngdoc function
          * @name HomeCtrl.changeLanguage
          * @kind function
