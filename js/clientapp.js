@@ -69,4 +69,11 @@ enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
 
         }
     });
+
+    $rootScope.$on('$viewContentLoaded', function () {
+
+        var myEl = angular.element( document.querySelector( '#focusHeader' ) );
+        myEl.focus();
+
+    });
 }]);
