@@ -28,7 +28,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
 
         $scope.focusSection = function() {
             $mdSidenav('left').close();
-        }
+        };
     }
 );
 
