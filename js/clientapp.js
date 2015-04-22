@@ -41,3 +41,32 @@ enableApp.config(['$translateProvider',
         });
         $translateProvider.preferredLanguage('en');
     }]);
+
+
+enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
+
+    var history; // stores uri of last page viewed - Used to track if we should set focus to main H1
+    var currentURL; // store uri of current page viewed - Used to track if we should set focus to main H1
+
+
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        // test for current route
+        if(current.params) {
+            // store current path
+            currentURL = current.params.page;
+
+            // Set current page title
+            switch(currentURL) {
+                case 'home':
+                    $rootScope.title = 'Page with video';
+                    break;
+
+                default:
+                    $rootScope.title = 'Page with header';
+            }
+
+
+
+        }
+    });
+}]);
