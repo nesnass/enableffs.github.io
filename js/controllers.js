@@ -44,6 +44,8 @@ enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $locat
 
         $rootScope.title = "Menu tab";
 
+        $scope.focusHeader = true;
+
         /**
          * @ngdoc function
          * @name HomeCtrl.changeLanguage
