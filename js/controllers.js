@@ -27,7 +27,9 @@ enableAppControllers.controller("MenuCtrl", function ($rootScope, $scope, $locat
         };
 
         $scope.focusSection = function() {
+            $scope.focusHeader = false;
             $mdSidenav('left').close();
+            $scope.focusHeader = true;
         };
     }
 );
@@ -44,7 +46,7 @@ enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $locat
 
         $rootScope.title = "Menu tab";
 
-        $scope.focusHeader = true;
+
 
         /**
          * @ngdoc function
