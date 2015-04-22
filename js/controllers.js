@@ -21,10 +21,14 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
             $scope.localmode = true;
         }
 
-        $scope.openMenu = function(){
+        $scope.openMenu = function() {
 
             $mdSidenav('left').open();
         };
+
+        $scope.focusSection = function() {
+            $mdSidenav('left').close();
+        }
     }
 );
 
