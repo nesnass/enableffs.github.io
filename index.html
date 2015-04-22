@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 
-    <title>Enable portal</title>
+    <title ng-bind="title">Enable portal</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
@@ -43,7 +43,7 @@
         </md-toolbar>
         <nav>
             <dl>
-                <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness</dt>
+                <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m1">
                         <a class="" ng-click="focusSection()" ng-href="#/home">definitions/clarifications of terms</a>
@@ -54,7 +54,7 @@
                         <a class="" ng-click="focusSection()" ng-href="#/home">test</a>
                     </dd>
 
-                <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment</dt>
+                <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m2">
                         <a class="" ng-click="focusSection()" ng-href="#/">clarification of the terms</a>

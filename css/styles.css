@@ -25,7 +25,12 @@ dd {
 }
 
 .screenReadersOnly {
-    width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
     height: 1px;
-    color: transparent;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute !important;
 }

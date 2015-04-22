@@ -7,7 +7,7 @@
  *
  */
 
-enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSidenav) {
+enableAppControllers.controller("MenuCtrl", function ($rootScope, $scope, $location, $mdSidenav) {
         console.log('--> menu started');
 
         $scope.localmode = false;
@@ -33,13 +33,16 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
 );
 
 
-enableAppControllers.controller("BasicCtrl", function ($scope, $location, $translate) {
+enableAppControllers.controller("BasicCtrl", function ($rootScope, $scope, $location, $translate) {
         console.log('--> basic started');
+        $rootScope.title = "Nothing tab";
 
     }
 );
 
-enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
+enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $location, $translate) {
+
+        $rootScope.title = "Menu tab";
 
         /**
          * @ngdoc function
