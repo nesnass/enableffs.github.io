@@ -6,10 +6,29 @@ html {
 body {
     margin: 0; }
 
+.submenuitem a,
+.submenuitem a:visited {
+    text-decoration: none;
+    color: #000000;
+}
+
+.submenuitem a.sidenavlinksactive,
+.submenuitem a.sidenavlinksactive:visited {
+    color: #8BC34A;
+    text-decoration: none;
+}
+
+.submenuitem.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+}
+
 dt:focus,
 a:focus {
-    /* background-color: #c0c0c0; */
+    background-color: #c0c0c0;
+    outline: none !important;
 }
+
 
 dd {
     overflow: hidden;
@@ -20,10 +39,6 @@ nav {
     margin: 20px;
 }
 
-.submenuitem.ng-hide-remove.ng-hide-remove-active {
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
-}
 
 .hamburger {
     fill: #FFFFFF;

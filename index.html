@@ -46,22 +46,22 @@
             <dl>
                 <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
-                    <dd class="submenuitem" layout="column" ng-show="m1">
-                        <a class="" selected ng-click="focusSection()" ng-href="#/home">definitions/clarifications of terms</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">causes and symptoms</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">categories</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">characteristics</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">incidences</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/home">test</a>
+                    <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
+                        <a ng-click="focusSection()" ng-href="#/home">definitions/clarifications of terms</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">causes and symptoms</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">categories</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">characteristics</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">incidences</a>
+                        <a ng-click="focusSection()" ng-href="#/home">test</a>
                     </dd>
 
                 <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
-                    <dd class="submenuitem" layout="column" ng-show="m2">
-                        <a class="" ng-click="focusSection()" ng-href="#/">clarification of the terms</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">assessment of all senses</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">communication</a>
-                        <a class="" ng-click="focusSection()" ng-href="#/">motor of development</a>
+                    <dd class="submenuitem" layout="column" ng-show="m2" auto-active>
+                        <a ng-click="focusSection()" ng-href="#/basic">clarification of the terms</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">assessment of all senses</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">communication</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">motor of development</a>
                     </dd>
 
             </dl>
