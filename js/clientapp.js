@@ -42,6 +42,11 @@ enableApp.config(['$translateProvider',
         $translateProvider.preferredLanguage('en');
     }]);
 
+enableApp.config(['$mdThemingProvider',
+    function($mdThemingProvider) {
+        $mdThemingProvider.theme('default').primaryPalette('light-green');
+    }]);
+
 
 enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
 

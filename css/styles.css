@@ -15,6 +15,11 @@ dd {
     overflow: hidden;
 }
 
+md-content,
+nav {
+    margin: 20px;
+}
+
 .submenuitem.ng-hide-remove.ng-hide-remove-active {
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
@@ -33,4 +38,18 @@ dd {
     padding: 0;
     overflow: hidden;
     position: absolute !important;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
