@@ -4,12 +4,30 @@ html {
     -webkit-text-size-adjust: 100%; }
 
 body {
-    margin: 0; }
+    margin: 0;
+}
+
+md-content div,
+nav dl {
+    margin: 20px;
+}
+
+dt:focus,
+a:focus {
+    background-color: #c0c0c0;
+    outline: none !important;
+}
+
+
+.submenuitem {
+    overflow: hidden;
+}
 
 .submenuitem a,
 .submenuitem a:visited {
     text-decoration: none;
     color: #000000;
+    width: 100%;
 }
 
 .submenuitem a.sidenavlinksactive,
@@ -22,23 +40,6 @@ body {
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
 }
-
-dt:focus,
-a:focus {
-    background-color: #c0c0c0;
-    outline: none !important;
-}
-
-
-dd {
-    overflow: hidden;
-}
-
-md-content,
-nav {
-    margin: 20px;
-}
-
 
 .hamburger {
     fill: #FFFFFF;
