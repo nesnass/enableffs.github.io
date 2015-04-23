@@ -45,7 +45,7 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $location, $trans
 
 enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
 
-
+        console.log('--> home started');
 
 
         /**

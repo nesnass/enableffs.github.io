@@ -47,7 +47,7 @@
                 <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m1">
-                        <a class="" ng-click="focusSection()" ng-href="#/home">definitions/clarifications of terms</a>
+                        <a class="" selected ng-click="focusSection()" ng-href="#/home">definitions/clarifications of terms</a>
                         <a class="" ng-click="focusSection()" ng-href="#/">causes and symptoms</a>
                         <a class="" ng-click="focusSection()" ng-href="#/">categories</a>
                         <a class="" ng-click="focusSection()" ng-href="#/">characteristics</a>
@@ -75,7 +75,7 @@
                     <md-icon class="hamburger" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
                 </button>
                 <div class="fill-height" layout="row" flex>
-                    <h2>123123</h2>
+                    <h2 tabindex="0" id="focusHeader">123123</h2>
                 </div>
             </div>
         </md-toolbar>
