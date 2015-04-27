@@ -47,9 +47,9 @@
                 <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
-                        <a ng-click="focusSection()" ng-href="#/home">definitions/clarifications of terms</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">causes and symptoms</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">categories</a>
+                        <a ng-click="focusSection()" ng-href="#/basic">basic</a>
+                        <a ng-click="focusSection()" ng-href="#/home">home</a>
+                        <a ng-click="focusSection()" ng-href="#/adv">advanced</a>
                         <a ng-click="focusSection()" ng-href="#/basic">characteristics</a>
                         <a ng-click="focusSection()" ng-href="#/basic">incidences</a>
                         <a ng-click="focusSection()" ng-href="#/home">test</a>
@@ -71,7 +71,7 @@
     <div layout="column" tabindex="-1" role="main" flex>
         <md-toolbar>
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()">
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" hide-gt-sm>
+                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" hide-gt-sm role="tab">
                     <md-icon class="hamburger" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
                 </button>
                 <div class="fill-height" layout="row" flex>

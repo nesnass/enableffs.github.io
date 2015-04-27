@@ -4,29 +4,51 @@
         <button ng-click="changeLanguage('en')">EN</button>
     </div -->
 
-    <h2>My video page</h2>
+    <h1>My video page</h1>
+
+    <nav>
+        <dl>
+            <dd layout="column">
+                <a href="#home/#youtubevideo">Video from youtube</a>
+                <a href="#home/#localvideo">Video loaded locally</a>
+                <a href="#home/#audiovideo">Audio loaded locally</a>
+            </dd>
+        </dl>
+    </nav>
+
     <p>This page features a video that should be played by tabbing to the play button</p>
 
     <hr>
 
     <div>
-        <h2>{{ 'VIDEO_YOUTUBE' | translate }}</h2>
+        <div id="youtubevideo">
+            <h2>{{ 'VIDEO_YOUTUBE' | translate }}</h2>
 
-        <span class="screenReadersOnly">For a fully keyboard-accessible alternative to this video, view it in Chrome or on any Android or iOS device, view it in Firefox with the YouTube ALL HTML5 add-on installed, or disable Flash in Internet Explorer. Press the tab key once and then the spacebar to start playing the video</span>
+            <span class="screenReadersOnly">For a fully keyboard-accessible alternative to this video, view it in Chrome or on any Android or iOS device, view it in Firefox with the YouTube ALL HTML5 add-on installed, or disable Flash in Internet Explorer. Press the tab key once and then the spacebar to start playing the video</span>
 
-        <div class="videoWrapper">
+            <div class="videoWrapper">
 
-            <iframe aria-label="Youtube video iframe" width="640" height="360" src="//www.youtube.com/embed/AZhcZ7AILf0?html5=1&controls=1&autohide=0&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                <iframe aria-label="Youtube video iframe" width="640" height="360" src="//www.youtube.com/embed/AZhcZ7AILf0?html5=1&controls=1&autohide=0&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+
         </div>
 
         <hr>
+        <div id="localvideo">
+            <h2>{{ 'VIDEO_LOCAL' | translate }}</h2>
 
-        <h2>{{ 'VIDEO_LOCAL' | translate }}</h2>
+            <video width="640" height="360" controls="true" poster="assets/pics/enable__00_00_00_00.png">
+                <source src="assets/vids/enable-1000.mp4" type="video/mp4">
+                <track kind="captions" src="assets/vids/subs.srt" type="text/vtt" srclang="en" label="English Subtitles" default=""></track>
+            </video>
 
-        <video width="640" height="360" controls="true" poster="assets/pics/enable__00_00_00_00.png">
-            <source src="assets/vids/enable-1000.mp4" type="video/mp4">
-            <track kind="captions" src="assets/vids/subs.srt" type="text/vtt" srclang="en" label="English Subtitles" default=""></track>
-        </video>
+        </div>
+        <div id="audiovideo">
+            <audio controls>
+                <source src="assets/snds/enable.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 
     <!--
