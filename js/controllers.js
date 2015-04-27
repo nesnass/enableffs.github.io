@@ -64,3 +64,32 @@ enableAppControllers.controller("HomeCtrl", function ($scope, $location, $transl
         };
     }
 );
+
+enableAppControllers.controller("AdvCtrl", function ($sce) {
+
+        console.log('--> adv started');
+
+        this.config = {
+            sources: [
+                {src: $sce.trustAsResourceUrl("assets/vids/enable-1000.mp4"), type: "video/mp4"}
+            ],
+            tracks: [
+                {
+                    src: "assets/vids/subs.srt",
+                    kind: "subtitles",
+                    srclang: "en",
+                    label: "English",
+                    default: ""
+                }
+            ],
+            theme: "bower_components/videogular-themes-default/videogular.css",
+            plugins: {
+                controls: {
+                    autoHide: false,
+                    autoHideTime: 5000
+                }
+            }
+        };
+
+    }
+);
