@@ -11,6 +11,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
         console.log('--> menu started');
 
         $scope.localmode = false;
+        $scope.menuOpen = false;
         $scope.m1 = true;
         $scope.m2 = false;
 
@@ -24,11 +25,13 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
         $scope.openMenu = function() {
 
             $mdSidenav('left').open();
+            $scope.menuOpen = true;
         };
 
         $scope.closeMenu = function() {
 
             $mdSidenav('left').close();
+            $scope.menuOpen = false;
         };
     }
 );
