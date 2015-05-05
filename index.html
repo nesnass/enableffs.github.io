@@ -40,7 +40,7 @@
                     <h2>Menu</h2>
                 </div>
                 <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">
-                    <md-icon class="hamburger" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
                 </button>
             </div>
         </md-toolbar>
@@ -49,7 +49,7 @@
             <dl>
                 <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">{{ 'MENU_SECTION01_TITLE' | translate }}<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
-                    <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
+                    <dd class="submenuitem" layout="column" ng-show="m1" auto-active layout-align="center center">
                         <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
                         <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
                         <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
@@ -80,7 +80,7 @@
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1">
                 <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
                 <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">
-                    <md-icon class="hamburger" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
                 </button>
                 <div class="fill-height" layout="row" flex>
                     <h2 tabindex="-1" id="focusHeader" ng-bind="title">123123</h2>
