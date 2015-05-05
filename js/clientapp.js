@@ -5,7 +5,7 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
 
 var enableAppControllers = angular.module('EnableAppControllers', []);
 var enableAppServices = angular.module('EnableAppServices', []);
@@ -17,15 +17,20 @@ options.api = {};
 
 enableApp.config(['$routeProvider',
     function($routeProvider) {
+
+        if(localStorage.lang == undefined) {
+            localStorage.lang = 'en';
+        }
+
         $routeProvider.
             when('/:page', {
                 templateUrl: function(routeParams) {
-                    return '/partials/'+routeParams.page+'.html';
+                    return '/partials/'+routeParams.page+'_'+localStorage.lang+'.html';
                 }
             }).
             when('/:level/:page', {
                 templateUrl: function(routeParams) {
-                    return '/partials/'+routeParams.level+'/'+routeParams.page+'.html';
+                    return '/partials/'+routeParams.level+'/'+routeParams.page+'_'+localStorage.lang+'.html';
                 }
             }).
             otherwise({
@@ -33,14 +38,15 @@ enableApp.config(['$routeProvider',
             });
     }]);
 
-/*enableApp.config(['$translateProvider',
+enableApp.config(['$translateProvider',
     function($translateProvider) {
+        $translateProvider.useSanitizeValueStrategy('escaped');
         $translateProvider.useStaticFilesLoader({
             prefix: 'languages/',
             suffix: '.json'
         });
-        $translateProvider.preferredLanguage('en');
-    }]);*/
+        $translateProvider.preferredLanguage(localStorage.lang);
+    }]);
 
 enableApp.config(['$mdThemingProvider',
     function($mdThemingProvider) {

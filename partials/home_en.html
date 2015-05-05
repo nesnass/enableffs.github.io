@@ -1,26 +1,48 @@
 <div ng-controller="HomeCtrl">
+    <h1>My video page</h1>
 
-    <h2><!-- START headline -->Demo with bjørn and yngve<!-- END headline --></h2>
+    <nav aria-label="Main page sub-navigation">
+        <dl>
+            <dd layout="column">
+                <a href="#home/#youtubevideo" ng-show="!localmode">Video from youtube</a>
+                <a href="#home/#localvideo" ng-show="localmode">Video loaded locally</a>
+                <a href="#home/#audiovideo">Audio loaded locally</a>
+            </dd>
+        </dl>
+    </nav>
 
-    <p><!-- START intro -->And it has <b>i18n</b> support!<!-- END intro --></p>
+    <p>This page features a video that should be played by tabbing to the play button</p>
 
-    <hr>
+    <div>
+        <div id="youtubevideo" ng-show="!localmode">
+            <h2>Video loaded from youtube</h2>
 
+            <span class="screenReadersOnly">For a fully keyboard-accessible alternative to this video, view it in Chrome or on any Android or iOS device, view it in Firefox with the YouTube ALL HTML5 add-on installed, or disable Flash in Internet Explorer.</span>
 
-    <div ng-show="!localmode">
-        <h2><!-- START video title -->Video loaded from the youtube<!-- END video title --></h2>
+            <div class="videoWrapper">
 
-        <iframe width="640" height="360" src="//www.youtube.com/embed/AZhcZ7AILf0" frameborder="0" allowfullscreen=""></iframe>
+                <iframe aria-label="Youtube video iframe" width="640" height="360" src="//www.youtube.com/embed/AZhcZ7AILf0?html5=1&controls=1&autohide=0&rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+        </div>
 
         <hr>
-    </div>
+        <div id="localvideo" ng-show="localmode">
+            <h2>Video loaded locally</h2>
 
-    <div ng-show="localmode">
-        <h2><!-- START video title -->Video loaded locally<!-- END video title --></h2>
+            <video width="640" height="360" controls="true" poster="assets/pics/enable__00_00_00_00.png">
+                <source src="assets/vids/enable-1000.mp4" type="video/mp4">
+                <track kind="captions" src="assets/vids/subs_en.srt" type="text/vtt" srclang="en" label="English Subtitles" default=""></track>
+            </video>
 
-        <video width="640" height="360" controls="" poster="assets/pics/enable__00_00_00_00.png">
-            <source src="assets/vids/enable-1000.mp4" type="video/mp4">
-            <track kind="captions" src="assets/vids/subs.srt" type="text/vtt" srclang="en" label="English Subtitles" default=""></track>
-        </video>
+        </div>
+        <div id="audiovideo" style="margin-top: 25px">
+            <h2>Audio loaded locally</h2>
+
+            <audio controls>
+                <source src="assets/snds/enable.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 </div>

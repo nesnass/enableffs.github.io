@@ -7,7 +7,6 @@ body {
     margin: 0;
 }
 
-md-content div,
 nav dl {
     margin: 20px;
 }
@@ -54,6 +53,12 @@ a:focus {
     padding: 0;
     overflow: hidden;
     position: absolute !important;
+}
+
+audio,
+video {
+    width: 100%    !important;
+    height: auto   !important;
 }
 
 .videoWrapper {

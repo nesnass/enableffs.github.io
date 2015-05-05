@@ -21,28 +21,20 @@
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
-    <!-- script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
-    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script -->
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
     <!-- Application files  -->
     <script type="text/javascript" src="js/clientapp.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/directives.js"></script>
-
-
-
 </head>
 
 
 <body layout="row" ng-controller="MenuCtrl">
 
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="menuOpen">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="menuOpen" layout="vertical" flex>
         <md-toolbar>
-            <!-- div class="md-toolbar-tools" tabindex="-1">
-                <div class="fill-height" layout="row" flex>
-                    <h2>Menu</h2>
-                </div>
-            </div -->
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="closeMenu()">
                 <div class="fill-height" layout="row" flex>
                     <h2>Menu</h2>
@@ -52,30 +44,35 @@
                 </button>
             </div>
         </md-toolbar>
-        <nav>
+
+        <nav flex>
             <dl>
-                <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
+                <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">{{ 'MENU_SECTION01_TITLE' | translate }}<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
-                        <a ng-click="closeMenu()" ng-href="#/basic">basic</a>
-                        <a ng-click="closeMenu()" ng-href="#/home">home</a>
-                        <a ng-click="closeMenu()" ng-href="#/adv">advanced</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">characteristics</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">incidences</a>
-                        <a ng-click="closeMenu()" ng-href="#/home">test</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK04' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK05' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK06' | translate }}</a>
                     </dd>
 
-                <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
+                <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">{{ 'MENU_SECTION02_TITLE' | translate }}<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m2" auto-active>
-                        <a ng-click="closeMenu()" ng-href="#/basic">clarification of the terms</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">assessment of all senses</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">communication</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">motor of development</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK01' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK02' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK03' | translate }}</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK04' | translate }}</a>
                     </dd>
 
             </dl>
         </nav>
+        <div style="width: 100%" layout="horizontal">
+            <md-button flex ng-disabled="getLangButtonState('en')" class="md-raised md-primary" ng-click="setLang('en')">EN</md-button>
+            <md-button flex ng-disabled="getLangButtonState('fr')" class="md-raised md-primary" ng-click="setLang('fr')">FR</md-button>
+        </div>
     </md-sidenav>
 
     <div layout="column" tabindex="-1" role="main" flex>

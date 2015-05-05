@@ -7,8 +7,9 @@
  *
  */
 
-enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSidenav) {
+enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSidenav, $translate, $route) {
         console.log('--> menu started');
+        console.log('--> default language: '+localStorage.lang);
 
         $scope.localmode = false;
         $scope.menuOpen = false;
@@ -33,6 +34,21 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
             $mdSidenav('left').close();
             $scope.menuOpen = false;
         };
+
+        $scope.getLangButtonState = function(lang) {
+            if(localStorage.lang == lang) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+
+        $scope.setLang = function(lang) {
+            localStorage.lang = lang;
+            $translate.use(localStorage.lang);
+            $route.reload();
+        }
     }
 );
 
