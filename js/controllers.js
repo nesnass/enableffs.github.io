@@ -26,16 +26,15 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
             $mdSidenav('left').open();
         };
 
-        $scope.focusSection = function() {
+        $scope.closeMenu = function() {
+
             $mdSidenav('left').close();
-
-
         };
     }
 );
 
 
-enableAppControllers.controller("BasicCtrl", function ($scope, $location, $translate) {
+enableAppControllers.controller("BasicCtrl", function ($scope, $location) {
         console.log('--> basic started');
 
 
@@ -43,7 +42,7 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $location, $trans
     }
 );
 
-enableAppControllers.controller("HomeCtrl", function ($scope, $location, $translate) {
+enableAppControllers.controller("HomeCtrl", function ($scope, $location) {
 
         console.log('--> home started');
 
@@ -59,37 +58,14 @@ enableAppControllers.controller("HomeCtrl", function ($scope, $location, $transl
          * @param {String} langKey local name, i.e. 'en', 'fr, etc
          *
          */
-        $scope.changeLanguage = function (langKey) {
-            $translate.use(langKey);
-        };
+
     }
 );
 
-enableAppControllers.controller("AdvCtrl", function ($sce) {
+enableAppControllers.controller("AdvCtrl", function () {
 
         console.log('--> adv started');
 
-        this.config = {
-            sources: [
-                {src: $sce.trustAsResourceUrl("assets/vids/enable-1000.mp4"), type: "video/mp4"}
-            ],
-            tracks: [
-                {
-                    src: "assets/vids/subs.srt",
-                    kind: "subtitles",
-                    srclang: "en",
-                    label: "English",
-                    default: ""
-                }
-            ],
-            theme: "bower_components/videogular-themes-default/videogular.css",
-            plugins: {
-                controls: {
-                    autoHide: false,
-                    autoHideTime: 5000
-                }
-            }
-        };
 
     }
 );

@@ -5,7 +5,7 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives', 'ngSanitize', 'com.2fdevs.videogular', 'com.2fdevs.videogular.plugins.controls']);
+var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
 
 var enableAppControllers = angular.module('EnableAppControllers', []);
 var enableAppServices = angular.module('EnableAppServices', []);
@@ -33,14 +33,14 @@ enableApp.config(['$routeProvider',
             });
     }]);
 
-enableApp.config(['$translateProvider',
+/*enableApp.config(['$translateProvider',
     function($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'languages/',
             suffix: '.json'
         });
         $translateProvider.preferredLanguage('en');
-    }]);
+    }]);*/
 
 enableApp.config(['$mdThemingProvider',
     function($mdThemingProvider) {

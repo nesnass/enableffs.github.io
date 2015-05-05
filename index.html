@@ -20,31 +20,36 @@
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
-    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+    <!-- script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script -->
 
     <!-- Application files  -->
     <script type="text/javascript" src="js/clientapp.js"></script>
     <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/directives.js"></script>
 
-    <!-- Videogular files  -->
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/videogular/videogular.js"></script>
-    <script src="bower_components/videogular-controls/vg-controls.js"></script>
+
 
 </head>
 
 
 <body layout="row" ng-controller="MenuCtrl">
 
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" tabindex="-1">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1">
         <md-toolbar>
-            <div class="md-toolbar-tools" tabindex="-1">
+            <!-- div class="md-toolbar-tools" tabindex="-1">
                 <div class="fill-height" layout="row" flex>
                     <h2>Menu</h2>
                 </div>
+            </div -->
+            <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="closeMenu()">
+                <div class="fill-height" layout="row" flex>
+                    <h2>Menu</h2>
+                </div>
+                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="tab">
+                    <md-icon class="hamburger" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
+                </button>
             </div>
         </md-toolbar>
         <nav>
@@ -52,21 +57,21 @@
                 <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">Facts about deafblindness<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
-                        <a ng-click="focusSection()" ng-href="#/basic">basic</a>
-                        <a ng-click="focusSection()" ng-href="#/home">home</a>
-                        <a ng-click="focusSection()" ng-href="#/adv">advanced</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">characteristics</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">incidences</a>
-                        <a ng-click="focusSection()" ng-href="#/home">test</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">basic</a>
+                        <a ng-click="closeMenu()" ng-href="#/home">home</a>
+                        <a ng-click="closeMenu()" ng-href="#/adv">advanced</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">characteristics</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">incidences</a>
+                        <a ng-click="closeMenu()" ng-href="#/home">test</a>
                     </dd>
 
                 <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">Functional assessment<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
 
                     <dd class="submenuitem" layout="column" ng-show="m2" auto-active>
-                        <a ng-click="focusSection()" ng-href="#/basic">clarification of the terms</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">assessment of all senses</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">communication</a>
-                        <a ng-click="focusSection()" ng-href="#/basic">motor of development</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">clarification of the terms</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">assessment of all senses</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">communication</a>
+                        <a ng-click="closeMenu()" ng-href="#/basic">motor of development</a>
                     </dd>
 
             </dl>
@@ -76,11 +81,11 @@
     <div layout="column" tabindex="-1" role="main" flex>
         <md-toolbar>
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()">
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" hide-gt-sm role="tab">
+                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" ole="tab">
                     <md-icon class="hamburger" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
                 </button>
                 <div class="fill-height" layout="row" flex>
-                    <h2 tabindex="-1" id="focusHeader">123123</h2>
+                    <h2 tabindex="-1" id="focusHeader" ng-bind="title">123123</h2>
                 </div>
             </div>
         </md-toolbar>
