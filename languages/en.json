@@ -1,4 +1,8 @@
 {
+  "VIDEO_YOUTUBE_HEADER": "Video loaded from youtube",
+  "VIDEO_YOUTUBE_SCREENREADER_MESSAGE": "For a fully keyboard-accessible alternative to this video, view it in Chrome or on any Android or iOS device, view it in Firefox with the YouTube ALL HTML5 add-on installed, or disable Flash in Internet Explorer.",
+  "VIDEO_LOCAL_HEADER": "Video loaded locally",
+  "VIDEO_LOCAL_SUBTITLES_LANGUAGE": "English Subtitles",
   "MENU_SECTION01_TITLE": "Facts about deafblindness",
   "MENU_SECTION01_LINK01": "basic",
   "MENU_SECTION01_LINK02": "home",

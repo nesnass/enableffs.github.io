@@ -1,4 +1,8 @@
 {
+  "VIDEO_YOUTUBE_HEADER": "Video chargée de youtube",
+  "VIDEO_YOUTUBE_SCREENREADER_MESSAGE": "Pour une alternative entièrement accéssible au clavier, charger la page avec Chrome ou avec m'importe quel appareil Android ou iOS, avec Firefox et le ALL HTML5 module installé, ou bien en annulant Flash sous Internet Explorer.",
+  "VIDEO_LOCAL_HEADER": "Video chargée de youtube locally",
+  "VIDEO_LOCAL_SUBTITLES_LANGUAGE": "Sous-titres francais",
   "MENU_SECTION01_TITLE": "Faits sur les sourds-muets",
   "MENU_SECTION01_LINK01": "La base",
   "MENU_SECTION01_LINK02": "Maison",
