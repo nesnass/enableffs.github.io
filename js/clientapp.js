@@ -23,6 +23,11 @@ enableApp.config(['$routeProvider',
         }
 
         $routeProvider.
+            when('/search', {
+                templateUrl: function() {
+                    return '/partials/search.html';
+                }
+            }).
             when('/:page', {
                 templateUrl: function(routeParams) {
                     return '/partials/'+routeParams.page+'_'+localStorage.lang+'.html';

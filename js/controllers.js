@@ -62,6 +62,9 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
 
         $scope.selectedItemChange = function(item) {
             console.log('--> Item changed to ' + JSON.stringify(item));
+            if(item != undefined) {
+                $location.path("/search").search("s", item.display);
+            }
         };
 
         initMenuController();
@@ -93,6 +96,24 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
             };
         };
 
+
+    }
+);
+
+
+enableAppControllers.controller("SearchCtrl", function ($scope, $location, $routeParams) {
+
+        console.log('--> search started with parameter: '+$routeParams.s+' - '+$scope.searchText);
+
+        $scope.searchResults = $scope.dico[$scope.searchText];
+
+        $scope.getFormattedUrl = function(path) {
+            return path.replace('partials', '#').replace('_en.html', '').replace('_fr.html', '');
+        }
+
+        $scope.getFormattedLink = function(path) {
+            return path.replace('partials/', '').replace('_en.html', ' [EN]').replace('_fr.html', ' [FR]');
+        }
 
     }
 );

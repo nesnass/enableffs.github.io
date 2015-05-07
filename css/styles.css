@@ -32,9 +32,7 @@ video {
 }
 
 dd a,
-dd a:visited,
-li a,
-li a:visited {
+dd a:visited {
     text-decoration: none;
     color: #000000;
     display: block;
@@ -49,10 +47,6 @@ dd a.sidenavlinksactive:visited {
 .submenuitem.ng-hide-remove.ng-hide-remove-active {
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
-}
-
-li {
-    list-style-type: none;
 }
 
 .openclosesidebar {
