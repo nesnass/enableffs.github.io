@@ -50,13 +50,13 @@
 
         <md-content flex>
             <div flex>
-                <nav>
-                    <dl>
+                <nav flex>
+                    <dl flex>
                         <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">{{ 'MENU_SECTION01_TITLE' |
                             translate }}<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span>
                         </dt>
 
-                        <dd class="submenuitem" layout="column" ng-show="m1" auto-active layout-align="center center">
+                        <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
                             <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
                             <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
                             <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
