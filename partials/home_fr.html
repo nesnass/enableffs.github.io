@@ -2,13 +2,13 @@
     <h1>Ma page vidéo</h1>
 
     <nav aria-label="Main page sub-navigation">
-        <ul>
-
-            <li ng-show="!localmode"><a href="#home/#youtubevideo">Video from youtube</a></li>
-            <li ng-show="localmode"><a href="#home/#localvideo">Video loaded locally</a></li>
-            <li><a href="#home/#audiovideo">Audio loaded locally</a></li>
-
-        </ul>
+        <dl>
+            <dd layout="column">
+                <a href="#home/#youtubevideo" ng-show="!localmode">Video from youtube</a>
+                <a href="#home/#localvideo" ng-show="localmode">Video loaded locally</a>
+                <a href="#home/#audiovideo">Audio loaded locally</a>
+            </dd>
+        </dl>
     </nav>
 
     <p>Cette page présente une vidéo qui peut être jouée en tabbant jusqu'au bouton 'play'</p>
