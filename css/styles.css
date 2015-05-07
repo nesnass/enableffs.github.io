@@ -31,15 +31,17 @@ video {
     overflow: hidden;
 }
 
-dd a,
-dd a:visited {
+.submenuitem a,
+.submenuitem a:visited,
+li a,
+li a:visited {
     text-decoration: none;
     color: #000000;
     width: 100% !important;
 }
 
-dd a.sidenavlinksactive,
-dd a.sidenavlinksactive:visited {
+.submenuitem a.sidenavlinksactive,
+.submenuitem a.sidenavlinksactive:visited {
     color: #8BC34A;
     text-decoration: none;
 }
@@ -47,6 +49,10 @@ dd a.sidenavlinksactive:visited {
 .submenuitem.ng-hide-remove.ng-hide-remove-active {
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
+}
+
+li {
+    list-style-type: none;
 }
 
 .openclosesidebar {
@@ -93,9 +99,10 @@ dd a.sidenavlinksactive:visited {
         min-height: 120px !important;
     }
 
-    dd a {
+    .submenuitem a {
         padding-top: 5px;
         padding-bottom: 5px;
+        width: 100% !important;
     }
 
     #searchWidget {
