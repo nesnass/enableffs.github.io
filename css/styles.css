@@ -88,6 +88,7 @@ dd a.sidenavlinksactive:visited {
 
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
+    /** fix for IE which does not adjust toolbar height **/
     md-toolbar {
         min-height: 120px !important;
     }
