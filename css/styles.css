@@ -35,7 +35,7 @@ video {
 .submenuitem a:visited {
     text-decoration: none;
     color: #000000;
-    width: 100%;
+    width: 100% !important;
 }
 
 .submenuitem a.sidenavlinksactive,
