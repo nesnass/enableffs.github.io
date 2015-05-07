@@ -37,14 +37,13 @@ li a,
 li a:visited {
     text-decoration: none;
     color: #000000;
-    width: 100% !important;
+    display: block;
 }
 
 dd a.sidenavlinksactive,
 dd a.sidenavlinksactive:visited {
     color: #8BC34A;
     text-decoration: none;
-    width: 100% !important;
 }
 
 .submenuitem.ng-hide-remove.ng-hide-remove-active {
@@ -103,7 +102,6 @@ li {
     dd a {
         padding-top: 5px;
         padding-bottom: 5px;
-        width: 100% !important;
     }
 
     #searchWidget {
