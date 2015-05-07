@@ -105,15 +105,26 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $location, $rout
 
         console.log('--> search started with parameter: '+$routeParams.s+' - '+$scope.searchText);
 
-        $scope.searchResults = $scope.dico[$scope.searchText];
+        $scope.searchResultForText = $routeParams.s;
+        $scope.searchResults = $scope.dico[$scope.searchResultForText];
 
         $scope.getFormattedUrl = function(path) {
             return path.replace('partials', '#').replace('_en.html', '').replace('_fr.html', '');
-        }
+        };
 
         $scope.getFormattedLink = function(path) {
-            return path.replace('partials/', '').replace('_en.html', ' [EN]').replace('_fr.html', ' [FR]');
-        }
+            return path.replace('partials/', '').replace('_en.html', '').replace('_fr.html', '');
+        };
+
+        $scope.checkLinkFitsLanguage = function(path) {
+            var lang = path.substring(path.length-7, path.length-5);
+            if(lang == localStorage.lang) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
 
     }
 );
