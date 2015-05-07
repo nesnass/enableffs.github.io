@@ -78,10 +78,22 @@ video {
     height: 100%;
 }
 
+#searchWidget {
+    width: 250px;
+}
+
+#searchWidget md-content form {
+    width: 100%;
+}
+
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
     .submenuitem a {
         padding-top: 5px;
         padding-bottom: 5px;
+    }
+
+    #searchWidget {
+        width: 100%;
     }
 }

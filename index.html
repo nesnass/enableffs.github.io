@@ -7,7 +7,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Full Screen">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 
     <title ng-bind="title">Enable portal</title>
 
@@ -22,7 +23,8 @@
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
-    <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script type="text/javascript"
+            src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
     <!-- Application files  -->
     <script type="text/javascript" src="js/clientapp.js"></script>
@@ -33,7 +35,8 @@
 
 <body layout="row" ng-controller="MenuCtrl">
 
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="menuOpen" layout="vertical" flex>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="menuOpen"
+                layout="column" flex>
         <md-toolbar>
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="closeMenu()">
                 <div class="fill-height" layout="row" flex>
@@ -45,39 +48,53 @@
             </div>
         </md-toolbar>
 
-        <nav flex>
-            <dl>
-                <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">{{ 'MENU_SECTION01_TITLE' | translate }}<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
+        <md-content flex>
+            <div flex>
+                <nav>
+                    <dl>
+                        <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">{{ 'MENU_SECTION01_TITLE' |
+                            translate }}<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span>
+                        </dt>
 
-                    <dd class="submenuitem" layout="column" ng-show="m1" auto-active layout-align="center center">
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK04' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK05' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK06' | translate }}</a>
-                    </dd>
+                        <dd class="submenuitem" layout="column" ng-show="m1" auto-active layout-align="center center">
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK04' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK05' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK06' | translate }}</a>
+                        </dd>
 
-                <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">{{ 'MENU_SECTION02_TITLE' | translate }}<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span></dt>
+                        <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">{{ 'MENU_SECTION02_TITLE' |
+                            translate }}<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span>
+                        </dt>
 
-                    <dd class="submenuitem" layout="column" ng-show="m2" auto-active>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK01' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK02' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK03' | translate }}</a>
-                        <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK04' | translate }}</a>
-                    </dd>
+                        <dd class="submenuitem" layout="column" ng-show="m2" auto-active>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK01' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK02' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK03' | translate }}</a>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK04' | translate }}</a>
+                        </dd>
 
-            </dl>
-        </nav>
+                    </dl>
+                </nav>
+            </div>
+        </md-content>
+
         <div style="width: 100%" layout="horizontal">
-            <md-button flex ng-disabled="getLangButtonState('en')" class="md-raised md-primary" ng-click="setLang('en')">EN</md-button>
-            <md-button flex ng-disabled="getLangButtonState('fr')" class="md-raised md-primary" ng-click="setLang('fr')">FR</md-button>
+            <md-button flex ng-disabled="getLangButtonState('en')" class="md-raised md-primary" ng-click="setLang('en')">
+                EN
+            </md-button>
+            <md-button flex ng-disabled="getLangButtonState('fr')" class="md-raised md-primary" ng-click="setLang('fr')">
+                FR
+            </md-button>
         </div>
+
     </md-sidenav>
 
     <div layout="column" tabindex="-1" role="main" flex>
-        <md-toolbar>
-            <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1">
+        <md-toolbar layout-gt-sm="row" layout="column">
+            <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
                 <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
                 <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
@@ -85,6 +102,29 @@
                 <div class="fill-height" layout="row" flex>
                     <h2 tabindex="-1" id="focusHeader" ng-bind="title">123123</h2>
                 </div>
+            </div>
+            <div id="searchWidget">
+                <md-content layout-padding layout="row" style="background-color: transparent">
+                    <form ng-submit="$event.preventDefault()" style="background-color: #004444">
+
+                        <md-autocomplete
+                                md-selected-item="selectedItem"
+                                md-search-text-change="searchTextChange(searchText)"
+                                md-search-text="searchText"
+                                md-selected-item-change="selectedItemChange(item)"
+                                md-items="item in querySearch(searchText)"
+                                md-item-text="item.display"
+                                md-min-length="2"
+                                placeholder="Search">
+                            <md-item-template>
+                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No matches found for "{{searchText}}".
+                            </md-not-found>
+                        </md-autocomplete>
+                    </form>
+                </md-content>
             </div>
         </md-toolbar>
 

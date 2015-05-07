@@ -7,7 +7,7 @@
  *
  */
 
-enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSidenav, $translate, $route) {
+enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSidenav, $translate, $route, $http) {
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
@@ -16,12 +16,12 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
         $scope.m1 = true;
         $scope.m2 = false;
 
-        //create the global (client) API url based on location object
-        options.api.base_url = $location.$$protocol+'://'+$location.$$host+':'+$location.$$port;
+        $scope.dico = null;
 
-        if($location.$$host == 'localhost') {
-            $scope.localmode = true;
-        }
+        $scope.selectedItem  = null;
+        $scope.searchText    = null;
+        $scope.metatags = [];
+
 
         $scope.openMenu = function() {
 
@@ -48,7 +48,52 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
             localStorage.lang = lang;
             $translate.use(localStorage.lang);
             $route.reload();
-        }
+        };
+
+        $scope.querySearch = function(query) {
+            var results = query ? $scope.metatags.filter( createFilterFor(query) ) : [];
+            return results;
+
+        };
+
+        $scope.searchTextChange = function(text) {
+            console.log('--> Text changed to ' + text);
+        };
+
+        $scope.selectedItemChange = function(item) {
+            console.log('--> Item changed to ' + JSON.stringify(item));
+        };
+
+        initMenuController();
+        function initMenuController() {
+            //create the global (client) API url based on location object
+            options.api.base_url = $location.$$protocol+'://'+$location.$$host+':'+$location.$$port;
+
+            if($location.$$host == 'localhost') {
+                $scope.localmode = true;
+            }
+
+            $http.get('meta_dictionary.json').success(function(data) {
+                $scope.dico    = data;
+                $scope.metatagstring = (Object.keys($scope.dico));
+
+                $scope.metatags = $scope.metatagstring.map(function(tag) {
+                    return {
+                        value: tag.toLowerCase(),
+                        display: tag
+                    };
+                });
+            });
+        };
+
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+            return function filterFn(tag) {
+                return (tag.value.indexOf(lowercaseQuery) === 0);
+            };
+        };
+
+
     }
 );
 
