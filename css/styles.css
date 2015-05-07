@@ -88,7 +88,7 @@ dd a.sidenavlinksactive:visited {
 
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
-    .submenuitem a {
+    dd a {
         padding-top: 5px;
         padding-bottom: 5px;
     }
