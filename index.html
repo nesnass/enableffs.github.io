@@ -50,30 +50,30 @@
 
         <md-content flex>
             <div flex>
-                <nav flex>
-                    <dl flex>
+                <nav>
+                    <dl>
                         <dt tabindex="0" role="tab" aria-expanded="{{m1}}" ng-click="m1=!m1">{{ 'MENU_SECTION01_TITLE' |
                             translate }}<span class="screenReadersOnly">{{ m1 ? " - click to toggle close" : " - click to toggle open"}}</span>
                         </dt>
 
-                        <dd class="submenuitem" layout="column" ng-show="m1" auto-active flex>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK04' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK05' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK06' | translate }}</a>
+                        <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK03' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK04' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK05' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK06' | translate }}</a><br>
                         </dd>
 
                         <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">{{ 'MENU_SECTION02_TITLE' |
                             translate }}<span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span>
                         </dt>
 
-                        <dd class="submenuitem" layout="column" ng-show="m2" auto-active flex>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK01' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK02' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK03' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK04' | translate }}</a>
+                        <dd class="submenuitem" layout="column" ng-show="m2" auto-active>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK01' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK02' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK03' | translate }}</a><br>
+                            <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION02_LINK04' | translate }}</a><br>
                         </dd>
 
                     </dl>
