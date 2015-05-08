@@ -55,7 +55,7 @@ enableApp.config(['$translateProvider',
 
 enableApp.config(['$mdThemingProvider',
     function($mdThemingProvider) {
-        $mdThemingProvider.theme('default').primaryPalette('light-green');
+        $mdThemingProvider.theme('default').primaryPalette('amber');
     }]);
 
 
