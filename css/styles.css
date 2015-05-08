@@ -86,6 +86,22 @@ dd a.sidenavlinksactive:visited {
     width: 100%;
 }
 
+.pictureSection {
+    width: 100%;
+    height: 400px !important;
+    overflow: hidden;
+    background-image:url('../assets/pics/africa01.jpg');
+    background-repeat:no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+}
+
+.pictureSection img {
+    width: 100%;
+    vertical-align:bottom !important;
+    border:0 !important;
+}
+
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
     /** fix for IE which does not adjust toolbar height **/
@@ -100,5 +116,19 @@ dd a.sidenavlinksactive:visited {
 
     #searchWidget {
         width: 100%;
+    }
+
+    .pictureSection img {
+        height: 100% !important;
+        width: auto !important;
+        vertical-align:bottom !important;
+        border:0 !important;
+    }
+
+    .pictureSection {
+        background-image:url('../assets/pics/africa01.jpg');
+        background-repeat:no-repeat;
+        background-size: auto 100%;
+        background-position: left;
     }
 }

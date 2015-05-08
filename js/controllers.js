@@ -11,6 +11,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
+        $scope.globalurl = null;
         $scope.localmode = false;
         $scope.menuOpen = false;
         $scope.m1 = true;
@@ -70,7 +71,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $location, $mdSide
         initMenuController();
         function initMenuController() {
             //create the global (client) API url based on location object
-            options.api.base_url = $location.$$protocol+'://'+$location.$$host+':'+$location.$$port;
+            $scope.globalurl = options.api.base_url = $location.$$protocol+'://'+$location.$$host+':'+$location.$$port;
 
             if($location.$$host == 'localhost') {
                 $scope.localmode = true;
