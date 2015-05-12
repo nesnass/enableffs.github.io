@@ -3,14 +3,15 @@
 
     <section layout="column" aria-label="Section 1">
         <div class="backgroundPictureSection" layout layout-align="start end" ng-style="{'background-image': 'url(../assets/pics/africa01.jpg)'}">
-            <div class="sectionBanner" layout="row" ng-click="s1=!s1" aria-label="Toggle to show/hide more information for section 1" role="link">
+            <div class="sectionBanner" layout="row" layout-padding>
                 <span class="screenReadersOnly">The section 1 shows an image of african children laughing</span>
                 <div flex>
                     <h2>Section 1</h2>
                     some intro text for this section 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ...
                 </div>
-                <div layout layout-align="end end" aria-hidden="true">
-                    More
+                <div class="sectionLink" layout layout-align="end end" ng-click="s1=!s1" aria-label="Toggle to show/hide more information for section 1" role="button">
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s1"></md-icon>
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s1"></md-icon>
                 </div>
             </div>
         </div>
@@ -22,13 +23,16 @@
 
     <section layout="column" aria-label="Section 2">
         <div class="backgroundPictureSection" layout="row" layout-align="start end" ng-style="{'background-image': 'url(../assets/pics/africa03.jpg)'}">
-            <span class="screenReadersOnly">The section 2 shows an image of african girls clapping in their hands</span>
-            <div class="sectionBanner" flex>
-                <h2>Section 2</h2>
-                some intro text for this section 2 ... <a href="" ng-click="s2=!s2">more</a>
-            </div>
-            <div layout layout-align="end end">
-
+            <div class="sectionBanner" layout="row" layout-padding>
+                <span class="screenReadersOnly">The section 2 shows an image of african girls clapping in their hands</span>
+                <div class="sectionBanner" flex>
+                    <h2>Section 2</h2>
+                    some intro text for this section 2 ...
+                </div>
+                <div class="sectionLink" layout layout-align="end end" ng-click="s2=!s2" aria-label="Toggle to show/hide more information for section 2" role="button">
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s1"></md-icon>
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s1"></md-icon>
+                </div>
             </div>
         </div>
         <div class="more" ng-show="s2">

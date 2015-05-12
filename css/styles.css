@@ -112,6 +112,7 @@ dd a.sidenavlinksactive:visited {
 
 .more {
     padding: 20px;
+    opacity: 1;
     max-height: 2000px;
     -webkit-transition: max-height ease-in 1.5s;
     -moz-transition: max-height ease-in 1.5s;
@@ -120,7 +121,15 @@ dd a.sidenavlinksactive:visited {
 
 .more.ng-hide {
     max-height: 0;
+    opacity: 0;
+    -webkit-transition: max-height 0s;
+    -moz-transition: max-height 0s;
+    transition: max-height 0s;
 
+}
+
+.sectionLink {
+    width: 10%;
 }
 
 /*** for all mobile only css ***/
