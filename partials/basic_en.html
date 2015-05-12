@@ -1,12 +1,12 @@
 <meta name="categories" content="HTML,CSS,XML,JavaScript,Jeremy">
 <div ng-controller="BasicCtrl">
 
-    <section layout="column">
+    <section layout="column" aria-label="Section 1">
         <div class="backgroundPictureSection" layout layout-align="center end" ng-style="{'background-image': 'url(../assets/pics/africa01.jpg)'}">
             <span class="screenReadersOnly">The section shows an image of african chidlren laughing</span>
             <div class="sectionBanner">
                 <h2>Section 1</h2>
-                some intro text for this section 1 ... <a href="" ng-click="s1=!s1">more</a>
+                some intro text for this section 1 ... <a href="" ng-click="s1=!s1" aria-label="Show more information for section 1">more</a>
             </div>
         </div>
         <div class="more" ng-show="s1">
@@ -15,12 +15,12 @@
         </div>
     </section>
 
-    <section layout="column">
+    <section layout="column" aria-label="Section 2">
         <div class="backgroundPictureSection" layout layout-align="center end" ng-style="{'background-image': 'url(../assets/pics/africa03.jpg)'}">
             <span class="screenReadersOnly">The section shows an image of african girls clapping in their hands</span>
             <div class="sectionBanner">
                 <h2>Section 2</h2>
-                some intro text for this section 2 ... <a href="" ng-click="s2=!s2">more</a>
+                some intro text for this section 2 ... <a href="" ng-click="s2=!s2" aria-label="Show more information for section 2">more</a>
             </div>
         </div>
         <div class="more" ng-show="s2">
