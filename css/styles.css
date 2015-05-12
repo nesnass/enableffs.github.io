@@ -1,10 +1,12 @@
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%; }
+    -webkit-text-size-adjust: 100%;
+}
 
 body {
     margin: 0;
+
 }
 
 nav dl {
@@ -110,14 +112,15 @@ dd a.sidenavlinksactive:visited {
 
 .more {
     padding: 20px;
-    -webkit-transition: all linear 0.5s;
-    transition: all linear 0.5s;
-    opacity: 1;
+    max-height: 2000px;
+    -webkit-transition: max-height ease-in 1.5s;
+    -moz-transition: max-height ease-in 1.5s;
+    transition: max-height ease-in 1.5s;
 }
 
 .more.ng-hide {
-    opacity: 0;
-    padding: 0px;
+    max-height: 0;
+
 }
 
 /*** for all mobile only css ***/
