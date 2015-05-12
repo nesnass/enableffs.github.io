@@ -61,7 +61,6 @@ enableApp.config(['$mdThemingProvider',
 
 enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
 
-    var history; // stores uri of last page viewed - Used to track if we should set focus to main H1
     var currentURL; // store uri of current page viewed - Used to track if we should set focus to main H1
 
 

@@ -95,6 +95,7 @@
     <div layout="column" tabindex="-1" role="main" flex>
         <md-toolbar layout-gt-sm="row" layout="column">
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
+                <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
                 <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
                 <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>

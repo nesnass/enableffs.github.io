@@ -1,4 +1,5 @@
 {
+  "JAWS_WARNING": "Afin d'optimiser l'utilisation de Jaws avec ce site, veuillez stopper JAWS Virtual PC en combinant les touches insert+z ou bien CAPSLOCK+Z",
   "VIDEO_YOUTUBE_HEADER": "Video chargée de youtube",
   "VIDEO_YOUTUBE_SCREENREADER_MESSAGE": "Pour une alternative entièrement accéssible au clavier, charger la page avec Chrome ou avec m'importe quel appareil Android ou iOS, avec Firefox et le ALL HTML5 module installé, ou bien en annulant Flash sous Internet Explorer.",
   "VIDEO_LOCAL_HEADER": "Video chargée de youtube locally",

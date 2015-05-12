@@ -1,14 +1,32 @@
 <meta name="categories" content="HTML,CSS,XML,JavaScript,Jeremy">
 <div ng-controller="BasicCtrl">
 
-    <div class="pictureSection" layout layout-align="center end">
-        <!--img src="/assets/pics/africa01.jpg"-->
-        <span class="screenReadersOnly">The div shows an image set by CSS</span>
-        <div style="background-color: #333333; width: 100%; opacity: .7">
-            <h2 style="color: #FFFFFF;">My basic page</h2>
+    <section layout="column">
+        <div class="backgroundPictureSection" layout layout-align="center end" ng-style="{'background-image': 'url(../assets/pics/africa01.jpg)'}">
+            <span class="screenReadersOnly">The section shows an image of african chidlren laughing</span>
+            <div class="sectionBanner">
+                <h2>Section 1</h2>
+                some intro text for this section 1 ... <a href="" ng-click="s1=!s1">more</a>
+            </div>
         </div>
-    </div>
+        <div class="more" ng-show="s1">
+            some extra text to be shown if needed
+            <img src="../assets/pics/africa02.jpg" width="100%">
+        </div>
+    </section>
 
+    <section layout="column">
+        <div class="backgroundPictureSection" layout layout-align="center end" ng-style="{'background-image': 'url(../assets/pics/africa03.jpg)'}">
+            <span class="screenReadersOnly">The section shows an image of african girls clapping in their hands</span>
+            <div class="sectionBanner">
+                <h2>Section 2</h2>
+                some intro text for this section 2 ... <a href="" ng-click="s2=!s2">more</a>
+            </div>
+        </div>
+        <div class="more" ng-show="s2">
+            some extra text to be shown if needed
+            <img src="../assets/pics/africa02.jpg" width="100%">
+        </div>
+    </section>
 
-    <p>This some ver important text which needs to be read by the screen reader</p>
 </div>
