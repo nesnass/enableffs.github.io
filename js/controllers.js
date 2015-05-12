@@ -134,8 +134,6 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $location, $rout
 enableAppControllers.controller("BasicCtrl", function ($scope, $location) {
         console.log('--> basic started');
 
-        //$scope.s1 = false;
-
     }
 );
 
