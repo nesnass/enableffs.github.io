@@ -29,9 +29,6 @@ video {
     height: auto   !important;
 }
 
-.submenuitem {
-    overflow: hidden;
-}
 
 dd a,
 dd a:visited {
@@ -44,6 +41,10 @@ dd a.sidenavlinksactive,
 dd a.sidenavlinksactive:visited {
     color: #8BC34A;
     text-decoration: none;
+}
+
+.submenuitem {
+    overflow: hidden;
 }
 
 .submenuitem.ng-hide-remove.ng-hide-remove-active {
@@ -129,7 +130,8 @@ dd a.sidenavlinksactive:visited {
 }
 
 .sectionLink {
-    width: 10%;
+    width: 15%;
+    outline: none !important;
 }
 
 /*** for all mobile only css ***/
