@@ -130,6 +130,7 @@ dd a.sidenavlinksactive:visited {
 }
 
 .sectionLink {
+    min-width: 50px;
     width: 15%;
     outline: none !important;
 }
