@@ -13,8 +13,6 @@
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s1"></md-icon>
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s1"></md-icon>
                 </md-button>
-                <!--div  role="button">
-                </div-->
             </div>
         </div>
         <div class="more" ng-show="s1">
@@ -31,10 +29,10 @@
                     <h2>Section 2</h2>
                     some intro text for this section 2 ...
                 </div>
-                <div class="sectionLink" layout layout-align="end end" ng-click="s2=!s2" aria-label="Toggle to show/hide more information for section 2" role="button">
+                <md-button ng-click="s2=!s2" aria-label="Toggle to show/hide more information for section 2">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s2"></md-icon>
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s2"></md-icon>
-                </div>
+                </md-button>
             </div>
         </div>
         <div class="more" ng-show="s2">
