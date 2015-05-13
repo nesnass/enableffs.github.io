@@ -9,10 +9,12 @@
                     <h2>Section 1</h2>
                     some intro text for this section 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ...
                 </div>
-                <div class="sectionLink" layout layout-align="end end" ng-click="s1=!s1" aria-label="Toggle to show/hide more information for section 1" role="button">
+                <md-button ng-click="s1=!s1" aria-label="Toggle to show/hide more information for section 1">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s1"></md-icon>
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s1"></md-icon>
-                </div>
+                </md-button>
+                <!--div  role="button">
+                </div-->
             </div>
         </div>
         <div class="more" ng-show="s1">
