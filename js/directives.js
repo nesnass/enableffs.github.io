@@ -1,12 +1,28 @@
 /**
- * Created by jeremyt on 22/04/15.
+ *
+ * @ngdoc directive
+ * @name autoActive
+ * @scope false
+ * @restrict A
+ * @description
+ * Directive that appends a class to the current element, based on whether it matches the current route
+ *
  */
-
 enableAppDirectives.directive('autoActive', ['$location', function ($location) {
     return {
         restrict: 'A',
         scope: false,
         link: function (scope, element) {
+
+            /**
+             * @ngdoc function
+             * @name autoActive.setActive
+             * @kind function
+             *
+             * @description
+             * Function that analyses the current route path versus the a link target.
+             * If it matches it adds the class 'sidenavlinksactive', if not it removes it
+             */
             function setActive() {
                 var path = $location.path();
                 if (path) {
@@ -27,7 +43,16 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
     }
 }]);
 
-
+/**
+ *
+ * @ngdoc directive
+ * @name enableYoutube
+ * @scope true
+ * @restrict AE
+ * @description
+ * Directive that appends a class to the current element, based on whether it matches the current route
+ *
+ */
 enableAppDirectives.directive('enableYoutube', function($sce) {
     return {
         scope:{

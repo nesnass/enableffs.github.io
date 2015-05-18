@@ -5,16 +5,19 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppServices', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppDirectives']);
 
 var enableAppControllers = angular.module('EnableAppControllers', []);
-var enableAppServices = angular.module('EnableAppServices', []);
 var enableAppDirectives = angular.module('EnableAppDirectives', []);
 
 
-var options = {};
-options.api = {};
-
+/**
+ *
+ * @description
+ * Sets the routing for this one page application.
+ * The "search" route is hardcoded, whereas the other routes are dynamic
+ *
+ **/
 enableApp.config(['$routeProvider',
     function($routeProvider) {
 
@@ -43,6 +46,14 @@ enableApp.config(['$routeProvider',
             });
     }]);
 
+/**
+ *
+ * @description
+ * Sets the translation engine for this one page application.
+ * Language files (in JSON format) are loaded from the languages folder. A language key is common to all language files and is translated based on $translate.use
+ * In HTML, translation is obtained by using {{'KEY' | translate}}, where 'KEY' corresponds to a language key defined in the JSON files.
+ *
+ **/
 enableApp.config(['$translateProvider',
     function($translateProvider) {
         $translateProvider.useSanitizeValueStrategy('escaped');
@@ -53,18 +64,28 @@ enableApp.config(['$translateProvider',
         $translateProvider.preferredLanguage(localStorage.lang);
     }]);
 
+/**
+ *
+ * @description
+ * Sets the default theme for this one page application.
+ * The color palette defined will affect all google-material components, i.e. toolbars, buttons, etc
+ *
+ **/
 enableApp.config(['$mdThemingProvider',
     function($mdThemingProvider) {
         $mdThemingProvider.theme('default').primaryPalette('amber');
     }]);
 
-
+/**
+ *
+ * @description
+ * Manages the focus when a link is selected from the sidebar menu. This focuses on the header of the newly loaded page.
+ * This is essentially to help accessibility
+ *
+ **/
 enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
 
-    var currentURL; // store uri of current page viewed - Used to track if we should set focus to main H1
-
-
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+    /*$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         // test for current route
         if(current.params) {
             // store current path
@@ -79,11 +100,8 @@ enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
                 default:
                     $rootScope.title = 'Page with header';
             }
-
-
-
         }
-    });
+    });*/
 
     $rootScope.$on('$viewContentLoaded', function () {
 
