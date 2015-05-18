@@ -14,7 +14,7 @@ module.exports = function (grunt) {
             },
             api: {
                 src: ['js/*.js'],
-                title: 'Docs'
+                title: 'Enable portal javascript documentation'
             }
         },
         clean: ['docs']

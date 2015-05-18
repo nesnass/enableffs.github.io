@@ -62,7 +62,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
          * @description
          * Returns true if the current language matches the passed param, if not returns false
          *
-         * @param {string} lang, i.e. 'en', 'fr, etc
+         * @param {string} lang i.e. 'en', 'fr, etc
          */
         $scope.getLangButtonState = function(lang) {
             if(localStorage.lang == lang) {
@@ -81,7 +81,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
          * @description
          * Changes the applications language based on the language code sent
          *
-         * @param {string} lang, i.e. 'en', 'fr, etc
+         * @param {string} lang i.e. 'en', 'fr, etc
          */
         $scope.setLang = function(lang) {
             //update the localstorage value (in case of a page reload)
@@ -100,7 +100,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
          * @description
          * Function called when a change (typing) is noticed by the md-autocomplete search input. Returns an array of results matching the query
          *
-         * @param {string} query, the query string which is currently being typed in the search input
+         * @param {string} query the query string which is currently being typed in the search input
          */
         $scope.querySearch = function(query) {
             var results = query ? $scope.metatags.filter( createFilterFor(query) ) : [];
@@ -116,7 +116,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
          * @description
          * Function that returns a boolean, based on the filtering string and the array where the filter is applied to.
          *
-         *  @param {string} query, the query string which is passed
+         * @param {string} query the query string which is passed
          *
          */
         function createFilterFor(query) {
@@ -134,7 +134,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
          * @description
          * Function called when an item is selected (clicked) on the md-autocomplete search input match list
          *
-         * @param {object} item, the selected list item
+         * @param {object} item the selected list item
          */
         $scope.selectedItemChange = function(item) {
             console.log('--> Item changed to ' + JSON.stringify(item));
@@ -207,7 +207,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
          * @description
          * Function that formats the url of the link for a search result item
          *
-         * @param {string} path, the path to the result item
+         * @param {string} path the path to the result item
          */
         $scope.getFormattedUrl = function(path) {
             return path.replace('partials', '#').replace('_en.html', '').replace('_fr.html', '');
@@ -221,7 +221,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
          * @description
          * Function that formats the text of the link for a search result item
          *
-         * @param {string} path, the path to the result item
+         * @param {string} path the path to the result item
          */
         $scope.getFormattedLink = function(path) {
             return path.replace('partials/', '').replace('_en.html', '').replace('_fr.html', '');
@@ -235,7 +235,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
          * @description
          * Function that filters the link to only show it if it correspond to the set language
          *
-         * @param {string} path, the path to the result item
+         * @param {string} path the path to the result item
          */
         $scope.checkLinkFitsLanguage = function(path) {
             var lang = path.substring(path.length-7, path.length-5);

@@ -1,6 +1,6 @@
 NG_DOCS={
   "sections": {
-    "api": "Docs"
+    "api": "Enable portal javascript documentation"
   },
   "pages": [
     {
@@ -38,6 +38,33 @@ NG_DOCS={
       "moduleName": "BasicCtrl",
       "shortDescription": "Controller",
       "keywords": "api basicctrl controller"
+    },
+    {
+      "section": "api",
+      "id": "enableSlideshow",
+      "shortName": "enableSlideshow",
+      "type": "directive",
+      "moduleName": "enableSlideshow",
+      "shortDescription": "Directive loads a JSON config file for a slideshow based on the provided path.",
+      "keywords": "api array based called config creates defined directive directory enableslideshow expects file images init json loads path pictures provided self-contained slideshow template texts true"
+    },
+    {
+      "section": "api",
+      "id": "enableVideo",
+      "shortName": "enableVideo",
+      "type": "directive",
+      "moduleName": "enableVideo",
+      "shortDescription": "Directive that creates a local video player with the video id provided and the language for the subtitles.",
+      "keywords": "ae api cclang code creates current directive enablevideo file image language load local player portal poster provided subtitles true video vidid"
+    },
+    {
+      "section": "api",
+      "id": "enableYoutube",
+      "shortName": "enableYoutube",
+      "type": "directive",
+      "moduleName": "enableYoutube",
+      "shortDescription": "Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.",
+      "keywords": "ae api cclang code creates current directive embedded enableyoutube file language load player portal provided subtitles true video vidid youtube"
     },
     {
       "section": "api",

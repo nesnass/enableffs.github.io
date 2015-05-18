@@ -49,8 +49,10 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
  * @name enableYoutube
  * @scope true
  * @restrict AE
+ * @param {string} vidid The id of the youtube video file.
+ * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
  * @description
- * Directive that appends a class to the current element, based on whether it matches the current route
+ * Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.
  *
  */
 enableAppDirectives.directive('enableYoutube', function($sce) {
@@ -69,7 +71,18 @@ enableAppDirectives.directive('enableYoutube', function($sce) {
     };
 });
 
-
+/**
+ *
+ * @ngdoc directive
+ * @name enableVideo
+ * @scope true
+ * @restrict AE
+ * @param {string} vidid The id of the local video file. This id will be used for the poster image and the subtitles
+ * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
+ * @description
+ * Directive that creates a local video player with the video id provided and the language for the subtitles.
+ *
+ */
 enableAppDirectives.directive('enableVideo', function($sce) {
     return {
         scope:{
@@ -87,6 +100,18 @@ enableAppDirectives.directive('enableVideo', function($sce) {
     };
 });
 
+/**
+ *
+ * @ngdoc directive
+ * @name enableSlideshow
+ * @scope true
+ * @restrict E
+ * @param {string} path Path to the directory where the slideshow is defined. The directive expects a JSON file called 'init.json' with an array of images and texts
+ * @description
+ * Directive loads a JSON config file for a slideshow based on the provided path.
+ * The template then loads the pictures and texts specified in that config file and creates a self-contained slideshow
+ *
+ */
 enableAppDirectives.directive('enableSlideshow', function($http) {
     return {
         restrict: 'E',
