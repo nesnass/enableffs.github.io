@@ -16,5 +16,9 @@
   "MENU_SECTION02_LINK02": "Bilan des sens",
   "MENU_SECTION02_LINK03": "Communication",
   "MENU_SECTION02_LINK04": "Moteur de dévelopment",
-  "SEARCH_RESULTS": "Résultats de la recherche pour"
+  "SEARCH_RESULTS": "Résultats de la recherche pour",
+  "SLIDESHOW_PREVIOUS_BUTTON": "Visionneuse: naviguer à l'image précédente",
+  "SLIDESHOW_NEXT_BUTTON": "Visionneuse: naviguer à l'image suivante",
+  "BASIC_SECTION1_MORE_BUTTON": "Afficher/cacher plus d'information pour la section 1",
+  "BASIC_SECTION2_MORE_BUTTON": "Afficher/cacher plus d'information pour la section 2"
 }

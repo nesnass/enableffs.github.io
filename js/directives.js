@@ -61,3 +61,47 @@ enableAppDirectives.directive('enableVideo', function($sce) {
         }
     };
 });
+
+enableAppDirectives.directive('enableSlideshow', function($sce, $http) {
+    return {
+        scope:{
+
+        },
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: 'partials/templates/slideshow-template.html',
+        link: function(scope, elem, attrs) {
+            scope.currentIndex = 0; // Initially the index is at the first image
+            scope.images = [];
+
+            $http.get(attrs.path+'/init.json')
+                .then(function(res){
+                    res.data.forEach(function (slide) {
+                        slide.src = attrs.path+"/"+slide.src;
+                        scope.images.push(slide);
+                    });
+                    console.log('--> json loaded');
+
+                    scope.$watch('currentIndex', function() {
+                        scope.images.forEach(function(image) {
+                            image.visible = false; // make every image invisible
+                        });
+
+                        scope.images[scope.currentIndex].visible = true; // make the current image visible
+                    });
+
+
+                });
+
+
+            scope.next = function() {
+                scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+            };
+
+            scope.prev = function() {
+                scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+            };
+
+        }
+    };
+});

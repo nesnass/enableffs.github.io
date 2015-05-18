@@ -1,0 +1,18 @@
+[
+  {
+    "src": "s1.jpg",
+    "text": "Pic 1"
+  },
+  {
+    "src": "s2.jpg",
+    "text": "some intro text for this section 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ..."
+  },
+  {
+    "src": "s3.jpg",
+    "text": "Pic 3"
+  },
+  {
+    "src": "s4.jpg",
+    "text": "Pic 4"
+  }
+]

@@ -52,7 +52,8 @@ dd a.sidenavlinksactive:visited {
     transition: all linear 0.5s;
 }
 
-.openclosesidebar {
+.openclosesidebar,
+.slideshowicons {
     fill: #FFFFFF;
 }
 
@@ -133,6 +134,33 @@ dd a.sidenavlinksactive:visited {
     min-width: 50px;
     width: 15%;
     outline: none !important;
+}
+
+
+.slider,
+.slide {
+    position: relative;
+    width: 100%;
+}
+
+.slidercontrol {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #000000;
+    opacity: .9;
+    color: #FFFFFF;
+}
+
+.slide.ng-hide-add.ng-hide-add-active,
+.slide.ng-hide-remove {
+    opacity: 0;
+}
+.slide.ng-hide-add,
+.slide.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
 }
 
 /*** for all mobile only css ***/

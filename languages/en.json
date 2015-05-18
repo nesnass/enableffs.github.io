@@ -16,5 +16,9 @@
   "MENU_SECTION02_LINK02": "assessment of all senses",
   "MENU_SECTION02_LINK03": "communication",
   "MENU_SECTION02_LINK04": "motor of development",
-  "SEARCH_RESULTS": "Search results for"
+  "SEARCH_RESULTS": "Search results for",
+  "SLIDESHOW_PREVIOUS_BUTTON": "Slideshow navigate to previous picture",
+  "SLIDESHOW_NEXT_BUTTON": "Slideshow navigate to next picture",
+  "BASIC_SECTION1_MORE_BUTTON": "Toggle to show/hide more information for section 1",
+  "BASIC_SECTION2_MORE_BUTTON": "Toggle to show/hide more information for section 2"
 }
