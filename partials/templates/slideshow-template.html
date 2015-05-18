@@ -1,6 +1,6 @@
 <div class="slider" layout="column">
     <div class="slide" ng-repeat="image in images" ng-show="image.visible">
-        <div style="width: 100%; z-index: 9">
+        <div class="sliderimage">
             <img ng-src="{{image.src}}" width="100%" />
         </div>
         <div class="slidercontrol" layout="row">

@@ -141,6 +141,7 @@ dd a.sidenavlinksactive:visited {
 .slide {
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .slidercontrol {
@@ -152,6 +153,11 @@ dd a.sidenavlinksactive:visited {
     background-color: #000000;
     opacity: .9;
     color: #FFFFFF;
+}
+
+.sliderimage {
+    width: 100%;
+    z-index: 9;
 }
 
 .slide.ng-hide-add.ng-hide-add-active,
