@@ -74,6 +74,7 @@ enableAppDirectives.directive('enableSlideshow', function($http) {
             $http.get(attrs.path+'/init.json').then(function(res) {
                 res.data.forEach(function (slide) {
                     slide.src = attrs.path+"/"+slide.src;
+                    slide.text = slide["text_"+localStorage.lang];
                     scope.images.push(slide);
                 });
                 console.log('--> json loaded');
