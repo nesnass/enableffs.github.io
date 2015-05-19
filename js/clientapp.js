@@ -5,7 +5,7 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppDirectives', 'smoothScroll']);
 
 var enableAppControllers = angular.module('EnableAppControllers', []);
 var enableAppDirectives = angular.module('EnableAppDirectives', []);
@@ -103,10 +103,10 @@ enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
         }
     });*/
 
-    $rootScope.$on('$viewContentLoaded', function () {
+    /*$rootScope.$on('$viewContentLoaded', function () {
 
         var myEl = angular.element( document.querySelector( '#focusHeader' ) );
         myEl.focus();
 
-    });
+    });*/
 }]);

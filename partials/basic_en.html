@@ -1,15 +1,14 @@
 <meta name="categories" content="HTML,CSS,XML,JavaScript,Jeremy">
 <div ng-controller="BasicCtrl">
-
     <section layout="column" aria-label="Section 1">
-        <div class="backgroundPictureSection" layout layout-align="start end" ng-style="{'background-image': 'url(../assets/pics/africa01.jpg)'}">
-            <div class="sectionBanner" layout="row" layout-padding>
+        <div class="backgroundPictureSection" layout="column" layout-align="end start" ng-style="{'background-image': 'url(../assets/pics/africa01.jpg)'}">
+            <div id="s1banner" class="sectionBanner" layout="row" layout-padding>
                 <span class="screenReadersOnly">The section 1 shows an image of african children laughing</span>
                 <div flex>
                     <h2>Section 1</h2>
                     some intro text for this section 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ...
                 </div>
-                <md-button ng-click="s1=!s1" aria-label="{{'BASIC_SECTION1_MORE_BUTTON' | translate}}">
+                <md-button ng-click="s1=!s1;scrolli('s1banner')" aria-label="{{'BASIC_SECTION1_MORE_BUTTON' | translate}}">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s1"></md-icon>
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s1"></md-icon>
                 </md-button>
@@ -23,14 +22,14 @@
     </section>
 
     <section layout="column" aria-label="Section 2">
-        <div class="backgroundPictureSection" layout="row" layout-align="start end" ng-style="{'background-image': 'url(../assets/pics/africa03.jpg)'}">
-            <div class="sectionBanner" layout="row" layout-padding>
+        <div class="backgroundPictureSection" layout="column" layout-align="end start" ng-style="{'background-image': 'url(../assets/pics/africa03.jpg)'}">
+            <div id="s2banner" class="sectionBanner" layout="row" layout-padding>
                 <span class="screenReadersOnly">The section 2 shows an image of african girls clapping in their hands</span>
                 <div flex>
                     <h2>Section 2</h2>
                     some intro text for this section 2 ...
                 </div>
-                <md-button ng-click="s2=!s2" aria-label="{{'BASIC_SECTION2_MORE_BUTTON' | translate}}">
+                <md-button ng-click="s2=!s2;scrolli('s2banner')" aria-label="{{'BASIC_SECTION2_MORE_BUTTON' | translate}}">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="s2"></md-icon>
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!s2"></md-icon>
                 </md-button>
@@ -41,5 +40,4 @@
             <img src="../assets/pics/africa04.jpg" width="100%" alt="Image showing 3 african children's faces smiling">
         </div>
     </section>
-
 </div>

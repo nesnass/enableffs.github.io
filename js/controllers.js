@@ -162,7 +162,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
             }
 
             //loads the JSON formatted search dictionary
-            $http.get('meta_dictionary.json').success(function(data) {
+            /*$http.get('meta_dictionary.json').success(function(data) {
                 //upon success, keeps the result as a dictionary variable
                 $scope.dico    = data;
                 //builds a comma seperated string of the dictionary keys, to be used by the md-autocomplete component
@@ -175,7 +175,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
                         display: tag
                     };
                 });
-            });
+            });*/
         };
     }
 );
@@ -258,10 +258,28 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
  * Controller
  *
  */
-enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, $location) {
+enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, smoothScroll) {
         console.log('--> basic started');
 
         $rootScope.roottitle = "Enable basic page";
+
+        $scope.scrolli = function(elem) {
+            var element = document.getElementById(elem);
+            var options = {
+                duration: 1500,
+                easing: 'easeInQuad',
+                offset: 0,
+                callbackBefore: function(element) {
+                    console.log('about to scroll to element', element);
+                },
+                callbackAfter: function(element) {
+                    console.log('scrolled to element', element);
+                }
+            }
+            smoothScroll(element, options);
+        };
+
+
     }
 );
 

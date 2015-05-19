@@ -4,6 +4,7 @@
  * @name autoActive
  * @scope false
  * @restrict A
+ * @element a
  * @description
  * Directive that appends a class to the current element, based on whether it matches the current route
  *
