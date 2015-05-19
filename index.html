@@ -92,7 +92,7 @@
 
     </md-sidenav>
 
-    <div layout="column" tabindex="-1" role="main" flex>
+    <div layout="column" tabindex="-1" role="main">
         <md-toolbar layout-gt-sm="row" layout="column">
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
                 <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
@@ -129,8 +129,7 @@
             </div>
         </md-toolbar>
 
-        <!-- ngView:  -->
-        <md-content ng-view md-scroll-y flex style="overflow-y: scroll"></md-content>
+        <md-content ng-view flex style="overflow: hidden"></md-content>
     </div>
 </body>
 

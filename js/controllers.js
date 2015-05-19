@@ -162,7 +162,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
             }
 
             //loads the JSON formatted search dictionary
-            /*$http.get('meta_dictionary.json').success(function(data) {
+            $http.get('meta_dictionary.json').success(function(data) {
                 //upon success, keeps the result as a dictionary variable
                 $scope.dico    = data;
                 //builds a comma seperated string of the dictionary keys, to be used by the md-autocomplete component
@@ -175,7 +175,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
                         display: tag
                     };
                 });
-            });*/
+            });
         };
     }
 );
@@ -263,6 +263,16 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, smoot
 
         $rootScope.roottitle = "Enable basic page";
 
+        /**
+         * @ngdoc function
+         * @name BasicCtrl.scrolli
+         * @kind function
+         *
+         * @description
+         * Function that smooth-scrolls to an element of the page
+         *
+         * @param {string} elem the ID of the element to scroll to
+         */
         $scope.scrolli = function(elem) {
             var element = document.getElementById(elem);
             var options = {
@@ -291,7 +301,7 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, smoot
  * Controller
  *
  */
-enableAppControllers.controller("HomeCtrl", function ($scope, $rootScope, $location) {
+enableAppControllers.controller("HomeCtrl", function ($rootScope) {
 
         console.log('--> home started');
 
@@ -307,7 +317,7 @@ enableAppControllers.controller("HomeCtrl", function ($scope, $rootScope, $locat
  * Controller
  *
  */
-enableAppControllers.controller("AdvCtrl", function () {
+enableAppControllers.controller("AdvCtrl", function ($rootScope) {
 
         console.log('--> adv started');
 
