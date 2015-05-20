@@ -104,6 +104,34 @@ enableAppDirectives.directive('enableVideo', function($sce) {
 /**
  *
  * @ngdoc directive
+ * @name enableAudio
+ * @scope true
+ * @restrict AE
+ * @param {string} vidid The id of the local video file. This id will be used for the poster image and the subtitles
+ * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
+ * @description
+ * Directive that creates a local video player with the video id provided and the language for the subtitles.
+ *
+ */
+enableAppDirectives.directive('enableAudio', function($sce) {
+    return {
+        scope:{
+            sndid: '@'
+        },
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: 'partials/templates/audio-local-template.html',
+        link: function(scope) {
+            scope.audiourlm4a = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".m4a");
+            scope.audiourlogg = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".ogg");
+
+        }
+    };
+});
+
+/**
+ *
+ * @ngdoc directive
  * @name enableSlideshow
  * @scope true
  * @restrict E
