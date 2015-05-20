@@ -258,7 +258,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
  * Controller
  *
  */
-enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope) {
+enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, $timeout) {
         console.log('--> basic started');
         var scrollContainer = angular.element(document.getElementById('scrollContainer'));
         $rootScope.roottitle = "Enable basic page";
@@ -273,7 +273,7 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope) {
          *
          * @param {string} elem the ID of the element to scroll to
          */
-        $scope.scrolli = function(elem) {
+        $scope.scrolli = function(elem, morevar) {
             /*var element = document.getElementById(elem);
             var options = {
                 duration: 1500,
@@ -288,8 +288,19 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope) {
             }
             smoothScroll(element, options);*/
 
-            var targetelem = angular.element(document.getElementById(elem));
-            scrollContainer.scrollToElementAnimated(targetelem);
+            $scope[morevar] = !$scope[morevar];
+
+            if($scope[morevar] == true) {
+                console.log('--> smooth scrolling');
+                $timeout(function() {
+                    var targetelem = angular.element(document.getElementById(elem));
+                    scrollContainer.scrollToElementAnimated(targetelem);
+                }, 1000);
+            }
+            else {
+                console.log('--> closing scrolling');
+            }
+
 
         };
 
