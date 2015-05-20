@@ -107,10 +107,9 @@ enableAppDirectives.directive('enableVideo', function($sce) {
  * @name enableAudio
  * @scope true
  * @restrict AE
- * @param {string} vidid The id of the local video file. This id will be used for the poster image and the subtitles
- * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
+ * @param {string} sndid The id of the local video file. This id will be used for the poster image and the subtitles
  * @description
- * Directive that creates a local video player with the video id provided and the language for the subtitles.
+ * Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.
  *
  */
 enableAppDirectives.directive('enableAudio', function($sce) {
