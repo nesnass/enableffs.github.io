@@ -124,8 +124,6 @@ enableAppDirectives.directive('enableAudio', function($sce) {
         link: function(scope) {
             scope.audiourlm4a = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".m4a");
             scope.audiourlogg = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".ogg");
-            scope.raudiourlm4a = $sce.trustAsResourceUrl("http://enableffs.github.io/assets/snds/"+scope.sndid+".m4a");
-            scope.raudiourlogg = $sce.trustAsResourceUrl("http://enableffs.github.io/assets/snds/"+scope.sndid+".ogg");
         }
     };
 });
