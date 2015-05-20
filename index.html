@@ -24,7 +24,7 @@
     <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-    <script type="text/javascript" src="bower_components/ngSmoothScroll/angular-smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-scroll/angular-scroll.min.js"></script>
 
     <!-- Application files  -->
     <script type="text/javascript" src="js/clientapp.js"></script>
@@ -92,7 +92,7 @@
 
     </md-sidenav>
 
-    <div layout="column" tabindex="-1" role="main">
+    <div layout="column" style="height: 100%" tabindex="-1" role="main">
         <md-toolbar layout-gt-sm="row" layout="column">
             <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
                 <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
@@ -129,7 +129,7 @@
             </div>
         </md-toolbar>
 
-        <div ng-view flex></div>
+        <md-content id="scrollContainer" md-scroll-y ng-view flex style="overflow: scroll"></md-content>
     </div>
 </body>
 
