@@ -66,7 +66,7 @@ enableAppDirectives.directive('enableYoutube', function($sce) {
         replace: 'true',
         templateUrl: 'partials/templates/video-youtube-template.html',
         link: function(scope) {
-            scope.vidurl = $sce.trustAsResourceUrl("http://www.youtube.com/embed/"+scope.vidid+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
+            scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vidid+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
 
         }
     };
