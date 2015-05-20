@@ -151,3 +151,21 @@ enableAppDirectives.directive('enableSlideshow', function($http) {
         }
     };
 });
+
+/**
+ *
+ * @ngdoc directive
+ * @name enableFooter
+ * @scope false
+ * @restrict E
+ * @description
+ * Directive that places the common footer.
+ *
+ */
+enableAppDirectives.directive('enableFooter', function($sce) {
+    return {
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: 'partials/templates/footer-template.html'
+    };
+});
