@@ -61,7 +61,7 @@
 
                         <dd class="submenuitem" layout="column" ng-show="m1" auto-active>
                             <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
-                            <a ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
+                            <a id="link02" ng-click="closeMenu()" ng-href="#/home">{{ 'MENU_SECTION01_LINK02' | translate }}</a>
                             <a ng-click="closeMenu()" ng-href="#/audio">{{ 'MENU_SECTION01_LINK03' | translate }}</a>
                             <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK04' | translate }}</a>
                             <a ng-click="closeMenu()" ng-href="#/basic">{{ 'MENU_SECTION01_LINK05' | translate }}</a>
@@ -97,7 +97,7 @@
 
     <div layout="column" style="height: 100%" tabindex="-1" role="main">
         <md-toolbar layout-gt-sm="row" layout="column">
-            <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
+            <div id="hamburgerButton" class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
                 <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
                 <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
                 <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">

@@ -2,8 +2,7 @@
   "name": "EnableFFSPortal",
   "version": "0.0.1",
   "authors": [
-    "Jeremy Toussaint <jeremyt@uv.uio.no>",
-    "Richard Nesnass <richardn@uio.im"
+    "Jeremy Toussaint <jeremyt@uv.uio.no>"
   ],
   "private": true,
   "description": "Enable portal",

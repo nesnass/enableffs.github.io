@@ -3,8 +3,11 @@
     "node": "0.12.x",
     "npm": "2.10.x"
   },
+  "authors": [
+    "Jeremy Toussaint <jeremyt@uv.uio.no>"
+  ],
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A starter project for Enable",
   "devDependencies": {
     "bower": "^1.3.1",
