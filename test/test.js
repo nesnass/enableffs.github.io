@@ -1,29 +1,36 @@
-describe("A suite is just a function", function() {
-    var a;
-
-    it("and so is a spec", function() {
-        a = true;
-        console.log('hey');
-        expect(a).toBe(true);
-    });
-});
-
-
 describe('Controller: public/MenuCtrl', function() {
-
-    var $rootScope, $scope, $controller;
 
     beforeEach(module('EnableApp'));
 
-    beforeEach(inject(function(_$rootScope_, _$controller_){
-        $rootScope = _$rootScope_;
-        $scope = $rootScope.$new();
-        $controller = _$controller_;
+    var $controller, $rootScope;
 
-        $controller('MenuCtrl', {'$rootScope' : $rootScope, '$scope': $scope});
+    beforeEach(inject(function(_$rootScope_, _$controller_){
+        // The injector unwraps the underscores (_) from around the parameter names when matching
+        $controller = _$controller_;
+        $rootScope = _$rootScope_;
     }));
 
-    it('should make about menu item active.', function() {
-        expect($rootScope.roottitle = "Enable portal");
+    describe('MenuCtrl', function() {
+        var $scope, controller;
+
+        beforeEach(function() {
+            $scope = {};
+            controller = $controller('MenuCtrl', {'$rootScope' : $rootScope, '$scope': $scope});
+        });
+
+        it('should set the portal window title', function() {
+            expect($rootScope.roottitle = "Enable portal");
+        });
+
+        it('should load the searchable tags', function() {
+            expect($scope.loadSearchTags() != null);
+        });
+
+        it('should execute a search for the term "HTML"', function() {
+            var res = $scope.querySearch('HTML');
+            console.log('--> $scope.querySearch: '+res);
+            expect(res != null);
+        });
     });
+
 });

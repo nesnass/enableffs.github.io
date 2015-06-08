@@ -6,7 +6,7 @@
  * Controller for the default page: index.html
  *
  */
-enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $location, $mdSidenav, $translate, $route, $http) {
+enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $location, $mdSidenav, $translate, $route, $http) {
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
@@ -22,6 +22,7 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
         $scope.selectedItem  = null;
         $scope.searchText    = null;
         $scope.metatags = [];
+        $scope.searchEnabled = true;
 
 
         /**
@@ -144,6 +145,30 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
             }
         };
 
+        /**
+         * @ngdoc function
+         * @name MenuCtrl.loadSearchTags
+         * @kind function
+         *
+         * @description
+         * Function that returns the loaded tags dictionary to enable site search
+         *
+         */
+        $scope.loadSearchTags = function() {
+            //loads the JSON formatted search dictionary
+            return $q(function(resolve, reject) {
+                $http.get('meta_dictionary.json').
+                    success(function (data) {
+                        resolve(data);
+                    }).
+                    error(function (data, status, headers, config) {
+                        reject(null);
+                    });
+            });
+
+
+        };
+
 
         initMenuController();
         /**
@@ -161,21 +186,30 @@ enableAppControllers.controller("MenuCtrl", function ($scope, $rootScope, $locat
                 $scope.localmode = true;
             }
 
-            //loads the JSON formatted search dictionary
-            $http.get('meta_dictionary.json').success(function(data) {
-                //upon success, keeps the result as a dictionary variable
-                $scope.dico    = data;
-                //builds a comma seperated string of the dictionary keys, to be used by the md-autocomplete component
-                $scope.metatagstring = (Object.keys($scope.dico));
+            var tagsResult;
+            $scope.loadSearchTags().then(function(result) {
+                tagsResult = result;
 
-                //builds a map of keys and values for the search
-                $scope.metatags = $scope.metatagstring.map(function(tag) {
-                    return {
-                        value: tag.toLowerCase(),
-                        display: tag
-                    };
-                });
+                if(tagsResult != null && Object.keys(result).length > 0) {
+                    //upon success, keeps the result as a dictionary variable
+                    $scope.dico    = tagsResult;
+                    //builds a comma seperated string of the dictionary keys, to be used by the md-autocomplete component
+                    $scope.metatagstring = (Object.keys($scope.dico));
+
+                    //builds a map of keys and values for the search
+                    $scope.metatags = $scope.metatagstring.map(function(tag) {
+                        return {
+                            value: tag.toLowerCase(),
+                            display: tag
+                        };
+                    });
+                }
+                else {
+                    //if the tag loading failed or dictionary is empty, hide the search element
+                    $scope.searchEnabled = false;
+                }
             });
+
         };
     }
 );
