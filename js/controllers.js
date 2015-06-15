@@ -309,18 +309,18 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, $time
          */
         $scope.scrolli = function(elem, morevar) {
             /*var element = document.getElementById(elem);
-            var options = {
-                duration: 1500,
-                easing: 'easeInQuad',
-                offset: 0,
-                callbackBefore: function(element) {
-                    console.log('about to scroll to element', element);
-                },
-                callbackAfter: function(element) {
-                    console.log('scrolled to element', element);
-                }
-            }
-            smoothScroll(element, options);*/
+             var options = {
+             duration: 1500,
+             easing: 'easeInQuad',
+             offset: 0,
+             callbackBefore: function(element) {
+             console.log('about to scroll to element', element);
+             },
+             callbackAfter: function(element) {
+             console.log('scrolled to element', element);
+             }
+             }
+             smoothScroll(element, options);*/
 
             $scope[morevar] = !$scope[morevar];
 

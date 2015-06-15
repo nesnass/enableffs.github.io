@@ -29,7 +29,7 @@ video {
     height: auto   !important;
 }
 
-
+dl a,
 dd a,
 dd a:visited {
     text-decoration: none;
@@ -37,6 +37,7 @@ dd a:visited {
     display: block;
 }
 
+dl a,
 dd a.sidenavlinksactive,
 dd a.sidenavlinksactive:visited {
     color: #8BC34A;
