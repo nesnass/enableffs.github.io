@@ -24,6 +24,25 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
         $scope.metatags = [];
         $scope.searchEnabled = true;
 
+        $scope.$on('pageNavigationEvent', function(event, data) {
+            $scope.showVision = false;
+            $scope.showHearing = false;
+            $scope.showCombined = false;
+
+            switch(data) {
+                case 'home':
+                    $scope.showHamburger = false;
+                    break;
+                case 'search':
+                    $scope.showHamburger = false;
+                    break;
+                case 'vision':
+                    $scope.showHamburger = true;
+                    $scope.showVision = true;
+                    break;
+            }
+        });
+
 
         /**
          * @ngdoc function
@@ -226,6 +245,8 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
 enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $location, $routeParams) {
         console.log('--> search started with parameter: '+$routeParams.s+' - '+$scope.searchText);
 
+        $scope.$emit('pageNavigationEvent', 'search');
+
         //sets the page title dynamically, which appears either on the current tab, or the current browser window
         $rootScope.roottitle = "Enable search results";
 
@@ -287,13 +308,16 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
 /**
  *
  * @ngdoc controller
- * @name BasicCtrl
+ * @name VisionCtrl
  * @description
  * Controller
  *
  */
-enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, $timeout) {
-        console.log('--> basic started');
+enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> vision started');
+
+        $scope.$emit('pageNavigationEvent', 'vision');
+
         var scrollContainer = angular.element(document.getElementById('scrollContainer'));
         $rootScope.roottitle = "Enable basic page";
 
@@ -338,6 +362,19 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, $time
 
         };
 
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
 
     }
 );
@@ -350,11 +387,17 @@ enableAppControllers.controller("BasicCtrl", function ($scope, $rootScope, $time
  * Controller
  *
  */
-enableAppControllers.controller("HomeCtrl", function ($rootScope) {
+enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $location) {
 
         console.log('--> home started');
 
+        $scope.$emit('pageNavigationEvent', 'home');
+
         $rootScope.roottitle = "Enable home page";
+
+        $scope.goToSection = function(path) {
+            $location.path(path);
+        }
     }
 );
 

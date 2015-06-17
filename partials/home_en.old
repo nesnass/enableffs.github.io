@@ -1,0 +1,33 @@
+<div ng-controller="HomeCtrl">
+    <h1>My video page</h1>
+
+    <nav aria-label="Main page sub-navigation">
+        <dl>
+            <dd layout="column">
+                <a href="#home/#youtubevideo" ng-show="!localmode">Video from youtube</a>
+                <a href="#home/#localvideo" ng-show="localmode">Video loaded locally</a>
+                <a href="#home/#audiovideo">Audio loaded locally</a>
+            </dd>
+        </dl>
+    </nav>
+
+    <p>This page features a video that should be played by tabbing to the play button</p>
+
+    <div>
+        <enable-youtube vidid="AZhcZ7AILf0" cclang="en" ng-show="!localmode"></enable-youtube>
+
+        <hr>
+
+        <enable-video vidid="enable-1000" cclang="en" ng-show="localmode"></enable-video>
+
+        <div id="audiovideo" style="margin-top: 25px">
+            <h2>Audio loaded locally</h2>
+
+            <audio controls>
+                <source src="assets/snds/enable.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+
+    <enable-footer></enable-footer>
+</div>

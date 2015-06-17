@@ -19,8 +19,7 @@ enableApp.value('duScrollDuration', 1000);
  * The "search" route is hardcoded, whereas the other routes are dynamic
  *
  **/
-enableApp.config(['$routeProvider',
-    function($routeProvider) {
+enableApp.config(['$routeProvider', function($routeProvider) {
 
         if(localStorage.lang == undefined) {
             localStorage.lang = 'en';
@@ -43,7 +42,7 @@ enableApp.config(['$routeProvider',
                 }
             }).
             otherwise({
-                redirectTo: '/basic'
+                redirectTo: '/home'
             });
     }]);
 
@@ -91,15 +90,12 @@ enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
         if(current.params) {
             // store current path
             currentURL = current.params.page;
-
+            $rootScope.ishome = false;
             // Set current page title
             switch(currentURL) {
                 case 'home':
-                    $rootScope.title = 'Page with video';
+                    $rootScope.ishome = true;
                     break;
-
-                default:
-                    $rootScope.title = 'Page with header';
             }
         }
     });*/

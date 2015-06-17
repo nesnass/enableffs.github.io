@@ -26,19 +26,64 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
              */
             function setActive() {
                 var path = $location.path();
-                if (path) {
-                    angular.forEach(element.find('a'), function (a) {
-                        if (a.href.match('#' + path + '(?=\\?|$)')) {
-                            angular.element(a).addClass('sidenavlinksactive');
-                        } else {
-                            angular.element(a).removeClass('sidenavlinksactive');
-                        }
-                    });
+
+                if (element[0].href.match(path + '(?=\\?|$)')) {
+                    element.addClass('sidenavlinksactive');
+                } else {
+                    element.removeClass('sidenavlinksactive');
                 }
+
+
             }
 
             setActive();
 
+            scope.$on('$locationChangeSuccess', setActive);
+        }
+    }
+}]);
+
+/**
+ *
+ * @ngdoc directive
+ * @name handleScroll
+ * @scope false
+ * @restrict A
+ * @element a
+ * @description
+ * Directive that appends a class to the current element, based on whether the current route matches '/home'
+ *
+ */
+enableAppDirectives.directive('handleScroll', ['$location', function ($location) {
+    return {
+        restrict: 'A',
+        scope: false,
+        link: function (scope, element) {
+
+            /**
+             * @ngdoc function
+             * @name handleScroll.setActive
+             * @kind function
+             *
+             * @description
+             * Function that analyses the current route path versus the a link target.
+             * If it matches it adds the class 'mainScrollDisabled', if not it adds the class 'mainScrollEnabled'
+             */
+            function setActive() {
+                var path = $location.path();
+
+                if (path == '/home') {
+                    element.addClass('mainScrollDisabled');
+                    element.removeClass('mainScrollEnabled');
+                } else {
+                    element.removeClass('mainScrollDisabled');
+                    element.addClass('mainScrollEnabled');
+                }
+
+
+            }
+
+            setActive();
             scope.$on('$locationChangeSuccess', setActive);
         }
     }
@@ -193,5 +238,53 @@ enableAppDirectives.directive('enableFooter', function($sce) {
         restrict: 'E',
         replace: 'true',
         templateUrl: 'partials/templates/footer-template.html'
+    };
+});
+
+
+//ref: http://nahidulkibria.blogspot.no/2014/10/angullarjs-directive-to-watch-window.html
+/**
+ *
+ * @ngdoc directive
+ * @name autoresize
+ * @scope false
+ * @description
+ * Directive that returns the exact width and height of the current window for the home page
+ *
+ */
+enableAppDirectives.directive('autoresize', function ($window) {
+    return function ($scope) {
+        $scope.initializeWindowSize = function () {
+            $scope.maxHeight = Math.max(
+                document.body.scrollHeight, document.documentElement.scrollHeight,
+                document.body.offsetHeight, document.documentElement.offsetHeight,
+                document.body.clientHeight, document.documentElement.clientHeight,
+                window.innerHeight
+            );
+
+            if($window.innerWidth > 600) {
+                //single line header bar
+                $scope.windowHeight = $window.innerHeight-64;
+            }
+            else {
+                //double line header bar
+                $scope.windowHeight = $window.innerHeight-120;
+            }
+
+            return $scope.windowWidth = $window.innerWidth;
+        };
+
+        $scope.initializeWindowSize();
+
+        $scope.$watch('__height', function(newHeight, oldHeight) {
+            $scope.initializeWindowSize();
+        });
+
+        return angular.element($window).bind('resize', function () {
+
+            $scope.initializeWindowSize();
+            return $scope.$apply();
+
+        });
     };
 });

@@ -7,6 +7,7 @@ html {
 body {
     margin: 0;
     overflow: hidden;
+    background-color: #000000;
 }
 
 nav dl {
@@ -29,25 +30,81 @@ video {
     height: auto   !important;
 }
 
-dl a,
-dd a,
-dd a:visited {
+a,
+a:visited {
     text-decoration: none;
     color: #000000;
     display: block;
 }
 
-dl a,
-dd a.sidenavlinksactive,
-dd a.sidenavlinksactive:visited {
-    color: #8BC34A;
+
+a.sidenavlinksactive {
+    color: #0000FF;
     text-decoration: none;
 }
+
+
 
 footer {
     background-color: #000000;
     min-height: 200px;
     color: #000000;
+}
+
+h2 {
+    margin-bottom: 5px;
+    margin-left: 0px;
+}
+
+.mainScrollEnabled {
+    overflow: scroll !important;
+}
+
+.mainScrollDisabled {
+    overflow: hidden !important;
+}
+
+.homeText {
+    overflow: auto;
+}
+
+.homeVignetteBar {
+    height: 30%;
+}
+
+.homeVignette {
+    cursor: pointer;
+    background-size: auto 100%;
+    width: 100%;
+    height: 100% !important;
+    overflow: hidden;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+
+.homeVignetteBackdrop {
+    background: rgba(0, 0, 0, .4);
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+}
+
+.homeVignetteBackdrop:hover {
+    background: rgba(0, 0, 0, .8);
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+}
+
+.expandButton {
+    width: 100%;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 6px 0px !important;
+}
+
+.partial {
+    background-color: #FFFFFF;
 }
 
 .submenuitem {
@@ -61,7 +118,7 @@ footer {
 
 .openclosesidebar,
 .slideshowicons {
-    fill: #FFFFFF;
+    fill: #333333;
 }
 
 .screenReadersOnly {
@@ -113,29 +170,20 @@ footer {
 
 .sectionBanner {
     color: #FFFFFF;
-    background-color: #333333;
+    background-color: #000000;
+    /*background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Safari 5.1 to 6.0 *!/
+    background: -o-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Opera 11.1 to 12.0 *!/
+    background: -moz-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Firefox 3.6 to 15 *!/
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* Standard syntax (must be last) *!/*/
     width: 100%;
-    opacity: 0.8;
-    padding-bottom: 10px;
+    opacity: 0.7;
+    /*padding-bottom: 10px;*/
 }
 
 .more {
     padding: 20px;
-    /*opacity: 1;
-    max-height: 2000px;
-    -webkit-transition: max-height ease-in 1.5s;
-    -moz-transition: max-height ease-in 1.5s;
-    transition: max-height ease-in 1.5s;*/
+    background-color: #EEEEEE;
 }
-
-/*.more.ng-hide {
-    max-height: 0;
-    opacity: 0;
-    -webkit-transition: max-height 0s;
-    -moz-transition: max-height 0s;
-    transition: max-height 0s;
-
-}*/
 
 .sectionLink {
     min-width: 50px;
@@ -175,6 +223,23 @@ footer {
 .slide.ng-hide-remove.ng-hide-remove-active {
     opacity: 1;
 }
+
+.level03-toc {
+    border-left: 3px solid;
+    border-left-color: #333333;
+    margin: 40px;
+}
+
+.level03-toc li {
+    list-style: none;
+    padding-top: 10x;
+    padding-bottom: 10px;
+}
+
+.level03 {
+    margin-top: 40px;
+}
+
 
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
