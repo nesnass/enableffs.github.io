@@ -188,6 +188,20 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
 
         };
 
+        /**
+         * @ngdoc function
+         * @name MenuCtrl.goToSection
+         * @kind function
+         *
+         * @description
+         * Function that redirects the location based on provided path
+         *
+         * @param {string} path the path for redirection
+         */
+        $scope.goToSection = function(path) {
+            $location.path(path);
+        }
+
 
         initMenuController();
         /**
@@ -395,9 +409,6 @@ enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $locat
 
         $rootScope.roottitle = "Enable home page";
 
-        $scope.goToSection = function(path) {
-            $location.path(path);
-        }
     }
 );
 

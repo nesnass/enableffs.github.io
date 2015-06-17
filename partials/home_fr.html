@@ -1,34 +1,31 @@
-<div ng-controller="HomeCtrl">
-    <h1>Ma page vidéo</h1>
+<div ng-controller="HomeCtrl" ng-style="{'height': windowHeight+'px', 'width': windowWidth+'px', 'background-color': '#FFFFFF'}" autoresize="" layout="column" >
+    <div flex layout-padding class="homeText">
+        <h1 flex>Défiance sensorielle – Afrique de l'Est.</h1>
+        <div>Petit texte en francais</div>
 
-    <nav aria-label="Main page sub-navigation">
-        <dl>
-            <dd layout="column">
-                <a href="#home/#youtubevideo" ng-show="!localmode">Video from youtube</a>
-                <a href="#home/#localvideo" ng-show="localmode">Video loaded locally</a>
-                <a href="#home/#audiovideo">Audio loaded locally</a>
-            </dd>
-        </dl>
-    </nav>
-
-    <p>Cette page présente une vidéo qui peut être jouée en tabbant jusqu'au bouton 'play'</p>
-
-    <div>
-        <enable-youtube vidid="AZhcZ7AILf0" cclang="fr" ng-show="!localmode"></enable-youtube>
-
-        <hr>
-
-        <enable-video vidid="enable-1000" cclang="fr" ng-show="localmode"></enable-video>
-
-        <div id="audiovideo" style="margin-top: 25px">
-            <h2>Son chargé localement</h2>
-
-            <audio controls>
-                <source src="assets/snds/enable.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+    </div>
+    <div class="homeVignetteBar" layout="row">
+        <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/vision.jpg)'}" layout-fill role="button" ng-click="goToSection('/vision/s01_l01')">
+            <div class="homeVignetteBackdrop" layout layout-align="center end">
+                <div>
+                    <h1>Vue</h1>
+                </div>
+            </div>
+        </div>
+        <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/hearing.jpg)'}" layout-fill>
+            <div class="homeVignetteBackdrop" layout layout-align="center end">
+                <div>
+                    <h1>Ouïe</h1>
+                </div>
+            </div>
+        </div>
+        <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/combined.jpg)'}" layout-fill>
+            <div class="homeVignetteBackdrop" layout layout-align="center end">
+                <div>
+                    <h1>Combinaison</h1>
+                </div>
+            </div>
         </div>
     </div>
-
     <enable-footer></enable-footer>
 </div>

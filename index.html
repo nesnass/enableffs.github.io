@@ -41,11 +41,14 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="!menuOpen"
                 layout="column" flex>
         <md-toolbar>
-            <div class="md-toolbar-tools" tabindex="-1" role="button" ng-click="closeMenu()">
-                <div class="fill-height" layout="row" flex>
-                    <h2>Menu</h2>
+            <div class="md-toolbar-tools" tabindex="-1">
+                <button class="md-icon-button md-button" aria-label="Home button" role="button" ng-click="closeMenu();goToSection('/home')">
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_home_48px.svg" aria-hidden="true"></md-icon>
+                </button>
+                <div class="fill-height" layout-fill flex>
+
                 </div>
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">
+                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button" ng-click="closeMenu()">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
                 </button>
             </div>
@@ -160,6 +163,12 @@
 
                     </dl>
                 </nav>
+                <nav ng-show="showHearing">
+                    <dl></dl>
+                </nav>
+                <nav ng-show="showCombined">
+                    <dl></dl>
+                </nav>
             </div>
         </md-content>
 
@@ -185,6 +194,14 @@
                 <div class="fill-height" layout="row" flex>
                     <h2 tabindex="-1" id="focusHeader" ng-bind="title">123123</h2>
                 </div>
+            </div>
+            <div ng-show="!showHamburger" layout="horizontal" flex>
+                <md-button ng-disabled="getLangButtonState('en')" class="md-raised md-primary" ng-click="setLang('en')">
+                    EN
+                </md-button>
+                <md-button ng-disabled="getLangButtonState('fr')" class="md-raised md-primary" ng-click="setLang('fr')">
+                    FR
+                </md-button>
             </div>
             <div id="searchWidget" ng-show="searchEnabled">
                 <md-content layout-padding layout="row" style="background-color: transparent">

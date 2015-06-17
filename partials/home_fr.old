@@ -1,0 +1,34 @@
+<div ng-controller="HomeCtrl">
+    <h1>Ma page vidéo</h1>
+
+    <nav aria-label="Main page sub-navigation">
+        <dl>
+            <dd layout="column">
+                <a href="#home/#youtubevideo" ng-show="!localmode">Video from youtube</a>
+                <a href="#home/#localvideo" ng-show="localmode">Video loaded locally</a>
+                <a href="#home/#audiovideo">Audio loaded locally</a>
+            </dd>
+        </dl>
+    </nav>
+
+    <p>Cette page présente une vidéo qui peut être jouée en tabbant jusqu'au bouton 'play'</p>
+
+    <div>
+        <enable-youtube vidid="AZhcZ7AILf0" cclang="fr" ng-show="!localmode"></enable-youtube>
+
+        <hr>
+
+        <enable-video vidid="enable-1000" cclang="fr" ng-show="localmode"></enable-video>
+
+        <div id="audiovideo" style="margin-top: 25px">
+            <h2>Son chargé localement</h2>
+
+            <audio controls>
+                <source src="assets/snds/enable.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <enable-footer></enable-footer>
+</div>
