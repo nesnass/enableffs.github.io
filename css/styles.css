@@ -7,7 +7,6 @@ html {
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #000000;
 }
 
 nav dl {
@@ -96,6 +95,10 @@ h2 {
     color: #FFFFFF;
 }
 
+#scrollContainer {
+    background-color: #000000;
+}
+
 .expandButton {
     width: 100%;
     border-radius: 0 !important;
@@ -105,6 +108,10 @@ h2 {
 
 .partial {
     background-color: #FFFFFF;
+}
+
+.partialContent {
+    margin-bottom: 100px;
 }
 
 .submenuitem {
