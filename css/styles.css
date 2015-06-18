@@ -95,6 +95,11 @@ h2 {
     color: #FFFFFF;
 }
 
+.homelanguage {
+    max-width: 40px !important;
+    min-width: 40px !important;
+}
+
 #scrollContainer {
     background-color: #000000;
 }
