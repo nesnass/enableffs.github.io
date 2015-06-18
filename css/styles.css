@@ -111,13 +111,14 @@ h2 {
     margin: 6px 0px !important;
 }
 
-/*.partial {
+.partial {
     background-color: #FFFFFF;
+    height: 100%;
 }
 
 .partialContent {
     margin-bottom: 100px;
-}*/
+}
 
 .submenuitem {
     overflow: hidden;
