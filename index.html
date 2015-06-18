@@ -83,10 +83,10 @@
                 </button>
             </div>
             <div ng-show="!showHamburger" layout="horizontal" flex>
-                <md-button ng-disabled="getLangButtonState('en')" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
+                <md-button ng-disabled="getLangButtonState('en')" aria-label="Set language to english" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
                     EN
                 </md-button>
-                <md-button ng-disabled="getLangButtonState('fr')" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
+                <md-button ng-disabled="getLangButtonState('fr')" aria-label="Traduire le site en francais" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
                     FR
                 </md-button>
             </div>
