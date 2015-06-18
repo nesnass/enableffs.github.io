@@ -1,6 +1,8 @@
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-ngdocs');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-shell');
 
     grunt.initConfig({
         ngdocs: {
@@ -17,9 +19,14 @@ module.exports = function (grunt) {
                 title: 'Enable portal javascript documentation'
             }
         },
-        clean: ['docs']
+        clean: ['docs'],
+        shell: {
+            createSearchDictionary: {
+                command: 'python siteindex.py'
+            }
+        }
     });
 
-    grunt.registerTask('default', ['clean', 'ngdocs']);
+    grunt.registerTask('default', ['clean', 'ngdocs', 'shell:createSearchDictionary']);
 
 };

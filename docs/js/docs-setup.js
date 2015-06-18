@@ -32,12 +32,30 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "BasicCtrl",
-      "shortName": "BasicCtrl",
-      "type": "controller",
-      "moduleName": "BasicCtrl",
-      "shortDescription": "Controller",
-      "keywords": "api basicctrl controller"
+      "id": "autoresize",
+      "shortName": "autoresize",
+      "type": "directive",
+      "moduleName": "autoresize",
+      "shortDescription": "Directive that returns the exact width and height of the current window for the home page",
+      "keywords": "api autoresize current directive exact false height returns width window"
+    },
+    {
+      "section": "api",
+      "id": "enableAudio",
+      "shortName": "enableAudio",
+      "type": "directive",
+      "moduleName": "enableAudio",
+      "shortDescription": "Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.",
+      "keywords": "ae api audio creates directive enableaudio expects file formats image local m4a ogg player poster provide provided sndid sounds subtitles tracks true video"
+    },
+    {
+      "section": "api",
+      "id": "enableFooter",
+      "shortName": "enableFooter",
+      "type": "directive",
+      "moduleName": "enableFooter",
+      "shortDescription": "Directive that places the common footer.",
+      "keywords": "api common directive enablefooter false footer places"
     },
     {
       "section": "api",
@@ -65,6 +83,24 @@ NG_DOCS={
       "moduleName": "enableYoutube",
       "shortDescription": "Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.",
       "keywords": "ae api cclang code creates current directive embedded enableyoutube file language load player portal provided subtitles true video vidid youtube"
+    },
+    {
+      "section": "api",
+      "id": "handleScroll",
+      "shortName": "handleScroll",
+      "type": "directive",
+      "moduleName": "handleScroll",
+      "shortDescription": "Directive that appends a class to the current element, based on whether the current route matches &#39;/home&#39;",
+      "keywords": "api appends based class current directive element false handlescroll matches route"
+    },
+    {
+      "section": "api",
+      "id": "handleScroll.setActive",
+      "shortName": "handleScroll.setActive",
+      "type": "function",
+      "moduleName": "handleScroll",
+      "shortDescription": "Function that analyses the current route path versus the a link target.",
+      "keywords": "adds analyses api class current function handlescroll link mainscrolldisabled mainscrollenabled matches path route setactive target versus"
     },
     {
       "section": "api",
@@ -113,12 +149,30 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "MenuCtrl.goToSection",
+      "shortName": "MenuCtrl.goToSection",
+      "type": "function",
+      "moduleName": "MenuCtrl",
+      "shortDescription": "Function that redirects the location based on provided path",
+      "keywords": "api based function gotosection location menuctrl path provided redirection redirects"
+    },
+    {
+      "section": "api",
       "id": "MenuCtrl.initMenuController",
       "shortName": "MenuCtrl.initMenuController",
       "type": "function",
       "moduleName": "MenuCtrl",
       "shortDescription": "Function called when controller is loaded",
       "keywords": "api called controller function initmenucontroller loaded menuctrl"
+    },
+    {
+      "section": "api",
+      "id": "MenuCtrl.loadSearchTags",
+      "shortName": "MenuCtrl.loadSearchTags",
+      "type": "function",
+      "moduleName": "MenuCtrl",
+      "shortDescription": "Function that returns the loaded tags dictionary to enable site search",
+      "keywords": "api dictionary enable function loaded loadsearchtags menuctrl returns search site tags"
     },
     {
       "section": "api",
@@ -191,6 +245,24 @@ NG_DOCS={
       "moduleName": "SearchCtrl",
       "shortDescription": "Function that formats the url of the link for a search result item",
       "keywords": "api formats function getformattedurl item link path result search searchctrl url"
+    },
+    {
+      "section": "api",
+      "id": "VisionCtrl",
+      "shortName": "VisionCtrl",
+      "type": "controller",
+      "moduleName": "VisionCtrl",
+      "shortDescription": "Controller",
+      "keywords": "api controller visionctrl"
+    },
+    {
+      "section": "api",
+      "id": "VisionCtrl.gotoAnchor",
+      "shortName": "VisionCtrl.gotoAnchor",
+      "type": "function",
+      "moduleName": "VisionCtrl",
+      "shortDescription": "Function that redirects the browser to the provided path",
+      "keywords": "anchor api browser function gotoanchor newhash path provided redirect redirects visionctrl"
     }
   ],
   "apis": {

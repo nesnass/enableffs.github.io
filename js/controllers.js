@@ -251,6 +251,26 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
 /**
  *
  * @ngdoc controller
+ * @name HomeCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $location) {
+
+        console.log('--> home started');
+
+        $scope.$emit('pageNavigationEvent', 'home');
+
+        $rootScope.roottitle = "Enable home page";
+
+    }
+);
+
+
+/**
+ *
+ * @ngdoc controller
  * @name SearchCtrl
  * @description
  * Controller for the search page: search.html
@@ -335,18 +355,18 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
         var scrollContainer = angular.element(document.getElementById('scrollContainer'));
         $rootScope.roottitle = "Enable basic page";
 
-        /**
+        /*/!**
          * @ngdoc function
-         * @name BasicCtrl.scrolli
+         * @name VisionCtrl.scrolli
          * @kind function
          *
          * @description
          * Function that smooth-scrolls to an element of the page
          *
          * @param {string} elem the ID of the element to scroll to
-         */
+         *!/
         $scope.scrolli = function(elem, morevar) {
-            /*var element = document.getElementById(elem);
+            /!*var element = document.getElementById(elem);
              var options = {
              duration: 1500,
              easing: 'easeInQuad',
@@ -358,7 +378,7 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
              console.log('scrolled to element', element);
              }
              }
-             smoothScroll(element, options);*/
+             smoothScroll(element, options);*!/
 
             $scope[morevar] = !$scope[morevar];
 
@@ -374,8 +394,18 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
             }
 
 
-        };
+        };*/
 
+        /**
+         * @ngdoc function
+         * @name VisionCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
         $scope.gotoAnchor = function(newHash) {
 
             if ($location.hash() !== newHash) {
@@ -393,24 +423,7 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
     }
 );
 
-/**
- *
- * @ngdoc controller
- * @name HomeCtrl
- * @description
- * Controller
- *
- */
-enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $location) {
 
-        console.log('--> home started');
-
-        $scope.$emit('pageNavigationEvent', 'home');
-
-        $rootScope.roottitle = "Enable home page";
-
-    }
-);
 
 /**
  *
