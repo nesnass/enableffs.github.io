@@ -48,7 +48,7 @@
                 <div class="fill-height" layout-fill flex>
 
                 </div>
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button" ng-click="closeMenu()">
+                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Close sidemenu" role="button" ng-click="closeMenu()">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
                 </button>
             </div>
@@ -63,10 +63,10 @@
         </md-content>
 
         <div style="width: 100%" layout="horizontal">
-            <md-button flex ng-disabled="getLangButtonState('en')" class="md-raised md-primary" ng-click="setLang('en')">
+            <md-button flex ng-disabled="getLangButtonState('en')" aria-label="Set language to english" class="md-raised md-primary" ng-click="setLang('en')">
                 EN
             </md-button>
-            <md-button flex ng-disabled="getLangButtonState('fr')" class="md-raised md-primary" ng-click="setLang('fr')">
+            <md-button flex ng-disabled="getLangButtonState('fr')" aria-label="Traduire le site en francais" class="md-raised md-primary" ng-click="setLang('fr')">
                 FR
             </md-button>
         </div>
@@ -75,15 +75,12 @@
 
     <div layout="column" style="height: 100%" tabindex="-1" role="main">
         <md-toolbar layout-gt-sm="row" layout="column" layout-align="end center">
-            <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="-1" role="button" ng-click="openMenu()" accesskey="1" flex>
-                <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
-                <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="Toggle Menu" role="button">
+            <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
+            <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
+            <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="0" role="button" aria-label="Open sidemenu" ng-click="openMenu()" accesskey="1" flex>
+                <button title="toggleMenuButton" class="md-icon-button md-button" tabindex="-1">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
                 </button>
-                <div class="fill-height" layout="row" flex>
-                    <h2 tabindex="-1" id="focusHeader" ng-bind="title">123123</h2>
-                </div>
             </div>
             <div ng-show="!showHamburger" layout="horizontal" flex>
                 <md-button ng-disabled="getLangButtonState('en')" class="homelanguage md-raised md-primary" ng-click="setLang('en')">

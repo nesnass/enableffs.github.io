@@ -223,24 +223,6 @@ enableAppDirectives.directive('enableSlideshow', function($http) {
     };
 });
 
-/**
- *
- * @ngdoc directive
- * @name enableFooter
- * @scope false
- * @restrict E
- * @description
- * Directive that places the common footer.
- *
- */
-enableAppDirectives.directive('enableFooter', function($sce) {
-    return {
-        restrict: 'E',
-        replace: 'true',
-        templateUrl: 'partials/templates/footer-template.html'
-    };
-});
-
 
 //ref: http://nahidulkibria.blogspot.no/2014/10/angullarjs-directive-to-watch-window.html
 /**
