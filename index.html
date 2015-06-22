@@ -77,18 +77,26 @@
         <md-toolbar layout-gt-sm="row" layout="column" layout-align="end center">
             <span class="screenReadersOnly">The menu can be toggled open using the accesskey 1.</span>
             <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
-            <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="0" role="button" aria-label="Open sidemenu" ng-click="openMenu()" accesskey="1" flex>
+            <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="0" role="button" aria-label="Open sidemenu" ng-click="openMenu()" accesskey="1" flex layout="row">
                 <button title="toggleMenuButton" class="md-icon-button md-button" tabindex="-1">
                     <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
                 </button>
+                <div layout-align="start center" layout-padding>
+                    Enable - Sensory impairement in africa
+                </div>
             </div>
-            <div ng-show="!showHamburger" layout="horizontal" flex>
-                <md-button ng-disabled="getLangButtonState('en')" aria-label="Set language to english" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
-                    EN
-                </md-button>
-                <md-button ng-disabled="getLangButtonState('fr')" aria-label="Traduire le site en francais" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
-                    FR
-                </md-button>
+            <div ng-show="!showHamburger" layout="row" flex layout-fill>
+                <div flex layout layout-align="start center" layout-padding>
+                    Enable - Sensory impairement in africa
+                </div>
+                <div layout="row">
+                    <md-button ng-disabled="getLangButtonState('en')" aria-label="Set language to english" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
+                        EN
+                    </md-button>
+                    <md-button ng-disabled="getLangButtonState('fr')" aria-label="Traduire le site en francais" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
+                        FR
+                    </md-button>
+                </div>
             </div>
             <div id="searchWidget" ng-show="searchEnabled">
                 <md-content layout-padding layout="row" style="background-color: transparent">

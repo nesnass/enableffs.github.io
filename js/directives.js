@@ -54,13 +54,13 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
  * Directive that appends a class to the current element, based on whether the current route matches '/home'
  *
  */
-enableAppDirectives.directive('handleScroll', ['$location', '$window', function ($location, $window) {
+/*enableAppDirectives.directive('handleScroll', ['$location', '$window', function ($location, $window) {
     return {
         restrict: 'A',
         scope: false,
         link: function (scope, element) {
 
-            /**
+            /!**
              * @ngdoc function
              * @name handleScroll.setActive
              * @kind function
@@ -68,7 +68,7 @@ enableAppDirectives.directive('handleScroll', ['$location', '$window', function 
              * @description
              * Function that analyses the current route path versus the a link target.
              * If it matches it adds the class 'mainScrollDisabled', if not it adds the class 'mainScrollEnabled'
-             */
+             *!/
             function setActive() {
                 var path = $location.path();
 
@@ -87,7 +87,7 @@ enableAppDirectives.directive('handleScroll', ['$location', '$window', function 
             scope.$on('$locationChangeSuccess', setActive);
         }
     }
-}]);
+}]);*/
 
 /**
  *
@@ -234,6 +234,7 @@ enableAppDirectives.directive('enableSlideshow', function($http) {
  * Directive that returns the exact width and height of the current window for the home page
  *
  */
+/*
 enableAppDirectives.directive('autoresize', function ($window) {
     return function ($scope) {
         $scope.initializeWindowSize = function () {
@@ -269,4 +270,4 @@ enableAppDirectives.directive('autoresize', function ($window) {
 
         });
     };
-});
+});*/

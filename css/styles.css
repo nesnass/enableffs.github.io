@@ -65,7 +65,7 @@ h2 {
 
 .homeText {
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .homeVignetteBar {
@@ -100,6 +100,8 @@ h2 {
 .homelanguage {
     max-width: 40px !important;
     min-width: 40px !important;
+    max-height: 36px !important;
+    min-height: 36px !important;
 }
 
 #scrollContainer {
