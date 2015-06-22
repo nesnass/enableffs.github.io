@@ -1,4 +1,8 @@
 {
+  "HOME_BUTTON": "Click to go to site home page",
+  "CLOSE_SIDEPANEL_BUTTON": "Close sidemenu panel",
+  "OPEN_SIDEPANEL_BUTTON": "Open sidemenu panel",
+  "KEYBOARD_MENU_SHORTCUT": "The menu can be toggled open using the accesskey 1",
   "JAWS_WARNING": "To optimize the use of JAWS with this website, we recommend turning off JAWS Virtual PC using the insert+z or CAPSLOCK+Z combination",
   "VIDEO_YOUTUBE_HEADER": "Video loaded from youtube",
   "VIDEO_YOUTUBE_SCREENREADER_MESSAGE": "For a fully keyboard-accessible alternative to this video, view it in Chrome or on any Android or iOS device, view it in Firefox with the YouTube ALL HTML5 add-on installed, or disable Flash in Internet Explorer.",
