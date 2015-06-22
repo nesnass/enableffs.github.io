@@ -42,7 +42,11 @@ a.sidenavlinksactive {
     text-decoration: none;
 }
 
-
+/** fix for IE which does not adjust toolbar height **/
+md-toolbar {
+    min-height: 64px !important;
+    max-height: 64px !important;
+}
 
 footer {
     background-color: #000000;
@@ -263,6 +267,7 @@ h2 {
     /** fix for IE which does not adjust toolbar height **/
     md-toolbar {
         min-height: 120px !important;
+        max-height: 120px !important;
     }
 
     dd a {
