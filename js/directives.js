@@ -54,7 +54,7 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
  * Directive that appends a class to the current element, based on whether the current route matches '/home'
  *
  */
-enableAppDirectives.directive('handleScroll', ['$location', function ($location) {
+enableAppDirectives.directive('handleScroll', ['$location', '$window', function ($location, $window) {
     return {
         restrict: 'A',
         scope: false,
@@ -72,7 +72,7 @@ enableAppDirectives.directive('handleScroll', ['$location', function ($location)
             function setActive() {
                 var path = $location.path();
 
-                if (path == '/home') {
+                if (path == '/home' && $window.innerWidth > 600) {
                     element.addClass('mainScrollDisabled');
                     element.removeClass('mainScrollEnabled');
                 } else {
