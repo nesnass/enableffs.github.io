@@ -74,6 +74,8 @@ h2 {
 
 .homeVignetteBar {
     height: 30%;
+    min-height: 30%;
+    max-height: 30%;
     width: 100%;
 }
 
