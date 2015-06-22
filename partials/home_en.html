@@ -1,24 +1,34 @@
-<div ng-controller="HomeCtrl" ng-style="{'height': windowHeight+'px', 'width': windowWidth+'px', 'background-color': '#FFFFFF'}" autoresize="" layout="column" >
+<div ng-controller="HomeCtrl" layout="column" class="partial">
+
+    <!-- ng-style="{'height': windowHeight+'px', 'width': windowWidth+'px', 'background-color': '#FFFFFF'}" autoresize -->
+
     <div flex layout-padding class="homeText">
         <h1>Sensory Impairment – East Africa.</h1>
-        <div>In this web portal you will find information about vision and hearing, considered as our most important senses.
-        Through text, pictures and video-sequences you will learn about visual impairment, hearing impairment and
-        combined sensory impairment, often called  deaf-blindness.
-        The information goes from simple to more complex and may therefore be useful for everyone.
-        You can choose to read the text in English or Swahili, and the audio-visual sequences are interpreted in
-        sign language and given audio description.</div>
+
+        <div>In this web portal you will find information about vision and hearing, considered as our most important
+            senses.
+            Through text, pictures and video-sequences you will learn about visual impairment, hearing impairment and
+            combined sensory impairment, often called deaf-blindness.
+            The information goes from simple to more complex and may therefore be useful for everyone.
+            You can choose to read the text in English or Swahili, and the audio-visual sequences are interpreted in
+            sign language and given audio description.
+        </div>
 
     </div>
 
+    <div flex style="background-color: #FF0000">
+
         <div class="homeVignetteBar" layout="row" layout-sm="column">
-            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/vision.jpg)'}" role="button" aria-label="Traduire le site en francais" ng-click="goToSection('/vision/s01_l01')">
+            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/vision.jpg)'}" role="button"
+                 aria-label="Traduire le site en francais" ng-click="goToSection('/vision/s01_l01')">
                 <div class="homeVignetteBackdrop" layout layout-align="center end">
                     <div>
                         <h1>Sight</h1>
                     </div>
                 </div>
             </div>
-            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/hearing.jpg)'}" role="button" aria-label="Traduire le site en francais">
+            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/hearing.jpg)'}" role="button"
+                 aria-label="Traduire le site en francais">
                 <div class="homeVignetteBackdrop" layout layout-align="center end">
                     <div>
                         <h1>Hearing</h1>
@@ -28,14 +38,16 @@
 
         </div>
         <div class="homeVignetteBar" layout="row" layout-sm="column">
-            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/combined.jpg)'}" role="button" aria-label="Traduire le site en francais">
+            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/combined.jpg)'}" role="button"
+                 aria-label="Traduire le site en francais">
                 <div class="homeVignetteBackdrop" layout layout-align="center end">
                     <div>
                         <h1>Combined</h1>
                     </div>
                 </div>
             </div>
-            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/about.jpg)'}" role="button" aria-label="Traduire le site en francais">
+            <div flex class="homeVignette" ng-style="{'background-image': 'url(../img/about.jpg)'}" role="button"
+                 aria-label="Traduire le site en francais">
                 <div class="homeVignetteBackdrop" layout layout-align="center end">
                     <div>
                         <h1>About</h1>
@@ -43,5 +55,7 @@
                 </div>
             </div>
         </div>
+    </div>
+
 
 </div>

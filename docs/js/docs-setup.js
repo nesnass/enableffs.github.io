@@ -50,15 +50,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "enableFooter",
-      "shortName": "enableFooter",
-      "type": "directive",
-      "moduleName": "enableFooter",
-      "shortDescription": "Directive that places the common footer.",
-      "keywords": "api common directive enablefooter false footer places"
-    },
-    {
-      "section": "api",
       "id": "enableSlideshow",
       "shortName": "enableSlideshow",
       "type": "directive",
