@@ -7,8 +7,8 @@ http://enableffs.github.io/
 ## Install
 
 > Precondition: 
-> install npm on your system [https://nodejs.org/]
-> install grunt-cli on your system [http://gruntjs.com/installing-grunt]
+install npm on your system [https://nodejs.org/]
+install grunt-cli on your system [http://gruntjs.com/installing-grunt]
 
 In order to run the project locally, create a local git copy, 'cd' to the root of the project and run the following command: 
 
