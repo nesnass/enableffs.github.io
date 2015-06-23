@@ -14,7 +14,7 @@ http://enableffs.github.io/
 In order to run the project locally, create a local git copy, 'cd' to the root of the project and run the following command: 
 
 ```sh
-$ git clone start
+$ git clone https://github.com/enableffs/enableffs.github.io.git
 $ npm start
 ```
 
