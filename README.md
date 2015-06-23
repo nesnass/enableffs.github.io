@@ -6,7 +6,7 @@ http://enableffs.github.io/
 
 ## Install
 
-> Precondition: 
+> Preconditions: 
 - install git on your system [https://git-scm.com/]
 - install npm on your system [https://nodejs.org/]
 - install grunt-cli on your system [http://gruntjs.com/installing-grunt]
