@@ -36,6 +36,13 @@ a:visited {
     display: block;
 }
 
+dt,
+dl a,
+dd a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 
 a.sidenavlinksactive {
     color: #0000FF;
@@ -267,11 +274,6 @@ h2 {
     md-toolbar {
         min-height: 120px !important;
         max-height: 120px !important;
-    }
-
-    dd a {
-        padding-top: 5px;
-        padding-bottom: 5px;
     }
 
     footer img {
