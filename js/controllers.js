@@ -351,50 +351,7 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
         console.log('--> vision started');
 
         $scope.$emit('pageNavigationEvent', 'vision');
-
-        var scrollContainer = angular.element(document.getElementById('scrollContainer'));
         $rootScope.roottitle = "Enable basic page";
-
-        /*/!**
-         * @ngdoc function
-         * @name VisionCtrl.scrolli
-         * @kind function
-         *
-         * @description
-         * Function that smooth-scrolls to an element of the page
-         *
-         * @param {string} elem the ID of the element to scroll to
-         *!/
-        $scope.scrolli = function(elem, morevar) {
-            /!*var element = document.getElementById(elem);
-             var options = {
-             duration: 1500,
-             easing: 'easeInQuad',
-             offset: 0,
-             callbackBefore: function(element) {
-             console.log('about to scroll to element', element);
-             },
-             callbackAfter: function(element) {
-             console.log('scrolled to element', element);
-             }
-             }
-             smoothScroll(element, options);*!/
-
-            $scope[morevar] = !$scope[morevar];
-
-            if($scope[morevar] == true) {
-                console.log('--> smooth scrolling');
-                $timeout(function() {
-                    var targetelem = angular.element(document.getElementById(elem));
-                    scrollContainer.scrollToElementAnimated(targetelem);
-                }, 1000);
-            }
-            else {
-                console.log('--> closing scrolling');
-            }
-
-
-        };*/
 
         /**
          * @ngdoc function

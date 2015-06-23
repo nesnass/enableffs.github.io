@@ -32,21 +32,21 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "autoresize",
-      "shortName": "autoresize",
-      "type": "directive",
-      "moduleName": "autoresize",
-      "shortDescription": "Directive that returns the exact width and height of the current window for the home page",
-      "keywords": "api autoresize current directive exact false height returns width window"
-    },
-    {
-      "section": "api",
       "id": "enableAudio",
       "shortName": "enableAudio",
       "type": "directive",
       "moduleName": "enableAudio",
       "shortDescription": "Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.",
       "keywords": "ae api audio creates directive enableaudio expects file formats image local m4a ogg player poster provide provided sndid sounds subtitles tracks true video"
+    },
+    {
+      "section": "api",
+      "id": "enableSectionHeader",
+      "shortName": "enableSectionHeader",
+      "type": "directive",
+      "moduleName": "enableSectionHeader",
+      "shortDescription": "Directive that places a section header with a background picture, it alt text and the section title",
+      "keywords": "alt alternative api background directive enablesectionheader header image path picalt picpath picture places read screenreaders text title true"
     },
     {
       "section": "api",
@@ -74,24 +74,6 @@ NG_DOCS={
       "moduleName": "enableYoutube",
       "shortDescription": "Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.",
       "keywords": "ae api cclang code creates current directive embedded enableyoutube file language load player portal provided subtitles true video vidid youtube"
-    },
-    {
-      "section": "api",
-      "id": "handleScroll",
-      "shortName": "handleScroll",
-      "type": "directive",
-      "moduleName": "handleScroll",
-      "shortDescription": "Directive that appends a class to the current element, based on whether the current route matches &#39;/home&#39;",
-      "keywords": "api appends based class current directive element false handlescroll matches route"
-    },
-    {
-      "section": "api",
-      "id": "handleScroll.setActive",
-      "shortName": "handleScroll.setActive",
-      "type": "function",
-      "moduleName": "handleScroll",
-      "shortDescription": "Function that analyses the current route path versus the a link target.",
-      "keywords": "adds analyses api class current function handlescroll link mainscrolldisabled mainscrollenabled matches path route setactive target versus"
     },
     {
       "section": "api",
