@@ -11,7 +11,7 @@ http://enableffs.github.io/
 In order to run the project locally, create a local git copy, 'cd' to the root of the project and run the following command: 
 
 ```sh
-$ npm install
+$ npm start
 ```
 
 This will dowload all the necessary npm packages, build the search dictionary, generate the docs for the api (available at: http://enableffs.github.io/docs/), and finally launch a local webserver available at: http://localhost:8000

@@ -92,6 +92,36 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
 /**
  *
  * @ngdoc directive
+ * @name enableSectionHeader
+ * @scope true
+ * @restrict E
+ * @param {string} picpath The path of the background image for the section header.
+ * @param {string} picalt The alternative text for the header image, to be read by screenreaders.
+ * @param {string} title The title of the section
+ * @description
+ * Directive that places a section header with a background picture, it alt text and the section title
+ *
+ */
+enableAppDirectives.directive('enableSectionHeader', function() {
+    return {
+        scope:{
+            picpath: '@',
+            picalt: '@',
+            title: '@'
+        },
+        restrict: 'E',
+        replace: 'true',
+        templateUrl: 'partials/templates/section-header-template.html',
+        link: function(scope) {
+
+        }
+    };
+});
+
+
+/**
+ *
+ * @ngdoc directive
  * @name enableYoutube
  * @scope true
  * @restrict AE
