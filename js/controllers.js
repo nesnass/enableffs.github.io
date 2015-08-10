@@ -16,8 +16,6 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
         //Local variables init
         $scope.localmode = false;
         $scope.menuOpen = false;
-        $scope.m1 = true;
-        $scope.m2 = false;
         $scope.dico = null;
         $scope.selectedItem  = null;
         $scope.searchText    = null;
@@ -242,6 +240,33 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
                     $scope.searchEnabled = false;
                 }
             });
+
+            //simple URL path test to reopen expanded menu items when page reload
+            var pagePath = $location.$$path;
+            if(pagePath.indexOf('s02') > -1) {
+                $scope.m2 = true;
+            }
+            else if(pagePath.indexOf('s03') > -1) {
+                $scope.m3 = true;
+            }
+            else if(pagePath.indexOf('s04') > -1) {
+                $scope.m4 = true;
+            }
+            else if(pagePath.indexOf('s05') > -1) {
+                $scope.m5 = true;
+            }
+            else if(pagePath.indexOf('s06') > -1) {
+                $scope.m6 = true;
+            }
+            else if(pagePath.indexOf('s08') > -1) {
+                $scope.m8 = true;
+            }
+            else if(pagePath.indexOf('s09') > -1) {
+                $scope.m9 = true;
+            }
+            else if(pagePath.indexOf('s11') > -1) {
+                $scope.m11 = true;
+            }
 
         };
     }

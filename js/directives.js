@@ -9,7 +9,7 @@
  * Directive that appends a class to the current element, based on whether it matches the current route
  *
  */
-enableAppDirectives.directive('autoActive', ['$location', function ($location) {
+enableAppDirectives.directive('autoActive', ['$location', '$timeout', function ($location, $timeout) {
     return {
         restrict: 'A',
         scope: false,
@@ -27,7 +27,10 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
             function setActive() {
                 var path = $location.path();
 
+                console.log('--> is autoActive: '+path+' - '+element[0]);
+
                 if (element[0].href.match(path + '(?=\\?|$)')) {
+                    console.log('--> autoActive: '+path);
                     element.addClass('sidenavlinksactive');
                 } else {
                     element.removeClass('sidenavlinksactive');
@@ -36,7 +39,10 @@ enableAppDirectives.directive('autoActive', ['$location', function ($location) {
 
             }
 
-            setActive();
+            $timeout(function(){
+                console.log("setactive after 500 msec"); //the console log show only one "pass"
+                setActive();
+            }, 500);
 
             scope.$on('$locationChangeSuccess', setActive);
         }

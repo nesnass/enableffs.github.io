@@ -40,14 +40,14 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="!menuOpen" layout="column" flex>
         <md-toolbar>
             <div class="md-toolbar-tools" tabindex="-1">
-                <button class="md-icon-button md-button" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_home_48px.svg" aria-hidden="true"></md-icon>
+                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
                 </button>
                 <div class="fill-height" layout-fill flex>
 
                 </div>
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
+                <button class="md-icon-button md-button" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
+                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_home_48px.svg" aria-hidden="true"></md-icon>
                 </button>
             </div>
         </md-toolbar>
