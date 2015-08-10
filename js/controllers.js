@@ -1,3 +1,7 @@
+'use strict';
+
+var enableAppControllers = angular.module('EnableAppControllers', []);
+
 /**
  *
  * @ngdoc controller
@@ -83,7 +87,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
          * @param {string} lang i.e. 'en', 'fr, etc
          */
         $scope.getLangButtonState = function(lang) {
-            if(localStorage.lang == lang) {
+            if(localStorage.lang === lang) {
                 return true;
             }
             else {
@@ -142,7 +146,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
             return function filterFn(tag) {
                 return (tag.value.indexOf(lowercaseQuery) === 0);
             };
-        };
+        }
 
         /**
          * @ngdoc function
@@ -156,7 +160,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
          */
         $scope.selectedItemChange = function(item) {
             console.log('--> Item changed to ' + JSON.stringify(item));
-            if(item != undefined) {
+            if(item !== undefined) {
                 //if item, direct the browser to the search page and pass it the item label as a url parameter
                 $location.path("/search").search("s", item.display);
             }
@@ -178,7 +182,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
                     success(function (data) {
                         resolve(data);
                     }).
-                    error(function (data, status, headers, config) {
+                    error(function () {
                         reject(null);
                     });
             });
@@ -198,10 +202,9 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
          */
         $scope.goToSection = function(path) {
             $location.path(path);
-        }
+        };
 
 
-        initMenuController();
         /**
          * @ngdoc function
          * @name MenuCtrl.initMenuController
@@ -213,7 +216,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
          */
         function initMenuController() {
             //checks whether online or offline mode
-            if($location.$$host == 'localhost') {
+            if($location.$$host === 'localhost') {
                 $scope.localmode = true;
             }
 
@@ -221,7 +224,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
             $scope.loadSearchTags().then(function(result) {
                 tagsResult = result;
 
-                if(tagsResult != null && Object.keys(result).length > 0) {
+                if(tagsResult !== null && Object.keys(result).length > 0) {
                     //upon success, keeps the result as a dictionary variable
                     $scope.dico    = tagsResult;
                     //builds a comma seperated string of the dictionary keys, to be used by the md-autocomplete component
@@ -268,7 +271,9 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
                 $scope.m11 = true;
             }
 
-        };
+        }
+
+        initMenuController();
     }
 );
 
@@ -281,7 +286,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
  * Controller
  *
  */
-enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope, $location) {
+enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope) {
 
         console.log('--> home started');
 
@@ -353,7 +358,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
          */
         $scope.checkLinkFitsLanguage = function(path) {
             var lang = path.substring(path.length-7, path.length-5);
-            if(lang == localStorage.lang) {
+            if(lang === localStorage.lang) {
                 return true;
             }
             else {

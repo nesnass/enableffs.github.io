@@ -1,3 +1,4 @@
+'use strict';
 /**
  * @description
  *
@@ -6,9 +7,6 @@
  */
 
 var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppDirectives']);
-
-var enableAppControllers = angular.module('EnableAppControllers', []);
-var enableAppDirectives = angular.module('EnableAppDirectives', []);
 
 enableApp.value('duScrollDuration', 1000);
 
@@ -21,7 +19,7 @@ enableApp.value('duScrollDuration', 1000);
  **/
 enableApp.config(['$routeProvider', function($routeProvider) {
 
-        if(localStorage.lang == undefined) {
+        if(localStorage.lang === undefined) {
             localStorage.lang = 'en';
         }
 

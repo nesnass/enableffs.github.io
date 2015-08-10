@@ -1,3 +1,7 @@
+'use strict';
+
+var enableAppDirectives = angular.module('EnableAppDirectives', []);
+
 /**
  *
  * @ngdoc directive
@@ -27,10 +31,7 @@ enableAppDirectives.directive('autoActive', ['$location', '$timeout', function (
             function setActive() {
                 var path = $location.path();
 
-                console.log('--> is autoActive: '+path+' - '+element[0]);
-
                 if (element[0].href.match(path + '(?=\\?|$)')) {
-                    console.log('--> autoActive: '+path);
                     element.addClass('sidenavlinksactive');
                 } else {
                     element.removeClass('sidenavlinksactive');
@@ -39,14 +40,14 @@ enableAppDirectives.directive('autoActive', ['$location', '$timeout', function (
 
             }
 
+            //initiate after 500msec to make sure that element is built
             $timeout(function(){
-                console.log("setactive after 500 msec"); //the console log show only one "pass"
                 setActive();
             }, 500);
 
             scope.$on('$locationChangeSuccess', setActive);
         }
-    }
+    };
 }]);
 
 
@@ -72,10 +73,7 @@ enableAppDirectives.directive('enableSectionHeader', function() {
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/section-header-template.html',
-        link: function(scope) {
-
-        }
+        templateUrl: 'partials/templates/section-header-template.html'
     };
 });
 
@@ -203,11 +201,25 @@ enableAppDirectives.directive('enableSlideshow', function($http) {
 
 
             scope.next = function() {
-                scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+                /*scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;*/
+
+                if(scope.currentIndex < scope.images.length - 1) {
+                    scope.currentIndex++;
+                }
+                else {
+                    scope.currentIndex = 0;
+                }
             };
 
             scope.prev = function() {
-                scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+                /*scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;*/
+
+                if(scope.currentIndex > 0) {
+                    scope.currentIndex--;
+                }
+                else {
+                    scope.currentIndex = scope.images.length - 1;
+                }
             };
 
         }
