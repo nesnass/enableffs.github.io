@@ -84,10 +84,12 @@ enableAppDirectives.directive('enableSectionHeader', function() {
  * @name enableVideo
  * @scope true
  * @restrict AE
- * @param {string} vidid The id of the local video file. This id will be used for the poster image and the subtitles
+ * @param {string} vididyt The id of the youtube video. This will bring up the youtube video player , as well as the CC attached to that video
+ * @param {string} vididlc The id of the local video file. This id will be used for the poster image and the subtitles
  * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
+ * @param {boolean} localmode The mode that needs to be inserted in the page, true => local videos, false => youtube videos
  * @description
- * Directive that creates a local video player with the video id provided and the language for the subtitles.
+ * Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.
  *
  */
 enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
