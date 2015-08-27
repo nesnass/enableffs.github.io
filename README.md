@@ -1,8 +1,3 @@
-super
-
-
-test
-
 # Enable Project
 
 The Enable project is based on github pages, which means that the files and folders in the master branch can be accessed on github web server at the following url:
