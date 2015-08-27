@@ -1,0 +1,117 @@
+<!--
+
+Vision sidebar definition
+
+-->
+
+
+
+
+    <dl>
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s01_l01">{{ 'MENU_SECTION01_LINK01' | translate }}</a>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">
+            <span ng-show="!m2">+</span><span ng-show="m2">-</span> {{ 'MENU_SECTION02_TITLE' |  translate }}
+            <span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m2">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s02_l01">{{ 'MENU_SECTION02_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s02_l02">{{ 'MENU_SECTION02_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s02_l03">{{ 'MENU_SECTION02_LINK03' | translate }}</a>
+        </dd>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m3}}" ng-click="m3=!m3">
+            <span ng-show="!m3">+</span><span ng-show="m3">-</span> {{ 'MENU_SECTION03_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m3 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m3">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s03_l01">{{ 'MENU_SECTION03_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s03_l02">{{ 'MENU_SECTION03_LINK02' | translate }}</a>
+        </dd>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m4}}" ng-click="m4=!m4">
+            <span ng-show="!m4">+</span><span ng-show="m4">-</span> {{ 'MENU_SECTION04_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m4 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m4">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s04_l01">{{ 'MENU_SECTION04_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s04_l02">{{ 'MENU_SECTION04_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s04_l03">{{ 'MENU_SECTION04_LINK03' | translate }}</a>
+        </dd>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m5}}" ng-click="m5=!m5">
+            <span ng-show="!m5">+</span><span ng-show="m5">-</span> {{ 'MENU_SECTION05_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m5 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m5">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s05_l01">{{ 'MENU_SECTION05_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s05_l02">{{ 'MENU_SECTION05_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s05_l03">{{ 'MENU_SECTION05_LINK03' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s05_l04">{{ 'MENU_SECTION05_LINK04' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s05_l05">{{ 'MENU_SECTION05_LINK05' | translate }}</a>
+        </dd>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m6}}" ng-click="m6=!m6">
+            <span ng-show="!m6">+</span><span ng-show="m6">-</span> {{ 'MENU_SECTION06_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m6 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m6">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l01">{{ 'MENU_SECTION06_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l02">{{ 'MENU_SECTION06_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l03">{{ 'MENU_SECTION06_LINK03' | translate }}</a>
+
+        </dd>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s07_l01">{{ 'MENU_SECTION07_LINK01' | translate }}</a>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m8}}" ng-click="m8=!m8">
+            <span ng-show="!m8">+</span><span ng-show="m8">-</span> {{ 'MENU_SECTION08_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m8 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m8">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s08_l01">{{ 'MENU_SECTION08_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s08_l02">{{ 'MENU_SECTION08_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s08_l03">{{ 'MENU_SECTION08_LINK03' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s08_l04">{{ 'MENU_SECTION08_LINK04' | translate }}</a>
+        </dd>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m9}}" ng-click="m9=!m9">
+            <span ng-show="!m9">+</span><span ng-show="m9">-</span> {{ 'MENU_SECTION09_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m9 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m9">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s09_l01">{{ 'MENU_SECTION09_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s09_l02">{{ 'MENU_SECTION09_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s09_l03">{{ 'MENU_SECTION09_LINK03' | translate }}</a>
+        </dd>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s10_l01">{{ 'MENU_SECTION10_LINK01' | translate }}</a>
+
+        <dt tabindex="0" role="tab" aria-expanded="{{m11}}" ng-click="m11=!m11">
+            <span ng-show="!m11">+</span><span ng-show="m11">-</span> {{ 'MENU_SECTION11_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m11 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m11">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s11_l01">{{ 'MENU_SECTION11_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s11_l02">{{ 'MENU_SECTION11_LINK02' | translate }}</a>
+        </dd>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s12_l01">{{ 'MENU_SECTION12_LINK01' | translate }}</a>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s13_l01">{{ 'MENU_SECTION13_LINK01' | translate }}</a>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s14_l01">{{ 'MENU_SECTION14_LINK01' | translate }}</a>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s15_l01">{{ 'MENU_SECTION15_LINK01' | translate }}</a>
+
+        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s16_l01">{{ 'MENU_SECTION16_LINK01' | translate }}</a>
+
+    </dl>
