@@ -81,34 +81,6 @@ enableAppDirectives.directive('enableSectionHeader', function() {
 /**
  *
  * @ngdoc directive
- * @name enableYoutube
- * @scope true
- * @restrict AE
- * @param {string} vidid The id of the youtube video file.
- * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
- * @description
- * Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.
- *
- */
-enableAppDirectives.directive('enableYoutube', ['$sce', function($sce) {
-    return {
-        scope:{
-            vidid: '@',
-            cclang: '@'
-        },
-        restrict: 'AE',
-        replace: 'true',
-        templateUrl: 'partials/templates/video-youtube-template.html',
-        link: function(scope) {
-            scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vidid+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
-
-        }
-    };
-}]);
-
-/**
- *
- * @ngdoc directive
  * @name enableVideo
  * @scope true
  * @restrict AE
@@ -119,17 +91,29 @@ enableAppDirectives.directive('enableYoutube', ['$sce', function($sce) {
  *
  */
 enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
+
     return {
         scope:{
-            vidid: '@',
-            cclang: '@'
+            vididyt: '@',
+            vididlc: '@',
+            cclang: '@',
+            localmode: '@'
         },
         restrict: 'AE',
         replace: 'true',
-        templateUrl: 'partials/templates/video-local-template.html',
+        templateUrl: 'partials/templates/video-template.html',
+
         link: function(scope) {
-            scope.vidurl = $sce.trustAsResourceUrl("assets/vids/"+scope.vidid+".mp4");
-            scope.vidtrack = $sce.trustAsResourceUrl("assets/vids/"+scope.vidid+"_"+scope.cclang+".srt");
+
+            if(scope.localmode) {
+                scope.vidurl = $sce.trustAsResourceUrl("assets/vids/"+scope.vididlc+".mp4");
+                scope.vidtrack = $sce.trustAsResourceUrl("assets/vids/"+scope.vididlc+"_"+scope.cclang+".srt");
+                scope.poster = 'assets/pics/'+scope.vididlc+'__00_00_00_00.png';
+            }
+            else {
+                scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
+            }
+
 
         }
     };

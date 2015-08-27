@@ -68,15 +68,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "enableYoutube",
-      "shortName": "enableYoutube",
-      "type": "directive",
-      "moduleName": "enableYoutube",
-      "shortDescription": "Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.",
-      "keywords": "ae api cclang code creates current directive embedded enableyoutube file language load player portal provided subtitles true video vidid youtube"
-    },
-    {
-      "section": "api",
       "id": "HomeCtrl",
       "shortName": "HomeCtrl",
       "type": "controller",
