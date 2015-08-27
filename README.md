@@ -24,7 +24,7 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 
 ## Widgets
 
-### ENABLE-VIDEO
+### enable-video
 Add this element anywhere to create a quiz. Quiz questions are currently taken from quiz.json located at root level
 
 ```html
