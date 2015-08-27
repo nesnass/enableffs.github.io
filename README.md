@@ -57,10 +57,42 @@ Add this element anywhere to create an audioplayer.
 <enable-audio sndid="enable"></enable-audio>
 ```
 
-* sndid:    the filename of the sound/audio file. This requires that 2 audio files are created in the following formats:
+* sndid:    the filename of the sound/audio file. This requires that 3 audio files are created in the following formats:
 
 ```txt
 - enable.m4a
 - enable.mp3
 - enable.ogg
+```
+
+### enable-slideshow
+Add this element anywhere to create a slideshow.
+
+```html
+<enable-slideshow path="assets/pics/slideshows/slideshow1"></enable-slideshow>
+```
+
+* path:    the path to the slideshow folder, which must contain:
+
+```txt
+- a "init.json" file defining the slideshow
+- the pictures to be loaded by this slideshow
+```
+
+The "init.json" file should look like something like this
+
+```json
+[
+  {
+    "src": "picture1.jpg",
+    "text_en": "Picture 1",
+    "text_fr": "Image 1"
+  },
+  {
+      "src": "picture2.jpg",
+      "text_en": "Picture 2",
+      "text_fr": "Image 2"
+  },
+  ...
+]
 ```
