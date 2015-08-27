@@ -38,8 +38,13 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 
 * vididyt:      the string id of the matching youtube video
 * cclang:       the language code ('en', 'ks', etc) for loading the subtitles
-* localmode:    the mode for the player (local, remote). If 'true', it will load the local videos, if 'false' the youtube ones. NOTE: this value is set automatically by the web page, but you can overwrite it for testing
-
+* localmode:    the mode for the player (local, remote).
+ 
+```sh
+- localmode (default):  sets the mode based on automatic detection
+- true:                 local mode
+- false:                youtube mode
+```
 
 ```html
 <enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
