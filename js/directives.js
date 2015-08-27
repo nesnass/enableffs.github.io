@@ -64,7 +64,7 @@ enableAppDirectives.directive('autoActive', ['$location', '$timeout', function (
  * Directive that places a section header with a background picture, it alt text and the section title
  *
  */
-enableAppDirectives.directive('enableSectionHeader', function() {
+enableAppDirectives.directive('enableSectionHeader', ['$sce','$route', function($sce, $route) {
     return {
         scope:{
             picpath: '@',
@@ -73,10 +73,13 @@ enableAppDirectives.directive('enableSectionHeader', function() {
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/section-header-template.html'
-    };
-});
+        templateUrl: 'partials/templates/section-header-template.html',
 
+        link: function(scope) {
+            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picpath);
+        }
+    };
+}]);
 
 /**
  *
@@ -92,7 +95,7 @@ enableAppDirectives.directive('enableSectionHeader', function() {
  * Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.
  *
  */
-enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
+enableAppDirectives.directive('enableVideo', ['$sce','$route', function($sce, $route) {
 
     return {
         scope:{
@@ -108,9 +111,9 @@ enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
         link: function(scope) {
 
             if(scope.localmode) {
-                scope.vidurl = $sce.trustAsResourceUrl("assets/vids/"+scope.vididlc+".mp4");
-                scope.vidtrack = $sce.trustAsResourceUrl("assets/vids/"+scope.vididlc+"_"+scope.cclang+".srt");
-                scope.poster = 'assets/pics/'+scope.vididlc+'__00_00_00_00.png';
+                scope.vidurl = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/vids/'+scope.vididlc+'.mp4');
+                scope.vidtrack = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/vids/'+scope.vididlc+"_"+scope.cclang+'.srt');
+                scope.poster = 'partials/'+$route.current.params.level+'/media/pics/'+scope.vididlc+'__00_00_00_00.png';
             }
             else {
                 scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
@@ -132,7 +135,7 @@ enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
  * Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.
  *
  */
-enableAppDirectives.directive('enableAudio', ['$sce', function($sce) {
+enableAppDirectives.directive('enableAudio', ['$sce','$route', function($sce, $route) {
     return {
         scope:{
             sndid: '@'
@@ -141,11 +144,40 @@ enableAppDirectives.directive('enableAudio', ['$sce', function($sce) {
         replace: 'true',
         templateUrl: 'partials/templates/audio-local-template.html',
         link: function(scope) {
-            scope.audiourlm4a = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".m4a");
-            scope.audiourlogg = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".ogg");
+            scope.audiourlm4a = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.m4a');
+            scope.audiourlogg = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
         }
     };
 }]);
+
+
+/**
+ *
+ * @ngdoc directive
+ * @name enableImage
+ * @scope true
+ * @restrict AE
+ * @param {string} picname The name of the picture to insert (relative to the media folder where the section is loaded from)
+ * @param {string} picalt The alternative text for the picture to be read by screenreaders
+ * @description
+ * Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.
+ *
+ */
+enableAppDirectives.directive('enableImage', ['$sce','$route', function($sce, $route) {
+    return {
+        scope:{
+            picname: '@',
+            picalt: '@',
+        },
+        restrict: 'E',
+        replace: 'true',
+        template: '<img src="{{picsrc}}" width="100%" alt="{{picalt}}">',
+        link: function(scope) {
+            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picpath);
+        }
+    };
+}]);
+
 
 /**
  *
@@ -159,18 +191,24 @@ enableAppDirectives.directive('enableAudio', ['$sce', function($sce) {
  * The template then loads the pictures and texts specified in that config file and creates a self-contained slideshow
  *
  */
-enableAppDirectives.directive('enableSlideshow', ['$http', function($http) {
+enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($http, $route) {
     return {
+        scope:{
+            path: '@'
+        },
         restrict: 'E',
         replace: 'true',
         templateUrl: 'partials/templates/slideshow-template.html',
+
         link: function(scope, elem, attrs) {
             scope.currentIndex = 0; // Initially the index is at the first image
             scope.images = [];
 
-            $http.get(attrs.path+'/init.json').then(function(res) {
+            scope.abspath = 'partials/'+$route.current.params.level+'/media/pics/slideshows/'+scope.path;
+
+            $http.get(scope.abspath+'/init.json').then(function(res) {
                 res.data.forEach(function (slide) {
-                    slide.src = attrs.path+"/"+slide.src;
+                    slide.src = scope.abspath+"/"+slide.src;
                     slide.text = slide["text_"+localStorage.lang];
                     scope.images.push(slide);
                 });
