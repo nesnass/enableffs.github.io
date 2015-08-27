@@ -31,7 +31,7 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 <enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
 ```
 
-* vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles)
+* vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles), see exmaple below:
 
 ```txt
 - vididlc:            enable-1000
@@ -42,11 +42,11 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 
 * vididyt:      the string id of the matching youtube video
 * cclang:       the language code ('en', 'ks', etc) for loading the subtitles
-* localmode:    the mode for the player (local, remote).
+* localmode:    the mode for the player (local, remote), see example below
  
 ```txt
-- localmode (default):  sets the mode based on automatic detection
-- true:                 local mode
-- false:                youtube mode
+- localmode="localmode":    sets the mode based on automatic detection (default)
+- localmode="true":         local mode
+- localmode="false":        youtube mode
 ```
 
