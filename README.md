@@ -85,14 +85,13 @@ The "init.json" file should look like something like this
 [
   {
     "src": "picture1.jpg",
-    "text_en": "Picture 1",
+    "text_en": "Picture 1 ",
     "text_fr": "Image 1"
   },
   {
       "src": "picture2.jpg",
       "text_en": "Picture 2",
       "text_fr": "Image 2"
-  },
-  ...
+  }
 ]
 ```
