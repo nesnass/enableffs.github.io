@@ -1,17 +1,13 @@
 <meta name="categories" content="">
 <div ng-controller="VisionCtrl" layout="column" class="partial">
-    <section layout="column" aria-label="Inclusion of learners with visual impairment">
-        <div class="backgroundPictureSection" layout="column" layout-align="end start" ng-style="{'background-image': 'url(../assets/pics/africa01.jpg)'}">
-            <div class="sectionBanner" layout="row" layout-padding>
-                <span class="screenReadersOnly">Banner image description comes here</span>
-                <div>
-                    <h2>Introduction</h2>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <enable-section-header picpath="../assets/pics/africa01.jpg" picalt="Inclusion of learners with visual impairment" title="Introduction"></enable-section-header>
+
     <div layout-padding layout="column" class="partialContent">
         C'est une introduction fantastique
+
+
+
     </div>
 
     <div ng-include src="'partials/templates/footer-template.html'"></div>

@@ -8,7 +8,6 @@
 
 var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppDirectives']);
 
-enableApp.value('duScrollDuration', 1000);
 
 /**
  *
@@ -19,6 +18,7 @@ enableApp.value('duScrollDuration', 1000);
  **/
 enableApp.config(['$routeProvider', function($routeProvider) {
 
+        //set english as the default language if another one doesn't exist from the session's localstorage
         if(localStorage.lang === undefined) {
             localStorage.lang = 'en';
         }
@@ -52,15 +52,16 @@ enableApp.config(['$routeProvider', function($routeProvider) {
  * In HTML, translation is obtained by using {{'KEY' | translate}}, where 'KEY' corresponds to a language key defined in the JSON files.
  *
  **/
-enableApp.config(['$translateProvider',
-    function($translateProvider) {
-        $translateProvider.useSanitizeValueStrategy('escaped');
-        $translateProvider.useStaticFilesLoader({
+enableApp.config(['$translateProvider', function($translateProvider) {
+
+    $translateProvider.useSanitizeValueStrategy('escaped');
+    $translateProvider.useStaticFilesLoader({
             prefix: 'languages/',
             suffix: '.json'
-        });
-        $translateProvider.preferredLanguage(localStorage.lang);
-    }]);
+    });
+    $translateProvider.preferredLanguage(localStorage.lang);
+
+}]);
 
 /**
  *
@@ -69,10 +70,12 @@ enableApp.config(['$translateProvider',
  * The color palette defined will affect all google-material components, i.e. toolbars, buttons, etc
  *
  **/
-enableApp.config(['$mdThemingProvider',
-    function($mdThemingProvider) {
-        $mdThemingProvider.theme('default').primaryPalette('amber');
-    }]);
+enableApp.config(['$mdThemingProvider', function($mdThemingProvider) {
+
+    $mdThemingProvider.theme('default').primaryPalette('amber');
+
+}]);
+
 
 /**
  *
@@ -81,27 +84,11 @@ enableApp.config(['$mdThemingProvider',
  * This is essentially to help accessibility
  *
  **/
-enableApp.run(['$location', '$rootScope', function($location, $rootScope) {
+enableApp.run(['$rootScope', function($rootScope) {
 
-    /*$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        // test for current route
-        if(current.params) {
-            // store current path
-            currentURL = current.params.page;
-            $rootScope.ishome = false;
-            // Set current page title
-            switch(currentURL) {
-                case 'home':
-                    $rootScope.ishome = true;
-                    break;
-            }
-        }
-    });*/
-
+    //when the view is finished loaded, focus on the top
     $rootScope.$on('$viewContentLoaded', function () {
-
         var myEl = angular.element( document.querySelector( '#scrollContainer' ) );
         myEl.focus();
-
     });
 }]);

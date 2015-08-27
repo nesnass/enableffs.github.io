@@ -10,7 +10,7 @@ var enableAppControllers = angular.module('EnableAppControllers', []);
  * Controller for the default page: index.html
  *
  */
-enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $location, $mdSidenav, $translate, $route, $http) {
+enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$location', '$mdSidenav', '$translate', '$route', '$http', function ($q, $scope, $rootScope, $location, $mdSidenav, $translate, $route, $http) {
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
@@ -27,6 +27,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
         $scope.searchEnabled = true;
 
         $scope.$on('pageNavigationEvent', function(event, data) {
+            //controls which menu template is included in the sidenav
             $scope.showVision = false;
             $scope.showHearing = false;
             $scope.showCombined = false;
@@ -220,6 +221,8 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
                 $scope.localmode = true;
             }
 
+            console.log('--> running in localmode: '+$scope.localmode);
+
             var tagsResult;
             $scope.loadSearchTags().then(function(result) {
                 tagsResult = result;
@@ -274,7 +277,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
         }
 
         initMenuController();
-    }
+    }]
 );
 
 
@@ -286,7 +289,7 @@ enableAppControllers.controller("MenuCtrl", function ($q, $scope, $rootScope, $l
  * Controller
  *
  */
-enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope) {
+enableAppControllers.controller("HomeCtrl", ['$rootScope', '$scope', function ($rootScope, $scope) {
 
         console.log('--> home started');
 
@@ -294,7 +297,7 @@ enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope) {
 
         $rootScope.roottitle = "Enable home page";
 
-    }
+    }]
 );
 
 
@@ -306,7 +309,7 @@ enableAppControllers.controller("HomeCtrl", function ($rootScope, $scope) {
  * Controller for the search page: search.html
  *
  */
-enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $location, $routeParams) {
+enableAppControllers.controller("SearchCtrl", ['$scope', '$rootScope', '$location', '$routeParams', function ($scope, $rootScope, $location, $routeParams) {
         console.log('--> search started with parameter: '+$routeParams.s+' - '+$scope.searchText);
 
         $scope.$emit('pageNavigationEvent', 'search');
@@ -366,7 +369,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
             }
         };
 
-    }
+    }]
 );
 
 /**
@@ -377,7 +380,7 @@ enableAppControllers.controller("SearchCtrl", function ($scope, $rootScope, $loc
  * Controller
  *
  */
-enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+enableAppControllers.controller("VisionCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
         console.log('--> vision started');
 
         $scope.$emit('pageNavigationEvent', 'vision');
@@ -407,7 +410,7 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
         };
 
 
-    }
+    }]
 );
 
 
@@ -420,10 +423,10 @@ enableAppControllers.controller("VisionCtrl", function ($scope, $rootScope, $tim
  * Controller
  *
  */
-enableAppControllers.controller("AdvCtrl", function ($rootScope) {
+enableAppControllers.controller("AdvCtrl", ['$rootScope', function ($rootScope) {
 
         console.log('--> adv started');
 
         $rootScope.roottitle = "Enable advanced page";
-    }
+    }]
 );

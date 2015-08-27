@@ -9,13 +9,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Full Screen">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
 
     <title ng-bind="roottitle">Enable portal</title>
 
     <!-- Styles -->
+    <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
+    <link rel="icon" href="img/favicon.ico">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="css/styles.css">
 
@@ -37,6 +37,7 @@
 
 <body ng-controller="MenuCtrl">
 
+    <!-- START navigation menu -->
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="!menuOpen" layout="column" flex>
         <md-toolbar>
             <div class="md-toolbar-tools" tabindex="-1">
@@ -61,17 +62,19 @@
         </md-content>
 
         <div style="width: 100%" layout="horizontal">
-            <md-button flex ng-disabled="getLangButtonState('en')" aria-label="Set language to english" class="md-raised md-primary" ng-click="setLang('en')">
+            <md-button flex ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="md-raised md-primary" ng-click="setLang('en')">
                 EN
             </md-button>
-            <md-button flex ng-disabled="getLangButtonState('fr')" aria-label="Traduire le site en francais" class="md-raised md-primary" ng-click="setLang('fr')">
+            <md-button flex ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="md-raised md-primary" ng-click="setLang('fr')">
                 FR
             </md-button>
         </div>
-
     </md-sidenav>
+    <!-- END navigation menu -->
 
+    <!-- START main content -->
     <div layout="column" style="height: 100%" tabindex="-1" role="main">
+        <!-- START header and serach bar -->
         <md-toolbar layout-gt-sm="row" layout="column" layout-align="end center">
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
             <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
@@ -88,10 +91,10 @@
                     Enable - Sensory impairement in africa
                 </div>
                 <div layout="row" layout-align="center center">
-                    <md-button ng-disabled="getLangButtonState('en')" aria-label="Set language to english" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
+                    <md-button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
                         EN
                     </md-button>
-                    <md-button ng-disabled="getLangButtonState('fr')" aria-label="Traduire le site en francais" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
+                    <md-button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
                         FR
                     </md-button>
                 </div>
@@ -120,9 +123,14 @@
                 </md-content>
             </div>
         </md-toolbar>
+        <!-- END header and serach bar -->
 
+        <!-- START sections content (vision, hearing, combined) -->
         <md-content id="scrollContainer" ng-view flex></md-content>
-    </div>
-</body>
+        <!-- END sections content (vision, hearing, combined) -->
 
+    </div>
+    <!-- END main content -->
+
+</body>
 </html>

@@ -4,6 +4,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-ng-annotate');
 
     grunt.initConfig({
         clean: ['docs'],
@@ -35,8 +36,23 @@ module.exports = function (grunt) {
             },
             myFiles: ['js/*.js']
         },
+
+        ngAnnotate: {
+            options: {
+                singleQuotes: true,
+            },
+            src: {
+                files: {
+                    'js/clientapp.js': ['js/clientapp.js'],
+                    'js/controllers.js': ['js/controllers.js'],
+                    'js/factories.js': ['js/factories.js'],
+                    'js/directives.js': ['js/directives.js'],
+                },
+            }
+        },
+
     });
 
-    grunt.registerTask('default', ['clean', 'ngdocs', 'shell:createSearchDictionary', 'jshint:myFiles']);
+    grunt.registerTask('default', ['clean', 'ngdocs', 'shell:createSearchDictionary', 'jshint:myFiles', 'ngAnnotate:src']);
 
 };

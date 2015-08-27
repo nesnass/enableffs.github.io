@@ -90,7 +90,7 @@ enableAppDirectives.directive('enableSectionHeader', function() {
  * Directive that creates a embedded youtube player with the video id provided and the language for the subtitles.
  *
  */
-enableAppDirectives.directive('enableYoutube', function($sce) {
+enableAppDirectives.directive('enableYoutube', ['$sce', function($sce) {
     return {
         scope:{
             vidid: '@',
@@ -104,7 +104,7 @@ enableAppDirectives.directive('enableYoutube', function($sce) {
 
         }
     };
-});
+}]);
 
 /**
  *
@@ -118,7 +118,7 @@ enableAppDirectives.directive('enableYoutube', function($sce) {
  * Directive that creates a local video player with the video id provided and the language for the subtitles.
  *
  */
-enableAppDirectives.directive('enableVideo', function($sce) {
+enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
     return {
         scope:{
             vidid: '@',
@@ -133,7 +133,7 @@ enableAppDirectives.directive('enableVideo', function($sce) {
 
         }
     };
-});
+}]);
 
 /**
  *
@@ -146,7 +146,7 @@ enableAppDirectives.directive('enableVideo', function($sce) {
  * Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.
  *
  */
-enableAppDirectives.directive('enableAudio', function($sce) {
+enableAppDirectives.directive('enableAudio', ['$sce', function($sce) {
     return {
         scope:{
             sndid: '@'
@@ -159,7 +159,7 @@ enableAppDirectives.directive('enableAudio', function($sce) {
             scope.audiourlogg = $sce.trustAsResourceUrl("assets/snds/"+scope.sndid+".ogg");
         }
     };
-});
+}]);
 
 /**
  *
@@ -173,7 +173,7 @@ enableAppDirectives.directive('enableAudio', function($sce) {
  * The template then loads the pictures and texts specified in that config file and creates a self-contained slideshow
  *
  */
-enableAppDirectives.directive('enableSlideshow', function($http) {
+enableAppDirectives.directive('enableSlideshow', ['$http', function($http) {
     return {
         restrict: 'E',
         replace: 'true',
@@ -224,4 +224,4 @@ enableAppDirectives.directive('enableSlideshow', function($http) {
 
         }
     };
-});
+}]);
