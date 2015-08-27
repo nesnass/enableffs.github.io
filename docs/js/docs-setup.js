@@ -63,8 +63,8 @@ NG_DOCS={
       "shortName": "enableVideo",
       "type": "directive",
       "moduleName": "enableVideo",
-      "shortDescription": "Directive that creates a local video player with the video id provided and the language for the subtitles.",
-      "keywords": "ae api cclang code creates current directive enablevideo file image language load local player portal poster provided subtitles true video vidid"
+      "shortDescription": "Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.",
+      "keywords": "ae api attached based bring cc cclang code creates current directive enablevideo false file image inserted language load local localmode mode paramter player portal poster provided subtitles true video videos vididlc vididyt youtube"
     },
     {
       "section": "api",
