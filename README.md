@@ -40,7 +40,7 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 * cclang:       the language code ('en', 'ks', etc) for loading the subtitles
 * localmode:    the mode for the player (local, remote).
  
-```sh
+```txt
 - localmode (default):  sets the mode based on automatic detection
 - true:                 local mode
 - false:                youtube mode
