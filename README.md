@@ -24,4 +24,20 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 
 ## Widgets
 
-### ENABLE_VIDEO
+### ENABLE-VIDEO
+Add this element anywhere to create a quiz. Quiz questions are currently taken from quiz.json located at root level
+
+* vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles)
+    For ex:
+        vididlc:            enable-1000
+        video filename:     enable-1000.mp4
+        video poster:       enable-1000__00_00_00_00.png
+        video subtitles:    enable-1000_{CCLANG}.srt 
+* vididyt:      the string id of the matching youtube video
+* cclang:       the language code ('en', 'ks', etc) for loading the subtitles
+* localmode:    the mode for the player (local, remote). If 'true', it will load the local videos, if 'false' the youtube ones. NOTE: this value is set automatically by the web page, but you can overwrite it for testing
+
+
+```html
+<enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
+```
