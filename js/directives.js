@@ -200,7 +200,7 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
         replace: 'true',
         templateUrl: 'partials/templates/slideshow-template.html',
 
-        link: function(scope, elem, attrs) {
+        link: function(scope) {
             scope.currentIndex = 0; // Initially the index is at the first image
             scope.images = [];
 
