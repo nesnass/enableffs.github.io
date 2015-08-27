@@ -29,7 +29,7 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 
 * vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles)
 
-```sh
+```txt
 - vididlc:            enable-1000
 - video filename:     enable-1000.mp4
 - video poster:       enable-1000__00_00_00_00.png
