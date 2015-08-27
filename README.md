@@ -24,6 +24,18 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 
 ## Widgets
 
+### enable-section-header
+Add this element anywhere to create a header for a section. This includes a background picture and an overlay section title, all accessible.
+
+```html
+<enable-section-header picpath="../assets/pics/africa01.jpg" picalt="Inclusion of learners with visual impairment" title="Introduction"></enable-section-header>
+```
+
+* picpath:  The relative path of the image to be used as a background for the section header
+* picalt:   The alternative text to be read by screenreaders when accessing the picture above
+* title:    The title of the section to be displayed in the overlay
+
+
 ### enable-video
 Add this element anywhere to create a videoplayer.
 
