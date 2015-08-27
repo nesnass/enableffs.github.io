@@ -28,11 +28,13 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 Add this element anywhere to create a quiz. Quiz questions are currently taken from quiz.json located at root level
 
 * vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles)
-> For ex:
+
+```sh
 - vididlc:            enable-1000
 - video filename:     enable-1000.mp4
 - video poster:       enable-1000__00_00_00_00.png
 - video subtitles:    enable-1000_{CCLANG}.srt 
+```
 
 * vididyt:      the string id of the matching youtube video
 * cclang:       the language code ('en', 'ks', etc) for loading the subtitles
