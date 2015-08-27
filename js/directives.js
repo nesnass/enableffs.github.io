@@ -105,12 +105,17 @@ enableAppDirectives.directive('enableVideo', ['$sce', function($sce) {
 
         link: function(scope) {
 
-            if(scope.localmode) {
+
+
+
+            if(scope.localmode === 'true') {
+                scope.lm = true;
                 scope.vidurl = $sce.trustAsResourceUrl("assets/vids/"+scope.vididlc+".mp4");
                 scope.vidtrack = $sce.trustAsResourceUrl("assets/vids/"+scope.vididlc+"_"+scope.cclang+".srt");
                 scope.poster = 'assets/pics/'+scope.vididlc+'__00_00_00_00.png';
             }
             else {
+                scope.lm = false;
                 scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
             }
 
