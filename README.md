@@ -25,7 +25,7 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 ## Widgets
 
 ### enable-video
-Add this element anywhere to create a quiz. Quiz questions are currently taken from quiz.json located at root level
+Add this element anywhere to create a videoplayer.
 
 ```html
 <enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
@@ -50,3 +50,17 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 - localmode="false":        youtube mode
 ```
 
+### enable-audio
+Add this element anywhere to create an audioplayer.
+
+```html
+<enable-audio sndid="enable"></enable-audio>
+```
+
+* sndid:    the filename of the sound/audio file. This requires that 2 audio files are created in the following formats:
+
+```txt
+- enable.m4a
+- enable.mp3
+- enable.ogg
+```
