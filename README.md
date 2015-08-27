@@ -27,6 +27,10 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 ### ENABLE-VIDEO
 Add this element anywhere to create a quiz. Quiz questions are currently taken from quiz.json located at root level
 
+```html
+<enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
+```
+
 * vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles)
 
 ```txt
@@ -46,6 +50,3 @@ Add this element anywhere to create a quiz. Quiz questions are currently taken f
 - false:                youtube mode
 ```
 
-```html
-<enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
-```
