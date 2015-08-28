@@ -28,7 +28,7 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 Add this element anywhere to create a header for a section. This includes a background picture and an overlay section title, all accessible.
 
 ```html
-<enable-section-header picpath="../assets/pics/africa01.jpg" picalt="Inclusion of learners with visual impairment" title="Introduction"></enable-section-header>
+<enable-section-header picpath="partials/vision/media/pics/africa01.jpg" picalt="Inclusion of learners with visual impairment" title="Introduction"></enable-section-header>
 ```
 
 * picpath:  The relative path of the image to be used as a background for the section header
@@ -77,11 +77,22 @@ Add this element anywhere to create an audioplayer.
 - enable.ogg
 ```
 
+### enable-image
+Add this element anywhere to create an audioplayer.
+
+```html
+<enable-image picname="africa02.jpg" picalt="Description of the picture comes here"></enable-image>
+```
+
+* picname:   the name of the picture to insert (relative to the media folder where the section is loaded from). this must include picture extension (.jpg, .gif, .png)
+* picalt:    the alternative text for the picture to be read by screenreaders
+
+
 ### enable-slideshow
 Add this element anywhere to create a slideshow.
 
 ```html
-<enable-slideshow path="assets/pics/slideshows/slideshow1"></enable-slideshow>
+<enable-slideshow path="partials/vision/media/pics/slideshows/slideshow1"></enable-slideshow>
 ```
 
 * path:    the path to the slideshow folder, which must contain:
