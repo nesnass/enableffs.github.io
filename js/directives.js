@@ -173,7 +173,7 @@ enableAppDirectives.directive('enableImage', ['$sce','$route', function($sce, $r
         replace: 'true',
         template: '<img src="{{picsrc}}" width="100%" alt="{{picalt}}">',
         link: function(scope) {
-            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picpath);
+            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picname);
         }
     };
 }]);
