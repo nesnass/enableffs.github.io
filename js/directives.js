@@ -249,3 +249,44 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
         }
     };
 }]);
+
+
+/**
+ *
+ * @ngdoc directive
+ * @name enableMoreButton
+ * @scope true
+ * @restrict AE
+ * @description
+ * Directive that creates an expandable more button
+ *
+ */
+enableAppDirectives.directive('enableMoreButton', ['EnableAppUtils', function(EnableAppUtils) {
+    return {
+        scope:{
+
+        },
+        restrict: 'E',
+        replace: 'true',
+        transclude: 'true',
+        templateUrl: 'partials/templates/more-button-template.html',
+        link: function(scope, element) {
+            var dsid = EnableAppUtils.getRandomUUID();
+            var el = element;
+            scope[dsid] = false;
+
+            scope.isOpen = function() {
+                if(scope[dsid] === false) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            };
+
+            scope.toggleOpen = function() {
+                scope[dsid] = !scope[dsid];
+            };
+        }
+    };
+}]);

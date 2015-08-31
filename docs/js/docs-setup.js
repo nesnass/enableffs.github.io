@@ -32,6 +32,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "EnableAppUtils",
+      "shortName": "EnableAppUtils",
+      "type": "service",
+      "moduleName": "EnableAppUtils",
+      "shortDescription": "Directive that provides site-wide utility functions",
+      "keywords": "api directive enableapputils functions service site-wide utility"
+    },
+    {
+      "section": "api",
       "id": "enableAudio",
       "shortName": "enableAudio",
       "type": "directive",
@@ -47,6 +56,15 @@ NG_DOCS={
       "moduleName": "enableImage",
       "shortDescription": "Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.",
       "keywords": "ae alternative api audio creates directive enableimage expects folder formats insert loaded m4a media ogg picalt picname picture player provide provided read screenreaders sounds text tracks true"
+    },
+    {
+      "section": "api",
+      "id": "enableMoreButton",
+      "shortName": "enableMoreButton",
+      "type": "directive",
+      "moduleName": "enableMoreButton",
+      "shortDescription": "Directive that creates an expandable more button",
+      "keywords": "ae api button creates directive enablemorebutton expandable true"
     },
     {
       "section": "api",
