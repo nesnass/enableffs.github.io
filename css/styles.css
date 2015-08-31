@@ -270,6 +270,152 @@ h2 {
 }
 
 
+/* ================================================================== */
+
+/*  This area is currently under testing for styling Enable content August 2015 */
+
+/* ------- Custom icons at front of lists ------------ */
+ul.ticklist, ol.ticklist {
+    list-style-image: url('views/icons/widgets/checklist/checkmark-thick.svg');
+}
+ul.dashlist, ol.dashlist {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+ul.dashlist li, ol.dashlist li {
+    padding-left: 5px;
+    /*text-indent: -1em;*/
+}
+ul.dashlist li:before, ol.dashlist li:before {
+    /*content: "—"; *//* Long dash char */
+    content: "-";       /* short dash char */
+    padding-right: 10px;
+}
+
+/* -------------- Section detail is formatting for all content text ----------- */
+.partialContent {
+    /*margin-top:-10px;*/
+    font-family:"HelveticaNeueW01-45Ligh", "Arial", sans-serif;
+    color: black;
+}
+.partialContent html {
+    margin: auto;
+}
+.partialContent strong, .hmsfooter strong {
+    font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
+    font-weight: normal !important;
+}
+.partialContent ul, .partialContent ol {
+    margin: -0.5em 0 0.5em;
+    padding-left: 20px;
+}
+.partialContent li {
+    line-height: 1.55em;
+    font-size: 1.1em;
+}
+
+.partialContent table {
+    width:100%;
+}
+.partialContent table, .partialContent th, .partialContent td {
+    border-collapse: collapse;
+}
+.partialContent th, .partialContent td {
+    padding: 5px;
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-left: none;
+}
+.partialContent td {
+    border-right: 1px solid black;
+}
+.partialContent th	{
+    /* font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif; */
+}
+.partialContent td:first-child {
+    /*   font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif; */
+}
+.partialContent td:last-child {
+    border-right: none;
+}
+.partialContent h2 {
+    font-family:"HelveticaNeueW01-45Ligh", "Arial", sans-serif;
+    font-size: 1.65em;
+    font-weight: normal !important;
+    margin: 0.33em 0 0.66em;
+    line-height: 1.25em;
+}
+.partialContent h3 {
+    font-family:"HelveticaNeueW01-45Ligh", "Arial", sans-serif;
+    font-size: 1.65em;
+    font-weight: normal !important;
+    margin: 1.2em 0 0.66em;
+    line-height: 1.25em;
+}
+.partialContent h4 {
+    font-weight: normal !important;
+    font-size: 1.4em;
+    margin: 0.9em 0 0.3em;
+}
+.partialContent h5 {
+    text-transform: none;
+    margin: 1em 0 0;
+    line-height: 1.35em;
+    font-size: 1.1em;
+    font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
+    font-weight: normal !important;
+}
+.partialContent p {
+    line-height: 1.55em;
+    font-size: 1.1em;
+    margin: 0 0 1em;
+}
+.partialContent a:link {
+    color: black;
+    text-decoration: none;
+}
+.partialContent .hmsquiz a:link {
+    text-decoration: underline;
+}
+.partialContent a.md-button {
+    border-radius: 0;
+}
+.partialContent a:visited {
+    color: black;
+    text-decoration: none;
+}
+.partialContent a:hover {
+    color: rgb(63,81,181);
+    text-decoration: none;
+}
+.slideable_content > img {
+    max-width: 100%;
+    margin: 0 0 1em;
+}
+.partialContent h2+ul, .partialContent h3+ul, .partialContent h4+ul, .partialContent h5+ul, .partialContent h6+ul {
+    line-height: 1.55em;
+    font-size: 1.1em;
+    margin: 0 0 1em;
+}
+.partialContent_open {
+    padding: 50px 30% 50px 7%;
+}
+.partialContent_closed {
+    padding: 0;
+}
+
+
+/* Directives */
+
+.enablegreybox {
+    background-color: #f5f5f5;
+    padding: 15px;
+    font-family: "HelveticaNeueW01-55Roma", Arial, sans-serif;
+}
+
+/* ==================================================================== */
+
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
 

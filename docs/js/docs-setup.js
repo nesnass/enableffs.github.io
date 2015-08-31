@@ -50,6 +50,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enablegreybox",
+      "shortName": "enablegreybox",
+      "type": "directive",
+      "moduleName": "enablegreybox",
+      "shortDescription": "Add this attribute to make &#39;grey box&#39; element.",
+      "keywords": "add api attribute box content create directive element enablegreybox funfact g-type grey icon type warning"
+    },
+    {
+      "section": "api",
       "id": "enableImage",
       "shortName": "enableImage",
       "type": "directive",
