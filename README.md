@@ -118,3 +118,13 @@ The "init.json" file should look like something like this
   }
 ]
 ```
+
+
+### enable-read-more
+Add this element anywhere to create a "read-more" expandable section.
+
+```html
+<enable-read-more>THE HIDDEN TEXT</enable-read-more>
+```
+
+This will show a large "read more" button, which, once clicked, will reveal/hide the hidden text.

@@ -1,0 +1,12 @@
+<div>
+    <!-- template for directive 'enableMoreButton' -->
+    <md-button class="expandButton" ng-click="toggleOpen()" aria-label="{{'BASIC_SECTION1_MORE_BUTTON' | translate}}">
+        <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_less_48px.svg" aria-hidden="true" ng-show="isOpen()"></md-icon>
+        <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="!isOpen()"></md-icon>
+        Learn more ...
+    </md-button>
+
+    <div class="more" ng-show="isOpen()">
+        <div ng-transclude></div>
+    </div>
+</div>

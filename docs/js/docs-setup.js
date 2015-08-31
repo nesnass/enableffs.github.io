@@ -32,6 +32,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "EnableAppUtils",
+      "shortName": "EnableAppUtils",
+      "type": "service",
+      "moduleName": "EnableAppUtils",
+      "shortDescription": "Directive that provides site-wide utility functions",
+      "keywords": "api directive enableapputils functions service site-wide utility"
+    },
+    {
+      "section": "api",
       "id": "enableAudio",
       "shortName": "enableAudio",
       "type": "directive",
@@ -59,12 +68,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "enableQuiz",
-      "shortName": "enableQuiz",
+      "id": "enableMoreButton",
+      "shortName": "enableMoreButton",
       "type": "directive",
-      "moduleName": "enableQuiz",
-      "shortDescription": "Add this element anywhere to create a quiz. Quiz questions are taken from database using the &#39;h-id&#39;.",
-      "keywords": "add api create database directive e-id e-shuffle-questions element enablequiz false h-id match questions quiz shuffle time true"
+      "moduleName": "enableMoreButton",
+      "shortDescription": "Directive that creates an expandable read more section, with the text wrapped in",
+      "keywords": "ae api creates directive enablemorebutton expandable read text true wrapped"
     },
     {
       "section": "api",

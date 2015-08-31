@@ -45,8 +45,8 @@ module.exports = function (grunt) {
                 files: {
                     'js/clientapp.js': ['js/clientapp.js'],
                     'js/controllers.js': ['js/controllers.js'],
-                    'js/factories.js': ['js/factories.js'],
                     'js/directives.js': ['js/directives.js'],
+                    'js/utils.js': ['js/utils.js'],
                 },
             }
         },
