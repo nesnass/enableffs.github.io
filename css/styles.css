@@ -1,5 +1,32 @@
 @import url(//fonts.googleapis.com/css?family=RobotoDraft&lang=en);
 
+
+@font-face{
+    font-family:"HelveticaNeueW01-UltLt";
+    src:url("fonts/673365/41774233-b9da-44be-b252-6a7b612fb1c7.eot?#iefix");
+    src:url("fonts/673365/41774233-b9da-44be-b252-6a7b612fb1c7.eot?#iefix") format("eot"),url("fonts/673365/9baef9a5-e2af-4838-a3bc-da9d36c0bde8.woff2") format("woff2"),url("fonts/673365/4bff1fbb-b4bf-4d95-9c47-efcb14384e36.woff") format("woff"),url("fonts/673365/7f1f2a7d-3837-4c93-b373-f03c5da3f9a1.ttf") format("truetype"),url("fonts/673365/d9f2752a-8d82-4cf1-b82f-109c1105be7f.svg#d9f2752a-8d82-4cf1-b82f-109c1105be7f") format("svg");
+}
+@font-face{
+    font-family:"HelveticaNeueW01-Thin";
+    src:url("fonts/673377/56be84de-9d60-4089-8df0-0ea6ec786b84.eot?#iefix");
+    src:url("fonts/673377/56be84de-9d60-4089-8df0-0ea6ec786b84.eot?#iefix") format("eot"),url("fonts/673377/aff68211-86bb-476d-882e-f7a3face144c.woff2") format("woff2"),url("fonts/673377/50d35bbc-dfd4-48f1-af16-cf058f69421d.woff") format("woff"),url("fonts/673377/278bef59-6be1-4800-b5ac-1f769ab47430.ttf") format("truetype"),url("fonts/673377/2e309b1b-08b8-477f-bc9e-7067cf0af0b3.svg#2e309b1b-08b8-477f-bc9e-7067cf0af0b3") format("svg");
+}
+@font-face{
+    font-family:"HelveticaNeueW01-45Ligh";
+    src:url("fonts/692680/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix");
+    src:url("fonts/692680/ae1656aa-5f8f-4905-aed0-93e667bd6e4a.eot?#iefix") format("eot"),url("fonts/692680/5a13f7d1-b615-418e-bc3a-525001b9a671.woff2") format("woff2"),url("fonts/692680/530dee22-e3c1-4e9f-bf62-c31d510d9656.woff") format("woff"),url("fonts/692680/688ab72b-4deb-4e15-a088-89166978d469.ttf") format("truetype"),url("fonts/692680/7816f72f-f47e-4715-8cd7-960e3723846a.svg#7816f72f-f47e-4715-8cd7-960e3723846a") format("svg");
+}
+@font-face{
+    font-family:"HelveticaNeueW01-55Roma";
+    src:url("fonts/692692/b7693a83-b861-4aa6-85e0-9ecf676bc4d6.eot?#iefix");
+    src:url("fonts/692692/b7693a83-b861-4aa6-85e0-9ecf676bc4d6.eot?#iefix") format("eot"),url("fonts/692692/b0868b4c-234e-47d3-bc59-41ab9de3c0db.woff2") format("woff2"),url("fonts/692692/bcf54343-d033-41ee-bbd7-2b77df3fe7ba.woff") format("woff"),url("fonts/692692/b0ffdcf0-26da-47fd-8485-20e4a40d4b7d.ttf") format("truetype"),url("fonts/692692/da09f1f1-062a-45af-86e1-2bbdb3dd94f9.svg#da09f1f1-062a-45af-86e1-2bbdb3dd94f9") format("svg");
+}
+@font-face{
+    font-family:"HelveticaNeueW01-75Bold";
+    src:url("fonts/692716/c07fef9e-a934-42d7-92ad-69205f2b8a00.eot?#iefix");
+    src:url("fonts/692716/c07fef9e-a934-42d7-92ad-69205f2b8a00.eot?#iefix") format("eot"),url("fonts/692716/3b303641-706e-4221-94c4-4fb491f4f8ef.woff2") format("woff2"),url("fonts/692716/14ff6081-326d-4dae-b778-d7afa66166fc.woff") format("woff"),url("fonts/692716/8fda1e47-19be-46c7-8d83-8d4fb35572f0.ttf") format("truetype"),url("fonts/692716/f751c8ae-1057-46d9-8d74-62592e002568.svg#f751c8ae-1057-46d9-8d74-62592e002568") format("svg");
+}
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -261,7 +288,7 @@ h2 {
 
 .level03-toc li {
     list-style: none;
-    padding-top: 10x;
+    padding-top: 10px;
     padding-bottom: 10px;
 }
 
@@ -275,9 +302,7 @@ h2 {
 /*  This area is currently under testing for styling Enable content August 2015 */
 
 /* ------- Custom icons at front of lists ------------ */
-ul.ticklist, ol.ticklist {
-    list-style-image: url('views/icons/widgets/checklist/checkmark-thick.svg');
-}
+
 ul.dashlist, ol.dashlist {
     list-style: none;
     margin-left: 0;
@@ -408,10 +433,21 @@ ul.dashlist li:before, ol.dashlist li:before {
 
 /* Directives */
 
+.border {
+    border-style: solid none;
+    border-top: thin solid lightgrey;
+    border-bottom: thin solid lightgrey;
+}
+
 .enablegreybox {
     background-color: #f5f5f5;
     padding: 15px;
     font-family: "HelveticaNeueW01-55Roma", Arial, sans-serif;
+}
+
+.enablequickquestion {
+    padding: 10px 0 10px;
+    cursor: pointer;
 }
 
 /* ==================================================================== */

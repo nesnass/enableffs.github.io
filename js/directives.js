@@ -298,7 +298,7 @@ enableAppDirectives.directive('enableReadMore', [function() {
  *  * g-type:   The type of box to create: '' (no icon) 'warning', or 'funfact'
  * <pre><div enable-greybox g-type='warning'> This is the grey box content </div></pre>
  */
-enableAppDirectives.directive("enableGreybox", function() {
+enableAppDirectives.directive("enableGreyBox", function() {
         var linker = function(scope) {
             scope.icon = "";
             if(scope.eType) {
@@ -317,12 +317,42 @@ enableAppDirectives.directive("enableGreybox", function() {
             }
         };
         return {
-            templateUrl: "partials/templates/enablegreybox.html",
+            templateUrl: "partials/templates/enable-greybox-template.html",
             link: linker,
-            restrict: 'A',
+            restrict: 'E',
             transclude : true,
             scope: {
                 eType: '@'
             }
         };
     });
+
+/**
+ * @ngdoc directive
+ * @name enableQuickQuestion
+ * @restrict A
+ * @description
+ * Add this attribute to make an element (use a div) containing 'did you know?' comment.
+ * The answer will be shown after clicking anywhere in the box
+ *  * e-question:   The question being asked
+ *  * e-answer:   The answer to the question
+ * <pre><div enableQuickQuestion e-question="Did you know?" e-answer="No I didn't!"></div></pre>
+ */
+enableAppDirectives.directive("enableQuickQuestion", function() {
+    var linker = function(scope) {
+        scope.answerState = false;
+        scope.answer = function() {
+            scope.answerState = !scope.answerState;
+        };
+    };
+    return {
+        templateUrl: "partials/templates/enable-quick-question-template.html",
+        restrict: 'E',
+        transclude : true,
+        link: linker,
+        scope : {
+            eQuestion : '@',
+            eAnswer : '@'
+        }
+    };
+});
