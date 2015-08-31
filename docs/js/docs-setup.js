@@ -63,8 +63,8 @@ NG_DOCS={
       "shortName": "enableMoreButton",
       "type": "directive",
       "moduleName": "enableMoreButton",
-      "shortDescription": "Directive that creates an expandable more button",
-      "keywords": "ae api button creates directive enablemorebutton expandable true"
+      "shortDescription": "Directive that creates an expandable read more section, with the text wrapped in",
+      "keywords": "ae api creates directive enablemorebutton expandable read text true wrapped"
     },
     {
       "section": "api",

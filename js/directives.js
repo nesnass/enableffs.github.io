@@ -258,14 +258,12 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
  * @scope true
  * @restrict AE
  * @description
- * Directive that creates an expandable more button
+ * Directive that creates an expandable read more section, with the text wrapped in
  *
  */
 enableAppDirectives.directive('enableReadMore', ['EnableAppUtils', function(EnableAppUtils) {
     return {
-        scope:{
-
-        },
+        scope:{},
         restrict: 'E',
         replace: 'true',
         transclude: true,
@@ -291,6 +289,9 @@ enableAppDirectives.directive('enableReadMore', ['EnableAppUtils', function(Enab
         }
     };
 }]);
+
+
+
 /*
 /!**
  * @ngdoc directive
