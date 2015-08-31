@@ -50,6 +50,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enableGreybox",
+      "shortName": "enableGreybox",
+      "type": "directive",
+      "moduleName": "enableGreybox",
+      "shortDescription": "Add this attribute to make &#39;grey box&#39; element.",
+      "keywords": "add api attribute box content create directive element enable-greybox enablegreybox funfact g-type grey icon type warning"
+    },
+    {
+      "section": "api",
       "id": "enableImage",
       "shortName": "enableImage",
       "type": "directive",
@@ -65,6 +74,15 @@ NG_DOCS={
       "moduleName": "enableMoreButton",
       "shortDescription": "Directive that creates an expandable read more section, with the text wrapped in",
       "keywords": "ae api creates directive enablemorebutton expandable read text true wrapped"
+    },
+    {
+      "section": "api",
+      "id": "enableQuiz",
+      "shortName": "enableQuiz",
+      "type": "directive",
+      "moduleName": "enableQuiz",
+      "shortDescription": "Add this element anywhere to create a quiz. Quiz questions are taken from database using the &#39;h-id&#39;.",
+      "keywords": "add api create database directive e-id e-shuffle-questions element enablequiz false h-id match questions quiz shuffle time true"
     },
     {
       "section": "api",
