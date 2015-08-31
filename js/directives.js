@@ -249,3 +249,215 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
         }
     };
 }]);
+
+/**
+ * @ngdoc directive
+ * @name enableGreybox
+ * @restrict A
+ * @description
+ * Add this attribute to make 'grey box' element.
+ *  * g-type:   The type of box to create: '' (no icon) 'warning', or 'funfact'
+ * <pre><div enable-greybox g-type='warning'> This is the grey box content </div></pre>
+ */
+enableAppDirectives.directive("enableGreybox", function() {
+        var linker = function(scope) {
+            scope.icon = "";
+            if(scope.eType) {
+                if (scope.eType === 'funfact') {
+                    scope.icon = "img/icons/directives/greybox/870-smile@2x.svg";
+                }
+                else if (scope.eType === 'warning') {
+                    scope.icon = "img/icons/directives/greybox/791-warning@2x.svg";
+                }
+                else if (scope.eType === 'story') {
+                    scope.icon = "img/icons/directives/greybox/961-book-32@2x.svg";
+                }
+                else if (scope.eType === 'quote') {
+                    scope.icon = "img/icons/directives/greybox/quotation.svg";
+                }
+            }
+        };
+        return {
+            templateUrl: "partials/templates/enablegreybox.html",
+            link: linker,
+            restrict: 'A',
+            transclude : true,
+            scope: {
+                eType: '@'
+            }
+        };
+    });
+
+/**
+ * @ngdoc directive
+ * @name enableQuiz
+ * @restrict E
+ * @description
+ * Add this element anywhere to create a quiz. Quiz questions are taken from database using the 'h-id'.
+ *     * e-id:        Must match the ID in the quiz database              ("id")
+ *     * e-shuffle-questions:   Shuffle the questions each time quiz is taken   (true, false)
+ *      <pre><hmsquiz e-id="1" e-shuffle-questions="true"></hmsquiz></pre>
+ */
+enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sce','deviceDetector', 'DataService', function($http, $route, $timeout, $sce, $deviceDetector, DataService) {
+    var linker = function(scope, element, attrs) {
+        var quiz;
+        var moduleNumber;
+        scope.filePath = "";
+        scope.showLoginButton = false;
+        scope.showAlreadyPassedDownloadButton = false;
+        scope.showLanguageSwitch = false;
+        scope.inSecondLanguage = false;
+        scope.incorrectAnswers = [];
+
+        // Initialise attribute variables
+        if (typeof scope.hShuffleQuestions === "undefined") scope.hShuffleQuestions = false;
+
+        // Variables to enable login from the local Quiz login button
+
+
+        scope.trustResource = function getTrustedHtml(resourceUrl) {
+            return $sce.trustAsHtml(resourceUrl);
+        };
+        /* The following functions represent a state machine controlling the quiz template using 'scope.state' */
+
+        scope.chooseLanguage = function(toggle) {
+            scope.inSecondLanguage = toggle;
+            scope.reload(true);
+        };
+        scope.reload = function(startQuiz) {        // Load quiz from JSON, set up data structures
+            DataService.serverRequest('getQuizPoll', scope.requestData, QUIZPOLL_SS_PG_ABSOLUTE)
+                .success(function(data, status) {
+                    quiz = data.data;
+                    scope.requestData.e3_id = data.data.e3_id;
+                    scope.requestData.language = data.data.language;
+                    moduleNumber = $route.current.params.module;
+                    if(scope.hShuffleQuestions)
+                        quiz.questions = DataService.shuffle(quiz.questions);
+                    scope.state = "begin";
+                    scope.type = "radio";
+                    scope.totalPages = quiz.questions.length;
+                    scope.radioTempData = { state : -1};                // Holds the index of the selected radio button
+                    scope.title = quiz.title || "(placeholder title)";
+                    scope.intro = quiz.intro;
+                    scope.percentScore = 0;
+                    scope.diploma_link = "";
+                    scope.passPercent = scope.hPassPercent || QUIZ_PASS_PERCENT;
+                    scope.summarypass = quiz.summarypass;
+                    scope.summaryfail = quiz.summaryfail;
+                    scope.image_url = quiz.image_url;
+                    scope.currentQuestion = {};
+                    scope.data = { answers: [], student_id: '', quiz_id: scope.hId, score: 0 };
+                    scope.filePath = QUIZ_IMAGE_PATH;
+                    checkLogin(startQuiz);
+                });
+        };
+        scope.check = function(index) {         // Update UI elements after selection
+            if(scope.state != 'question') return;
+            if(scope.currentQuestion.type == 'checkbox') {
+                scope.currentData[index] = !scope.currentData[index];
+                scope.resultDisabled = true;
+                for(var j=0; j<scope.currentData.length; j++) {
+                    if (scope.currentData[j]) scope.resultDisabled = false;
+                }
+            }
+            else if(scope.currentQuestion.type == 'radio') {
+                scope.radioTempData.state = index;
+                for(var i=0; i<scope.currentData.length; i++ )
+                    scope.currentData[i] = false;
+                scope.currentData[index] = true;
+                scope.resultDisabled = false;
+            }
+            if(scope.hSingleQuestionQuiz || scope.hQuestionFeedback)
+                scope.answer();
+        };
+        scope.clickStart = function() {
+            scope.start();
+        };
+        scope.start = function() {      // Set up data structure for answers
+            scope.pageIndex = -1;
+            scope.currentData = null;
+            scope.responseStatus = "";
+            scope.resultDisabled = true;
+            scope.maxscore = 0;
+            scope.data.score = 0;
+            scope.data.answers = [];     // Create an array that stores answers for each question
+            if(scope.hShuffleQuestions)
+                quiz.questions = DataService.shuffle(quiz.questions);   // Shuffle question array
+            quiz.questions.forEach(function(q) {                        // Set up a 2D array to store answers for each question
+                var answerPage = [].repeat(false, q.answers.length);
+                scope.data.answers.push(answerPage);
+                for(var j=0; j<q.answers.length;j++)
+                    if(q.answers[j].correct) scope.maxscore++;          // Total of the correct answers for this quiz
+            });
+            scope.next();
+        };
+        scope.answer = function() {     // Accumulate the score
+            if(scope.currentQuestion.type == "radio") {                                           // Radio on correct gains a mark. Radio on incorrect scores 0.
+                if (scope.currentQuestion.answers[scope.radioTempData.state].correct)
+                    scope.data.score++;                                                         // Only one possible correct answer
+                else
+                    scope.incorrectAnswers.push(scope.currentQuestion.text);
+            }
+            else if(scope.currentQuestion.type == "checkbox") {                                 // Checking an incorrect box loses a mark. Checking a correct box gains a mark. Not checking a correct or incorrect box does nothing.
+                for(var j=0; j<scope.currentQuestion.answers.length;j++) {                      // Multiple possibly correct answers, convert to boolean before comparing
+                    if(scope.currentQuestion.answers[j].correct && scope.currentData[j])
+                        scope.data.score++;
+                    else if(scope.currentQuestion.answers[j].correct == false && scope.currentData[j] == true) {
+                        scope.data.score--;
+                        scope.incorrectAnswers.push(scope.currentQuestion.text);
+                    }
+                    else
+                        scope.incorrectAnswers.push(scope.currentQuestion.text);
+                }
+            }
+            var theScore = Math.floor(scope.data.score / scope.maxscore * 100);
+            scope.percentScore = theScore < 0 ? 0 : theScore;
+
+            if(!scope.hQuestionFeedback && !scope.hQuestionFeedbackText)
+                scope.next();
+            else {
+                $timeout(function() {           // Safari will not reliably update the DOM if not using $timeout
+                    scope.state = "result";
+                    if(!$deviceDetector.isMobile()) {   // Dont run if using a mobile device
+                        var topDiv = angular.element(document.querySelector('#quiz-' + scope.hId));
+                        topDiv[0].focus();
+                    }
+                }, 0);
+            }
+        };
+
+        scope.next = function() {       // Prepare for the next question
+            scope.state = "question";
+            scope.pageIndex++;
+            scope.resultDisabled = true;
+            scope.radioTempData.state = -1;
+            if(scope.pageIndex == scope.totalPages)
+                scope.state = "end";
+            else {
+                scope.currentData = scope.data.answers[scope.pageIndex];
+                scope.currentQuestion = quiz.questions[scope.pageIndex];
+                scope.type = scope.currentQuestion.type;
+                scope.image_url = (scope.currentQuestion.image_url != "") ? scope.filePath + scope.currentQuestion.image_url : "";
+            }
+            if(scope.pageIndex > 0) {       // In the case of a single quesiton quiz, running this on first load will change screen focus! So don't..
+                if(!$deviceDetector.isMobile()) {  // Dont run if using a mobile device
+                    $timeout(function () {           // hack to make sure the page is finished loaded and the div present when focusing on it
+                        var topDiv = angular.element(document.querySelector('#quiz-' + scope.hId));
+                        topDiv[0].focus();
+                    }, 1000);
+                }
+            }
+
+        };
+        scope.reload(false); // true = start test after loading
+    };
+    return {
+        restrict: 'E',
+        scope: {
+            eId: '=',
+            eShuffleQuestions: '='
+        },
+        link: linker,
+        templateUrl: "partials/templates/enablequiz.html"
+    }
+}]);
