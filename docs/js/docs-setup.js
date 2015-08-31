@@ -41,12 +41,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "enablegreybox",
-      "shortName": "enablegreybox",
+      "id": "enableGreybox",
+      "shortName": "enableGreybox",
       "type": "directive",
-      "moduleName": "enablegreybox",
+      "moduleName": "enableGreybox",
       "shortDescription": "Add this attribute to make &#39;grey box&#39; element.",
-      "keywords": "add api attribute box content create directive element enablegreybox funfact g-type grey icon type warning"
+      "keywords": "add api attribute box content create directive element enable-greybox enablegreybox funfact g-type grey icon type warning"
     },
     {
       "section": "api",
@@ -56,6 +56,15 @@ NG_DOCS={
       "moduleName": "enableImage",
       "shortDescription": "Directive that creates an audio player with the audio id provided. The player expects and will provide sounds tracks in 2 formats, m4a and ogg.",
       "keywords": "ae alternative api audio creates directive enableimage expects folder formats insert loaded m4a media ogg picalt picname picture player provide provided read screenreaders sounds text tracks true"
+    },
+    {
+      "section": "api",
+      "id": "enableQuiz",
+      "shortName": "enableQuiz",
+      "type": "directive",
+      "moduleName": "enableQuiz",
+      "shortDescription": "Add this element anywhere to create a quiz. Quiz questions are taken from database using the &#39;h-id&#39;.",
+      "keywords": "add api create database directive e-id e-shuffle-questions element enablequiz false h-id match questions quiz shuffle time true"
     },
     {
       "section": "api",
