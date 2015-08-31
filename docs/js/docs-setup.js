@@ -77,6 +77,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enableQuickQuestion",
+      "shortName": "enableQuickQuestion",
+      "type": "directive",
+      "moduleName": "enableQuickQuestion",
+      "shortDescription": "Add this attribute to make an element (use a div) containing &#39;did you know?&#39; comment.",
+      "keywords": "add answer api asked attribute box clicking comment didn directive div e-answer e-question element enablequickquestion question"
+    },
+    {
+      "section": "api",
       "id": "enableSectionHeader",
       "shortName": "enableSectionHeader",
       "type": "directive",
