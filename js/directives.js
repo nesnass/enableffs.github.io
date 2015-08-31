@@ -173,7 +173,7 @@ enableAppDirectives.directive('enableImage', ['$sce','$route', function($sce, $r
         replace: 'true',
         template: '<img src="{{picsrc}}" width="100%" alt="{{picalt}}">',
         link: function(scope) {
-            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picpath);
+            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picname);
         }
     };
 }]);
@@ -249,6 +249,45 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
         }
     };
 }]);
+
+
+/**
+ *
+ * @ngdoc directive
+ * @name enableMoreButton
+ * @scope true
+ * @restrict AE
+ * @description
+ * Directive that creates an expandable read more section, with the text wrapped in
+ *
+ */
+enableAppDirectives.directive('enableReadMore', [function() {
+    return {
+        scope:{},
+        restrict: 'E',
+        replace: 'true',
+        transclude: true,
+        templateUrl: 'partials/templates/read-more-template.html',
+        link: function(scope) {
+            var readMoreInitialStatus = false;
+
+            scope.isOpen = function() {
+                if(readMoreInitialStatus === false) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            };
+
+            scope.toggleOpen = function() {
+                readMoreInitialStatus = !readMoreInitialStatus;
+            };
+        }
+    };
+}]);
+
+
 
 /**
  * @ngdoc directive

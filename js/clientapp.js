@@ -6,7 +6,7 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppControllers', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'ngMaterial', 'pascalprecht.translate', 'EnableAppUtils', 'EnableAppControllers', 'EnableAppDirectives']);
 
 
 /**

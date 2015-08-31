@@ -32,6 +32,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "EnableAppUtils",
+      "shortName": "EnableAppUtils",
+      "type": "service",
+      "moduleName": "EnableAppUtils",
+      "shortDescription": "Directive that provides site-wide utility functions",
+      "keywords": "api directive enableapputils functions service site-wide utility"
+    },
+    {
+      "section": "api",
       "id": "enableAudio",
       "shortName": "enableAudio",
       "type": "directive",
@@ -59,12 +68,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "enableQuickQuestion",
-      "shortName": "enableQuickQuestion",
+      "id": "enableMoreButton",
+      "shortName": "enableMoreButton",
       "type": "directive",
-      "moduleName": "enableQuickQuestion",
-      "shortDescription": "Add this attribute to make an element (use a div) containing &#39;did you know?&#39; comment.",
-      "keywords": "add answer api asked attribute box clicking comment didn directive div e-answer e-question element enablequickquestion question"
+      "moduleName": "enableMoreButton",
+      "shortDescription": "Directive that creates an expandable read more section, with the text wrapped in",
+      "keywords": "ae api creates directive enablemorebutton expandable read text true wrapped"
     },
     {
       "section": "api",
