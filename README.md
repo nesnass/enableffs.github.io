@@ -28,7 +28,7 @@ This will dowload all the necessary npm packages, build the search dictionary, g
 Add this element anywhere to create a header for a section. This includes a background picture and an overlay section title, all accessible.
 
 ```html
-<enable-section-header picpath="partials/vision/media/pics/africa01.jpg" picalt="Inclusion of learners with visual impairment" title="Introduction"></enable-section-header>
+<enable-section-header picpath="africa01.jpg" picalt="Inclusion of learners with visual impairment" title="Introduction"></enable-section-header>
 ```
 
 * picpath:  The relative path of the image to be used as a background for the section header
