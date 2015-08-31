@@ -263,13 +263,19 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
  */
 enableAppDirectives.directive('enableReadMore', [function() {
     return {
-        scope:{},
+        scope:{
+            label: '@',
+        },
         restrict: 'E',
         replace: 'true',
         transclude: true,
         templateUrl: 'partials/templates/read-more-template.html',
         link: function(scope) {
             var readMoreInitialStatus = false;
+
+            if(scope.label === undefined) {
+                scope.label = 'read more';
+            }
 
             scope.isOpen = function() {
                 if(readMoreInitialStatus === false) {
