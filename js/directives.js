@@ -261,18 +261,19 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
  * Directive that creates an expandable more button
  *
  */
-enableAppDirectives.directive('enableMoreButton', ['EnableAppUtils', function(EnableAppUtils) {
+enableAppDirectives.directive('enableReadMore', ['EnableAppUtils', function(EnableAppUtils) {
     return {
         scope:{
 
         },
         restrict: 'E',
         replace: 'true',
-        transclude: 'true',
-        templateUrl: 'partials/templates/more-button-template.html',
+        transclude: true,
+        templateUrl: 'partials/templates/read-more-template.html',
         link: function(scope, element) {
             var dsid = EnableAppUtils.getRandomUUID();
             var el = element;
+            console.log(el);
             scope[dsid] = false;
 
             scope.isOpen = function() {
@@ -290,7 +291,8 @@ enableAppDirectives.directive('enableMoreButton', ['EnableAppUtils', function(En
         }
     };
 }]);
-/**
+/*
+/!**
  * @ngdoc directive
  * @name enableGreybox
  * @restrict A
@@ -298,7 +300,7 @@ enableAppDirectives.directive('enableMoreButton', ['EnableAppUtils', function(En
  * Add this attribute to make 'grey box' element.
  *  * g-type:   The type of box to create: '' (no icon) 'warning', or 'funfact'
  * <pre><div enable-greybox g-type='warning'> This is the grey box content </div></pre>
- */
+ *!/
 enableAppDirectives.directive("enableGreybox", function() {
         var linker = function(scope) {
             scope.icon = "";
@@ -328,7 +330,7 @@ enableAppDirectives.directive("enableGreybox", function() {
         };
     });
 
-/**
+/!**
  * @ngdoc directive
  * @name enableQuiz
  * @restrict E
@@ -337,7 +339,7 @@ enableAppDirectives.directive("enableGreybox", function() {
  *     * e-id:        Must match the ID in the quiz database              ("id")
  *     * e-shuffle-questions:   Shuffle the questions each time quiz is taken   (true, false)
  *      <pre><hmsquiz e-id="1" e-shuffle-questions="true"></hmsquiz></pre>
- */
+ *!/
 enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sce','deviceDetector', 'DataService', function($http, $route, $timeout, $sce, $deviceDetector, DataService) {
     var linker = function(scope, element, attrs) {
         var quiz;
@@ -358,7 +360,7 @@ enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sc
         scope.trustResource = function getTrustedHtml(resourceUrl) {
             return $sce.trustAsHtml(resourceUrl);
         };
-        /* The following functions represent a state machine controlling the quiz template using 'scope.state' */
+        /!* The following functions represent a state machine controlling the quiz template using 'scope.state' *!/
 
         scope.chooseLanguage = function(toggle) {
             scope.inSecondLanguage = toggle;
@@ -500,4 +502,4 @@ enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sc
         link: linker,
         templateUrl: "partials/templates/enablequiz.html"
     }
-}]);
+}]);*/
