@@ -92,10 +92,10 @@ Add this element anywhere to create an audioplayer.
 Add this element anywhere to create a slideshow.
 
 ```html
-<enable-slideshow path="partials/vision/media/pics/slideshows/slideshow1"></enable-slideshow>
+<enable-slideshow path="slideshow1"></enable-slideshow>
 ```
 
-* path:    the path to the slideshow folder, which must contain:
+* path:    the relative path to the slideshow folder, which must contain:
 
 ```txt
 - a "init.json" file defining the slideshow
