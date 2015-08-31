@@ -59,12 +59,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "enableQuiz",
-      "shortName": "enableQuiz",
+      "id": "enableQuickQuestion",
+      "shortName": "enableQuickQuestion",
       "type": "directive",
-      "moduleName": "enableQuiz",
-      "shortDescription": "Add this element anywhere to create a quiz. Quiz questions are taken from database using the &#39;h-id&#39;.",
-      "keywords": "add api create database directive e-id e-shuffle-questions element enablequiz false h-id match questions quiz shuffle time true"
+      "moduleName": "enableQuickQuestion",
+      "shortDescription": "Add this attribute to make an element (use a div) containing &#39;did you know?&#39; comment.",
+      "keywords": "add answer api asked attribute box clicking comment didn directive div e-answer e-question element enablequickquestion question"
     },
     {
       "section": "api",
