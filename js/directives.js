@@ -261,21 +261,18 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
  * Directive that creates an expandable read more section, with the text wrapped in
  *
  */
-enableAppDirectives.directive('enableReadMore', ['EnableAppUtils', function(EnableAppUtils) {
+enableAppDirectives.directive('enableReadMore', [function() {
     return {
         scope:{},
         restrict: 'E',
         replace: 'true',
         transclude: true,
         templateUrl: 'partials/templates/read-more-template.html',
-        link: function(scope, element) {
-            var dsid = EnableAppUtils.getRandomUUID();
-            var el = element;
-            console.log(el);
-            scope[dsid] = false;
+        link: function(scope) {
+            var readMoreInitialStatus = false;
 
             scope.isOpen = function() {
-                if(scope[dsid] === false) {
+                if(readMoreInitialStatus === false) {
                     return false;
                 }
                 else {
@@ -284,7 +281,7 @@ enableAppDirectives.directive('enableReadMore', ['EnableAppUtils', function(Enab
             };
 
             scope.toggleOpen = function() {
-                scope[dsid] = !scope[dsid];
+                readMoreInitialStatus = !readMoreInitialStatus;
             };
         }
     };
