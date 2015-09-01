@@ -153,6 +153,7 @@ h2 {
     border-radius: 0 !important;
     padding: 0 !important;
     margin: 6px 0px !important;
+    text-align: left !important;
 }
 
 .partial {
@@ -161,6 +162,8 @@ h2 {
 
 .partialContent {
     margin-bottom: 100px;
+    width: 70% !important;
+    max-width: 800px !important;
 }
 
 .submenuitem {
@@ -498,5 +501,10 @@ ul.dashlist li:before, ol.dashlist li:before {
 
     .homeText {
         /*margin-bottom: -50px;*/
+    }
+
+    .partialContent {
+        margin-bottom: 100px;
+        width: 100% !important;
     }
 }
