@@ -142,7 +142,7 @@ Add this element anywhere to create a "question / answer" interaction.
 * e-answer:     The answer
 
 
-### enable-quotebox
+### enable-quote-box
 Add this element anywhere to create a "quote box" section with a choice of two types.
 
 
@@ -152,7 +152,7 @@ Add this element anywhere to create a "quote box" section with a choice of two t
 
 * e-type:   Type of formatting for the text - 'story' or 'quote' types
 
-### enable-greybox
+### enable-grey-box
 Add this element anywhere to create a "grey box" section with a choice of icons.
 
 
