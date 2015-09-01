@@ -128,3 +128,36 @@ Add this element anywhere to create a "read-more" expandable section.
 ```
 
 This will show a large "read more" button, which, once clicked, will reveal/hide the hidden text.
+
+
+### enable-quick-question
+Add this element anywhere to create a "question / answer" interaction.
+
+
+```html
+<enable-quick-question e-question="This is the question" e-answer="This is the answer"></enable-quick-question>
+```
+
+* e-question:   The question
+* e-answer:     The answer
+
+
+### enable-quotebox
+Add this element anywhere to create a "quote box" section with a choice of two types.
+
+
+```html
+<enable-quotebox e-type="story">This is the story text</enable-quotebox>
+```
+
+* e-type:   Type of formatting for the text - 'story' or 'quote' types
+
+### enable-greybox
+Add this element anywhere to create a "grey box" section with a choice of icons.
+
+
+```html
+<enable-greybox e-type="warning">The text in the box</enable-greybox>
+```
+
+* e-type:   The icon to use.  'funfact', 'warning', 'story', 'quote'

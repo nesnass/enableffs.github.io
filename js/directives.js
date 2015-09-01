@@ -298,11 +298,11 @@ enableAppDirectives.directive('enableReadMore', [function() {
 /**
  * @ngdoc directive
  * @name enableGreybox
- * @restrict A
+ * @restrict E
  * @description
  * Add this attribute to make 'grey box' element.
  *  * g-type:   The type of box to create: '' (no icon) 'warning', or 'funfact'
- * <pre><div enable-greybox g-type='warning'> This is the grey box content </div></pre>
+ * <pre><enable-greybox g-type='warning'> This is the grey box content </enable-greybox></pre>
  */
 enableAppDirectives.directive("enableGreyBox", function() {
         var linker = function(scope) {
@@ -336,13 +336,13 @@ enableAppDirectives.directive("enableGreyBox", function() {
 /**
  * @ngdoc directive
  * @name enableQuickQuestion
- * @restrict A
+ * @restrict E
  * @description
  * Add this attribute to make an element (use a div) containing 'did you know?' comment.
  * The answer will be shown after clicking anywhere in the box
  *  * e-question:   The question being asked
  *  * e-answer:   The answer to the question
- * <pre><div enableQuickQuestion e-question="Did you know?" e-answer="No I didn't!"></div></pre>
+ * <pre><enable-quick-question e-question="Did you know?" e-answer="No I didn't!"></enable-quick-question></pre>
  */
 enableAppDirectives.directive("enableQuickQuestion", function() {
     var linker = function(scope) {
@@ -359,6 +359,26 @@ enableAppDirectives.directive("enableQuickQuestion", function() {
         scope : {
             eQuestion : '@',
             eAnswer : '@'
+        }
+    };
+});
+
+/**
+ * @ngdoc directive
+ * @name enableQuotebox
+ * @restrict E
+ * @description
+ * Add this attribute to make 'quote box' element.
+ *  * e-type:   The type of box to create: 'quote' or 'story'
+ * <pre><enable-quotebox e-type="story"> This is the grey box content </enable-quotebox></pre>
+ */
+enableAppDirectives.directive("enableQuotebox", function() {
+    return {
+        templateUrl: "partials/templates/enable-quotebox-template.html",
+        restrict: 'E',
+        transclude : true,
+        scope: {
+            eType: '@'
         }
     };
 });

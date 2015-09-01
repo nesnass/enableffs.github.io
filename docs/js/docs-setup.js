@@ -55,7 +55,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "enableGreybox",
       "shortDescription": "Add this attribute to make &#39;grey box&#39; element.",
-      "keywords": "add api attribute box content create directive element enable-greybox enablegreybox funfact g-type grey icon type warning"
+      "keywords": "add api attribute box content create directive element enablegreybox funfact g-type grey icon type warning"
     },
     {
       "section": "api",
@@ -83,6 +83,15 @@ NG_DOCS={
       "moduleName": "enableQuickQuestion",
       "shortDescription": "Add this attribute to make an element (use a div) containing &#39;did you know?&#39; comment.",
       "keywords": "add answer api asked attribute box clicking comment didn directive div e-answer e-question element enablequickquestion question"
+    },
+    {
+      "section": "api",
+      "id": "enableQuotebox",
+      "shortName": "enableQuotebox",
+      "type": "directive",
+      "moduleName": "enableQuotebox",
+      "shortDescription": "Add this attribute to make &#39;quote box&#39; element.",
+      "keywords": "add api attribute box content create directive e-type element enablequotebox grey quote story type"
     },
     {
       "section": "api",
