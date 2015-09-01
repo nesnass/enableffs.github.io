@@ -147,7 +147,7 @@ Add this element anywhere to create a "quote box" section with a choice of two t
 
 
 ```html
-<enable-quotebox e-type="story">This is the story text</enable-quotebox>
+<enable-quote-box e-type="story">This is the story text</enable-quote-box>
 ```
 
 * e-type:   Type of formatting for the text - 'story' or 'quote' types
@@ -157,7 +157,7 @@ Add this element anywhere to create a "grey box" section with a choice of icons.
 
 
 ```html
-<enable-greybox e-type="warning">The text in the box</enable-greybox>
+<enable-grey-box e-type="warning">The text in the box</enable-grey-box>
 ```
 
 * e-type:   The icon to use.  'funfact', 'warning', 'story', 'quote'
