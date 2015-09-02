@@ -163,3 +163,12 @@ Add this element anywhere to create a "grey box" section with a choice of icons.
 ```
 
 * e-type:   The icon to use.  'funfact', 'warning', 'story', 'quote'
+
+### enable-link
+Add this element anywhere to create a styled link.
+
+
+```html
+<enable-link href="link">Link text</enable-link>
+```
+
