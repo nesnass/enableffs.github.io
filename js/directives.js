@@ -365,13 +365,13 @@ enableAppDirectives.directive("enableQuickQuestion", function() {
 
 /**
  * @ngdoc directive
- * @name enablelink
+ * @name enable-link
  * @restrict E
  * @description
  * Add this attribute to improve on the '<a>' link element showing an external link icon.
- * <pre><enablelink href="..."></enablelink></pre>
+ * <pre><enable-link href="..."></enable-link></pre>
  */
-enableAppDirectives.directive("enablelink", function() {
+enableAppDirectives.directive("enableLink", function() {
     var linker = function(scope) {
         scope.linkiconpath = "img/icons/directives/link/702-share@2x.svg";
     };
