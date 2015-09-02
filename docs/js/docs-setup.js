@@ -32,6 +32,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enable-link",
+      "shortName": "enable-link",
+      "type": "directive",
+      "moduleName": "enable-link",
+      "shortDescription": "Add this attribute to improve on the &#39;&#39; link element showing an external link icon.",
+      "keywords": "add api attribute directive element enable-link external href icon improve link showing"
+    },
+    {
+      "section": "api",
       "id": "EnableAppUtils",
       "shortName": "EnableAppUtils",
       "type": "service",
@@ -82,7 +91,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "enableQuickQuestion",
       "shortDescription": "Add this attribute to make an element (use a div) containing &#39;did you know?&#39; comment.",
-      "keywords": "add answer api asked attribute box clicking comment did directive div e-answer e-question element enablequickquestion question"
+      "keywords": "add answer api asked attribute box clicking comment didn directive div e-answer e-question element enablequickquestion question"
     },
     {
       "section": "api",
