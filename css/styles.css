@@ -475,6 +475,21 @@ ul.dashlist li:before, ol.dashlist li:before {
 .enablelink span {
     text-decoration: underline;
 }
+.widget-icon {
+    padding-right: 10px;
+    width: 36px;
+    min-width: 36px;
+}
+.widget-icon-small {
+    padding-right: 10px;
+    width: 18px;
+    min-width: 18px;
+}
+.widget-icon-very-small {
+    padding-right: 10px;
+    width: 12px;
+    min-width: 12px;
+}
 /* ==================================================================== */
 
 /*** for all mobile only css ***/
