@@ -309,16 +309,16 @@ enableAppDirectives.directive("enableGreyBox", function() {
             scope.icon = "";
             if(scope.eType) {
                 if (scope.eType === 'funfact') {
-                    scope.icon = "img/icons/directives/greybox/870-smile@2x.svg";
+                    scope.icon = "870-smile@2x.svg";
                 }
                 else if (scope.eType === 'warning') {
-                    scope.icon = "img/icons/directives/greybox/791-warning@2x.svg";
+                    scope.icon = "791-warning@2x.svg";
                 }
                 else if (scope.eType === 'story') {
-                    scope.icon = "img/icons/directives/greybox/961-book-32@2x.svg";
+                    scope.icon = "961-book-32@2x.svg";
                 }
                 else if (scope.eType === 'quote') {
-                    scope.icon = "img/icons/directives/greybox/quotation.svg";
+                    scope.icon = "quotation.svg";
                 }
             }
         };
@@ -393,7 +393,7 @@ enableAppDirectives.directive("enableLink", function() {
  * @description
  * Add this attribute to make 'quote box' element.
  *  * e-type:   The type of box to create: 'quote' or 'story'
- * <pre><enable-quotebox e-type="story"> This is the grey box content </enable-quotebox></pre>
+ * <pre><enable-quotebox e-type="story"> This is the quote box content </enable-quotebox></pre>
  */
 enableAppDirectives.directive("enableQuotebox", function() {
     return {
