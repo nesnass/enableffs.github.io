@@ -14,9 +14,14 @@
     "text_en": "They are happy when they can move around like every other child.",
     "text_fr": "Image 3"
   },
+   {
+    "src": "flerbarnmedekk.jpg",
+    "text_en": "Bla bla bla.",
+    "text_fr": "Image 3"
+  },
   {
-    "src": "s4.jpg",
-    "text_en": "Pic 4",
+    "src": ".jpg",
+    "text_en": "Bla bla bla",
     "text_fr": "Image 4"
   }
 ]
