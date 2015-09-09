@@ -162,8 +162,8 @@ h2 {
 
 .partialContent {
     margin-bottom: 100px;
-    width: 70% !important;
-    max-width: 800px !important;
+    max-width: 900px !important;
+    padding: 50px 15% 50px 7%;
 }
 
 .submenuitem {
@@ -528,6 +528,6 @@ ul.dashlist li:before, ol.dashlist li:before {
 
     .partialContent {
         margin-bottom: 100px;
-        width: 100% !important;
+        padding: 50px 3% 50px 3%;
     }
 }

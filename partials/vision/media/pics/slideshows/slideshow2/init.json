@@ -1,22 +1,27 @@
 [
   {
     "src": "guttalene.jpg",
-    "text_en": "bla",
-    "text_fr": "oi"
+    "text_en": "Beeing alone is not easy when you are visually impaired and want to move around.",
+    "text_fr": "Image 1"
   },
   {
-    "src": "s2.jpg",
-    "text_en": "some intro text for this section 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ...",
+    "src": "tojenterloperbakfra.jpg",
+    "text_en": "It is nice running around in a big compound without obstacles.",
     "text_fr": "Du texte en francais"
   },
   {
-    "src": "s3.jpg",
-    "text_en": "Pic 3",
+    "src": "jenterkommermot.jpg",
+    "text_en": "They are happy when they can move around like every other child.",
+    "text_fr": "Image 3"
+  },
+   {
+    "src": "flerbarnmedekk.jpg",
+    "text_en": "It is fun to play in a limited playground without obstacles.",
     "text_fr": "Image 3"
   },
   {
-    "src": "s4.jpg",
-    "text_en": "Pic 4",
+    "src": "tobarnmeddekk.jpg",
+    "text_en": "Here we come!",
     "text_fr": "Image 4"
   }
 ]
