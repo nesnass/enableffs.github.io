@@ -1,26 +1,31 @@
 [
   {
-    "src": "guttalene.jpg",
+    "src": "brail1.jpg",
     "text_en": "Beeing alone is not easy when you are visually impaired and want to move around.",
     "text_fr": "Image 1"
   },
   {
-    "src": "tojenterloperbakfra.jpg",
+    "src": "brail2.jpg",
     "text_en": "It is nice running around in a big compound without obstacles.",
     "text_fr": "Du texte en francais"
   },
   {
-    "src": "jenterkommermot.jpg",
+    "src": "brail3.jpg",
     "text_en": "They are happy when they can move around like every other child.",
     "text_fr": "Image 3"
   },
    {
-    "src": "flerbarnmedekk.jpg",
+    "src": "brail4.jpg",
+    "text_en": "It is fun to play in a limited playground without obstacles.",
+    "text_fr": "Image 3"
+  },
+   {
+    "src": "brail5.jpg",
     "text_en": "It is fun to play in a limited playground without obstacles.",
     "text_fr": "Image 3"
   },
   {
-    "src": "tobarnmeddekk.jpg",
+    "src": "brail6.jpg",
     "text_en": "Here we come!",
     "text_fr": "Image 4"
   }
