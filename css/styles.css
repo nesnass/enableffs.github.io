@@ -160,12 +160,6 @@ h2 {
     background-color: #FFFFFF;
 }
 
-.partialContent {
-    margin-bottom: 100px;
-    max-width: 900px !important;
-    padding: 50px 15% 50px 7%;
-}
-
 .submenuitem {
     overflow: hidden;
 }
@@ -326,6 +320,9 @@ ul.dashlist li:before, ol.dashlist li:before {
     /*margin-top:-10px;*/
     font-family:"HelveticaNeueW01-45Ligh", "Arial", sans-serif;
     color: black;
+    margin-bottom: 100px;
+    max-width: 900px !important;
+    padding: 50px 100px 50px 100px;
 }
 .partialContent html {
     margin: auto;
@@ -529,5 +526,11 @@ ul.dashlist li:before, ol.dashlist li:before {
     .partialContent {
         margin-bottom: 100px;
         padding: 50px 3% 50px 3%;
+    }
+}
+
+@media (max-width: 800px) {
+    .partialContent {
+        padding: 50px 7% 50px 7%;
     }
 }
