@@ -487,6 +487,21 @@ ul.dashlist li:before, ol.dashlist li:before {
     width: 12px;
     min-width: 12px;
 }
+
+/* ---------   QUIZ ----------- */
+.enablequiz {
+    padding: 15px;
+    background-color: white;
+ /*   margin: 15px 0 15px 0; */
+    cursor: pointer;
+}
+.quizFeedback {
+    font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
+}
+.partialContent .enablequiz p {
+    margin: 0;
+}
+
 /* ==================================================================== */
 
 /*** for all mobile only css ***/

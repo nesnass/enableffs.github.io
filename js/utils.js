@@ -1,5 +1,14 @@
 'use strict';
 
+// Creates a new array, 'L' long filled with 'what'
+/*jshint strict: true */
+Array.prototype.repeat= function(what, L){
+    while(L) {
+        this[--L] = what;
+        return this;
+    }
+};
+
 var enableAppUtils = angular.module('EnableAppUtils', []);
 
 /**
