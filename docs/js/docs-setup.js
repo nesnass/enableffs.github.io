@@ -100,7 +100,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "enableQuotebox",
       "shortDescription": "Add this attribute to make &#39;quote box&#39; element.",
-      "keywords": "add api attribute box content create directive e-type element enablequotebox grey quote story type"
+      "keywords": "add api attribute box content create directive e-type element enablequotebox quote story type"
     },
     {
       "section": "api",
