@@ -499,7 +499,7 @@ ul.dashlist li:before, ol.dashlist li:before {
     font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
 }
 .partialContent .enablequiz p {
-    margin: 0;
+    margin: 5px 0;
 }
 
 /* ==================================================================== */
