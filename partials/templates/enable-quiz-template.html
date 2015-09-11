@@ -61,7 +61,7 @@
     </div>
 
     <div ng-show="state=='end'" layout="column" layout-align="start start">
-        <h5>SCORE: {{percentScore}}%</h5>
+        <!--h5>SCORE: {{percentScore}}%</h5-->
         <div>
             <p ng-show="(percentScore >= passPercent)" ng-bind-html="trustResource(summarypass)"></p>
             <p ng-show="percentScore < passPercent" ng-bind-html="trustResource(summaryfail)"></p>
