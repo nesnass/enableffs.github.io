@@ -405,3 +405,207 @@ enableAppDirectives.directive("enableQuotebox", function() {
         }
     };
 });
+
+
+/**
+ * @ngdoc directive
+ * @name enableQuiz
+ * @restrict E
+ * @description
+ * Add this element anywhere to create a quiz. Quiz questions are taken from database using the 'h-id'.
+ *     * e-id:        Must match the ID in the quiz database              ("id")
+ *     * e-shuffle-questions:   Shuffle the questions each time quiz is taken   (true, false)
+ *      <pre><enable-quiz></enable-quiz></pre>
+ */
+enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sce', function($http, $route, $timeout, $sce) {
+    var linker = function(scope) {
+        var quiz;
+        scope.filePath = "";
+        scope.showLoginButton = false;
+        scope.showAlreadyPassedDownloadButton = false;
+        scope.showLanguageSwitch = false;
+        scope.inSecondLanguage = false;
+        scope.incorrectAnswers = [];
+
+        scope.quizpoll = {
+            "title": "What is your opinion about education for pupils with disabilities?",
+            "intro": "Please tick the box that best describes your agreement or disagreement with the following statements. There are no correct or wrong answers. The best answers are those that honestly represent your feeling",
+            "summarypass" : "Pass summary text goes here",
+            "summaryfail" : "Fail summary text goes here",
+            "type" : "quiz",
+            "language" : "nn",
+            "exam_type" : "quizpoll",
+            "module_description" : "",
+            "ref" : "",
+            "questions": [
+                {
+                    "type": "radio",
+                    "text": "The needs of pupils with disabilities can best be served through special, separate classes.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "One can well imagine that children with special needs are better served in special classes, where they receive special training according to their own needs.<br>On the other hand it’s important for children with disabilities to be integrated in normal classrooms for their social life.  Also it can be beneficial for other children to learn acceptance and tolerance for all human beings.<br>In other words, when children are integrated in normal classes they get friends and a social life, though it is hard for them to learn all they need to learn in a group of many children.<br>How is it possible to solve both these needs?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                },
+                {
+                    "type": "radio",
+                    "text": "Inclusion offers mixed group interaction, which will foster understanding and acceptance of differences among pupils.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "Inclusion can foster understanding and acceptance. But does it always work that way? What if the groups’ attitude towards children with disabilities is really bad? Do you think a child with disabilities put in the classroom can change this? One of the most important things for humans with disabilities is the attitude among people surrounding them. Attitude doesn’t change just because you include a child with disabilities in the class.  What do you think is important to change people attitude?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "One can well imagine that children with special needs are better served in special classes, where they receive special training according to their own needs.<br>On the other hand it’s important for children with disabilities to be integrated in normal classrooms for their social life.  Also it can be beneficial for other children to learn acceptance and tolerance for all human beings.<br>In other words, when children are integrated in normal classes they get friends and a social life, though it is hard for them to learn all they need to learn in a group of many children.<br>How is it possible to solve both these needs?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Initialise attribute variables
+        if (typeof scope.hShuffleQuestions === "undefined") { scope.hShuffleQuestions = false; }
+
+        scope.trustResource = function getTrustedHtml(resourceUrl) {
+            return $sce.trustAsHtml(resourceUrl);
+        };
+
+        // The following functions represent a state machine controlling the quiz template using 'scope.state'
+
+        scope.chooseLanguage = function(toggle) {
+            scope.inSecondLanguage = toggle;
+            scope.reload(true);
+        };
+        scope.reload = function() {        // Load quiz from JSON, set up data structures
+            quiz = scope.quizpoll;
+            scope.state = "begin";
+            scope.type = "radio";
+            scope.totalPages = quiz.questions.length;
+            scope.radioTempData = { state : -1};                // Holds the index of the selected radio button
+            scope.title = quiz.title || "(placeholder title)";
+            scope.intro = quiz.intro;
+            scope.percentScore = 0;
+            scope.diploma_link = "";
+            scope.passPercent = 80;
+            scope.summarypass = quiz.summarypass;
+            scope.summaryfail = quiz.summaryfail;
+            scope.image_url = quiz.image_url;
+            scope.currentQuestion = {};
+            scope.data = { answers: [], student_id: '', score: 0 };
+            scope.filePath = "img/quiz/";
+        };
+        scope.check = function(index) {         // Update UI elements after selection
+            if(scope.state !== 'question') { return; }
+            if(scope.currentQuestion.type === 'checkbox') {
+                scope.currentData[index] = !scope.currentData[index];
+                scope.resultDisabled = true;
+                for(var j=0; j<scope.currentData.length; j++) {
+                    if (scope.currentData[j]) { scope.resultDisabled = false; }
+                }
+            }
+            else if(scope.currentQuestion.type === 'radio') {
+                scope.radioTempData.state = index;
+                for(var i=0; i<scope.currentData.length; i++ ) {
+                    scope.currentData[i] = false;
+                }
+                scope.currentData[index] = true;
+                scope.resultDisabled = false;
+            }
+            scope.answer();
+        };
+        scope.clickStart = function() {
+            scope.start();
+        };
+        scope.start = function() {      // Set up data structure for answers
+            scope.pageIndex = -1;
+            scope.currentData = null;
+            scope.responseStatus = "";
+            scope.resultDisabled = true;
+            scope.maxscore = 0;
+            scope.data.score = 0;
+            scope.data.answers = [];     // Create an array that stores answers for each question
+            quiz.questions.forEach(function(q) {                        // Set up a 2D array to store answers for each question
+                var answerPage = [].repeat(false, q.answers.length);
+                scope.data.answers.push(answerPage);
+                for(var j=0; j<q.answers.length;j++) {
+                    if (q.answers[j].correct) { scope.maxscore++ ; }          // Total of the correct answers for this quiz
+                }
+            });
+            scope.next();
+        };
+        scope.answer = function() {     // Accumulate the score
+            if(scope.currentQuestion.type === "radio") {                                           // Radio on correct gains a mark. Radio on incorrect scores 0.
+                if (scope.currentQuestion.answers[scope.radioTempData.state].correct) {
+                    scope.data.score++;                                                         // Only one possible correct answer
+                }
+                else {
+                    scope.incorrectAnswers.push(scope.currentQuestion.text);
+                }
+            }
+            else if(scope.currentQuestion.type === "checkbox") {                                 // Checking an incorrect box loses a mark. Checking a correct box gains a mark. Not checking a correct or incorrect box does nothing.
+                for(var j=0; j<scope.currentQuestion.answers.length;j++) {                      // Multiple possibly correct answers, convert to boolean before comparing
+                    if(scope.currentQuestion.answers[j].correct && scope.currentData[j]) {
+                        scope.data.score++;
+                    }
+                    else if(scope.currentQuestion.answers[j].correct === false && scope.currentData[j] === true) {
+                        scope.data.score--;
+                        scope.incorrectAnswers.push(scope.currentQuestion.text);
+                    }
+                    else {
+                        scope.incorrectAnswers.push(scope.currentQuestion.text);
+                    }
+                }
+            }
+            var theScore = Math.floor(scope.data.score / scope.maxscore * 100);
+            scope.percentScore = theScore < 0 ? 0 : theScore;
+
+            $timeout(function() {           // Safari will not reliably update the DOM if not using $timeout
+                scope.state = "result";
+            }, 0);
+
+        };
+
+        scope.next = function() {       // Prepare for the next question
+            scope.state = "question";
+            scope.pageIndex++;
+            scope.resultDisabled = true;
+            scope.radioTempData.state = -1;
+            if(scope.pageIndex === scope.totalPages) {
+                scope.state = "end";
+            }
+            else {
+                scope.currentData = scope.data.answers[scope.pageIndex];
+                scope.currentQuestion = quiz.questions[scope.pageIndex];
+                scope.type = scope.currentQuestion.type;
+                scope.image_url = (scope.currentQuestion.image_url !== "") ? scope.filePath + scope.currentQuestion.image_url : "";
+            }
+
+        };
+        scope.reload(false); // true = start test after loading
+    };
+    return {
+        restrict: 'E',
+        link: linker,
+        templateUrl: "partials/templates/enable-quiz-template.html"
+    };
+}]);
