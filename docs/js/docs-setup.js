@@ -95,6 +95,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enableQuiz",
+      "shortName": "enableQuiz",
+      "type": "directive",
+      "moduleName": "enableQuiz",
+      "shortDescription": "Add this element anywhere to create a quiz. Quiz questions are taken from database using the &#39;h-id&#39;.",
+      "keywords": "add api create database directive e-id e-shuffle-questions element enablequiz false h-id match questions quiz shuffle time"
+    },
+    {
+      "section": "api",
       "id": "enableQuotebox",
       "shortName": "enableQuotebox",
       "type": "directive",
