@@ -116,7 +116,7 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', function($sce, $r
                 scope.poster = 'partials/'+$route.current.params.level+'/media/pics/'+scope.vididlc+'__00_00_00_00.png';
             }
             else {
-                scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
+                scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&vq=small&hl="+scope.cclang+"&cc_load_policy=1");
             }
 
 
