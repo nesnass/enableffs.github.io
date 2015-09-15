@@ -6,7 +6,7 @@
   },
   {
     "src": "Guidingtexture.jpg",
-    "text_en": "Different roughness on the tiles makes it easier to orientate around campus",
+    "text_en": "Different roughness and directions on the tilesand bricks makes it easier to orientate around campus",
     "text_fr": "Du texte en francais"
   },
   {
@@ -15,8 +15,13 @@
     "text_fr": "Image 4"
   },
   {
+    "src": "Guidingchair.jpg",
+    "text_en": "To guide a person to a seat, place the hand of your guiding arm on the seat.",
+    "text_fr": "Image 4"
+  },
+  {
     "src": "Guidingsit.jpg",
-    "text_en": "To guide a person to a seat, place the hand of your guiding arm on the seat. The person you are guiding will find the seat by following along your arm.",
+    "text_en": "The person you are guiding will find the seat by following along your arm.",
     "text_fr": "Image 4"
   }
 ]
