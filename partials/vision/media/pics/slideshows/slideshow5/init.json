@@ -5,8 +5,13 @@
     "text_fr": "Image 1"
   },
   {
-    "src": "Guidingtexture2.jpg",
-    "text_en": "Different roughness on the tiles makes it easier to orientate around campus",
+    "src": "Guidinglowgrip.jpg",
+    "text_en": "If you are meeting somebody in a narrow passage, let the visually impaired walk behind you and use a lower grip.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "Guidingtexture.jpg",
+    "text_en": "Different roughness and directions on the tiles and bricks makes it easier to orientate around campus",
     "text_fr": "Du texte en francais"
   },
   {
@@ -14,9 +19,19 @@
     "text_en": "When walking stairs it is good to have some support. The different roughness on the tiles in front of the stairs lets the blind know it is an obstacle ahead.",
     "text_fr": "Image 4"
   },
+   {
+    "src": "Guidingturnaround.jpg",
+    "text_en": "When tourning around, the guide should move slightly backwards and  give the visually impaired space to turn around. ",
+    "text_fr": "Image 4"
+  },
+  {
+    "src": "Guidingchair.jpg",
+    "text_en": "To guide a person to a seat, place the hand of your guiding arm on the seat.",
+    "text_fr": "Image 4"
+  },
   {
     "src": "Guidingsit.jpg",
-    "text_en": "To guide a person to a seat, place the hand of your guiding arm on the seat. The person you are guiding will find the seat by following along your arm.",
+    "text_en": "The person you are guiding will find the seat by following along your arm.",
     "text_fr": "Image 4"
   }
 ]

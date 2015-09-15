@@ -1,17 +1,27 @@
 [
   {
-    "src": "ledsager1.jpg",
-    "text_en": "We are peers!",
+    "src": "useacainholding.jpg",
+    "text_en": "The cain is an extension of your arm. If you let your first finger follow the cane, you will be aware of different surfaces and obstacles.",
     "text_fr": "Image 1"
   },
   {
-    "src": "ledsager2.jpg",
-    "text_en": "We are peers!",
+    "src": "cainmoving.jpg",
+    "text_en": "Let the angle of the cane be around 45 degrees toward the surface. Swing the cane from left to right and back again to investigate what is in front of you.",
     "text_fr": "Du texte en francais"
   },
   {
-    "src": "ledsager3.jpg",
-    "text_en": "We are peers!",
+    "src": "trailtecncain.jpg",
+    "text_en": "Let the cane follow the wall or curbstone. Then you know when you have passed a house or garden.",
+    "text_fr": "Image 4"
+  },
+  {
+    "src": "stairscane.jpg",
+    "text_en": "When going down stairs, have the cane in front of you and measure the height of th next step.",
+    "text_fr": "Image 4"
+  },
+  {
+    "src": "canedoorhandle.jpg",
+    "text_en": "tja hvorfor gjør hun dette.",
     "text_fr": "Image 4"
   }
 ]
