@@ -27,7 +27,16 @@ Vision sidebar definition
 
         <a auto-active ng-click="closeMenu()" ng-href="#/vision/s05_l01">{{ 'MENU_SECTION05_LINK01' | translate }}</a>
 
-        <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l01">{{ 'MENU_SECTION06_LINK01' | translate }}</a>
+        <dt tabindex="0" role="tab" aria-expanded="{{m6}}" ng-click="m6=!m6">
+            <span ng-show="!m6">+</span><span ng-show="m6">-</span> {{ 'MENU_SECTION06_TITLE' | translate }}
+            <span class="screenReadersOnly">{{ m6 ? " - click to toggle close" : " - click to toggle open"}}</span>
+        </dt>
+
+        <dd class="submenuitem" layout="column" ng-show="m6">
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l01">{{ 'MENU_SECTION06_LINK01' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l02">{{ 'MENU_SECTION06_LINK02' | translate }}</a>
+            <a auto-active ng-click="closeMenu()" ng-href="#/vision/s06_l03">{{ 'MENU_SECTION06_LINK03' | translate }}</a>
+        </dd>
 
         <dt tabindex="0" role="tab" aria-expanded="{{m7}}" ng-click="m7=!m7">
             <span ng-show="!m7">+</span><span ng-show="m7">-</span> {{ 'MENU_SECTION07_TITLE' | translate }}
