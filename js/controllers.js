@@ -43,6 +43,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
                     $scope.showHamburger = true;
                     $scope.showVision = true;
                     break;
+                case 'hearing':
+                    $scope.showHamburger = true;
+                    $scope.showHearing = true;
+                    break;
             }
         });
 
@@ -249,7 +253,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
 
             //simple URL path test to reopen expanded menu items when page reload
             var pagePath = $location.$$path;
-            if(pagePath.indexOf('s02') > -1) {
+            if(pagePath.indexOf('s01') > -1) {
+                $scope.m1 = true;
+            }
+            else if(pagePath.indexOf('s02') > -1) {
                 $scope.m2 = true;
             }
             else if(pagePath.indexOf('s03') > -1) {
@@ -264,14 +271,32 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             else if(pagePath.indexOf('s06') > -1) {
                 $scope.m6 = true;
             }
+            else if(pagePath.indexOf('s07') > -1) {
+                $scope.m7 = true;
+            }
             else if(pagePath.indexOf('s08') > -1) {
                 $scope.m8 = true;
             }
             else if(pagePath.indexOf('s09') > -1) {
                 $scope.m9 = true;
             }
+            else if(pagePath.indexOf('s10') > -1) {
+                $scope.m10 = true;
+            }
             else if(pagePath.indexOf('s11') > -1) {
                 $scope.m11 = true;
+            }
+            else if(pagePath.indexOf('s12') > -1) {
+                $scope.m12 = true;
+            }
+            else if(pagePath.indexOf('s13') > -1) {
+                $scope.m13 = true;
+            }
+            else if(pagePath.indexOf('s14') > -1) {
+                $scope.m14 = true;
+            }
+            else if(pagePath.indexOf('s15') > -1) {
+                $scope.m15 = true;
             }
 
         }
@@ -384,6 +409,48 @@ enableAppControllers.controller("VisionCtrl", ['$scope', '$rootScope', '$timeout
         console.log('--> vision started');
 
         $scope.$emit('pageNavigationEvent', 'vision');
+        $rootScope.roottitle = "Enable basic page";
+
+        /**
+         * @ngdoc function
+         * @name VisionCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
+
+    }]
+);
+
+
+/**
+ *
+ * @ngdoc controller
+ * @name HearingCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("HearingCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> hearing started');
+
+        $scope.$emit('pageNavigationEvent', 'hearing');
         $rootScope.roottitle = "Enable basic page";
 
         /**
