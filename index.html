@@ -37,102 +37,105 @@
 </head>
 
 
-<body ng-controller="MenuCtrl">
+<body ng-controller="MenuCtrl" layout="column" layout-align="start center">
 
-    <!-- START navigation menu -->
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="!menuOpen" layout="column" flex>
-        <md-toolbar>
-            <div class="md-toolbar-tools" tabindex="-1">
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
-                </button>
-                <div class="fill-height" layout-fill flex>
+    <div id="container">
+        <!-- START navigation menu -->
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="!menuOpen" layout="column" flex>
+            <md-toolbar>
+                <div class="md-toolbar-tools" tabindex="-1">
+                    <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
+                        <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
+                    </button>
+                    <div class="fill-height" layout-fill flex>
 
+                    </div>
+                    <button class="md-icon-button md-button" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
+                        <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_home_48px.svg" aria-hidden="true"></md-icon>
+                    </button>
                 </div>
-                <button class="md-icon-button md-button" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_home_48px.svg" aria-hidden="true"></md-icon>
-                </button>
-            </div>
-        </md-toolbar>
+            </md-toolbar>
 
-        <md-content flex>
-            <div flex>
-                <nav ng-show="showVision" ng-include src="'partials/templates/menu_vision.html'"></nav>
-                <nav ng-show="showHearing" ng-include src="'partials/templates/menu_hearing.html'"></nav>
-                <nav ng-show="showCombined" ng-include src="'partials/templates/menu_combined.html'"></nav>
-            </div>
-        </md-content>
+            <md-content flex>
+                <div flex>
+                    <nav ng-show="showVision" ng-include src="'partials/templates/menu_vision.html'"></nav>
+                    <nav ng-show="showHearing" ng-include src="'partials/templates/menu_hearing.html'"></nav>
+                    <nav ng-show="showCombined" ng-include src="'partials/templates/menu_combined.html'"></nav>
+                </div>
+            </md-content>
 
-        <div style="width: 100%" layout="horizontal">
-            <md-button flex ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="md-raised md-primary" ng-click="setLang('en')">
-                EN
-            </md-button>
-            <md-button flex ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="md-raised md-primary" ng-click="setLang('fr')">
-                FR
-            </md-button>
+            <div style="width: 100%" layout="horizontal">
+                <md-button flex ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="md-raised md-primary" ng-click="setLang('en')">
+                    EN
+                </md-button>
+                <md-button flex ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="md-raised md-primary" ng-click="setLang('fr')">
+                    FR
+                </md-button>
+            </div>
+        </md-sidenav>
+        <!-- END navigation menu -->
+
+        <!-- START main content -->
+        <div layout="column" style="height: 100%" tabindex="-1" role="main">
+            <!-- START header and serach bar -->
+            <md-toolbar layout-gt-sm="row" layout="column" layout-align="end center">
+                <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
+                <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
+                <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1" flex layout="row">
+                    <button title="toggleMenuButton" class="md-icon-button md-button" tabindex="-1">
+                        <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
+                    </button>
+                    <div layout-align="start center" layout-padding>
+                        Enable - Sensory impairment in Africa
+                    </div>
+                </div>
+                <div ng-show="!showHamburger" layout="row" flex style="width: 100% !important">
+                    <div flex layout layout-align="start center" layout-padding style="overflow: hidden !important">
+                        Enable - Sensory impairment in africa
+                    </div>
+                    <div layout="row" layout-align="center center">
+                        <md-button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
+                            EN
+                        </md-button>
+                        <md-button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
+                            FR
+                        </md-button>
+                    </div>
+                </div>
+                <div id="searchWidget" ng-show="searchEnabled">
+                    <md-content layout-padding layout="row" style="background-color: transparent">
+                        <form ng-submit="$event.preventDefault()" style="background-color: #004444">
+
+                            <md-autocomplete
+                                    md-selected-item="selectedItem"
+                                    md-search-text-change="searchTextChange(searchText)"
+                                    md-search-text="searchText"
+                                    md-selected-item-change="selectedItemChange(item)"
+                                    md-items="item in querySearch(searchText)"
+                                    md-item-text="item.display"
+                                    md-min-length="2"
+                                    placeholder="Search">
+                                <md-item-template>
+                                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    No matches found for "{{searchText}}".
+                                </md-not-found>
+                            </md-autocomplete>
+                        </form>
+                    </md-content>
+                </div>
+            </md-toolbar>
+            <!-- END header and serach bar -->
+
+            <!-- START sections content (vision, hearing, combined) -->
+            <md-content id="scrollContainer" ng-view flex></md-content>
+            <!-- END sections content (vision, hearing, combined) -->
+
         </div>
-    </md-sidenav>
-    <!-- END navigation menu -->
-
-    <!-- START main content -->
-    <div layout="column" style="height: 100%" tabindex="-1" role="main">
-        <!-- START header and serach bar -->
-        <md-toolbar layout-gt-sm="row" layout="column" layout-align="end center">
-            <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
-            <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
-            <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1" flex layout="row">
-                <button title="toggleMenuButton" class="md-icon-button md-button" tabindex="-1">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
-                </button>
-                <div layout-align="start center" layout-padding>
-                    Enable - Sensory impairment in Africa
-                </div>
-            </div>
-            <div ng-show="!showHamburger" layout="row" flex style="width: 100% !important">
-                <div flex layout layout-align="start center" layout-padding style="overflow: hidden !important">
-                    Enable - Sensory impairment in africa
-                </div>
-                <div layout="row" layout-align="center center">
-                    <md-button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
-                        EN
-                    </md-button>
-                    <md-button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
-                        FR
-                    </md-button>
-                </div>
-            </div>
-            <div id="searchWidget" ng-show="searchEnabled">
-                <md-content layout-padding layout="row" style="background-color: transparent">
-                    <form ng-submit="$event.preventDefault()" style="background-color: #004444">
-
-                        <md-autocomplete
-                                md-selected-item="selectedItem"
-                                md-search-text-change="searchTextChange(searchText)"
-                                md-search-text="searchText"
-                                md-selected-item-change="selectedItemChange(item)"
-                                md-items="item in querySearch(searchText)"
-                                md-item-text="item.display"
-                                md-min-length="2"
-                                placeholder="Search">
-                            <md-item-template>
-                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                            </md-item-template>
-                            <md-not-found>
-                                No matches found for "{{searchText}}".
-                            </md-not-found>
-                        </md-autocomplete>
-                    </form>
-                </md-content>
-            </div>
-        </md-toolbar>
-        <!-- END header and serach bar -->
-
-        <!-- START sections content (vision, hearing, combined) -->
-        <md-content id="scrollContainer" ng-view flex></md-content>
-        <!-- END sections content (vision, hearing, combined) -->
+        <!-- END main content -->
 
     </div>
-    <!-- END main content -->
 
 </body>
 </html>
