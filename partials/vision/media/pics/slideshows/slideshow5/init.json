@@ -1,37 +1,42 @@
 [
   {
-    "src": "Guiding1.jpg",
+    "src": "sightguide1.jpg",
     "text_en": "A good way to guide blind people is to let the person grasp your arm directly above the elbow. Never grab the person’s arm or try to direct him or her by pushing or pulling.",
     "text_fr": "Image 1"
   },
   {
-    "src": "Guidinglowgrip.jpg",
-    "text_en": "If you are meeting somebody in a narrow passage, let the visually impaired walk behind you and use a lower grip.",
+    "src": "sightguide2.jpg",
+    "text_en": "Relax and walk at a comfortable normal pace. Stay one step ahead of the person you are guiding.",
     "text_fr": "Image 1"
   },
   {
-    "src": "Guidingtexture.jpg",
-    "text_en": "Different roughness and directions on the tiles and bricks makes it easier to orientate around campus",
+    "src": "sightguide3.jpg",
+    "text_en": "At the top and bottom of stairs and to cross streets, pause and stand alongside the person. Then resume travel, walking one step ahead. Always pause when you change directions, step up, or step down.",
     "text_fr": "Du texte en francais"
   },
   {
-    "src": "guidingstairs.jpg",
+    "src": "sightguide4",
     "text_en": "When walking stairs it is good to have some support. The different roughness on the tiles in front of the stairs lets the blind know it is an obstacle ahead.",
     "text_fr": "Image 4"
   },
+  {
+    "src": "sightguide5",
+    "text_en": "Different roughness on tiles and bricks makes it easier for a blind person to orientate.",
+    "text_fr": "Image 4"
+  },
    {
-    "src": "Guidingturnaround.jpg",
-    "text_en": "When tourning around, the guide should move slightly backwards and  give the visually impaired space to turn around. ",
+    "src": "sightguide6.jpg",
+    "text_en": "It is helpful to tell the person you are guiding about changes in terrain, stairs and narrow spaces ",
     "text_fr": "Image 4"
   },
   {
-    "src": "Guidingchair.jpg",
-    "text_en": "To guide a person to a seat, place the hand of your guiding arm on the seat.",
+    "src": "sightguide7.jpg",
+    "text_en": "When you are acting as a guide, never leave the person in free space. When walking, always be sure that the person has a firm grasp on your arm. If you have to be separated briefly, be sure the person is in contact with a wall, railing, or some other stable object until you return.",
     "text_fr": "Image 4"
   },
   {
-    "src": "Guidingsit.jpg",
-    "text_en": "The person you are guiding will find the seat by following along your arm.",
+    "src": "sightguide8.jpg",
+    "text_en": "To guide a person to a seat, place the hand of your guiding arm on the seat. The person you are guiding will find the seat by following along your arm.",
     "text_fr": "Image 4"
   }
 ]
