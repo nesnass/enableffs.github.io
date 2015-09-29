@@ -140,6 +140,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "HearingCtrl",
+      "shortName": "HearingCtrl",
+      "type": "controller",
+      "moduleName": "HearingCtrl",
+      "shortDescription": "Controller",
+      "keywords": "api controller hearingctrl"
+    },
+    {
+      "section": "api",
       "id": "HomeCtrl",
       "shortName": "HomeCtrl",
       "type": "controller",
@@ -290,6 +299,15 @@ NG_DOCS={
       "moduleName": "VisionCtrl",
       "shortDescription": "Controller",
       "keywords": "api controller visionctrl"
+    },
+    {
+      "section": "api",
+      "id": "VisionCtrl.gotoAnchor",
+      "shortName": "VisionCtrl.gotoAnchor",
+      "type": "function",
+      "moduleName": "VisionCtrl",
+      "shortDescription": "Function that redirects the browser to the provided path",
+      "keywords": "anchor api browser function gotoanchor newhash path provided redirect redirects visionctrl"
     },
     {
       "section": "api",
