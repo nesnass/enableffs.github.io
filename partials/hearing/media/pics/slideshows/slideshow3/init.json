@@ -1,32 +1,33 @@
 [
   {
-    "src": "hearingtest1.jpg",
-    "text_en": "The ears are examined before the test because infections and foreign material can affect the result.",
+    "src": "sign1.jpg",
+    "text_en": "If a child is observed when playing with other children, the way of communication can reveal hearing impairments.",
     "text_fr": "Image 1"
   },
   {
-    "src": "hearingtest2.jpg",
-    "text_en": "With headphones and an audiometer the hearing is tested. This test will determine what kind of hearing loss the patient has.",
+    "src": "sign2.jpg",
+    "text_en": "The childs gestures can detect hearing loss.",
     "text_fr": "Du texte en francais"
   },
   {
-    "src": "hearingtest3.jpg",
-    "text_en": "During the hearing test the patient is asked to respond to a series of tones. The results from the hearing test are coded into an audiogram. ",
+    "src": "sign3.jpg",
+    "text_en": "Visual representations of objects can make the learning of signs easier.",
     "text_fr": "Image 3"
   },
   {
-    "src": "hearingtest4.jpg",
-    "text_en": "Silicone material is used to make an impression of the ear. It is quick and easy, so a patient coming in for an hour can go away with a hearing aid.  ",
+    "src": "sign4.jpg",
+    "text_en": "Good friends make communication easier.",
     "text_fr": "Image 4"
   },
    {
-    "src": "hearingtest5.jpg",
-    "text_en": "All the hearing aids are custom fitted for the patients. ",
+    "src": "sign5.jpg",
+    "text_en": "Having classmates who understand sign language is crusial.",
     "text_fr": "Image 4"
   },
   {
-    "src": "hearingtest6.jpg",
-    "text_en": "The hearing aid is ready to use. ",
+    "src": "sign6.jpg",
+    "text_en": "The classmate can then respond adequately. ",
     "text_fr": "Image 4"
   }
+  
 ]
