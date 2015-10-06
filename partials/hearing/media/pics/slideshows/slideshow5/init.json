@@ -1,0 +1,27 @@
+[
+  {
+    "src": "signclass1.jpg",
+    "text_en": "Sign language is the language of deaf persons.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "signclass2.jpg",
+    "text_en": "Sign language is a combination of signs, gestures and facial expressions.",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "signclass3.jpg",
+    "text_en": "In a deaf community deaf persons aren´t impaired.",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "signclass4.jpg",
+    "text_en": "There will everybody understand each other...",
+    "text_fr": "Image 4"
+  },
+   {
+    "src": "signclass5.jpg",
+    "text_en": "... and have fun together.",
+    "text_fr": "Image 4"
+  }
+]
