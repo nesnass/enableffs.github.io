@@ -116,7 +116,7 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', function($sce, $r
                 scope.poster = 'partials/'+$route.current.params.level+'/media/pics/'+scope.vididlc+'__00_00_00_00.png';
             }
             else {
-                scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl="+scope.cclang+"&cc_load_policy=1");
+                scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&vq=small&hl="+scope.cclang+"&cc_load_policy=1");
             }
 
 
@@ -309,16 +309,16 @@ enableAppDirectives.directive("enableGreyBox", function() {
             scope.icon = "";
             if(scope.eType) {
                 if (scope.eType === 'funfact') {
-                    scope.icon = "img/icons/directives/greybox/870-smile@2x.svg";
+                    scope.icon = "870-smile@2x.svg";
                 }
                 else if (scope.eType === 'warning') {
-                    scope.icon = "img/icons/directives/greybox/791-warning@2x.svg";
+                    scope.icon = "791-warning@2x.svg";
                 }
                 else if (scope.eType === 'story') {
-                    scope.icon = "img/icons/directives/greybox/961-book-32@2x.svg";
+                    scope.icon = "961-book-32@2x.svg";
                 }
                 else if (scope.eType === 'quote') {
-                    scope.icon = "img/icons/directives/greybox/quotation.svg";
+                    scope.icon = "quotation.svg";
                 }
             }
         };
@@ -365,12 +365,35 @@ enableAppDirectives.directive("enableQuickQuestion", function() {
 
 /**
  * @ngdoc directive
+ * @name enable-link
+ * @restrict E
+ * @description
+ * Add this attribute to improve on the '<a>' link element showing an external link icon.
+ * <pre><enable-link href="..."></enable-link></pre>
+ */
+enableAppDirectives.directive("enableLink", function() {
+    var linker = function(scope) {
+        scope.linkiconpath = "img/icons/directives/link/702-share@2x.svg";
+    };
+    return {
+        template: '<a class="enablelink" href="{{href}}" target="_blank"><ng-transclude></ng-transclude><ng-include src="linkiconpath"></ng-include></a>',
+        restrict: 'E',
+        transclude : true,
+        link : linker,
+        scope : {
+            href : '@'
+        }
+    };
+});
+
+/**
+ * @ngdoc directive
  * @name enableQuotebox
  * @restrict E
  * @description
  * Add this attribute to make 'quote box' element.
  *  * e-type:   The type of box to create: 'quote' or 'story'
- * <pre><enable-quotebox e-type="story"> This is the grey box content </enable-quotebox></pre>
+ * <pre><enable-quotebox e-type="story"> This is the quote box content </enable-quotebox></pre>
  */
 enableAppDirectives.directive("enableQuotebox", function() {
     return {
@@ -382,3 +405,270 @@ enableAppDirectives.directive("enableQuotebox", function() {
         }
     };
 });
+
+
+/**
+ * @ngdoc directive
+ * @name enableQuiz
+ * @restrict E
+ * @description
+ * Add this element anywhere to create a quiz. Quiz questions are taken from database using the 'h-id'.
+ *     * e-id:        Must match the ID in the quiz database              ("id")
+ *     * e-shuffle-questions:   Shuffle the questions each time quiz is taken   (true, false)
+ *      <pre><enable-quiz></enable-quiz></pre>
+ */
+enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sce', function($http, $route, $timeout, $sce) {
+    var linker = function(scope) {
+        var quiz;
+        scope.filePath = "";
+        scope.showLoginButton = false;
+        scope.showAlreadyPassedDownloadButton = false;
+        scope.showLanguageSwitch = false;
+        scope.inSecondLanguage = false;
+        scope.incorrectAnswers = [];
+
+        scope.quizpoll = {
+            "title": "What is your opinion about education for pupils with disabilities?",
+            "intro": "Please tick the box that best describes your agreement or disagreement with the following statements. There are no correct or wrong answers. The best answers are those that honestly represent your feeling",
+            "summarypass" : "There are both advantages and disadvantages when it comes to inclusive schools. It’s not always easy to take a clear position on these matters. What is important is to have an open mind and a good attitude.",
+            "summaryfail" : "There are both advantages and disadvantages when it comes to inclusive schools. It’s not always easy to take a clear position on these matters. What is important is to have an open mind and a good attitude.",
+            "type" : "quiz",
+            "language" : "nn",
+            "exam_type" : "quizpoll",
+            "module_description" : "",
+            "ref" : "",
+            "questions": [
+                {
+                    "type": "radio",
+                    "text": "The needs of pupils with disabilities can best be served through special, separate classes.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "One can well imagine that children with special needs are better served in special classes, where they receive special training according to their own needs.<br>On the other hand it’s important for children with disabilities to be integrated in normal classrooms for their social life.  Also it can be beneficial for other children to learn acceptance and tolerance for all human beings.<br>In other words, when children are integrated in normal classes they get friends and a social life, though it is hard for them to learn all they need to learn in a group of many children.<br>How is it possible to solve both these needs?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "One can well imagine that children with special needs are better served in special classes, where they receive special training according to their own needs.<br>On the other hand it’s important for children with disabilities to be integrated in normal classrooms for their social life.  Also it can be beneficial for other children to learn acceptance and tolerance for all human beings.<br>In other words, when children are integrated in normal classes they get friends and a social life, though it is hard for them to learn all they need to learn in a group of many children.<br>How is it possible to solve both these needs?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                },
+                {
+                    "type": "radio",
+                    "text": "The classroom behavior of pupils with disabilities generally requires more patience from the teacher than the behavior of a pupil without a disability.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "In a classroom with many pupils it is always several needs to consider at all times. All children are different and they all require patience from the teacher. But of course if you have child with a disability who requires a lot more attention from the teacher than every one else, it could be challenging. But does children with disabilities always have a different behaviour than other children? And is this necessarily a worse behaviour?<br>Couldn’t the behaviour from children with disabilities affect the classroom just as much as any other child?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "In a classroom with many pupils it is always several needs to consider at all times. All children are different and they all require patience from the teacher. But of course if you have child with a disability who requires a lot more attention from the teacher than every one else, it could be challenging. But does children with disabilities always have a different behaviour than other children? And is this necessarily a worse behaviour?<br>Couldn’t the behaviour from children with disabilities affect the classroom just as much as any other child?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                },
+                {
+                    "type": "radio",
+                    "text": "The extra attention needed by a pupil with a disability will be to the disadvantage of the other pupils.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "Of course it could be to the disadvantage of the other pupils if one child needs the teachers full attention all the time. But does it have to be like that? Are there ways to solve this issue so this won´t be a disadvantage, but maybe an advantage?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "Of course it could be to the disadvantage of the other pupils if one child needs the teachers full attention all the time. But does it have to be like that? Are there ways to solve this issue so this won´t be a disadvantage, but maybe an advantage?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                },
+                {
+                    "type": "radio",
+                    "text": "Inclusion offers mixed group interaction, which will foster understanding and acceptance of differences among pupils.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "Inclusion can foster understanding and acceptance. But does it always work that way? What if the groups’ attitude towards children with disabilities is really bad? Do you think a child with disabilities put in the classroom can change this? One of the most important things for humans with disabilities is the attitude among people surrounding them. Attitude doesn’t change just because you include a child with disabilities in the class.  What do you think is important to change people's attitude?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "Inclusion can foster understanding and acceptance. But does it always work that way? What if the groups’ attitude towards children with disabilities is really bad? Do you think a child with disabilities put in the classroom can change this? One of the most important things for humans with disabilities is the attitude among people surrounding them. Attitude doesn’t change just because you include a child with disabilities in the class.  What do you think is important to change people's attitude?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                },
+                {
+                    "type": "radio",
+                    "text": "Isolation in a special class has beneficial effect on the social and emotional development of a pupil with a disability.",
+                    "image_url": "",
+                    "answers": [
+                        {
+                            "text": "Agree",
+                            "correct_feedback": "Isolation in a special class for children with disabilities could have a beneficial effect on some children. But what happens to this child when he or she has to start in a regular class or socialize with others outside the special class? Are children put in special classes prepared to handle a social life outside this special classroom? Is the society outside prepared to handle these children if they’re not included from an early stage?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        },
+                        {
+                            "text": "Disagree",
+                            "correct_feedback": "Isolation in a special class for children with disabilities could have a beneficial effect on some children. But what happens to this child when he or she has to start in a regular class or socialize with others outside the special class? Are children put in special classes prepared to handle a social life outside this special classroom? Is the society outside prepared to handle these children if they’re not included from an early stage?",
+                            "incorrect_feedback": "",
+                            "image_url": "",
+                            "correct" : true
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Initialise attribute variables
+        if (typeof scope.hShuffleQuestions === "undefined") { scope.hShuffleQuestions = false; }
+
+        scope.trustResource = function getTrustedHtml(resourceUrl) {
+            return $sce.trustAsHtml(resourceUrl);
+        };
+
+        // The following functions represent a state machine controlling the quiz template using 'scope.state'
+
+        scope.chooseLanguage = function(toggle) {
+            scope.inSecondLanguage = toggle;
+            scope.reload(true);
+        };
+        scope.reload = function() {        // Load quiz from JSON, set up data structures
+            quiz = scope.quizpoll;
+            scope.state = "begin";
+            scope.type = "radio";
+            scope.totalPages = quiz.questions.length;
+            scope.radioTempData = { state : -1};                // Holds the index of the selected radio button
+            scope.title = quiz.title || "(placeholder title)";
+            scope.intro = quiz.intro;
+            scope.percentScore = 0;
+            scope.diploma_link = "";
+            scope.passPercent = 80;
+            scope.summarypass = quiz.summarypass;
+            scope.summaryfail = quiz.summaryfail;
+            scope.image_url = quiz.image_url;
+            scope.currentQuestion = {};
+            scope.data = { answers: [], student_id: '', score: 0 };
+            scope.filePath = "img/quiz/";
+        };
+        scope.check = function(index) {         // Update UI elements after selection
+            if(scope.state !== 'question') { return; }
+            if(scope.currentQuestion.type === 'checkbox') {
+                scope.currentData[index] = !scope.currentData[index];
+                scope.resultDisabled = true;
+                for(var j=0; j<scope.currentData.length; j++) {
+                    if (scope.currentData[j]) { scope.resultDisabled = false; }
+                }
+            }
+            else if(scope.currentQuestion.type === 'radio') {
+                scope.radioTempData.state = index;
+                for(var i=0; i<scope.currentData.length; i++ ) {
+                    scope.currentData[i] = false;
+                }
+                scope.currentData[index] = true;
+                scope.resultDisabled = false;
+            }
+            scope.answer();
+        };
+        scope.clickStart = function() {
+            scope.start();
+        };
+        scope.start = function() {      // Set up data structure for answers
+            scope.pageIndex = -1;
+            scope.currentData = null;
+            scope.responseStatus = "";
+            scope.resultDisabled = true;
+            scope.maxscore = 0;
+            scope.data.score = 0;
+            scope.data.answers = [];     // Create an array that stores answers for each question
+            quiz.questions.forEach(function(q) {                        // Set up a 2D array to store answers for each question
+                var answerPage = [].repeat(false, q.answers.length);
+                scope.data.answers.push(answerPage);
+                for(var j=0; j<q.answers.length;j++) {
+                    if (q.answers[j].correct) { scope.maxscore++ ; }          // Total of the correct answers for this quiz
+                }
+            });
+            scope.next();
+        };
+        scope.answer = function() {     // Accumulate the score
+            if(scope.currentQuestion.type === "radio") {                                           // Radio on correct gains a mark. Radio on incorrect scores 0.
+                if (scope.currentQuestion.answers[scope.radioTempData.state].correct) {
+                    scope.data.score++;                                                         // Only one possible correct answer
+                }
+                else {
+                    scope.incorrectAnswers.push(scope.currentQuestion.text);
+                }
+            }
+            else if(scope.currentQuestion.type === "checkbox") {                                 // Checking an incorrect box loses a mark. Checking a correct box gains a mark. Not checking a correct or incorrect box does nothing.
+                for(var j=0; j<scope.currentQuestion.answers.length;j++) {                      // Multiple possibly correct answers, convert to boolean before comparing
+                    if(scope.currentQuestion.answers[j].correct && scope.currentData[j]) {
+                        scope.data.score++;
+                    }
+                    else if(scope.currentQuestion.answers[j].correct === false && scope.currentData[j] === true) {
+                        scope.data.score--;
+                        scope.incorrectAnswers.push(scope.currentQuestion.text);
+                    }
+                    else {
+                        scope.incorrectAnswers.push(scope.currentQuestion.text);
+                    }
+                }
+            }
+            var theScore = Math.floor(scope.data.score / scope.maxscore * 100);
+            scope.percentScore = theScore < 0 ? 0 : theScore;
+
+            $timeout(function() {           // Safari will not reliably update the DOM if not using $timeout
+                scope.state = "result";
+            }, 0);
+
+        };
+
+        scope.next = function() {       // Prepare for the next question
+            scope.state = "question";
+            scope.pageIndex++;
+            scope.resultDisabled = true;
+            scope.radioTempData.state = -1;
+            if(scope.pageIndex === scope.totalPages) {
+                scope.state = "end";
+            }
+            else {
+                scope.currentData = scope.data.answers[scope.pageIndex];
+                scope.currentQuestion = quiz.questions[scope.pageIndex];
+                scope.type = scope.currentQuestion.type;
+                scope.image_url = (scope.currentQuestion.image_url !== "") ? scope.filePath + scope.currentQuestion.image_url : "";
+            }
+
+        };
+        scope.reload(false); // true = start test after loading
+    };
+    return {
+        restrict: 'E',
+        link: linker,
+        templateUrl: "partials/templates/enable-quiz-template.html"
+    };
+}]);

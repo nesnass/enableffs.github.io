@@ -32,6 +32,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enable-link",
+      "shortName": "enable-link",
+      "type": "directive",
+      "moduleName": "enable-link",
+      "shortDescription": "Add this attribute to improve on the &#39;&#39; link element showing an external link icon.",
+      "keywords": "add api attribute directive element enable-link external href icon improve link showing"
+    },
+    {
+      "section": "api",
       "id": "EnableAppUtils",
       "shortName": "EnableAppUtils",
       "type": "service",
@@ -86,12 +95,21 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "enableQuiz",
+      "shortName": "enableQuiz",
+      "type": "directive",
+      "moduleName": "enableQuiz",
+      "shortDescription": "Add this element anywhere to create a quiz. Quiz questions are taken from database using the &#39;h-id&#39;.",
+      "keywords": "add api create database directive e-id e-shuffle-questions element enablequiz false h-id match questions quiz shuffle time"
+    },
+    {
+      "section": "api",
       "id": "enableQuotebox",
       "shortName": "enableQuotebox",
       "type": "directive",
       "moduleName": "enableQuotebox",
       "shortDescription": "Add this attribute to make &#39;quote box&#39; element.",
-      "keywords": "add api attribute box content create directive e-type element enablequotebox grey quote story type"
+      "keywords": "add api attribute box content create directive e-type element enablequotebox quote story type"
     },
     {
       "section": "api",
@@ -119,6 +137,15 @@ NG_DOCS={
       "moduleName": "enableVideo",
       "shortDescription": "Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.",
       "keywords": "ae api attached based bring cc cclang code creates current directive enablevideo false file image inserted language load local localmode mode paramter player portal poster provided subtitles true video videos vididlc vididyt youtube"
+    },
+    {
+      "section": "api",
+      "id": "HearingCtrl",
+      "shortName": "HearingCtrl",
+      "type": "controller",
+      "moduleName": "HearingCtrl",
+      "shortDescription": "Controller",
+      "keywords": "api controller hearingctrl"
     },
     {
       "section": "api",
@@ -272,6 +299,15 @@ NG_DOCS={
       "moduleName": "VisionCtrl",
       "shortDescription": "Controller",
       "keywords": "api controller visionctrl"
+    },
+    {
+      "section": "api",
+      "id": "VisionCtrl.gotoAnchor",
+      "shortName": "VisionCtrl.gotoAnchor",
+      "type": "function",
+      "moduleName": "VisionCtrl",
+      "shortDescription": "Function that redirects the browser to the provided path",
+      "keywords": "anchor api browser function gotoanchor newhash path provided redirect redirects visionctrl"
     },
     {
       "section": "api",

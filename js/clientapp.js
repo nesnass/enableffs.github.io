@@ -26,26 +26,26 @@ enableApp.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/search', {
                 templateUrl: function() {
-                    return '/partials/templates/search.html';
+                    return 'partials/templates/search.html';
                 }
             }).
             when('/home', {
                 templateUrl: function() {
-                    return '/partials/templates/home_'+localStorage.lang+'.html';
+                    return 'partials/templates/home_'+localStorage.lang+'.html';
                 }
             }).
             when('/:page', {
                 templateUrl: function(routeParams) {
-                    return '/partials/'+routeParams.page+'_'+localStorage.lang+'.html';
+                    return 'partials/'+routeParams.page+'_'+localStorage.lang+'.html';
                 }
             }).
             when('/:level/:page', {
                 templateUrl: function(routeParams) {
-                    return '/partials/'+routeParams.level+'/'+routeParams.page+'_'+localStorage.lang+'.html';
+                    return 'partials/'+routeParams.level+'/'+routeParams.page+'_'+localStorage.lang+'.html';
                 }
             }).
             otherwise({
-                redirectTo: '/home'
+                redirectTo: 'home'
             });
     }]);
 

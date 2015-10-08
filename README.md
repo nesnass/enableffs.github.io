@@ -124,10 +124,12 @@ The "init.json" file should look like something like this
 Add this element anywhere to create a "read-more" expandable section.
 
 ```html
-<enable-read-more>THE HIDDEN TEXT</enable-read-more>
+<enable-read-more label="Button label">THE HIDDEN TEXT</enable-read-more>
 ```
 
-This will show a large "read more" button, which, once clicked, will reveal/hide the hidden text.
+* label:    the text that should appear on the button. If left blank, the button will show "READ MORE"
+
+This will show a large button, which, once clicked, will reveal/hide the hidden text.
 
 
 ### enable-quick-question
@@ -161,3 +163,12 @@ Add this element anywhere to create a "grey box" section with a choice of icons.
 ```
 
 * e-type:   The icon to use.  'funfact', 'warning', 'story', 'quote'
+
+### enable-link
+Add this element anywhere to create a styled external link (opens in new tab).
+
+
+```html
+<enable-link href="link">Link text</enable-link>
+```
+

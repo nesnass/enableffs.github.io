@@ -1,19 +1,14 @@
-<div class="hmsquiz border" layout-padding>
-
-    <span class="screenReadersOnly">{{ 'HMSQUIZ_ALERT_DESCRIPTION' | translate }}</span>
-
-    <span class="screenReadersOnly">{{ 'HMSQUIZ_START_TOGGLE_DESCRIPTION' | translate }}</span>
+<div class="enablequiz border" layout-padding>
     <div layout="row" layout-align="start center" ng-click="clickStart()">
-        <img ng-src="views/icons/widgets/quiz/checkmark-circle2.svg" class="widget-icon">
-        <h4 ng-show="!hSingleQuestionQuiz" style="margin: 0 0 0.1em;">{{title}}</h4>
-        <h4 ng-show="hSingleQuestionQuiz" style="margin: 0 0 0.1em;">{{currentQuestion.text}}</h4>
+        <div layout-align="center center" style="width: 50px;">
+            <md-icon md-svg-src="img/icons/directives/quiz/checkmark-circle2.svg"></md-icon>
+        </div>
+        <h4 style="margin: 0 0 0.1em;">{{title}}</h4>
     </div>
 
-    <div id="quiz-{{hId}}" tabindex="-1" class="screenReadersOnly"><span ng-show="state == 'result'">{{ 'HMSQUIZ_RESULT_DESCRIPTION' | translate }}</span></div>
-
     <div ng-show="state =='begin'" layout="column" layout-align="start start">
-        <div ng-show="hShowintro">
-            <p style="margin: 15px 0 0;" ng-bind-html="intro"></p>
+        <div>
+            <p style="margin: 15px 0 0;" ng-bind-html="trustResource(intro)"></p>
         </div>
         <div ng-show="showLanguageSwitch && !showLoginButton" layout layout-align="start end">
             <md-button class="md-raised md-primary md-cornered hmsbtn" md-no-ink ng-click="chooseLanguage(false)">
@@ -23,96 +18,64 @@
                 Nynorsk
             </md-button>
             <a ng-show="showAlreadyPassedDownloadButton" target="_self" ng-href="{{diploma_link}}" >
-                <md-button class="md-raised md-primary md-cornered hmsbtn">{{'DOWNLOAD_DIPLOMA' | translate}}</md-button>
+                <md-button class="md-raised md-primary md-cornered hmsbtn">Download Diploma</md-button>
             </a>
         </div>
-        <div ng-show="hFormal && !showLanguageSwitch && !showLoginButton" layout layout-align="start end">
+        <div ng-show="!showLanguageSwitch && !showLoginButton" layout layout-align="start end">
             <md-button class="md-raised md-primary md-cornered hmsbtn" md-no-ink ng-click="start()">
-                {{'BEGIN' | translate}}
+                Begin
             </md-button>
             <a ng-show="showAlreadyPassedDownloadButton" target="_self" ng-href="{{diploma_link}}" >
-                <md-button class="md-raised md-primary md-cornered hmsbtn">{{'DOWNLOAD_DIPLOMA' | translate}}</md-button>
+                <md-button class="md-raised md-primary md-cornered hmsbtn">Download Diploma</md-button>
             </a>
         </div>
     </div>
 
     <div ng-show="state=='question' || state == 'result'" layout="column">
-        <p ng-show="!hSingleQuestionQuiz" style="margin: 15px 0 0;">{{state == "result" ? 'RESULT' : 'QUESTION' | translate}} <strong>{{pageIndex+1}}</strong> / <strong>{{totalPages}}</strong></p>
-        <div ng-show="hQuestionFeedbackText && state == 'result'" class="screenReadersOnly">
-            <p class="quizFeedback" ng-show="a.correct == currentData[$index]" ng-bind-html="a.correct_feedback"></p>
-            <p class="quizFeedback" ng-show="a.correct != currentData[$index]" ng-bind-html="a.incorrect_feedback"></p>
-        </div>
-        <h4 ng-show="!hSingleQuestionQuiz" ng-bind-html="trustResource(currentQuestion.text)"></h4>
+        <p style="margin: 15px 0 0;">{{state == "result" ? 'RESULT' : 'QUESTION'}} <strong>{{pageIndex+1}}</strong> / <strong>{{totalPages}}</strong></p>
+
+        <h4 ng-bind-html="trustResource(currentQuestion.text)"></h4>
         <img style="width:90%; height: auto; margin: 10px 0 10px;" ng-show="image_url" ng-src="{{image_url}}"/>
-        <div ng-show="hQuestionFeedback || state == 'question'">
+        <div ng-show="state == 'question'">
             <md-radio-group ng-show="currentQuestion.type == 'radio'" ng-model="radioTempData.state" class="md-primary">
                 <div ng-repeat="a in currentQuestion.answers">
                     <md-radio-button ng-class="{'colourCorrect': (a.correct && state == 'result'), 'colourIncorrect': (currentData[$index] == true && (a.correct != currentData[$index]) && state == 'result')}" ng-disabled="state == 'result'" ng-click="check($index)" ng-value="$index">
-                        <span ng-bind-html="a.text"></span><img style="width:90%; height: auto;" ng-show="a.image_url" ng-src="{{filePath+a.image_url}}">
+                        <span ng-bind-html="trustResource(a.text)"></span><img style="width:90%; height: auto;" ng-show="a.image_url" ng-src="{{filePath+a.image_url}}">
                     </md-radio-button>
                 </div>
             </md-radio-group>
             <div ng-show="currentQuestion.type == 'checkbox'" ng-repeat="a in currentQuestion.answers">
                 <md-checkbox ng-class="{'colourCorrect': (a.correct == currentData[$index] && state == 'result'), 'colourIncorrect': (a.correct != currentData[$index] && state == 'result')}" ng-disabled="state == 'result'" class="md-primary" ng-checked="currentData[$index]" ng-click="check($index)">
-                    <span ng-bind-html="a.text"></span><img style="width:90%; height: auto;" ng-show="a.image_url" ng-src="{{filePath+a.image_url}}">
+                    <span ng-bind-html="trustResource(a.text)"></span><img style="width:90%; height: auto;" ng-show="a.image_url" ng-src="{{filePath+a.image_url}}">
                 </md-checkbox>
             </div>
         </div>
-        <div ng-show="!hSingleQuestionQuiz" layout="row" layout-align="start end">
-            <md-button ng-show="state == 'question' && !hQuestionFeedback" ng-click="answer()" ng-disabled="resultDisabled" class="md-raised md-primary md-cornered hmsbtn">{{'NEXT' | translate}}</md-button>
-            <md-button ng-show="hQuestionFeedback && state == 'result' && pageIndex<totalPages-1" ng-click="next()" class="md-raised md-primary md-cornered hmsbtn">{{'NEXT' | translate}}</md-button>
-            <md-button ng-show="hQuestionFeedback && state == 'result' && pageIndex==totalPages-1" ng-click="next()" class="md-raised md-primary md-cornered hmsbtn">{{'DONE' | translate}}</md-button>
+        <div layout="row" layout-align="start end">
+            <md-button ng-show="state == 'result' && pageIndex<totalPages-1" ng-click="next()" class="md-raised md-primary md-cornered hmsbtn">NEXT</md-button>
+            <md-button ng-show="state == 'result' && pageIndex==totalPages-1" ng-click="next()" class="md-raised md-primary md-cornered hmsbtn">DONE</md-button>
         </div>
-        <div ng-show="hQuizFeedback && hSingleQuestionQuiz && state == 'result'" aria-hidden="true">
-            <br>
-            <p class="quizFeedback" ng-show="percentScore >= passPercent" ng-bind-html="summarypass"></p>
-            <p class="quizFeedback" ng-show="percentScore < passPercent" ng-bind-html="summaryfail"></p>
-        </div><br>
-        <div ng-show="hQuestionFeedbackText && state == 'result'" ng-repeat="a in currentQuestion.answers" aria-hidden="true">
-            <p class="quizFeedback" ng-show="a.correct == currentData[$index]" ng-bind-html="a.correct_feedback"></p>
-            <p class="quizFeedback" ng-show="a.correct != currentData[$index]" ng-bind-html="a.incorrect_feedback"></p>
+        <div ng-show="state == 'result'" ng-repeat="a in currentQuestion.answers" aria-hidden="true">
+            <p class="quizFeedback" ng-show="a.correct == currentData[$index]" ng-bind-html="trustResource(a.correct_feedback)"></p>
+            <p class="quizFeedback" ng-show="a.correct != currentData[$index]" ng-bind-html="trustResource(a.incorrect_feedback)"></p>
         </div>
     </div>
 
     <div ng-show="state=='end'" layout="column" layout-align="start start">
-        <h5 ng-show="hScore == true">{{ 'SCORE' | translate}} {{percentScore}}%</h5>
-        <div ng-show="hQuizFeedback">
-            <p ng-show="(percentScore >= passPercent) || hIgnoreScore" ng-bind-html="summarypass"></p>
-            <p ng-show="percentScore < passPercent" ng-bind-html="summaryfail"></p>
-            <div ng-show="(incorrectAnswers.length > 0) && !hIgnoreScore">
+        <!--h5>SCORE: {{percentScore}}%</h5-->
+        <div>
+            <p ng-show="(percentScore >= passPercent)" ng-bind-html="trustResource(summarypass)"></p>
+            <p ng-show="percentScore < passPercent" ng-bind-html="trustResource(summaryfail)"></p>
+            <div ng-show="(incorrectAnswers.length > 0)">
                 <br>
-                <h5>{{percentScore >= passPercent ? 'INCORRECT_ANSWERS_PASSED' : 'INCORRECT_ANSWERS_FAILED' | translate}}:</h5>
+                <h5>{{percentScore >= passPercent ? 'INCORRECT_ANSWERS_PASSED' : 'INCORRECT_ANSWERS_FAILED'}}:</h5>
                 <ul>
                     <li ng-repeat="i in incorrectAnswers">{{i}}</li>
                 </ul>
             </div>
         </div>
         <div layout layout-align="start end">
-            <md-button ng-show="(percentScore < passPercent) && !hIgnoreScore" ng-click="start()" class="md-raised md-primary md-cornered hmsbtn">{{'TRY_AGAIN' | translate}}</md-button>
-            <md-button ng-show="hFormal && (percentScore >= passPercent || hIgnoreScore)" ng-click="submit()" class="md-raised md-primary md-cornered hmsbtn">{{'SUBMIT' | translate}}</md-button>
+            <md-button ng-show="(percentScore < passPercent)" ng-click="start()" class="md-raised md-primary md-cornered hmsbtn">TRY AGAIN!</md-button>
         </div>
-    </div>
-
-    <div ng-show="state=='submitted'" layout="column" layout-align="start start">
-        <p>{{'SUBMITTED' | translate}}</p>
-        <h5 ng-show="responseStatus == 'No email address'">{{'SUBMISSION_ERROR_NO_EMAIL' | translate}}</h5>
-        <a target="_self" ng-href="{{diploma_link}}" >
-            <md-button class="md-raised md-primary md-cornered hmsbtn">{{'DOWNLOAD_DIPLOMA' | translate}}</md-button>
-        </a>
-    </div>
-
-    <div ng-show="state=='submission_failed'" layout="column" layout-align="start start">
-        <h5 ng-show="responseStatus == 'Not enrolled'">{{'SUBMISSION_ERROR_NOT_ENROLLED' | translate}}</h5>
-    </div>
-
-    <div ng-show="state =='begin' && showLoginButton">
-        <br>
-        <p>{{ 'NOT_LOGGED_IN_WARNING' | translate}}</p>
-        <md-button aria-label="{{ 'LOGIN' | translate }}" md-no-ink class="md-raised md-primary md-cornered hmsbtn"
-                   href="{{PGSERVER_SSL}}/simplesaml/module.php/core/as_login.php?AuthId={{WEBLOGIN_AUTH_ID}}&ReturnTo={{PGSERVER_SSL}}%2F%23%2F{{currentModule}}%2F{{currentLanguage}}%2F6">
-                    <!-- %2F6 refers to a '/6' to route to the last section anchor -->
-            {{'LOGIN' | translate}}
-        </md-button>
-    </div>
+    </div-->
 
 </div>
