@@ -1,0 +1,83 @@
+[
+  {
+    "src": "k.jpg",
+    "text_en": "k",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "l.jpg",
+    "text_en": "l",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "m.jpg",
+    "text_en": "m",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "n.jpg",
+    "text_en": "n",
+    "text_fr": "Image 4"
+  }
+
+  {
+    "src": "o.jpg",
+    "text_en": "o",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "p.jpg",
+    "text_en": "p",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "q.jpg",
+    "text_en": "q",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "r.jpg",
+    "text_en": "r",
+    "text_fr": "Image 4"
+  }
+  {
+    "src": "s.jpg",
+    "text_en": "s",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "t.jpg",
+    "text_en": "t",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "u.jpg",
+    "text_en": "u",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "v.jpg",
+    "text_en": "v",
+    "text_fr": "Image 4"
+  }
+  {
+    "src": "w.jpg",
+    "text_en": "w",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "x.jpg",
+    "text_en": "x",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "y.jpg",
+    "text_en": "y",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "z.jpg",
+    "text_en": "z",
+    "text_fr": "Image 4"
+  }
+]
