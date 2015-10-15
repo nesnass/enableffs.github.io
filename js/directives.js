@@ -550,7 +550,12 @@ enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sc
                         scope.currentData = scope.data.answers[scope.pageIndex];
                         scope.currentQuestion = quiz.questions[scope.pageIndex];
                         scope.type = scope.currentQuestion.type;
-                        scope.image_url = scope.abspath+'/'+scope.currentQuestion.image_url;
+                        if(scope.currentQuestion.image_url !== "") {
+                            scope.image_url = scope.abspath+'/'+scope.currentQuestion.image_url;
+                        }
+                        else {
+                            scope.image_url = "";
+                        }
                         //scope.image_url = (scope.currentQuestion.image_url !== "") ? scope.filePath + scope.currentQuestion.image_url : "";
                     }
 
