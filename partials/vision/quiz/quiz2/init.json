@@ -24,7 +24,7 @@
         {
           "text": "Braille can be read with the fingers. ",
           "correct_feedback": "",
-          "incorrect_feedback": "Try again",
+          "incorrect_feedback": "Wrong, the answer is: Braille is a system of raised dots.",
           "image_url": "",
           "correct": false
         },
