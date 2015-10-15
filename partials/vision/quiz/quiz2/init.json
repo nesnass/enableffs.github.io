@@ -12,7 +12,7 @@
     {
       "type": "radio",
       "text": "What does it say?",
-      "image_url": "quiz.bilde1.jpg",
+      "image_url": "quiz2img1.jpg",
       "answers": [
         {
           "text": "Braille is a system of raised dots.",
@@ -24,14 +24,14 @@
         {
           "text": "Braille can be read with the fingers. ",
           "correct_feedback": "",
-          "incorrect_feedback": "Wrong, the answer is: Braille is a system of raised dots.",
+          "incorrect_feedback": "Wrong. The answer is: Braille is a system of raised dots.",
           "image_url": "",
           "correct": false
         },
         {
           "text": "Braille is used by thousands of people.",
           "correct_feedback": "",
-          "incorrect_feedback": "Try again",
+          "incorrect_feedback": "Wrong. The answer is: Braille is a system of raised dots.",
           "image_url": "",
           "correct": false
         }
@@ -39,7 +39,7 @@
     },
     {
       "type": "radio",
-      "text": "The classroom behavior of pupils with disabilities generally requires more patience from the teacher than the behavior of a pupil without a disability.",
+      "text": "What does it say?",
       "image_url": "",
       "answers": [
         {
