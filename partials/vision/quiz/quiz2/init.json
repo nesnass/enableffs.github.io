@@ -59,7 +59,7 @@
         {
           "text": "Louis Braille was born in 1809.",
           "correct_feedback": "Correct",
-          "incorrect_feedback": "Wrong. The answer is Louis Braille invented Braille.",
+          "incorrect_feedback": "Wrong. The answer is Louis Braille invented braille.",
           "image_url": "",
           "correct": false
         }
