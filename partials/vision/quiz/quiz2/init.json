@@ -45,7 +45,7 @@
         {
           "text": "Louis Braille became blind as a child.",
           "correct_feedback": "",
-          "incorrect_feedback": "Wrong. The answer is Louis Braille invented braille.",
+          "incorrect_feedback": "Wrong. The answer is: Louis Braille invented braille.",
           "image_url": "",
           "correct": false
         },
@@ -59,7 +59,7 @@
         {
           "text": "Louis Braille was born in 1809.",
           "correct_feedback": "Correct",
-          "incorrect_feedback": "Wrong. The answer is Louis Braille invented braille.",
+          "incorrect_feedback": "Wrong. The answer is: Louis Braille invented braille.",
           "image_url": "",
           "correct": false
         }
