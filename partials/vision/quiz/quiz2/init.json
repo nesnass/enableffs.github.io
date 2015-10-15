@@ -67,66 +67,33 @@
     },
     {
       "type": "radio",
-      "text": "",
-      "image_url": "",
+      "text": "What does it say?",
+      "image_url": "quiz2img3.jpg",
       "answers": [
         {
-          "text": "Agree",
-          "correct_feedback": "Of course it could be to the disadvantage of the other pupils if one child needs the teachers full attention all the time. But does it have to be like that? Are there ways to solve this issue so this won´t be a disadvantage, but maybe an advantage?",
+          "text": "A full braille cell consists of dots arranged in two parallel rows",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: A full braille cell consists of six raised dots.",
+          "image_url": "",
+          "correct": false
+        },
+        {
+          "text": "A full braille cell consists of six raised dots.",
+          "correct_feedback": "Correct",
           "incorrect_feedback": "",
           "image_url": "",
           "correct": true
         },
         {
-          "text": "Disagree",
-          "correct_feedback": "Of course it could be to the disadvantage of the other pupils if one child needs the teachers full attention all the time. But does it have to be like that? Are there ways to solve this issue so this won´t be a disadvantage, but maybe an advantage?",
-          "incorrect_feedback": "",
+          "text": "A full braille cell consists of six dots.",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: A full braille cell consists of six raised dots.",
           "image_url": "",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "type": "radio",
-      "text": "Inclusion offers mixed group interaction, which will foster understanding and acceptance of differences among pupils.",
-      "image_url": "",
-      "answers": [
-        {
-          "text": "Agree",
-          "correct_feedback": "Inclusion can foster understanding and acceptance. But does it always work that way? What if the groups’ attitude towards children with disabilities is really bad? Do you think a child with disabilities put in the classroom can change this? One of the most important things for humans with disabilities is the attitude among people surrounding them. Attitude doesn’t change just because you include a child with disabilities in the class.  What do you think is important to change people's attitude?",
-          "incorrect_feedback": "",
-          "image_url": "",
-          "correct": true
-        },
-        {
-          "text": "Disagree",
-          "correct_feedback": "Inclusion can foster understanding and acceptance. But does it always work that way? What if the groups’ attitude towards children with disabilities is really bad? Do you think a child with disabilities put in the classroom can change this? One of the most important things for humans with disabilities is the attitude among people surrounding them. Attitude doesn’t change just because you include a child with disabilities in the class.  What do you think is important to change people's attitude?",
-          "incorrect_feedback": "",
-          "image_url": "",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "type": "radio",
-      "text": "Isolation in a special class has beneficial effect on the social and emotional development of a pupil with a disability.",
-      "image_url": "",
-      "answers": [
-        {
-          "text": "Agree",
-          "correct_feedback": "Isolation in a special class for children with disabilities could have a beneficial effect on some children. But what happens to this child when he or she has to start in a regular class or socialize with others outside the special class? Are children put in special classes prepared to handle a social life outside this special classroom? Is the society outside prepared to handle these children if they’re not included from an early stage?",
-          "incorrect_feedback": "",
-          "image_url": "",
-          "correct": true
-        },
-        {
-          "text": "Disagree",
-          "correct_feedback": "Isolation in a special class for children with disabilities could have a beneficial effect on some children. But what happens to this child when he or she has to start in a regular class or socialize with others outside the special class? Are children put in special classes prepared to handle a social life outside this special classroom? Is the society outside prepared to handle these children if they’re not included from an early stage?",
-          "incorrect_feedback": "",
-          "image_url": "",
-          "correct": true
+          "correct": false
         }
       ]
     }
+
+
   ]
 }
