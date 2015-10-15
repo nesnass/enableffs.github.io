@@ -40,27 +40,34 @@
     {
       "type": "radio",
       "text": "What does it say?",
-      "image_url": "",
+      "image_url": "quiz2img2.jpg",
       "answers": [
         {
-          "text": "Agree",
-          "correct_feedback": "In a classroom with many pupils it is always several needs to consider at all times. All children are different and they all require patience from the teacher. But of course if you have child with a disability who requires a lot more attention from the teacher than every one else, it could be challenging. But does children with disabilities always have a different behaviour than other children? And is this necessarily a worse behaviour?<br>Couldn’t the behaviour from children with disabilities affect the classroom just as much as any other child?",
+          "text": "Louis Braille became blind as a child.",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The answer is Louis Braille invented Braille.",
+          "image_url": "",
+          "correct": false
+        },
+        {
+          "text": "Louis Braille invented Braille.",
+          "correct_feedback": "Correct",
           "incorrect_feedback": "",
           "image_url": "",
           "correct": true
         },
         {
-          "text": "Disagree",
-          "correct_feedback": "In a classroom with many pupils it is always several needs to consider at all times. All children are different and they all require patience from the teacher. But of course if you have child with a disability who requires a lot more attention from the teacher than every one else, it could be challenging. But does children with disabilities always have a different behaviour than other children? And is this necessarily a worse behaviour?<br>Couldn’t the behaviour from children with disabilities affect the classroom just as much as any other child?",
+          "text": "Louis Braille was born in 1809.",
+          "correct_feedback": "Correct",
           "incorrect_feedback": "",
           "image_url": "",
-          "correct": true
+          "correct": false
         }
       ]
     },
     {
       "type": "radio",
-      "text": "The extra attention needed by a pupil with a disability will be to the disadvantage of the other pupils.",
+      "text": "",
       "image_url": "",
       "answers": [
         {
