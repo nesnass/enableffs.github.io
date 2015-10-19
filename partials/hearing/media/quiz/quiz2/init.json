@@ -1,0 +1,99 @@
+{
+  "title": "Can you read this?",
+  "intro": "Try to read the text by using what you’ve learned about braille.",
+  "summarypass": "Good job!",
+  "summaryfail": "Look at the letters and try again.",
+  "type": "quiz",
+  "language": "nn",
+  "exam_type": "quizpoll",
+  "module_description": "",
+  "ref": "",
+  "questions": [
+    {
+      "type": "radio",
+      "text": "What does it say?",
+      "image_url": "quiz2img1.jpg",
+      "answers": [
+        {
+          "text": "Braille is a system of raised dots.",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
+          "image_url": "",
+          "correct": true
+        },
+        {
+          "text": "Braille can be read with the fingers. ",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The answer is: Braille is a system of raised dots.",
+          "image_url": "",
+          "correct": false
+        },
+        {
+          "text": "Braille is used by thousands of people.",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The answer is: Braille is a system of raised dots.",
+          "image_url": "",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "text": "What does it say?",
+      "image_url": "quiz2img2.jpg",
+      "answers": [
+        {
+          "text": "Louis Braille became blind as a child.",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The answer is: Louis Braille invented braille.",
+          "image_url": "",
+          "correct": false
+        },
+        {
+          "text": "Louis Braille invented braille.",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
+          "image_url": "",
+          "correct": true
+        },
+        {
+          "text": "Louis Braille was born in 1809.",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The answer is: Louis Braille invented braille.",
+          "image_url": "",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "radio",
+      "text": "What does it say?",
+      "image_url": "quiz2img3.jpg",
+      "answers": [
+        {
+          "text": "A full braille cell consists of dots arranged in two parallel rows",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: A full braille cell consists of six raised dots.",
+          "image_url": "",
+          "correct": false
+        },
+        {
+          "text": "A full braille cell consists of six raised dots.",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
+          "image_url": "",
+          "correct": true
+        },
+        {
+          "text": "A full braille cell consists of six dots.",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: A full braille cell consists of six raised dots.",
+          "image_url": "",
+          "correct": false
+        }
+      ]
+    }
+
+
+  ]
+}
