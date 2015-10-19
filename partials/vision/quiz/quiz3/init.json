@@ -19,7 +19,7 @@
           "correct_feedback": "Wrong. This sign means mother.",
           "incorrect_feedback": "",
           "image_url": "",
-          "correct": true
+          "correct": false
         },
         {
           "text": "Sister ",
@@ -33,7 +33,7 @@
           "correct_feedback": "",
           "incorrect_feedback": "Correct",
           "image_url": "",
-          "correct": false
+          "correct": true
         }
       ]
     },
@@ -75,14 +75,14 @@
           "correct_feedback": "",
           "incorrect_feedback": "Correct",
           "image_url": "",
-          "correct": false
+          "correct": true
         },
         {
           "text": "Good",
           "correct_feedback": "Wrong. The correct answer is: Welcome",
           "incorrect_feedback": "",
           "image_url": "",
-          "correct": true
+          "correct": false
         },
         {
           "text": "Bad",
@@ -103,14 +103,14 @@
           "correct_feedback": "",
           "incorrect_feedback": "Correct",
           "image_url": "",
-          "correct": false
+          "correct": true
         },
         {
           "text": "Mother",
           "correct_feedback": "Wrong. The correct answer is: Father",
           "incorrect_feedback": "",
           "image_url": "",
-          "correct": true
+          "correct": false
         },
         {
           "text": "Brother",
@@ -138,14 +138,14 @@
           "correct_feedback": "Wrong. The correct answer is: Sad",
           "incorrect_feedback": "",
           "image_url": "",
-          "correct": true
+          "correct": false
         },
         {
           "text": "Sad",
           "correct_feedback": "",
           "incorrect_feedback": "Correct",
           "image_url": "",
-          "correct": false
+          "correct": true
         }
       ]
     }
