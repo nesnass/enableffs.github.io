@@ -11,13 +11,13 @@
   "questions": [
     {
       "type": "radio",
-      "text": "Do you know what this means?",
+      "text": "",
       "image_url": "mothersign.jpg",
       "answers": [
         {
           "text": "Father",
-          "correct_feedback": "Wrong. This sign means mother.",
-          "incorrect_feedback": "",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. This sign means mother.",
           "image_url": "",
           "correct": false
         },
@@ -30,8 +30,8 @@
         },
         {
           "text": "Mother",
-          "correct_feedback": "",
-          "incorrect_feedback": "Correct",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
           "image_url": "",
           "correct": true
         }
@@ -39,7 +39,7 @@
     },
     {
       "type": "radio",
-      "text": "Do you know what this means?",
+      "text": "",
       "image_url": "wellsign.jpg",
       "answers": [
         {
@@ -67,20 +67,20 @@
     },
     {
       "type": "radio",
-      "text": "Do you know what this means?",
+      "text": "",
       "image_url": "welcomesign.jpg",
       "answers": [
         {
           "text": "Welcome",
-          "correct_feedback": "",
-          "incorrect_feedback": "Correct",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
           "image_url": "",
           "correct": true
         },
         {
           "text": "Good",
-          "correct_feedback": "Wrong. The correct answer is: Welcome",
-          "incorrect_feedback": "",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: Welcome",
           "image_url": "",
           "correct": false
         },
@@ -95,20 +95,20 @@
     },
     {
       "type": "radio",
-      "text": "Do you know what this means?",
+      "text": "",
       "image_url": "fathersign.jpg",
       "answers": [
         {
           "text": "Father",
-          "correct_feedback": "",
-          "incorrect_feedback": "Correct",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
           "image_url": "",
           "correct": true
         },
         {
           "text": "Mother",
-          "correct_feedback": "Wrong. The correct answer is: Father",
-          "incorrect_feedback": "",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: Father",
           "image_url": "",
           "correct": false
         },
@@ -123,7 +123,7 @@
     },
     {
       "type": "radio",
-      "text": "Do you know what this means?",
+      "text": "",
       "image_url": "sadsign.jpg",
       "answers": [
         {
@@ -135,15 +135,15 @@
         },
         {
           "text": "Good",
-          "correct_feedback": "Wrong. The correct answer is: Sad",
-          "incorrect_feedback": "",
+          "correct_feedback": "",
+          "incorrect_feedback": "Wrong. The correct answer is: Sad",
           "image_url": "",
           "correct": false
         },
         {
           "text": "Sad",
-          "correct_feedback": "",
-          "incorrect_feedback": "Correct",
+          "correct_feedback": "Correct",
+          "incorrect_feedback": "",
           "image_url": "",
           "correct": true
         }
