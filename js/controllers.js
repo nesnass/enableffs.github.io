@@ -30,7 +30,8 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             //controls which menu template is included in the sidenav
             $scope.showVision = false;
             $scope.showHearing = false;
-            $scope.showCombined = false;
+            $scope.showDual = false;
+            $scope.showSensory = false;
 
             switch(data) {
                 case 'home':
@@ -46,6 +47,14 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
                 case 'hearing':
                     $scope.showHamburger = true;
                     $scope.showHearing = true;
+                    break;
+                case 'dual':
+                    $scope.showHamburger = true;
+                    $scope.showDual = true;
+                    break;
+                case 'sensory':
+                    $scope.showHamburger = true;
+                    $scope.showSensory = true;
                     break;
             }
         });
@@ -455,7 +464,90 @@ enableAppControllers.controller("HearingCtrl", ['$scope', '$rootScope', '$timeou
 
         /**
          * @ngdoc function
-         * @name VisionCtrl.gotoAnchor
+         * @name HearingCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
+
+    }]
+);
+
+
+/**
+ *
+ * @ngdoc controller
+ * @name DualCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("DualCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> dual started');
+
+        $scope.$emit('pageNavigationEvent', 'dual');
+        $rootScope.roottitle = "Enable basic page";
+
+        /**
+         * @ngdoc function
+         * @name DualCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
+
+    }]
+);
+
+/**
+ *
+ * @ngdoc controller
+ * @name SensoryCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("SensoryCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> sensory started');
+
+        $scope.$emit('pageNavigationEvent', 'sensory');
+        $rootScope.roottitle = "Enable basic page";
+
+        /**
+         * @ngdoc function
+         * @name SensoryCtrl.gotoAnchor
          * @kind function
          *
          * @description
