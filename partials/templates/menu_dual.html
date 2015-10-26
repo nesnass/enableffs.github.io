@@ -1,79 +1,17 @@
 <!--
 
-Hearing sidebar definition
+Dual sidebar definition
 
 -->
 
 
 <dl>
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s01_l01">{{ 'MENU_HEARING_SECTION01_LINK01' | translate }}</a>
+    <a auto-active ng-click="closeMenu()" ng-href="#/dual/s01_l01">{{ 'MENU_DUAL_SECTION01_LINK01' | translate }}</a>
 
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s02_l01">{{ 'MENU_HEARING_SECTION02_LINK01' | translate }}</a>
+    <a auto-active ng-click="closeMenu()" ng-href="#/dual/s02_l01">{{ 'MENU_DUAL_SECTION02_LINK01' | translate }}</a>
 
-    <dt tabindex="0" role="tab" aria-expanded="{{m3}}" ng-click="m3=!m3">
-        <span ng-show="!m3">+</span><span ng-show="m3">-</span> {{ 'MENU_HEARING_SECTION03_TITLE' |  translate }}
-        <span class="screenReadersOnly">{{ m3 ? " - click to toggle close" : " - click to toggle open"}}</span>
-    </dt>
+    <a auto-active ng-click="closeMenu()" ng-href="#/dual/s03_l01">{{ 'MENU_DUAL_SECTION03_LINK01' | translate }}</a>
 
-    <dd class="submenuitem" layout="column" ng-show="m3">
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s03_l01">{{ 'MENU_HEARING_SECTION03_LINK01' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s03_l02">{{ 'MENU_HEARING_SECTION03_LINK02' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s03_l03">{{ 'MENU_HEARING_SECTION03_LINK03' | translate }}</a>
-    </dd>
-
-    <dt tabindex="0" role="tab" aria-expanded="{{m4}}" ng-click="m4=!m4">
-        <span ng-show="!m4">+</span><span ng-show="m4">-</span> {{ 'MENU_HEARING_SECTION04_TITLE' | translate }}
-        <span class="screenReadersOnly">{{ m4 ? " - click to toggle close" : " - click to toggle open"}}</span>
-    </dt>
-
-    <dd class="submenuitem" layout="column" ng-show="m4">
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s04_l01">{{ 'MENU_HEARING_SECTION04_LINK01' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s04_l02">{{ 'MENU_HEARING_SECTION04_LINK02' | translate }}</a>
-    </dd>
-
-    <dt tabindex="0" role="tab" aria-expanded="{{m5}}" ng-click="m5=!m5">
-        <span ng-show="!m5">+</span><span ng-show="m5">-</span> {{ 'MENU_HEARING_SECTION05_TITLE' | translate }}
-        <span class="screenReadersOnly">{{ m5 ? " - click to toggle close" : " - click to toggle open"}}</span>
-    </dt>
-
-    <dd class="submenuitem" layout="column" ng-show="m5">
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l01">{{ 'MENU_HEARING_SECTION05_LINK01' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l02">{{ 'MENU_HEARING_SECTION05_LINK02' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l03">{{ 'MENU_HEARING_SECTION05_LINK03' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l04">{{ 'MENU_HEARING_SECTION05_LINK04' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l05">{{ 'MENU_HEARING_SECTION05_LINK05' | translate }}</a>
-    </dd>
-
-    <dt tabindex="0" role="tab" aria-expanded="{{m6}}" ng-click="m6=!m6">
-        <span ng-show="!m6">+</span><span ng-show="m6">-</span> {{ 'MENU_HEARING_SECTION06_TITLE' | translate }}
-        <span class="screenReadersOnly">{{ m6 ? " - click to toggle close" : " - click to toggle open"}}</span>
-    </dt>
-
-    <dd class="submenuitem" layout="column" ng-show="m6">
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s06_l01">{{ 'MENU_HEARING_SECTION06_LINK01' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s06_l02">{{ 'MENU_HEARING_SECTION06_LINK02' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s06_l03">{{ 'MENU_HEARING_SECTION06_LINK03' | translate }}</a>
-    </dd>
-
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s07_l01">{{ 'MENU_HEARING_SECTION07_LINK01' | translate }}</a>
-
-    <dt tabindex="0" role="tab" aria-expanded="{{m8}}" ng-click="m8=!m8">
-        <span ng-show="!m8">+</span><span ng-show="m8">-</span> {{ 'MENU_HEARING_SECTION08_TITLE' | translate }}
-        <span class="screenReadersOnly">{{ m8 ? " - click to toggle close" : " - click to toggle open"}}</span>
-    </dt>
-
-    <dd class="submenuitem" layout="column" ng-show="m8">
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s08_l01">{{ 'MENU_HEARING_SECTION08_LINK01' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s08_l02">{{ 'MENU_HEARING_SECTION08_LINK02' | translate }}</a>
-    </dd>
-
-
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s09_l01">{{ 'MENU_HEARING_SECTION09_LINK01' | translate }}</a>
-
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s10_l01">{{ 'MENU_HEARING_SECTION10_LINK01' | translate }}</a>
-
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s11_l01">{{ 'MENU_HEARING_SECTION11_LINK01' | translate }}</a>
-
-    <a auto-active ng-click="closeMenu()" ng-href="#/hearing/s12_l01">{{ 'MENU_HEARING_SECTION12_LINK01' | translate }}</a>
+    <a auto-active ng-click="closeMenu()" ng-href="#/dual/s04_l01">{{ 'MENU_DUAL_SECTION04_LINK01' | translate }}</a>
 
 </dl>
