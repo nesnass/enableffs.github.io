@@ -1,0 +1,32 @@
+[
+  {
+    "src": "teacher.jpg",
+    "text_en": "Pic 1",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "deafgirlclose.jpg",
+    "text_en": "Pic 1",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "interpreter.jpg",
+    "text_en": "some intro text for this section 1. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book ...",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "classtotal.jpg",
+    "text_en": "Pic 3",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "toskuddbakfra.jpg",
+    "text_en": "Pic 3",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "toskuddforfra2.jpg",
+    "text_en": "Pic 4",
+    "text_fr": "Image 4"
+  }
+]
