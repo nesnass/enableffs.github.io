@@ -1,7 +1,7 @@
 [
   {
     "src": "teacher.jpg",
-    "text_en": "The teacher gives the lesson to the class orally.",
+    "text_en": "The teacher gives her lesson to the class orally.",
     "text_fr": "Image 1"
   },
   {
@@ -21,11 +21,11 @@
   },
   {
     "src": "toskuddbakfra.jpg",
-    "text_en": "Pic 3",
+    "text_en": "Roses attention is towards the interpreter.",
     "text_fr": "Image 3"
   },
   {
-    "src": "toskuddforfra2.jpg",
+    "src": "Rose responds to the interpretation.jpg",
     "text_en": "Pic 4",
     "text_fr": "Image 4"
   }
