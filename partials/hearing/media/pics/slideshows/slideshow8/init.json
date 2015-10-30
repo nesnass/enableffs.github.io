@@ -1,0 +1,32 @@
+[
+  {
+    "src": "teacher.jpg",
+    "text_en": "The teacher gives her lesson to the class orally.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "deafgirlclose.jpg",
+    "text_en": "Rose is not perceiving orally what is said.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "interpreter.jpg",
+    "text_en": "She is independent of her classmates interpretation.",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "classtotal.jpg",
+    "text_en": "Roses classmate is interpreting while the rest of the class are communicating with the teacher.",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "toskuddbakfra.jpg",
+    "text_en": "Roses attention is towards the interpreter.",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "toskuddforfra2.jpg",
+    "text_en": "Rose responds to the interpretation",
+    "text_fr": "Image 4"
+  }
+]
