@@ -1,11 +1,36 @@
 [
   {
-    "src": "bla.jpg",
+    "src": "luise.jpg",
     "text_en": "bla",
     "text_fr": "bla"
   },
   {
-    "src": "bla.jpg",
+    "src": "lousiebeauty.jpg",
+    "text_en": "bla",
+    "text_fr": "bla"
+  },
+  {
+    "src": "beware.jpg",
+    "text_en": "bla",
+    "text_fr": "bla"
+  },
+  {
+    "src": "smallgirl.jpg",
+    "text_en": "bla",
+    "text_fr": "bla"
+  },
+  {
+    "src": "victor.jpg",
+    "text_en": "bla",
+    "text_fr": "bla"
+  },
+  {
+    "src": "feeding.jpg",
+    "text_en": "bla",
+    "text_fr": "bla"
+  },
+  {
+    "src": "cedric2.jpg",
     "text_en": "bla",
     "text_fr": "bla"
   }
