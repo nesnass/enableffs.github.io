@@ -30,8 +30,13 @@
     "text_fr": "bla"
   },
   {
+    "src": "cedricwrite.jpg",
+    "text_en": "Cedric master the braillewriter.",
+    "text_fr": "bla"
+  },
+  {
     "src": "cedric2.jpg",
-    "text_en": "According to the poster Cedric has many skills.",
+    "text_en": "According to the educational program Cedric has many more skills.",
     "text_fr": "bla"
   }
 ]
