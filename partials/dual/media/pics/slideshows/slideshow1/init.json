@@ -6,7 +6,7 @@
   },
   {
     "src": "luise.jpg",
-    "text_en": "Lousie´s ways of communication, her learning style and her preferred activities are described in the poster. It also gives her communication partner information about preferred ways of communication.",
+    "text_en": "In Lousie´s individual educational program her ways of communication, learning style and preferred activities are described. The program also gives her communication partner information about the preferred ways of communication.",
     "text_fr": "This section describes Lousie´s way of communication, her learning style and her preferred activities. It also gives her communication partner information about ways of communication."
   },
   {
@@ -30,8 +30,13 @@
     "text_fr": "bla"
   },
   {
+    "src": "cedricwrite.jpg",
+    "text_en": "Cedric master the braillewriter.",
+    "text_fr": "bla"
+  },
+  {
     "src": "cedric2.jpg",
-    "text_en": "According to the poster Cedric has many skills.",
+    "text_en": "According to the educational program Cedric has a lot of skills.",
     "text_fr": "bla"
   }
 ]
