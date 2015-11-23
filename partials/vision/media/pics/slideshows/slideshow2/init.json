@@ -1,9 +1,22 @@
 [
   {
     "src": "guttalene.jpg",
-    "text_en": "Beeing alone is not easy when you are visually impaired and want to move around.",
+    "text_en": "It is not easy to move around on your own when you are at you own.",
     "text_fr": "Image 1"
   },
+  {
+    "src": "ledsager1.jpg",
+    "text_en": "We are peers and help each other!",
+    "text_fr": "Image 1"
+  },{
+  "src": "ledsager2.jpg",
+  "text_en": "We are peers and help each other!",
+  "text_fr": "Image 1"
+},{
+  "src": "ledsager3.jpg",
+  "text_en": "We are peers and help each other!",
+  "text_fr": "Image 1"
+},
   {
     "src": "tojenterloperbakfra.jpg",
     "text_en": "It is nice running around in a big compound without obstacles.",
