@@ -1,7 +1,7 @@
 [
   {
     "src": "blindfold.jpg",
-    "text_en": "The learner use a blindfold and can´t check what is displayed.",
+    "text_en": "The learner use a blindfold and can´t check what is displayed on the screen.",
     "text_fr": "Image 1"
   },
   {
@@ -11,17 +11,17 @@
   },
   {
     "src": "blindusingtastatur.jpg",
-    "text_en": ".",
+    "text_en": "They must learn to operate computers without screen and mouse.",
     "text_fr": "Image 3"
   },
   {
     "src": "blindusingtastatur2.jpg",
-    "text_en": ".",
+    "text_en": " He must rely on the keyboard and the sound.",
     "text_fr": "Image 4"
   },
   {
     "src": "blindusingtastatur3.jpg",
-    "text_en": ". ",
+    "text_en": "She must create a virtual image of how a computer works.",
     "text_fr": "Image 1"
   }
 ]
