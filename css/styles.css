@@ -63,7 +63,6 @@ a,
 a:visited {
     text-decoration: none;
     color: #000000;
-    display: block;
 }
 
 dt,
@@ -71,6 +70,7 @@ dl a,
 dd a {
     padding-top: 5px;
     padding-bottom: 5px;
+    display: block;
 }
 
 
