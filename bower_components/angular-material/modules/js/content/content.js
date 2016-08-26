@@ -2,11 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.0.7
+ * v0.9.0
  */
-(function( window, angular, undefined ){
+(function () {
 "use strict";
-
 /**
  * @ngdoc module
  * @name material.components.content
@@ -82,4 +81,4 @@ function iosScrollFix(node) {
   });
 }
 
-})(window, window.angular);
+})();
