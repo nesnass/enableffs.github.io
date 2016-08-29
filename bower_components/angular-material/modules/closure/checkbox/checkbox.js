@@ -2,10 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0
+ * v0.9.0
  */
-goog.provide('ngmaterial.components.checkbox');
-goog.require('ngmaterial.core');
+goog.provide('ng.material.components.checkbox');
+goog.require('ng.material.core');
 /**
  * @ngdoc module
  * @name material.components.checkbox
@@ -35,15 +35,7 @@ angular
  * @param {string=} ng-change Angular expression to be executed when input changes due to user interaction with the input element.
  * @param {boolean=} md-no-ink Use of attribute indicates use of ripple ink effects
  * @param {string=} aria-label Adds label to checkbox for accessibility.
- *     Defaults to checkbox's text. If no default text is found, a warning will be logged.
- * @param {expression=} md-indeterminate This determines when the checkbox should be rendered as 'indeterminate'.
- *     If a truthy expression or no value is passed in the checkbox renders in the md-indeterminate state.
- *     If falsy expression is passed in it just looks like a normal unchecked checkbox.
- *     The indeterminate, checked, and unchecked states are mutually exclusive. A box cannot be in any two states at the same time.
- *     Adding the 'md-indeterminate' attribute overrides any checked/unchecked rendering logic.
- *     When using the 'md-indeterminate' attribute use 'ng-checked' to define rendering logic instead of using 'ng-model'.
- * @param {expression=} ng-checked If this expression evaluates as truthy, the 'md-checked' css class is added to the checkbox and it
- *     will appear checked.
+ * Defaults to checkbox's text. If no default text is found, a warning will be logged.
  *
  * @usage
  * <hljs lang="html">
@@ -62,15 +54,16 @@ angular
  * </hljs>
  *
  */
-function MdCheckboxDirective(inputDirective, $mdAria, $mdConstant, $mdTheming, $mdUtil, $timeout) {
+function MdCheckboxDirective(inputDirective, $mdInkRipple, $mdAria, $mdConstant, $mdTheming, $mdUtil, $timeout) {
   inputDirective = inputDirective[0];
+  var CHECKED_CSS = 'md-checked';
 
   return {
     restrict: 'E',
     transclude: true,
     require: '?ngModel',
-    priority: 210, // Run before ngAria
-    template:
+    priority:210, // Run before ngAria
+    template: 
       '<div class="md-container" md-ink-ripple md-ink-ripple-checkbox>' +
         '<div class="md-icon"></div>' +
       '</div>' +
@@ -83,51 +76,25 @@ function MdCheckboxDirective(inputDirective, $mdAria, $mdConstant, $mdTheming, $
   // **********************************************************
 
   function compile (tElement, tAttrs) {
-    tAttrs.$set('tabindex', tAttrs.tabindex || '0');
-    tAttrs.$set('type', 'checkbox');
-    tAttrs.$set('role', tAttrs.type);
 
-    return  {
-      pre: function(scope, element) {
-        // Attach a click handler during preLink, in order to immediately stop propagation
-        // (especially for ng-click) when the checkbox is disabled.
-        element.on('click', function(e) {
-          if (this.hasAttribute('disabled')) {
-            e.stopImmediatePropagation();
-          }
-        });
-      },
-      post: postLink
-    };
+    tAttrs.type = 'checkbox';
+    tAttrs.tabindex = tAttrs.tabindex || '0';
+    tElement.attr('role', tAttrs.type);
 
-    function postLink(scope, element, attr, ngModelCtrl) {
-      var isIndeterminate;
+    return function postLink(scope, element, attr, ngModelCtrl) {
       ngModelCtrl = ngModelCtrl || $mdUtil.fakeNgModel();
       $mdTheming(element);
 
-      // Redirect focus events to the root element, because IE11 is always focusing the container element instead
-      // of the md-checkbox element. This causes issues when using ngModelOptions: `updateOnBlur`
-      element.children().on('focus', function() {
-        element.focus();
-      });
-
-      if ($mdUtil.parseAttributeBoolean(attr.mdIndeterminate)) {
-        setIndeterminateState();
-        scope.$watch(attr.mdIndeterminate, setIndeterminateState);
-      }
-
       if (attr.ngChecked) {
         scope.$watch(
-          scope.$eval.bind(scope, attr.ngChecked),
-          ngModelCtrl.$setViewValue.bind(ngModelCtrl)
+            scope.$eval.bind(scope, attr.ngChecked),
+            ngModelCtrl.$setViewValue.bind(ngModelCtrl)
         );
       }
-
       $$watchExpr('ngDisabled', 'tabindex', {
         true: '-1',
         false: attr.tabindex
       });
-
       $mdAria.expectWithText(element, 'aria-label');
 
       // Reuse the original input[type=checkbox] directive from Angular core.
@@ -143,18 +110,14 @@ function MdCheckboxDirective(inputDirective, $mdAria, $mdConstant, $mdTheming, $
         .on('keypress', keypressHandler)
         .on('mousedown', function() {
           scope.mouseActive = true;
-          $timeout(function() {
+          $timeout(function(){
             scope.mouseActive = false;
           }, 100);
         })
         .on('focus', function() {
-          if (scope.mouseActive === false) {
-            element.addClass('md-focused');
-          }
+          if(scope.mouseActive === false) { element.addClass('md-focused'); }
         })
-        .on('blur', function() {
-          element.removeClass('md-focused');
-        });
+        .on('blur', function() { element.removeClass('md-focused'); });
 
       ngModelCtrl.$render = render;
 
@@ -172,42 +135,32 @@ function MdCheckboxDirective(inputDirective, $mdAria, $mdConstant, $mdTheming, $
         var keyCode = ev.which || ev.keyCode;
         if (keyCode === $mdConstant.KEY_CODE.SPACE || keyCode === $mdConstant.KEY_CODE.ENTER) {
           ev.preventDefault();
-          element.addClass('md-focused');
+          if (!element.hasClass('md-focused')) { element.addClass('md-focused'); }
           listener(ev);
         }
       }
-
       function listener(ev) {
-        // skipToggle boolean is used by the switch directive to prevent the click event
-        // when releasing the drag. There will be always a click if releasing the drag over the checkbox
-        if (element[0].hasAttribute('disabled') || scope.skipToggle) {
-          return;
-        }
+        if (element[0].hasAttribute('disabled')) return;
 
         scope.$apply(function() {
           // Toggle the checkbox value...
           var viewValue = attr.ngChecked ? attr.checked : !ngModelCtrl.$viewValue;
 
-          ngModelCtrl.$setViewValue(viewValue, ev && ev.type);
+          ngModelCtrl.$setViewValue( viewValue, ev && ev.type);
           ngModelCtrl.$render();
         });
       }
 
       function render() {
-        // Cast the $viewValue to a boolean since it could be undefined
-        element.toggleClass('md-checked', !!ngModelCtrl.$viewValue && !isIndeterminate);
-      }
-
-      function setIndeterminateState(newValue) {
-        isIndeterminate = newValue !== false;
-        if (isIndeterminate) {
-          element.attr('aria-checked', 'mixed');
+        if(ngModelCtrl.$viewValue) {
+          element.addClass(CHECKED_CSS);
+        } else {
+          element.removeClass(CHECKED_CSS);
         }
-        element.toggleClass('md-indeterminate', isIndeterminate);
       }
-    }
+    };
   }
 }
-MdCheckboxDirective.$inject = ["inputDirective", "$mdAria", "$mdConstant", "$mdTheming", "$mdUtil", "$timeout"];
+MdCheckboxDirective.$inject = ["inputDirective", "$mdInkRipple", "$mdAria", "$mdConstant", "$mdTheming", "$mdUtil", "$timeout"];
 
-ngmaterial.components.checkbox = angular.module("material.components.checkbox");
+ng.material.components.checkbox = angular.module("material.components.checkbox");

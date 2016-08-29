@@ -2,10 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0
+ * v0.9.0
  */
-goog.provide('ngmaterial.components.swipe');
-goog.require('ngmaterial.core');
+goog.provide('ng.material.components.swipe');
+goog.require('ng.material.core');
 /**
  * @ngdoc module
  * @name material.components.swipe
@@ -19,7 +19,7 @@ goog.require('ngmaterial.core');
  * @restrict A
  *
  * @description
- * The md-swipe-left directive allows you to specify custom behavior when an element is swiped
+ * The md-swipe-left directives allows you to specify custom behavior when an element is swiped
  * left.
  *
  * @usage
@@ -35,7 +35,7 @@ goog.require('ngmaterial.core');
  * @restrict A
  *
  * @description
- * The md-swipe-right directive allows you to specify custom behavior when an element is swiped
+ * The md-swipe-right directives allows you to specify custom behavior when an element is swiped
  * right.
  *
  * @usage
@@ -43,44 +43,10 @@ goog.require('ngmaterial.core');
  * <div md-swipe-right="onSwipeRight()">Swipe me right!</div>
  * </hljs>
  */
-/**
- * @ngdoc directive
- * @module material.components.swipe
- * @name mdSwipeUp
- *
- * @restrict A
- *
- * @description
- * The md-swipe-up directive allows you to specify custom behavior when an element is swiped
- * up.
- *
- * @usage
- * <hljs lang="html">
- * <div md-swipe-up="onSwipeUp()">Swipe me up!</div>
- * </hljs>
- */
-/**
- * @ngdoc directive
- * @module material.components.swipe
- * @name mdSwipeDown
- *
- * @restrict A
- *
- * @description
- * The md-swipe-down directive allows you to specify custom behavior when an element is swiped
- * down.
- *
- * @usage
- * <hljs lang="html">
- * <div md-swipe-down="onSwipDown()">Swipe me down!</div>
- * </hljs>
- */
 
 angular.module('material.components.swipe', ['material.core'])
     .directive('mdSwipeLeft', getDirective('SwipeLeft'))
-    .directive('mdSwipeRight', getDirective('SwipeRight'))
-    .directive('mdSwipeUp', getDirective('SwipeUp'))
-    .directive('mdSwipeDown', getDirective('SwipeDown'));
+    .directive('mdSwipeRight', getDirective('SwipeRight'));
 
 function getDirective(name) {
   var directiveName = 'md' + name;
@@ -89,13 +55,13 @@ function getDirective(name) {
     DirectiveFactory.$inject = ["$parse"];
   return DirectiveFactory;
 
-  /* ngInject */
+  /* @ngInject */
   function DirectiveFactory($parse) {
       return { restrict: 'A', link: postLink };
       function postLink(scope, element, attr) {
         var fn = $parse(attr[directiveName]);
         element.on(eventName, function(ev) {
-          scope.$applyAsync(function() { fn(scope, { $event: ev }); });
+          scope.$apply(function() { fn(scope, { $event: ev }); });
         });
       }
     }
@@ -103,4 +69,4 @@ function getDirective(name) {
 
 
 
-ngmaterial.components.swipe = angular.module("material.components.swipe");
+ng.material.components.swipe = angular.module("material.components.swipe");

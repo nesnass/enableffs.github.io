@@ -87,6 +87,7 @@ a.sidenavlinksactive {
 md-toolbar {
     min-height: 64px !important;
     max-height: 64px !important;
+    background-color: #FFC107 !important;
 }
 
 footer {

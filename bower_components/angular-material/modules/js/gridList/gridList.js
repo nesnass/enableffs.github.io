@@ -2,11 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0
+ * v0.9.0
  */
-(function( window, angular, undefined ){
+(function () {
 "use strict";
-
 /**
  * @ngdoc module
  * @name material.components.gridList
@@ -47,7 +46,7 @@ angular.module('material.components.gridList', ['material.core'])
  *
  * The `md-grid-list` directive supports "responsive" attributes, which allow
  * different `md-cols`, `md-gutter` and `md-row-height` values depending on the
- * currently matching media query.
+ * currently matching media query (as defined in `$mdConstant.MEDIA`).
  *
  * In order to set a responsive attribute, first define the fallback value with
  * the standard attribute name, then add additional attributes with the
@@ -113,8 +112,6 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
   };
 
   function postLink(scope, element, attrs, ctrl) {
-    element.addClass('_md');     // private md component indicator for styling
-    
     // Apply semantics
     element.attr('role', 'list');
 
@@ -135,7 +132,7 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
             .addListener(invalidateLayout);
       }
       return $mdMedia.watchResponsiveAttributes(
-          ['md-cols', 'md-row-height', 'md-gutter'], attrs, layoutIfMediaMatch);
+          ['md-cols', 'md-row-height'], attrs, layoutIfMediaMatch);
     }
 
     function unwatchMedia() {
@@ -200,7 +197,7 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
                 return {
                   element: angular.element(tiles[i]),
                   style: getTileStyle(ps.position, ps.spans,
-                      props.colCount, rowCount,
+                      props.colCount, props.rowCount,
                       props.gutter, props.rowMode, props.rowHeight)
                 }
               })
@@ -330,12 +327,14 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
     }
 
     function getGridStyle(colCount, rowCount, gutter, rowMode, rowHeight) {
-      var style = {};
+      var style = {
+        height: '',
+        paddingBottom: ''
+      };
 
       switch(rowMode) {
         case 'fixed':
           style.height = DIMENSION({ unit: rowHeight, span: rowCount, gutter: gutter });
-          style.paddingBottom = '';
           break;
 
         case 'ratio':
@@ -345,7 +344,6 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
               vShare = hShare * (1 / rowHeight),
               vUnit = UNIT({ share: vShare, gutterShare: hGutterShare, gutter: gutter });
 
-          style.height = '';
           style.paddingBottom = DIMENSION({ unit: vUnit, span: rowCount, gutter: gutter});
           break;
 
@@ -359,7 +357,7 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
 
     function getTileElements() {
       return [].filter.call(element.children(), function(ele) {
-        return ele.tagName == 'MD-GRID-TILE' && !ele.$$mdDestroyed;
+        return ele.tagName == 'MD-GRID-TILE';
       });
     }
 
@@ -393,10 +391,6 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
 
     function getRowHeight() {
       var rowHeight = $mdMedia.getResponsiveAttribute(attrs, 'md-row-height');
-      if (!rowHeight) {
-        throw 'md-grid-list: md-row-height attribute was not found';
-      }
-
       switch (getRowMode()) {
         case 'fixed':
           return applyDefaultUnit(rowHeight);
@@ -410,10 +404,6 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
 
     function getRowMode() {
       var rowHeight = $mdMedia.getResponsiveAttribute(attrs, 'md-row-height');
-      if (!rowHeight) {
-        throw 'md-grid-list: md-row-height attribute was not found';
-      }
-
       if (rowHeight == 'fit') {
         return 'fit';
       } else if (rowHeight.indexOf(':') !== -1) {
@@ -430,14 +420,14 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
 }
 GridListDirective.$inject = ["$interpolate", "$mdConstant", "$mdGridLayout", "$mdMedia"];
 
-/* ngInject */
-function GridListController($mdUtil) {
+/* @ngInject */
+function GridListController($timeout) {
   this.layoutInvalidated = false;
   this.tilesInvalidated = false;
-  this.$timeout_ = $mdUtil.nextTick;
+  this.$timeout_ = $timeout;
   this.layoutDelegate = angular.noop;
 }
-GridListController.$inject = ["$mdUtil"];
+GridListController.$inject = ["$timeout"];
 
 GridListController.prototype = {
   invalidateTiles: function() {
@@ -464,7 +454,7 @@ GridListController.prototype = {
 };
 
 
-/* ngInject */
+/* @ngInject */
 function GridLayoutFactory($mdUtil) {
   var defaultAnimator = GridTileAnimator;
 
@@ -676,7 +666,7 @@ GridLayoutFactory.$inject = ["$mdUtil"];
  *
  * The `md-grid-tile` directive supports "responsive" attributes, which allow
  * different `md-rowspan` and `md-colspan` values depending on the currently
- * matching media query.
+ * matching media query (as defined in `$mdConstant.MEDIA`).
  *
  * In order to set a responsive attribute, first define the fallback value with
  * the standard attribute name, then add additional attributes with the
@@ -744,9 +734,6 @@ function GridTileDirective($mdMedia) {
     // Tile registration/deregistration
     gridCtrl.invalidateTiles();
     scope.$on('$destroy', function() {
-      // Mark the tile as destroyed so it is no longer considered in layout,
-      // even if the DOM element sticks around (like during a leave animation)
-      element[0].$$mdDestroyed = true;
       unwatchAttrs();
       gridCtrl.invalidateLayout();
     });
@@ -772,4 +759,4 @@ function GridTileCaptionDirective() {
   };
 }
 
-})(window, window.angular);
+})();

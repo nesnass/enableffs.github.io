@@ -2,11 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.0
+ * v0.9.0
  */
-(function( window, angular, undefined ){
+(function () {
 "use strict";
-
 /**
  * @ngdoc module
  * @name material.components.button
@@ -16,37 +15,7 @@
  */
 angular
     .module('material.components.button', [ 'material.core' ])
-    .directive('mdButton', MdButtonDirective)
-    .directive('a', MdAnchorDirective);
-
-
-/**
- * @private
- * @restrict E
- *
- * @description
- * `a` is an anchor directive used to inherit theme colors for md-primary, md-accent, etc.
- *
- * @usage
- *
- * <hljs lang="html">
- *  <md-content md-theme="myTheme">
- *    <a href="#chapter1" class="md-accent"></a>
- *  </md-content>
- * </hljs>
- */
-function MdAnchorDirective($mdTheming) {
-  return {
-    restrict : 'E',
-    link : function postLink(scope, element) {
-      // Make sure to inherit theme so stand-alone anchors
-      // support theme colors for md-primary, md-accent, etc.
-      $mdTheming(element);
-    }
-  };
-}
-MdAnchorDirective.$inject = ["$mdTheming"];
-
+    .directive('mdButton', MdButtonDirective);
 
 /**
  * @ngdoc directive
@@ -59,32 +28,11 @@ MdAnchorDirective.$inject = ["$mdTheming"];
  * `<md-button>` is a button directive with optional ink ripples (default enabled).
  *
  * If you supply a `href` or `ng-href` attribute, it will become an `<a>` element. Otherwise, it will
- * become a `<button>` element. As per the [Material Design specifications](http://www.google.com/design/spec/style/color.html#color-ui-color-application)
- * the FAB button background is filled with the accent color [by default]. The primary color palette may be used with
+ * become a `<button>` element.
+ *
+ * As per the [material design spec](http://www.google.com/design/spec/style/color.html#color-ui-color-application)
+ * the FAB button is in the accent color by default. The primary color palette may be used with
  * the `md-primary` class.
- *
- * Developers can also change the color palette of the button, by using the following classes
- * - `md-primary`
- * - `md-accent`
- * - `md-warn`
- *
- * See for example
- *
- * <hljs lang="html">
- *   <md-button class="md-primary">Primary Button</md-button>
- * </hljs>
- *
- * Button can be also raised, which means that they will use the current color palette to fill the button.
- *
- * <hljs lang="html">
- *   <md-button class="md-accent md-raised">Raised and Accent Button</md-button>
- * </hljs>
- *
- * It is also possible to disable the focus effect on the button, by using the following markup.
- *
- * <hljs lang="html">
- *   <md-button class="md-no-focus">No Focus Style</md-button>
- * </hljs>
  *
  * @param {boolean=} md-no-ink If present, disable ripple ink effects.
  * @param {expression=} ng-disabled En/Disable based on the expression
@@ -93,37 +41,31 @@ MdAnchorDirective.$inject = ["$mdTheming"];
  * If no default text is found, a warning will be logged.
  *
  * @usage
- *
- * Regular buttons:
- *
  * <hljs lang="html">
- *  <md-button> Flat Button </md-button>
- *  <md-button href="http://google.com"> Flat link </md-button>
- *  <md-button class="md-raised"> Raised Button </md-button>
- *  <md-button ng-disabled="true"> Disabled Button </md-button>
  *  <md-button>
- *    <md-icon md-svg-src="your/icon.svg"></md-icon>
- *    Register Now
+ *    Flat Button
  *  </md-button>
- * </hljs>
- *
- * FAB buttons:
- *
- * <hljs lang="html">
+ *  <md-button href="http://google.com">
+ *    Flat link
+ *  </md-button>
+ *  <md-button class="md-raised">
+ *    Raised Button
+ *  </md-button>
+ *  <md-button ng-disabled="true">
+ *    Disabled Button
+ *  </md-button>
  *  <md-button class="md-fab" aria-label="FAB">
  *    <md-icon md-svg-src="your/icon.svg"></md-icon>
  *  </md-button>
- *  <!-- mini-FAB -->
  *  <md-button class="md-fab md-mini" aria-label="Mini FAB">
  *    <md-icon md-svg-src="your/icon.svg"></md-icon>
  *  </md-button>
- *  <!-- Button with SVG Icon -->
  *  <md-button class="md-icon-button" aria-label="Custom Icon Button">
  *    <md-icon md-svg-icon="path/to/your.svg"></md-icon>
  *  </md-button>
  * </hljs>
  */
-function MdButtonDirective($mdButtonInkRipple, $mdTheming, $mdAria, $timeout) {
+function MdButtonDirective($mdInkRipple, $mdTheming, $mdAria, $timeout) {
 
   return {
     restrict: 'EA',
@@ -136,25 +78,24 @@ function MdButtonDirective($mdButtonInkRipple, $mdTheming, $mdAria, $timeout) {
   function isAnchor(attr) {
     return angular.isDefined(attr.href) || angular.isDefined(attr.ngHref) || angular.isDefined(attr.ngLink) || angular.isDefined(attr.uiSref);
   }
-
+  
   function getTemplate(element, attr) {
-    if (isAnchor(attr)) {
-      return '<a class="md-button" ng-transclude></a>';
-    } else {
-      //If buttons don't have type="button", they will submit forms automatically.
-      var btnType = (typeof attr.type === 'undefined') ? 'button' : attr.type;
-      return '<button class="md-button" type="' + btnType + '" ng-transclude></button>';
-    }
+    return isAnchor(attr) ?
+           '<a class="md-button" ng-transclude></a>' :
+           '<button class="md-button" ng-transclude></button>';
   }
 
   function postLink(scope, element, attr) {
+    var node = element[0];
     $mdTheming(element);
-    $mdButtonInkRipple.attach(scope, element);
+    $mdInkRipple.attachButtonBehavior(scope, element);
 
-    // Use async expect to support possible bindings in the button label
-    $mdAria.expectWithoutText(element, 'aria-label');
+    var elementHasText = node.textContent.trim();
+    if (!elementHasText) {
+      $mdAria.expect(element, 'aria-label');
+    }
 
-    // For anchor elements, we have to set tabindex manually when the
+    // For anchor elements, we have to set tabindex manually when the 
     // element is disabled
     if (isAnchor(attr) && angular.isDefined(attr.ngDisabled) ) {
       scope.$watch(attr.ngDisabled, function(isDisabled) {
@@ -170,28 +111,21 @@ function MdButtonDirective($mdButtonInkRipple, $mdTheming, $mdAria, $timeout) {
       }
     });
 
-    if (!element.hasClass('md-no-focus')) {
-      // restrict focus styles to the keyboard
-      scope.mouseActive = false;
-      element.on('mousedown', function() {
+    // restrict focus styles to the keyboard
+    scope.mouseActive = false;
+    element.on('mousedown', function() {
         scope.mouseActive = true;
         $timeout(function(){
           scope.mouseActive = false;
         }, 100);
       })
       .on('focus', function() {
-        if (scope.mouseActive === false) {
-          element.addClass('md-focused');
-        }
+        if(scope.mouseActive === false) { element.addClass('md-focused'); }
       })
-      .on('blur', function(ev) {
-        element.removeClass('md-focused');
-      });
-    }
-
+      .on('blur', function() { element.removeClass('md-focused'); });
   }
 
 }
-MdButtonDirective.$inject = ["$mdButtonInkRipple", "$mdTheming", "$mdAria", "$timeout"];
+MdButtonDirective.$inject = ["$mdInkRipple", "$mdTheming", "$mdAria", "$timeout"];
 
-})(window, window.angular);
+})();
