@@ -130,22 +130,6 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
 
         /**
          * @ngdoc function
-         * @name MenuCtrl.querySearch
-         * @kind function
-         *
-         * @description
-         * Function called when a change (typing) is noticed by the md-autocomplete search input. Returns an array of results matching the query
-         *
-         * @param {string} query the query string which is currently being typed in the search input
-         */
-        $scope.querySearch = function(query) {
-            var results = query ? $scope.metatags.filter( createFilterFor(query) ) : [];
-            return results;
-
-        };
-
-        /**
-         * @ngdoc function
          * @name MenuCtrl.createFilterFor
          * @kind function
          *
@@ -161,6 +145,22 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
                 return (tag.value.indexOf(lowercaseQuery) === 0);
             };
         }
+
+        /**
+         * @ngdoc function
+         * @name MenuCtrl.querySearch
+         * @kind function
+         *
+         * @description
+         * Function called when a change (typing) is noticed by the md-autocomplete search input. Returns an array of results matching the query
+         *
+         * @param {string} query the query string which is currently being typed in the search input
+         */
+        $scope.querySearch = function(query) {
+            var results = query ? $scope.metatags.filter( createFilterFor(query) ) : [];
+            return results;
+
+        };
 
         /**
          * @ngdoc function
