@@ -37,20 +37,26 @@
 </head>
 
 
-<body ng-controller="MenuCtrl" layout="column" layout-align="start center">
+<body ng-controller="MenuCtrl">
 
 <div id="container">
     <!-- START navigation menu -->
-    <div class="" tabindex="-1" aria-hidden="!menuOpen">
+
+    <div ng-if="showHamburger" id="hamburgerButton" class="" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1">
+        <button title="toggleMenuButton" class="" tabindex="-1">
+            <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
+        </button>
+    </div>
+
+    <div class="enable-menu" tabindex="-1" aria-hidden="!menuOpen" ng-show="menuOpen || windowWidth > 600">
         <div>
-            <div class="" tabindex="-1">
-                <button title="toggleMenuButton" class="" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
+            <div class="menuButtons" tabindex="-1">
+                <button title="toggleMenuButton" class="" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}"
+                        role="button" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
                     <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
                 </button>
-                <div class="fill-height" layout-fill>
 
-                </div>
-                <button class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
+                <button ng-if="showHome" class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('/home')">
                     <img class="openclosesidebar" src="img/icons/ic_home_48px.svg" aria-hidden="true"/>
                 </button>
             </div>
@@ -65,28 +71,28 @@
             </div>
         </div>
 
-        <div style="width: 100%">
+        <div style="width: 100%" class="menuButtons">
             <button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="" ng-click="setLang('en')">
-                EN
+                <span>EN</span>
             </button>
-            <button flex ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="" ng-click="setLang('fr')">
-                FR
+            <button ng-disabled="getLangButtonState('sw')" aria-label="{{ 'LANGUAGE_BUTTON_SW' | translate }}" class="" ng-click="setLang('fr')">
+                <span>SW</span>
             </button>
         </div>
     </div>
     <!-- END navigation menu -->
 
     <!-- START main content -->
-    <div style="height: 100%" tabindex="-1" role="main">
+    <div class="enable-main" tabindex="-1" role="main">
         <!-- START header and serach bar -->
         <div>
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
             <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
-            <div ng-show="showHamburger" id="hamburgerButton" class="" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1">
+            <!--div ng-show="showHamburger" id="hamburgerButton" class="" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1">
                 <button title="toggleMenuButton" class="" tabindex="-1">
                     <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
                 </button>
-                <div layout-align="start center" layout-padding>
+                <div>
                     Enable - Sensory impairment in Africa
                 </div>
             </div>
@@ -96,13 +102,13 @@
                 </div>
                 <div>
                     <button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage" ng-click="setLang('en')">
-                        EN
+                        <span>EN</span>
                     </button>
                     <button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage" ng-click="setLang('fr')">
-                        FR
+                        <span>FR</span>
                     </button>
                 </div>
-            </div>
+            </div-->
             <!--div id="searchWidget" ng-show="searchEnabled">
                 <div style="background-color: transparent">
                     <form ng-submit="$event.preventDefault()" style="background-color: #004444">

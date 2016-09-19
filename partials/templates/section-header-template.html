@@ -1,11 +1,11 @@
-<section layout="column" aria-label="Inclusion of learners with visual impairment">
+<div aria-label="Inclusion of learners with visual impairment">
     <!-- template for directive 'enableSectionHeader' -->
-    <div class="backgroundPictureSection" layout="column" layout-align="end start" ng-style="{'background-image': 'url('+picsrc+')'}">
-        <div class="sectionBanner" layout="row" layout-padding>
-            <span class="screenReadersOnly">{{picalt}}</span>
-            <div>
-                <h2>{{title}}</h2>
-            </div>
+    <div class="backgroundPictureSection" ng-style="{'background-image': 'url('+picsrc+')'}">
+        <span class="screenReadersOnly">{{picalt}}</span>
+    </div>
+    <div class="sectionBanner">
+        <div>
+            <h2>{{title}}</h2>
         </div>
     </div>
-</section>
+</div>

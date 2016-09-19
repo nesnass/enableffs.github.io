@@ -10,7 +10,7 @@ var enableAppControllers = angular.module('EnableAppControllers', []);
  * Controller for the default page: index.html
  *
  */
-enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$location', '$mdSidenav', '$translate', '$route', '$http', function ($q, $scope, $rootScope, $location, $mdSidenav, $translate, $route, $http) {
+enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootScope', '$location', '$translate', '$route', '$http', function ($q, $scope, $window, $rootScope, $location, $translate, $route, $http) {
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
@@ -25,6 +25,21 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
         $scope.searchText    = null;
         $scope.metatags = [];
         $scope.searchEnabled = true;
+        $scope.windowWidth = 100;
+
+        $scope.showVision = false;
+        $scope.showHearing = false;
+        $scope.showDual = false;
+        $scope.showSensory = false;
+        $scope.showHamburger = false;
+        $scope.showHome = false;
+
+        angular.element($window).bind('resize', function () {
+            $scope.windowWidth = $window.innerWidth;
+            $scope.menuOpen = false;
+            $scope.showHamburger = $scope.windowWidth < 600;
+            $scope.$apply();
+        });
 
         $scope.$on('pageNavigationEvent', function(event, data) {
             //controls which menu template is included in the sidenav
@@ -32,33 +47,34 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             $scope.showHearing = false;
             $scope.showDual = false;
             $scope.showSensory = false;
+            $scope.showHome = true;
 
             switch(data) {
                 case 'home':
-                    $scope.showHamburger = false;
+                  //  $scope.showHamburger = false;
+                    $scope.showHome = false;
                     break;
                 case 'search':
-                    $scope.showHamburger = false;
+                  //  $scope.showHamburger = false;
                     break;
                 case 'vision':
-                    $scope.showHamburger = true;
+                 //   $scope.showHamburger = true;
                     $scope.showVision = true;
                     break;
                 case 'hearing':
-                    $scope.showHamburger = true;
+                 //   $scope.showHamburger = true;
                     $scope.showHearing = true;
                     break;
                 case 'dual':
-                    $scope.showHamburger = true;
+                  //  $scope.showHamburger = true;
                     $scope.showDual = true;
                     break;
                 case 'sensory':
-                    $scope.showHamburger = true;
+                  //  $scope.showHamburger = true;
                     $scope.showSensory = true;
                     break;
             }
         });
-
 
         /**
          * @ngdoc function
@@ -70,8 +86,6 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          *
          */
         $scope.openMenu = function() {
-
-            $mdSidenav('left').open();
             $scope.menuOpen = true;
         };
 
@@ -85,9 +99,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          *
          */
         $scope.closeMenu = function() {
-
-            $mdSidenav('left').close();
             $scope.menuOpen = false;
+            if ($scope.windowWidth < 600) {
+                $scope.showHamburger = true;
+            }
         };
 
         /**
@@ -101,12 +116,7 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          * @param {string} lang i.e. 'en', 'fr, etc
          */
         $scope.getLangButtonState = function(lang) {
-            if(localStorage.lang === lang) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return localStorage.lang === lang;
         };
 
         /**
@@ -216,6 +226,9 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          */
         $scope.goToSection = function(path) {
             $location.path(path);
+            if (path === '/home') {
+                $scope.showHome = false;
+            }
         };
 
 
@@ -233,6 +246,14 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             if($location.$$host === 'localhost') {
                 $scope.localmode = true;
             }
+
+            $scope.windowWidth = $window.innerWidth;
+            if ($scope.windowWidth < 600) {
+                $scope.menuOpen = false;
+                $scope.showHamburger = true;
+            }
+
+            $scope.showHome = $location.path() === '/home';
 
             console.log('--> running in localmode: '+$scope.localmode);
 

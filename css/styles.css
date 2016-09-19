@@ -77,6 +77,7 @@ dd a {
 a.sidenavlinksactive {
     color: #0000FF;
     text-decoration: none;
+    font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
 }
 
 #container {
@@ -107,10 +108,6 @@ h2 {
     margin-left: 0px;
 }
 
-form {
-    background-color: #FFC107 !important;
-}
-
 .mainScrollEnabled {
     overflow: scroll !important;
 }
@@ -124,11 +121,11 @@ form {
     margin-bottom: 50px;
 }
 
-.homeVignetteBar {
-    height: 300px !important;
-}
 
 .homeVignette {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     cursor: pointer;
     background-size: auto 100%;
     width: 100%;
@@ -138,18 +135,18 @@ form {
     background-position: center;
 }
 
-.homeVignetteBackdrop {
-    background: rgba(255,193,7, .1);
-    width: 100%;
-    height: 100%;
-    color: transparent;
+.homeVignette:hover {
+    border: solid 5px yellow;
 }
 
-.homeVignetteBackdrop:hover {
-    background: rgba(0, 0, 0, .6);
-    width: 100%;
-    height: 100%;
-    color: #FFFFFF;
+.homeVignette h1 {
+    margin-left: 10px;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
 }
 
 .homelanguage {
@@ -161,6 +158,7 @@ form {
 
 #scrollContainer {
     /*background-color: #000000;*/
+    width: 100%;
 }
 
 .expandButton {
@@ -175,6 +173,10 @@ form {
     background-color: #FFFFFF;
 }
 
+.menuButtons {
+   margin: 7px;
+}
+
 .submenuitem {
     overflow: hidden;
 }
@@ -183,6 +185,11 @@ form {
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
 }
+
+.expandButton img {
+    float: left;
+}
+
 
 .openclosesidebar,
 .slideshowicons {
@@ -248,6 +255,11 @@ form {
     /*padding-bottom: 10px;*/
 }
 
+.sectionBanner h2 {
+    margin: 0;
+    padding: 5px;
+}
+
 .more {
     padding: 20px;
     background-color: #EEEEEE;
@@ -269,12 +281,8 @@ form {
 
 .slidercontrol {
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
+    min-height: 61px;
     background-color: #000000;
-    opacity: .9;
     color: #FFFFFF;
 }
 
@@ -337,7 +345,7 @@ ul.dashlist li:before, ol.dashlist li:before {
     color: black;
     margin-bottom: 100px;
     max-width: 1000px !important;
-    padding: 50px 100px 50px 100px;
+    padding: 25px 50px 25px 50px;
 }
 .partialContent html {
     margin: auto;
@@ -465,7 +473,7 @@ ul.dashlist li:before, ol.dashlist li:before {
 .enablequotebox {
     background-color: #FFFFFF;
     padding: 15px;
-    margin: 0 25% 0 15%;
+    margin: 0 15% 0 15%;
 }
 .enablequotebox-quote {
     font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
@@ -516,11 +524,63 @@ ul.dashlist li:before, ol.dashlist li:before {
 .partialContent .enablequiz p {
     margin: 5px 0;
 }
+/* ================================= V2 ================================ */
+
+button {
+    margin: 3px;
+}
+
+button span {
+    font-size: 2em;
+}
+
+#hamburgerButton {
+    position: fixed;
+    z-index: 10;
+    opacity: 0.8;
+    margin-left: 8px;
+}
+
+.enable-menu {
+    position: fixed;
+    background-color: white;
+    border-right: solid;
+    border-bottom: solid;
+    z-index: 10;
+}
+
+.enable-main {
+    margin-left: 10px;
+}
+
+.quizAnswerRadio {
+    margin: 10px;
+}
+
+.quizAnswerCheckbox {
+    margin: 10px;
+}
+
+.quizButton {
+    font-size: 1.2em;
+    margin: 20px 20px 20px 0;
+}
+
 
 /* ==================================================================== */
 
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
+
+    .enable-menu {
+        width: 200px;
+        float: left;
+    }
+
+    .enable-main {
+        width: 100%;
+        margin-left: 5px;
+    }
 
     /** fix for IE which does not adjust toolbar height **/
     md-toolbar {
@@ -551,6 +611,7 @@ ul.dashlist li:before, ol.dashlist li:before {
 
     .homeText {
         /*margin-bottom: -50px;*/
+        padding: 10px;
     }
 
     .partialContent {
@@ -560,7 +621,23 @@ ul.dashlist li:before, ol.dashlist li:before {
 }
 
 @media (max-width: 800px) {
+    .partial {
+        padding-top: 60px;
+    }
+
     .partialContent {
         padding: 50px 7% 50px 7%;
+    }
+}
+
+@media (min-width: 601px) {
+
+    .enable-menu {
+        width: 200px;
+        float: left;
+    }
+
+    .enable-main {
+        margin-left: 205px;
     }
 }

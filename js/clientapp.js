@@ -68,19 +68,6 @@ enableApp.config(['$translateProvider', function($translateProvider) {
 
 }]);
 
-/**
- *
- * @description
- * Sets the default theme for this one page application.
- * The color palette defined will affect all google-material components, i.e. toolbars, buttons, etc
- *
- **/
-enableApp.config(['$mdThemingProvider', function($mdThemingProvider) {
-
-    $mdThemingProvider.theme('default').primaryPalette('amber');
-
-}]);
-
 
 /**
  *
@@ -94,6 +81,6 @@ enableApp.run(['$rootScope', function($rootScope) {
     //when the view is finished loaded, focus on the top
     $rootScope.$on('$viewContentLoaded', function () {
         var myEl = angular.element( document.querySelector( '#scrollContainer' ) );
-        myEl.focus();
+        myEl[0].focus();
     });
 }]);
