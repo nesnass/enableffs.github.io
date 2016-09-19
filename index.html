@@ -17,7 +17,7 @@
     <!-- Styles -->
     <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
     <link rel="icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <!--link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"-->
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Framework libraries -->
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+    <!--script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script-->
     <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
@@ -41,70 +41,70 @@
 
 <div id="container">
     <!-- START navigation menu -->
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" tabindex="-1" aria-hidden="!menuOpen" layout="column" flex>
-        <md-toolbar>
-            <div class="md-toolbar-tools" tabindex="-1">
-                <button title="toggleMenuButton" class="md-icon-button md-button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_close_48px.svg" aria-hidden="true"></md-icon>
+    <div class="" tabindex="-1" aria-hidden="!menuOpen">
+        <div>
+            <div class="" tabindex="-1">
+                <button title="toggleMenuButton" class="" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" role="button" ng-click="closeMenu()">
+                    <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
                 </button>
-                <div class="fill-height" layout-fill flex>
+                <div class="fill-height" layout-fill>
 
                 </div>
-                <button class="md-icon-button md-button" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_home_48px.svg" aria-hidden="true"></md-icon>
+                <button class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu();goToSection('/home')">
+                    <img class="openclosesidebar" src="img/icons/ic_home_48px.svg" aria-hidden="true"/>
                 </button>
             </div>
-        </md-toolbar>
+        </div>
 
-        <md-content flex>
-            <div flex>
+        <div>
+            <div>
                 <nav ng-show="showVision" ng-include src="'partials/templates/menu_vision.html'"></nav>
                 <nav ng-show="showHearing" ng-include src="'partials/templates/menu_hearing.html'"></nav>
                 <nav ng-show="showDual" ng-include src="'partials/templates/menu_dual.html'"></nav>
                 <nav ng-show="showSensory" ng-include src="'partials/templates/menu_sensory.html'"></nav>
             </div>
-        </md-content>
-
-        <div style="width: 100%" layout="horizontal">
-            <md-button flex ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="md-raised md-primary" ng-click="setLang('en')">
-                EN
-            </md-button>
-            <md-button flex ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="md-raised md-primary" ng-click="setLang('fr')">
-                FR
-            </md-button>
         </div>
-    </md-sidenav>
+
+        <div style="width: 100%">
+            <button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="" ng-click="setLang('en')">
+                EN
+            </button>
+            <button flex ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="" ng-click="setLang('fr')">
+                FR
+            </button>
+        </div>
+    </div>
     <!-- END navigation menu -->
 
     <!-- START main content -->
-    <div layout="column" style="height: 100%" tabindex="-1" role="main">
+    <div style="height: 100%" tabindex="-1" role="main">
         <!-- START header and serach bar -->
-        <md-toolbar layout-gt-sm="row" layout="column" layout-align="end center">
+        <div>
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
             <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
-            <div ng-show="showHamburger" id="hamburgerButton" class="md-toolbar-tools" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1" flex layout="row">
-                <button title="toggleMenuButton" class="md-icon-button md-button" tabindex="-1">
-                    <md-icon class="openclosesidebar" md-svg-src="img/icons/ic_menu_48px.svg" aria-hidden="true"></md-icon>
+            <div ng-show="showHamburger" id="hamburgerButton" class="" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1">
+                <button title="toggleMenuButton" class="" tabindex="-1">
+                    <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
                 </button>
                 <div layout-align="start center" layout-padding>
                     Enable - Sensory impairment in Africa
                 </div>
             </div>
-            <div ng-show="!showHamburger" layout="row" flex style="width: 100% !important">
-                <div flex layout layout-align="start center" layout-padding style="overflow: hidden !important">
+            <div ng-show="!showHamburger" style="width: 100% !important">
+                <div style="overflow: hidden !important">
                     Enable - Sensory impairment in africa
                 </div>
-                <div layout="row" layout-align="center center">
-                    <md-button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('en')">
+                <div>
+                    <button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage" ng-click="setLang('en')">
                         EN
-                    </md-button>
-                    <md-button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage md-raised md-primary" ng-click="setLang('fr')">
+                    </button>
+                    <button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage" ng-click="setLang('fr')">
                         FR
-                    </md-button>
+                    </button>
                 </div>
             </div>
-            <div id="searchWidget" ng-show="searchEnabled">
-                <md-content layout-padding layout="row" style="background-color: transparent">
+            <!--div id="searchWidget" ng-show="searchEnabled">
+                <div style="background-color: transparent">
                     <form ng-submit="$event.preventDefault()" style="background-color: #004444">
 
                         <md-autocomplete
@@ -124,14 +124,14 @@
                             </md-not-found>
                         </md-autocomplete>
                     </form>
-                </md-content>
-            </div>
-        </md-toolbar>
+                </div>
+            </div-->
+        </div>
         <!-- END header and serach bar -->
         <!-- START sections content (vision, hearing, combined) -->
         <!-- had to change md-content to div in order to fix IE bug, md-content does not show up -->
         <!-- md-content id="scrollContainer" ng-view flex></md-content -->
-        <div id="scrollContainer" ng-view flex></div>
+        <div id="scrollContainer" ng-view></div>
         <!-- END sections content (vision, hearing, combined) -->
 
     </div>
