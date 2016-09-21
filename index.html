@@ -19,6 +19,7 @@
     <link rel="icon" href="img/favicon.ico">
     <!--link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"-->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="bower_components/angucomplete-alt/angucomplete-alt.css">
 
     <!-- Framework libraries -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
@@ -28,6 +29,7 @@
     <!--script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script-->
     <script type="text/javascript" src="bower_components/angular-translate/angular-translate.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script type="application/javascript" src="bower_components/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
 
     <!-- Application files  -->
     <script type="text/javascript" src="js/clientapp.js"></script>
@@ -42,101 +44,67 @@
 <div id="container">
     <!-- START navigation menu -->
 
-    <div ng-if="showHamburger" id="hamburgerButton" class="" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1">
-        <button title="toggleMenuButton" class="" tabindex="-1">
-            <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
-        </button>
-    </div>
+    <button ng-if="showHamburger" id="hamburgerButton" accesskey="1" title="toggleMenuButton" tabindex="-1" role="button" ng-click="openMenu()" translate-attr="{ 'aria-label': 'OPEN_SIDEPANEL_BUTTON' }">
+        <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
+    </button>
 
-    <div class="enable-menu" tabindex="-1" aria-hidden="!menuOpen" ng-show="menuOpen || windowWidth > 600">
-        <div>
-            <div class="menuButtons" tabindex="-1">
-                <button title="toggleMenuButton" class="" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}"
-                        role="button" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
+    <div class="enable-menu" tabindex="-1" aria-hidden="!menuOpen" ng-show="menuOpen || windowWidth > 600" role="menubar">
+
+        <nav role="navigation" aria-label="{{'NAVIGATION' | translate}}">
+            <div ng-include="menuInclude"></div>
+        </nav>
+
+        <div class="searchAreaContainer" role="search">
+            <div angucomplete-alt id="searchWidget" ng-show="searchEnabled"
+                 placeholder="Search all site text"
+                 maxlength="50"
+                 pause="100"
+                 selected-object="selectedItemChange"
+                 local-data="metatags"
+                 search-fields="value"
+                 title-field="display"
+                 minlength="1"
+                 input-class="searchArea"
+                 match-class="highlight"></div>
+
+            <div class="searchAreaResults" ng-show="selectedItem">
+                <span>{{selectedItem.description.display}}</span>
+            </div>
+        </div>
+
+        <div style="width: 100%" class="menuButtons">
+            <div>
+                <button ng-disabled="getLangButtonState('sw')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_SW' | translate }}" class="languageButton" ng-click="setLang('sw')"
+                        style="background: url('img/flag-east-africa.png'); background-size: contain;">
+                    <span aria-hidden="true">SW</span>
+                </button>
+                <button ng-disabled="getLangButtonState('en')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="languageButton" ng-click="setLang('en')"
+                        style="background: url('img/flag-english.png'); background-size: contain;">
+                    <span aria-hidden="true">EN</span>
+                </button>
+            </div>
+            <div>
+                <button title="toggleMenuButton" class="" role="button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
                     <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
                 </button>
-
-                <button ng-if="showHome" class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('/home')">
+                <button ng-if="showHomeButton" class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('/home')">
                     <img class="openclosesidebar" src="img/icons/ic_home_48px.svg" aria-hidden="true"/>
                 </button>
             </div>
         </div>
 
-        <div>
-            <div>
-                <nav ng-show="showVision" ng-include src="'partials/templates/menu_vision.html'"></nav>
-                <nav ng-show="showHearing" ng-include src="'partials/templates/menu_hearing.html'"></nav>
-                <nav ng-show="showDual" ng-include src="'partials/templates/menu_dual.html'"></nav>
-                <nav ng-show="showSensory" ng-include src="'partials/templates/menu_sensory.html'"></nav>
-            </div>
-        </div>
-
-        <div style="width: 100%" class="menuButtons">
-            <button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="" ng-click="setLang('en')">
-                <span>EN</span>
-            </button>
-            <button ng-disabled="getLangButtonState('sw')" aria-label="{{ 'LANGUAGE_BUTTON_SW' | translate }}" class="" ng-click="setLang('fr')">
-                <span>SW</span>
-            </button>
-        </div>
     </div>
     <!-- END navigation menu -->
 
     <!-- START main content -->
     <div class="enable-main" tabindex="-1" role="main">
-        <!-- START header and serach bar -->
+        <!-- START main header -->
         <div>
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
             <span class="screenReadersOnly">{{ 'JAWS_WARNING' | translate }}</span>
-            <!--div ng-show="showHamburger" id="hamburgerButton" class="" tabindex="0" role="button" aria-label="{{ 'OPEN_SIDEPANEL_BUTTON' | translate }}" ng-click="openMenu()" accesskey="1">
-                <button title="toggleMenuButton" class="" tabindex="-1">
-                    <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
-                </button>
-                <div>
-                    Enable - Sensory impairment in Africa
-                </div>
-            </div>
-            <div ng-show="!showHamburger" style="width: 100% !important">
-                <div style="overflow: hidden !important">
-                    Enable - Sensory impairment in africa
-                </div>
-                <div>
-                    <button ng-disabled="getLangButtonState('en')" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="homelanguage" ng-click="setLang('en')">
-                        <span>EN</span>
-                    </button>
-                    <button ng-disabled="getLangButtonState('fr')" aria-label="{{ 'LANGUAGE_BUTTON_FR' | translate }}" class="homelanguage" ng-click="setLang('fr')">
-                        <span>FR</span>
-                    </button>
-                </div>
-            </div-->
-            <!--div id="searchWidget" ng-show="searchEnabled">
-                <div style="background-color: transparent">
-                    <form ng-submit="$event.preventDefault()" style="background-color: #004444">
-
-                        <md-autocomplete
-                                md-selected-item="selectedItem"
-                                md-search-text-change="searchTextChange(searchText)"
-                                md-search-text="searchText"
-                                md-selected-item-change="selectedItemChange(item)"
-                                md-items="item in querySearch(searchText)"
-                                md-item-text="item.display"
-                                md-min-length="2"
-                                placeholder="Search">
-                            <md-item-template>
-                                <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
-                            </md-item-template>
-                            <md-not-found>
-                                No matches found for "{{searchText}}".
-                            </md-not-found>
-                        </md-autocomplete>
-                    </form>
-                </div>
-            </div-->
         </div>
-        <!-- END header and serach bar -->
+        <!-- END main header -->
         <!-- START sections content (vision, hearing, combined) -->
-        <!-- had to change md-content to div in order to fix IE bug, md-content does not show up -->
-        <!-- md-content id="scrollContainer" ng-view flex></md-content -->
         <div id="scrollContainer" ng-view></div>
         <!-- END sections content (vision, hearing, combined) -->
 

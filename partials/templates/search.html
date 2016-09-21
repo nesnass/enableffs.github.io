@@ -1,5 +1,5 @@
-<div ng-controller="SearchCtrl" style="background-color: #FFFFFF">
-    <h1>{{ 'SEARCH_RESULTS' | translate }}: '{{searchResultForText}}'</h1>
+<div ng-controller="SearchCtrl" style="background-color: #FFFFFF;">
+    <h2 style="margin: 0">{{ 'SEARCH_RESULTS' | translate }}: '{{searchResultForText}}'</h2>
 
     <ul>
         <li ng-repeat="res in searchResults" ng-show="checkLinkFitsLanguage(res.path)">

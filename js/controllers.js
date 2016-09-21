@@ -26,13 +26,14 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootSc
         $scope.metatags = [];
         $scope.searchEnabled = true;
         $scope.windowWidth = 100;
+        $scope.menuInclude = '';
 
         $scope.showVision = false;
         $scope.showHearing = false;
         $scope.showDual = false;
         $scope.showSensory = false;
         $scope.showHamburger = false;
-        $scope.showHome = false;
+        $scope.showHomeButton = false;
 
         angular.element($window).bind('resize', function () {
             $scope.windowWidth = $window.innerWidth;
@@ -47,31 +48,36 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootSc
             $scope.showHearing = false;
             $scope.showDual = false;
             $scope.showSensory = false;
-            $scope.showHome = true;
+            $scope.showHomeButton = true;
 
             switch(data) {
                 case 'home':
-                  //  $scope.showHamburger = false;
-                    $scope.showHome = false;
+                    //  $scope.showHamburger = false;
+                    $scope.showHomeButton = false;
+                    $scope.menuInclude = '';
                     break;
                 case 'search':
-                  //  $scope.showHamburger = false;
+                    //  $scope.showHamburger = false;
                     break;
                 case 'vision':
-                 //   $scope.showHamburger = true;
+                    //   $scope.showHamburger = true;
                     $scope.showVision = true;
+                    $scope.menuInclude = 'partials/templates/menu_vision.html';
                     break;
                 case 'hearing':
-                 //   $scope.showHamburger = true;
+                    //   $scope.showHamburger = true;
                     $scope.showHearing = true;
+                    $scope.menuInclude = 'partials/templates/menu_hearing.html';
                     break;
                 case 'dual':
-                  //  $scope.showHamburger = true;
+                    //  $scope.showHamburger = true;
                     $scope.showDual = true;
+                    $scope.menuInclude = 'partials/templates/menu_dual.html';
                     break;
                 case 'sensory':
-                  //  $scope.showHamburger = true;
+                    //  $scope.showHamburger = true;
                     $scope.showSensory = true;
+                    $scope.menuInclude = 'partials/templates/menu_sensory.html';
                     break;
             }
         });
@@ -183,10 +189,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootSc
          * @param {object} item the selected list item
          */
         $scope.selectedItemChange = function(item) {
-            console.log('--> Item changed to ' + JSON.stringify(item));
+            console.log('--> Item changed to ' + JSON.stringify(item.description.value));
             if(item !== undefined) {
                 //if item, direct the browser to the search page and pass it the item label as a url parameter
-                $location.path("/search").search("s", item.display);
+                $location.path("/search").search("s", item.description.value);
             }
         };
 
@@ -203,12 +209,12 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootSc
             //loads the JSON formatted search dictionary
             return $q(function(resolve, reject) {
                 $http.get('meta_dictionary.json').
-                    success(function (data) {
-                        resolve(data);
-                    }).
-                    error(function () {
-                        reject(null);
-                    });
+                success(function (data) {
+                    resolve(data);
+                }).
+                error(function () {
+                    reject(null);
+                });
             });
 
 
@@ -227,7 +233,7 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootSc
         $scope.goToSection = function(path) {
             $location.path(path);
             if (path === '/home') {
-                $scope.showHome = false;
+                $scope.showHomeButton = false;
             }
         };
 
@@ -253,7 +259,7 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootSc
                 $scope.showHamburger = true;
             }
 
-            $scope.showHome = $location.path() === '/home';
+            $scope.showHomeButton = $location.path() === '/home';
 
             console.log('--> running in localmode: '+$scope.localmode);
 
@@ -439,7 +445,7 @@ enableAppControllers.controller("VisionCtrl", ['$scope', '$rootScope', '$timeout
         console.log('--> vision started');
 
         $scope.$emit('pageNavigationEvent', 'vision');
-        $rootScope.roottitle = "Enable basic page";
+        $rootScope.roottitle = "Enable. Vision";
 
         /**
          * @ngdoc function
@@ -481,7 +487,7 @@ enableAppControllers.controller("HearingCtrl", ['$scope', '$rootScope', '$timeou
         console.log('--> hearing started');
 
         $scope.$emit('pageNavigationEvent', 'hearing');
-        $rootScope.roottitle = "Enable basic page";
+        $rootScope.roottitle = "Enable. Hearing";
 
         /**
          * @ngdoc function
@@ -523,7 +529,7 @@ enableAppControllers.controller("DualCtrl", ['$scope', '$rootScope', '$timeout',
         console.log('--> dual started');
 
         $scope.$emit('pageNavigationEvent', 'dual');
-        $rootScope.roottitle = "Enable basic page";
+        $rootScope.roottitle = "Enable. Dual impairment";
 
         /**
          * @ngdoc function
@@ -564,7 +570,7 @@ enableAppControllers.controller("SensoryCtrl", ['$scope', '$rootScope', '$timeou
         console.log('--> sensory started');
 
         $scope.$emit('pageNavigationEvent', 'sensory');
-        $rootScope.roottitle = "Enable basic page";
+        $rootScope.roottitle = "Enable. Sensory impairment";
 
         /**
          * @ngdoc function

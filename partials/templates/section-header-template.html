@@ -1,11 +1,6 @@
-<div aria-label="Inclusion of learners with visual impairment">
-    <!-- template for directive 'enableSectionHeader' -->
-    <div class="backgroundPictureSection" ng-style="{'background-image': 'url('+picsrc+')'}">
-        <span class="screenReadersOnly">{{picalt}}</span>
-    </div>
-    <div class="sectionBanner">
-        <div>
-            <h2>{{title}}</h2>
-        </div>
+<div class="sectionBanner" aria-label="{{'SECTION_HEADER' | translate}}">
+    <img ng-src="{{picsrc}}" alt="{{picalt}}">
+    <div style="padding: 10px;">
+        <span style="font-size: 1.5em;">{{title}}</span>
     </div>
 </div>

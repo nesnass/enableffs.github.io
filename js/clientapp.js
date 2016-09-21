@@ -6,7 +6,7 @@
  *
  */
 
-var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'pascalprecht.translate', 'EnableAppUtils', 'EnableAppControllers', 'EnableAppDirectives']);
+var enableApp = angular.module('EnableApp', ['ngAria', 'ngRoute', 'ngAnimate', 'pascalprecht.translate', 'angucomplete-alt', 'EnableAppUtils', 'EnableAppControllers', 'EnableAppDirectives']);
 
 
 /**
@@ -81,6 +81,7 @@ enableApp.run(['$rootScope', function($rootScope) {
     //when the view is finished loaded, focus on the top
     $rootScope.$on('$viewContentLoaded', function () {
         var myEl = angular.element( document.querySelector( '#scrollContainer' ) );
+        myEl.scrollTop = 0;
         myEl[0].focus();
     });
 }]);

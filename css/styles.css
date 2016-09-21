@@ -81,7 +81,7 @@ a.sidenavlinksactive {
 }
 
 #container {
-    max-width: 1000px !important;
+    max-width: 1200px !important;
 }
 
 /** fix for IE which does not adjust toolbar height **/
@@ -99,8 +99,7 @@ footer {
 }
 
 footer img {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 
 h2 {
@@ -127,7 +126,8 @@ h2 {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     cursor: pointer;
-    background-size: auto 100%;
+    /*background-size: auto 100%;*/
+    background-size: cover;
     width: 100%;
     height: 300px !important;
     overflow: hidden;
@@ -139,6 +139,7 @@ h2 {
     border: solid 5px yellow;
 }
 
+
 .homeVignette h1 {
     margin-left: 10px;
     color: white;
@@ -147,6 +148,17 @@ h2 {
             1px -1px 0 #000,
             -1px 1px 0 #000,
             1px 1px 0 #000;
+}
+
+
+.languageButton span {
+    color: white;
+    font-size: 2em;
+    text-shadow:
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000;
 }
 
 .homelanguage {
@@ -165,16 +177,61 @@ h2 {
     width: 100%;
     border-radius: 0 !important;
     padding: 0 !important;
-    margin: 6px 0px !important;
+    margin: 0;
+    /*margin: 6px 0px !important;*/
     text-align: left !important;
+    min-height: 50px;
 }
 
 .partial {
     background-color: #FFFFFF;
 }
 
-.menuButtons {
+.menuButtons, .searchAreaContainer {
    margin: 7px;
+}
+
+.menuButtons button {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    padding: 0;
+}
+
+.menusection {
+    list-style: none;
+    padding: 10px 12px;
+    margin: 0 0 0 7px;
+    border-left: solid 1px grey;
+}
+
+.menusection li {
+    padding-top: 10px;
+}
+
+.searchArea {
+    font-size: 1.3em;
+    width: 180px;
+}
+
+.searchAreaResults {
+    margin: 20px;
+}
+
+.submenu {
+ /*   margin-top: 10px; */
+    position: relative;
+}
+
+.submenu img {
+    position: absolute;
+    width: 25px;
+    top: -3px;
+    left: -5px;
+}
+
+.submenu span {
+    margin-left: 20px;
 }
 
 .submenuitem {
@@ -222,7 +279,7 @@ h2 {
 }
 
 #searchWidget {
-    width: 250px;
+  /*  width: 250px; */
 }
 
 #searchWidget md-content form {
@@ -244,25 +301,17 @@ h2 {
 }
 
 .sectionBanner {
-    color: #FFFFFF;
-    background-color: #000000;
-    /*background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Safari 5.1 to 6.0 *!/
-    background: -o-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Opera 11.1 to 12.0 *!/
-    background: -moz-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Firefox 3.6 to 15 *!/
-    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* Standard syntax (must be last) *!/*/
-    width: 100%;
-    opacity: 0.7;
-    /*padding-bottom: 10px;*/
+   background-color: grey;
 }
 
-.sectionBanner h2 {
-    margin: 0;
-    padding: 5px;
+.sectionBanner img {
+    width: 100%;
 }
 
 .more {
     padding: 20px;
     background-color: #EEEEEE;
+    margin-bottom: 20px;
 }
 
 .sectionLink {
@@ -277,13 +326,32 @@ h2 {
     position: relative;
     width: 100%;
     overflow: hidden;
+    background-color: black;
 }
 
 .slidercontrol {
     width: 100%;
-    min-height: 61px;
+    min-height: 63px;
     background-color: #000000;
     color: #FFFFFF;
+    position: relative;
+}
+
+.slidercontrol button.left {
+    position: absolute;
+    top: 0;
+    left: 3px;
+}
+
+
+.slidercontrol button.right {
+    position: absolute;
+    top: 0;
+    right: 3px;
+}
+
+.slideText {
+    padding: 5px 15%;
 }
 
 .sliderimage {
@@ -462,6 +530,7 @@ ul.dashlist li:before, ol.dashlist li:before {
     border-bottom: thin solid lightgrey;
 }
 .enablegreybox {
+    min-height: 30px;
     background-color: #f5f5f5;
     padding: 15px;
     font-family: "HelveticaNeueW01-55Roma", Arial, sans-serif;
@@ -543,10 +612,9 @@ button span {
 
 .enable-menu {
     position: fixed;
-    background-color: white;
-    border-right: solid;
-    border-bottom: solid;
+    background-color: lightgrey;
     z-index: 10;
+    height: 100%;
 }
 
 .enable-main {
@@ -620,16 +688,6 @@ button span {
     }
 }
 
-@media (max-width: 800px) {
-    .partial {
-        padding-top: 60px;
-    }
-
-    .partialContent {
-        padding: 50px 7% 50px 7%;
-    }
-}
-
 @media (min-width: 601px) {
 
     .enable-menu {
@@ -638,6 +696,6 @@ button span {
     }
 
     .enable-main {
-        margin-left: 205px;
+        margin-left: 200px;
     }
 }

@@ -1,17 +1,17 @@
 <div class="slider">
     <!-- template for directive 'enableSlideshow' -->
     <div class="slide" ng-repeat="image in images" ng-show="image.visible">
-        <div class="sliderimage">
-            <img ng-src="{{image.src}}" width="100%" />
-        </div>
+        <img ng-src="{{image.src}}" style="width: 100%;" alt="{{'SLIDESHOW_IMAGE' | translate}}"/>
         <div class="slidercontrol">
-            <button style="float: left;" ng-click="prev()" aria-label="{{'SLIDESHOW_PREVIOUS_BUTTON' | translate}}">
+            <div class="slideText" aria-label="Description">
+                <p style="margin: 0;">{{image.text}}</p>
+            </div>
+            <button class="left" ng-click="prev()" aria-label="{{'SLIDESHOW_PREVIOUS_BUTTON' | translate}}">
                 <img class="slideshowicons" ng-src="img/icons/ic_chevron_left_48px.svg" aria-hidden="true"/>
             </button>
-            <button style="float: right;" ng-click="next()" aria-label="{{'SLIDESHOW_NEXT_BUTTON' | translate}}">
+            <button class="right" ng-click="next()" aria-label="{{'SLIDESHOW_NEXT_BUTTON' | translate}}">
                 <img class="slideshowicons" ng-src="img/icons/ic_chevron_right_48px.svg" aria-hidden="true"/>
             </button>
-            <div style="padding: 5px 15%;"><p style="margin: 0;">{{image.text}}</p></div>
         </div>
     </div>
 </div>

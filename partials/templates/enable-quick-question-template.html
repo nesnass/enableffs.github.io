@@ -1,12 +1,12 @@
 <br>
 
-<div class="enablequickquestion border" ng-click="answer()">
-    <div style="width: 50px;">
+<div class="enablequickquestion border" ng-click="answer()" aria-label="{{'QUESTION_AREA' | translate}}">
+    <div style="width: 50px; float: left;" aria-hidden="true">
         <img ng-src="img/icons/directives/quickquestion/739-question2@2x.svg"/>
     </div>
-    <div style="margin-left: 10px;">
-        <h4 ng-hide="answerState" style="margin: 0 0 0.1em;">{{eQuestion}}</h4>
-        <h4 ng-show="answerState" style="margin: 0 0 0.1em;">{{eAnswer}}</h4>
+    <div style="margin-left: 10px; margin-left: 5px;">
+        <h4 ng-if="!answerState" style="margin: 0 0 0.1em;">{{eQuestion}}</h4>
+        <h4 ng-if="answerState" style="margin: 0 0 0.1em;">{{eAnswer}}</h4>
     </div>
 </div>
 
