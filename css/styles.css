@@ -615,6 +615,8 @@ button span {
     background-color: lightgrey;
     z-index: 10;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .enable-main {
