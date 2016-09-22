@@ -5,19 +5,22 @@ Dual sidebar definition
 -->
 <h2 style="margin-left: 10px;">{{'TITLE_SENSORY' | translate}}</h2>
 
-<dl>
-    <a auto-active ng-click="closeMenu()" ng-href="#/sensory/s01_l01">{{ 'MENU_SENSORY_SECTION01_LINK01' | translate }}</a>
+<ul class="menusection" style="border: none;">
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/sensory/s01_l01">{{ 'MENU_SENSORY_SECTION01_LINK01' | translate }}</a></li>
 
-    <dt tabindex="0" role="tab" aria-expanded="{{m2}}" ng-click="m2=!m2">
-        <span ng-show="!m2">+</span><span ng-show="m2">-</span> {{ 'MENU_SENSORY_SECTION02_TITLE' |  translate }}
-        <span class="screenReadersOnly">{{ m2 ? " - click to toggle close" : " - click to toggle open"}}</span>
-    </dt>
+    <li>
+        <div tabindex="0" aria-expanded="{{m2}}" ng-click="m2=!m2" class="submenu">
+            <img ng-src="{{m2 ? 'img/icons/ic_expand_more_48px.svg' : 'img/icons/ic_chevron_right_48px.svg'}}"/>
+            <span>{{ 'MENU_SENSORY_SECTION02_TITLE' |  translate }}</span>
+            <span class="screenReadersOnly">{{'MENU_TOGGLES_OPEN_CLOSED' | translate}}</span>
+        </div>
 
-    <dd class="submenuitem" layout="column" ng-show="m2">
-        <a auto-active ng-click="closeMenu()" ng-href="#/sensory/s02_l01">{{ 'MENU_SENSORY_SECTION02_LINK01' | translate }}</a>
-        <a auto-active ng-click="closeMenu()" ng-href="#/sensory/s02_l02">{{ 'MENU_SENSORY_SECTION02_LINK02' | translate }}</a>
-    </dd>
+        <ul class="submenuitem menusection" ng-show="m2">
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/sensory/s02_l01">{{ 'MENU_SENSORY_SECTION02_LINK01' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/sensory/s02_l02">{{ 'MENU_SENSORY_SECTION02_LINK02' | translate }}</a></li>
+        </ul>
+    </li>
 
-    <a auto-active ng-click="closeMenu()" ng-href="#/sensory/s03_l01">{{ 'MENU_SENSORY_SECTION03_LINK01' | translate }}</a>
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/sensory/s03_l01">{{ 'MENU_SENSORY_SECTION03_LINK01' | translate }}</a></li>
 
-</dl>
+</ul>
