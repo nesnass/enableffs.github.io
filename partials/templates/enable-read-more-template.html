@@ -1,0 +1,13 @@
+<div style="margin-bottom: 10px;">
+    <div class="expandButton" role="button" ng-click="toggleOpen()" aria-label="{{'READ_MORE_AREA' | translate}}">
+        <img class="openclosesidebar" ng-src="img/icons/ic_expand_more_48px.svg" aria-hidden="true" ng-show="openState"/>
+        <img class="openclosesidebar" ng-src="img/icons/ic_chevron_right_48px.svg" aria-hidden="true" ng-show="!openState"/>
+        <div style="display: inline-block; margin-top: 15px;">
+            <span>{{label}}</span>
+        </div>
+    </div>
+
+    <div class="more" ng-show="openState">
+        <div ng-transclude></div>
+    </div>
+</div>

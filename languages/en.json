@@ -1,5 +1,10 @@
 {
   "LANGUAGE_BUTTON_EN": "Set language to english",
+  "LANGUAGE_BUTTON_SW": "Set language to Swahili",
+  "TITLE_HEARING": "Hearing",
+  "TITLE_VISION": "Vision",
+  "TITLE_DUAL": "Dual Sensory Impairments",
+  "TITLE_SENSORY": "Sensory Impairment",
   "LANGUAGE_BUTTON_FR": "Traduire le site en francais",
   "HOME_BUTTON": "Click to go to site home page",
   "CLOSE_SIDEPANEL_BUTTON": "Close sidemenu panel",
@@ -76,10 +81,14 @@
   "MENU_SENSORY_SECTION02_LINK02": "Laws and policies",
   "MENU_SENSORY_SECTION03_LINK01": "About the website",
   "SEARCH_RESULTS": "Search results for",
-  "SLIDESHOW_PREVIOUS_BUTTON": "Slideshow navigate to previous picture",
-  "SLIDESHOW_NEXT_BUTTON": "Slideshow navigate to next picture",
-  "BASIC_SECTION1_MORE_BUTTON": "Toggle to show/hide more information for section 1",
-  "BASIC_SECTION2_MORE_BUTTON": "Toggle to show/hide more information for section 2",
-  "BASIC_SECTION3_MORE_BUTTON": "Toggle to show/hide more information for section 3",
-  "BASIC_SECTION4_MORE_BUTTON": "Toggle to show/hide more information for section 4"
+  "SLIDESHOW_PREVIOUS_BUTTON": "Slideshow control, navigate to previous picture",
+  "SLIDESHOW_NEXT_BUTTON": "Slideshow control, navigate to next picture",
+  "SLIDESHOW_IMAGE": "Slideshow image. Refer to description below.",
+  "SECTION_HEADER": "Section header",
+  "READ_MORE_AREA": "Toggle to show or hide more information",
+  "SPECIAL_DESCRIPTION_AREA": "Highlighted information area",
+  "QUESTION_AREA": "Highlighted question area",
+  "QUOTATION_AREA": "Quotation area",
+  "NAVIGATION": "Select your topic of interest here",
+  "MENU_TOGGLES_OPEN_CLOSED": "This item toggles open or closed"
 }

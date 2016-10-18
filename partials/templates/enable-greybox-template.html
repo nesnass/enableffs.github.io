@@ -1,9 +1,9 @@
 <br>
-    <div class="enablegreybox" layout="row" layout-align="start center">
-        <div ng-if="icon != ''" layout-align="center center" style="width: 50px;">
-            <md-icon md-svg-src="img/icons/directives/greybox/{{icon}}"></md-icon>
+    <div class="enablegreybox">
+        <div ng-if="icon != ''" style="width: 50px; float: left;" aria-hidden="true">
+            <img ng-src="img/icons/directives/greybox/{{icon}}"/>
         </div>
-        <div style="margin-left: 10px;" flex>
+        <div style="margin-left: 10px; margin-top: 5px;" aria-label="{{'SPECIAL_DESCRIPTION_AREA' | translate}}">
             <ng-transclude></ng-transclude>
         </div>
     </div>

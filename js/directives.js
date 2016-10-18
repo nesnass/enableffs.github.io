@@ -73,7 +73,7 @@ enableAppDirectives.directive('enableSectionHeader', ['$sce','$route', function(
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/section-header-template.html',
+        templateUrl: 'partials/templates/enable-section-header-template.html',
 
         link: function(scope) {
             scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picpath);
@@ -106,7 +106,7 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', function($sce, $r
         },
         restrict: 'AE',
         replace: 'true',
-        templateUrl: 'partials/templates/video-template.html',
+        templateUrl: 'partials/templates/enable-video-template.html',
 
         link: function(scope) {
 
@@ -142,7 +142,7 @@ enableAppDirectives.directive('enableAudio', ['$sce','$route', function($sce, $r
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/audio-local-template.html',
+        templateUrl: 'partials/templates/enable-audio-template.html',
         link: function(scope) {
             scope.audiourlm4a = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.m4a');
             scope.audiourlogg = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
@@ -198,7 +198,7 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/slideshow-template.html',
+        templateUrl: 'partials/templates/enable-slideshow-template.html',
 
         link: function(scope) {
             scope.currentIndex = 0; // Initially the index is at the first image
@@ -264,30 +264,21 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
 enableAppDirectives.directive('enableReadMore', [function() {
     return {
         scope:{
-            label: '@',
+            label: '@'
         },
         restrict: 'E',
         replace: 'true',
         transclude: true,
-        templateUrl: 'partials/templates/read-more-template.html',
+        templateUrl: 'partials/templates/enable-read-more-template.html',
         link: function(scope) {
-            var readMoreInitialStatus = false;
+            scope.openState = false;
 
             if(scope.label === undefined) {
                 scope.label = 'read more';
             }
 
-            scope.isOpen = function() {
-                if(readMoreInitialStatus === false) {
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            };
-
             scope.toggleOpen = function() {
-                readMoreInitialStatus = !readMoreInitialStatus;
+                scope.openState = !scope.openState;
             };
         }
     };
