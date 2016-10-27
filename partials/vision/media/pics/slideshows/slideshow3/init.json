@@ -1,32 +1,37 @@
 [
   {
-    "src": "brail1.jpg",
-    "text_en": "The first step when learning braille is to be aware that a letter consists of six points.",
+    "src": "bilde1.jpg",
+    "text_en": "Before learning Braille, the children have to train the tactile senses.",
     "text_fr": "Image 1"
   },
   {
-    "src": "brail2.jpg",
-    "text_en": "It is important to train the tactile senses  when the vision is reduced.",
+    "src": "bilde2.jpg",
+    "text_en": "Then it´s time to learn that a letter consists of 6 points.",
     "text_fr": "Du texte en francais"
   },
   {
-    "src": "brail3.jpg",
-    "text_en": "The next step is to create letters on a slate.",
+    "src": "bilde3.jpg",
+    "text_en": "Training with print Braille letters is important.",
     "text_fr": "Image 3"
   },
    {
-    "src": "brail4.jpg",
-    "text_en": "Perkins braillemachine is an important tool to master.",
+    "src": "bilde4.jpg",
+    "text_en": "Next step can be to create letters on a slate.",
     "text_fr": "Image 3"
   },
    {
-    "src": "brail5.jpg",
-    "text_en": "It's nice to have a peer in the classroom who can read aloud what is written on the blackboard.",
+    "src": "bilde5.jpg",
+    "text_en": "When learning to read Braille, it´s good to have an experienced teacher.",
     "text_fr": "Image 3"
   },
   {
-    "src": "brail6.jpg",
-    "text_en": "Finally the child can be a part of an inclusive class!",
+    "src": "bilde6.jpg",
+    "text_en": "Perkins Braille-machine is an important tool to master.",
+    "text_fr": "Image 4"
+  },
+  {
+    "src": "bilde7.jpg",
+    "text_en": "It´s nice to have a peer to tell what is written on the blackboard.",
     "text_fr": "Image 4"
   }
 ]
