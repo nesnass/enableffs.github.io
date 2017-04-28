@@ -97,7 +97,10 @@ for x in fList:
 	parser.feed(s)
 
 #write out to a JSON file
+
+#currently disabled!
 #with open('freetext_dictionary.json', 'w') as fp:
 #    json.dump(freetext_dictionary, fp)
+
 with open('meta_dictionary.json', 'w') as fp:
     json.dump(meta_dictionary, fp)

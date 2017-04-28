@@ -1,0 +1,33 @@
+[
+  {
+    "src": "sign1.jpg",
+    "text_en": "If a child is observed when playing with other children, the way of communication can reveal hearing impairments.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "sign2.jpg",
+    "text_en": "The childs gestures can detect hearing loss.",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "sign3.jpg",
+    "text_en": "Visual representations of objects can make the learning of signs easier.",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "sign4.jpg",
+    "text_en": "Good friends make communication easier.",
+    "text_fr": "Image 4"
+  },
+   {
+    "src": "sign5.jpg",
+    "text_en": "Having classmates who understand sign language is crusial.",
+    "text_fr": "Image 4"
+  },
+  {
+    "src": "sign6.jpg",
+    "text_en": "The classmate can then respond adequately. ",
+    "text_fr": "Image 4"
+  }
+  
+]

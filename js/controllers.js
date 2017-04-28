@@ -10,7 +10,7 @@ var enableAppControllers = angular.module('EnableAppControllers', []);
  * Controller for the default page: index.html
  *
  */
-enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$location', '$mdSidenav', '$translate', '$route', '$http', function ($q, $scope, $rootScope, $location, $mdSidenav, $translate, $route, $http) {
+enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootScope', '$location', '$translate', '$route', '$http', function ($q, $scope, $window, $rootScope, $location, $translate, $route, $http) {
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
@@ -25,27 +25,62 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
         $scope.searchText    = null;
         $scope.metatags = [];
         $scope.searchEnabled = true;
+        $scope.windowWidth = 100;
+        $scope.menuInclude = '';
+
+        $scope.showVision = false;
+        $scope.showHearing = false;
+        $scope.showDual = false;
+        $scope.showSensory = false;
+        $scope.showHamburger = false;
+        $scope.showHomeButton = false;
+
+        angular.element($window).bind('resize', function () {
+            $scope.windowWidth = $window.innerWidth;
+            $scope.menuOpen = false;
+            $scope.showHamburger = $scope.windowWidth < 600;
+            $scope.$apply();
+        });
 
         $scope.$on('pageNavigationEvent', function(event, data) {
             //controls which menu template is included in the sidenav
             $scope.showVision = false;
             $scope.showHearing = false;
-            $scope.showCombined = false;
+            $scope.showDual = false;
+            $scope.showSensory = false;
+            $scope.showHomeButton = true;
 
             switch(data) {
                 case 'home':
-                    $scope.showHamburger = false;
+                    //  $scope.showHamburger = false;
+                    $scope.showHomeButton = false;
+                    $scope.menuInclude = '';
                     break;
                 case 'search':
-                    $scope.showHamburger = false;
+                    //  $scope.showHamburger = false;
                     break;
                 case 'vision':
-                    $scope.showHamburger = true;
+                    //   $scope.showHamburger = true;
                     $scope.showVision = true;
+                    $scope.menuInclude = 'partials/templates/menu_vision.html';
+                    break;
+                case 'hearing':
+                    //   $scope.showHamburger = true;
+                    $scope.showHearing = true;
+                    $scope.menuInclude = 'partials/templates/menu_hearing.html';
+                    break;
+                case 'dual':
+                    //  $scope.showHamburger = true;
+                    $scope.showDual = true;
+                    $scope.menuInclude = 'partials/templates/menu_dual.html';
+                    break;
+                case 'sensory':
+                    //  $scope.showHamburger = true;
+                    $scope.showSensory = true;
+                    $scope.menuInclude = 'partials/templates/menu_sensory.html';
                     break;
             }
         });
-
 
         /**
          * @ngdoc function
@@ -57,8 +92,6 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          *
          */
         $scope.openMenu = function() {
-
-            $mdSidenav('left').open();
             $scope.menuOpen = true;
         };
 
@@ -72,9 +105,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          *
          */
         $scope.closeMenu = function() {
-
-            $mdSidenav('left').close();
             $scope.menuOpen = false;
+            if ($scope.windowWidth < 600) {
+                $scope.showHamburger = true;
+            }
         };
 
         /**
@@ -88,12 +122,7 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          * @param {string} lang i.e. 'en', 'fr, etc
          */
         $scope.getLangButtonState = function(lang) {
-            if(localStorage.lang === lang) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            return localStorage.lang === lang;
         };
 
         /**
@@ -117,22 +146,6 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
 
         /**
          * @ngdoc function
-         * @name MenuCtrl.querySearch
-         * @kind function
-         *
-         * @description
-         * Function called when a change (typing) is noticed by the md-autocomplete search input. Returns an array of results matching the query
-         *
-         * @param {string} query the query string which is currently being typed in the search input
-         */
-        $scope.querySearch = function(query) {
-            var results = query ? $scope.metatags.filter( createFilterFor(query) ) : [];
-            return results;
-
-        };
-
-        /**
-         * @ngdoc function
          * @name MenuCtrl.createFilterFor
          * @kind function
          *
@@ -151,6 +164,22 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
 
         /**
          * @ngdoc function
+         * @name MenuCtrl.querySearch
+         * @kind function
+         *
+         * @description
+         * Function called when a change (typing) is noticed by the md-autocomplete search input. Returns an array of results matching the query
+         *
+         * @param {string} query the query string which is currently being typed in the search input
+         */
+        $scope.querySearch = function(query) {
+            var results = query ? $scope.metatags.filter( createFilterFor(query) ) : [];
+            return results;
+
+        };
+
+        /**
+         * @ngdoc function
          * @name MenuCtrl.selectedItemChange
          * @kind function
          *
@@ -160,10 +189,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          * @param {object} item the selected list item
          */
         $scope.selectedItemChange = function(item) {
-            console.log('--> Item changed to ' + JSON.stringify(item));
+            console.log('--> Item changed to ' + JSON.stringify(item.description.value));
             if(item !== undefined) {
                 //if item, direct the browser to the search page and pass it the item label as a url parameter
-                $location.path("/search").search("s", item.display);
+                $location.path("/search").search("s", item.description.value);
             }
         };
 
@@ -180,12 +209,12 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             //loads the JSON formatted search dictionary
             return $q(function(resolve, reject) {
                 $http.get('meta_dictionary.json').
-                    success(function (data) {
-                        resolve(data);
-                    }).
-                    error(function () {
-                        reject(null);
-                    });
+                success(function (data) {
+                    resolve(data);
+                }).
+                error(function () {
+                    reject(null);
+                });
             });
 
 
@@ -203,6 +232,9 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
          */
         $scope.goToSection = function(path) {
             $location.path(path);
+            if (path === '/home') {
+                $scope.showHomeButton = false;
+            }
         };
 
 
@@ -220,6 +252,14 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             if($location.$$host === 'localhost') {
                 $scope.localmode = true;
             }
+
+            $scope.windowWidth = $window.innerWidth;
+            if ($scope.windowWidth < 600) {
+                $scope.menuOpen = false;
+                $scope.showHamburger = true;
+            }
+
+            $scope.showHomeButton = $location.path() === '/home';
 
             console.log('--> running in localmode: '+$scope.localmode);
 
@@ -249,7 +289,10 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
 
             //simple URL path test to reopen expanded menu items when page reload
             var pagePath = $location.$$path;
-            if(pagePath.indexOf('s02') > -1) {
+            if(pagePath.indexOf('s01') > -1) {
+                $scope.m1 = true;
+            }
+            else if(pagePath.indexOf('s02') > -1) {
                 $scope.m2 = true;
             }
             else if(pagePath.indexOf('s03') > -1) {
@@ -264,14 +307,32 @@ enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$rootScope', '$loc
             else if(pagePath.indexOf('s06') > -1) {
                 $scope.m6 = true;
             }
+            else if(pagePath.indexOf('s07') > -1) {
+                $scope.m7 = true;
+            }
             else if(pagePath.indexOf('s08') > -1) {
                 $scope.m8 = true;
             }
             else if(pagePath.indexOf('s09') > -1) {
                 $scope.m9 = true;
             }
+            else if(pagePath.indexOf('s10') > -1) {
+                $scope.m10 = true;
+            }
             else if(pagePath.indexOf('s11') > -1) {
                 $scope.m11 = true;
+            }
+            else if(pagePath.indexOf('s12') > -1) {
+                $scope.m12 = true;
+            }
+            else if(pagePath.indexOf('s13') > -1) {
+                $scope.m13 = true;
+            }
+            else if(pagePath.indexOf('s14') > -1) {
+                $scope.m14 = true;
+            }
+            else if(pagePath.indexOf('s15') > -1) {
+                $scope.m15 = true;
             }
 
         }
@@ -384,11 +445,136 @@ enableAppControllers.controller("VisionCtrl", ['$scope', '$rootScope', '$timeout
         console.log('--> vision started');
 
         $scope.$emit('pageNavigationEvent', 'vision');
-        $rootScope.roottitle = "Enable basic page";
+        $rootScope.roottitle = "Enable. Vision";
 
         /**
          * @ngdoc function
          * @name VisionCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
+
+    }]
+);
+
+
+/**
+ *
+ * @ngdoc controller
+ * @name HearingCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("HearingCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> hearing started');
+
+        $scope.$emit('pageNavigationEvent', 'hearing');
+        $rootScope.roottitle = "Enable. Hearing";
+
+        /**
+         * @ngdoc function
+         * @name HearingCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
+
+    }]
+);
+
+
+/**
+ *
+ * @ngdoc controller
+ * @name DualCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("DualCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> dual started');
+
+        $scope.$emit('pageNavigationEvent', 'dual');
+        $rootScope.roottitle = "Enable. Dual impairment";
+
+        /**
+         * @ngdoc function
+         * @name DualCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
+
+    }]
+);
+
+/**
+ *
+ * @ngdoc controller
+ * @name SensoryCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("SensoryCtrl", ['$scope', '$rootScope', '$timeout', '$anchorScroll', '$location', function ($scope, $rootScope, $timeout, $anchorScroll, $location) {
+        console.log('--> sensory started');
+
+        $scope.$emit('pageNavigationEvent', 'sensory');
+        $rootScope.roottitle = "Enable. Sensory impairment";
+
+        /**
+         * @ngdoc function
+         * @name SensoryCtrl.gotoAnchor
          * @kind function
          *
          * @description

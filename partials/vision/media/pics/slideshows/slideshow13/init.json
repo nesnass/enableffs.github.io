@@ -1,0 +1,42 @@
+[
+  {
+    "src": "bilde1.jpg",
+    "text_en": "Everyone like to hang around together with friends.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "bilde2.jpg",
+    "text_en": "",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "bilde3.jpg",
+    "text_en": "",
+    "text_fr": "Image 3"
+  },
+   {
+    "src": "bilde4.jpg",
+    "text_en": "",
+    "text_fr": "Image 3"
+  },
+   {
+    "src": "bilde5.jpg",
+    "text_en": "",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "bilde6.jpg",
+    "text_en": "",
+    "text_fr": "Image 4"
+  },
+  {
+    "src": "bilde7.jpg",
+    "text_en": "",
+    "text_fr": "Image 4"
+  },
+  {
+  "src": "bilde8.jpg",
+  "text_en": "",
+  "text_fr": "Image 4"
+}
+]

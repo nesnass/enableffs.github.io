@@ -1,0 +1,22 @@
+[
+  {
+    "src": "a.jpg",
+    "text_en": "A",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "k.jpg",
+    "text_en": "K",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "y.jpg",
+    "text_en": "Y",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "z.jpg",
+    "text_en": "Z",
+    "text_fr": "Image 4"
+  }
+]

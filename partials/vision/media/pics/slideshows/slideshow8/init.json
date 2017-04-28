@@ -1,0 +1,22 @@
+[
+  {
+    "src": "magnifying1.jpg",
+    "text_en": "Large fonts make it easier to read.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "magnifying2.jpg",
+    "text_en": "The screen magnifier makes books with small fonts possible to read and understand.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "magnifying3.jpg",
+    "text_en": "When reading with large fonts people with visual impairment use less time.",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "magnifying4.jpg",
+    "text_en": "A challenge with the screen magnifier is that when many people want to use it, they have to wait for each other to finish. ",
+    "text_fr": "Image 4"
+  }
+]
