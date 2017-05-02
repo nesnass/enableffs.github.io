@@ -40,19 +40,19 @@ Add this element anywhere to create a header for a section. This includes a back
 Add this element anywhere to create a videoplayer.
 
 ```html
-<enable-video vididlc="enable-1000" vididyt="AZhcZ7AILf0" cclang="en" localmode="localmode"></enable-video>
+<enable-video local-filename="" local-poster="" local-subtitles="" youtube-id="" youtubeId="AZhcZ7AILf0" ></enable-video>
 ```
 
-* vididlc:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles), see exmaple below:
+* localFilename:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles), see exmaple below:
 
 ```txt
-- vididlc:            enable-1000
+- localFilename:            enable-1000
 - video filename:     enable-1000.mp4
 - video poster:       enable-1000__00_00_00_00.png
 - video subtitles:    enable-1000_{CCLANG}.srt 
 ```
 
-* vididyt:      the string id of the matching youtube video
+* youtubeId:      the string id of the matching youtube video
 * cclang:       the language code ('en', 'ks', etc) for loading the subtitles
 * localmode:    the mode for the player (local, remote), see example below
  
