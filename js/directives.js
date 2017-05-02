@@ -87,41 +87,74 @@ enableAppDirectives.directive('enableSectionHeader', ['$sce','$route', function(
  * @name enableVideo
  * @scope true
  * @restrict AE
- * @param {string} vididyt The id of the youtube video. This will bring up the youtube video player , as well as the CC attached to that video
- * @param {string} vididlc The id of the local video file. This id will be used for the poster image and the subtitles
+ * @param {string} youtubeId The id of the youtube video. This will bring up the youtube video player , as well as the CC attached to that video
+ * @param {string} localFilename The id (file name) of the local video file. This id will be used for the poster image and the subtitles
  * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
  * @param {boolean} localmode The mode that needs to be inserted in the page, true => local videos, false => youtube videos
  * @description
+ *
+ * Example: <enable-video local-filename="xyz.mp4" local-poster="xyz.jpg" local-subtitles="xyz.srt" youtube-id="abcdefg"></enable-video>
+ *
+ *  video should be in .mp4 format
+ *  subtitles should be in .srt format
+ *  poster should be in .jpg format
+ *
  * Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.
  *
  */
-enableAppDirectives.directive('enableVideo', ['$sce','$route', function($sce, $route) {
+enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', function($sce, $route, $translate) {
 
     return {
-        scope:{
-            vididyt: '@',
-            vididlc: '@',
-            cclang: '@',
-            localmode: '='
-        },
-        restrict: 'AE',
-        replace: 'true',
-        templateUrl: 'partials/templates/enable-video-template.html',
+	    scope: {
+		    localPoster: '@',
+		    localFilename: '@',
+		    localSubtitles: '@'
+	    },
+	    restrict: 'AE',
+	    replace: 'true',
+	    templateUrl: 'partials/templates/enable-video-template.html',
 
-        link: function(scope) {
+	    controller: function ($scope) {
+		    $scope.currentLanguage = $translate.use();
+		    $scope.localmode = false;
 
-            if(scope.localmode) {
-                scope.vidurl = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/vids/'+scope.vididlc+'.mp4');
-                scope.vidtrack = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/vids/'+scope.vididlc+"_"+scope.cclang+'.srt');
-                scope.poster = 'partials/'+$route.current.params.level+'/media/pics/'+scope.vididlc+'__00_00_00_00.png';
+		    if ($scope.$parent.localmode) {
+                $scope.localmode = true;
+			    $scope.vidtrack = '';
+			    if ($scope.localSubtitles !== '') {
+				    $scope.vidsubtitles = $sce.trustAsResourceUrl('partials/' + $route.current.params.level + '/media/vids/' + $scope.localSubtitles);
+			    }
+			    if ($scope.localPoster !== '') {
+				    $scope.poster = 'partials/' + $route.current.params.level + '/media/pics/' + $scope.localPoster;
+			    }
+			    var videoUrl = 'partials/' + $route.current.params.level + '/media/vids/' + $scope.localFilename;
+			    $scope.vidurl = $sce.trustAsResourceUrl(videoUrl);
+		    }
+		    else {
+			    $scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.youtubeId + "?html5=1&controls=1&autohide=0&rel=0&showinfo=0&vq=small&hl=" + $scope.currentLanguage + "&cc_load_policy=1");
+		    }
+	    }
+    }
+}]);
+
+/**
+ * Place this directive on a <video> element to define the poster image from the parent scope (in the parent, this should be '$scope.poster' as seen in enableVideo )
+ */
+enableAppDirectives.directive('enablePoster', [function() {
+
+	return {
+		restrict: 'A',
+		replace: 'true',
+
+		link: function ($scope, $element) {
+		    var poster = '';
+            if (typeof $scope.$parent.poster !== 'undefined' && $scope.$parent.poster !== '') {
+	            $element.attr('poster', $scope.$parent.poster);
             }
-            else {
-                scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/"+scope.vididyt+"?html5=1&controls=1&autohide=0&rel=0&showinfo=0&vq=small&hl="+scope.cclang+"&cc_load_policy=1");
-            }
 
+		}
 
-        }
-    };
+	}
 }]);
 
 /**

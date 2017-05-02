@@ -1,11 +1,9 @@
 <div>
     <!-- template for directive 'enableVideo' -->
-    <div ng-if="localmode">
-        <video width="640" height="360" controls="true" poster="{{vidposter}}">
-            <source src="{{vidurl}}" type="video/mp4">
-            <track kind="captions" src="{{vidtrack}}" type="text/vtt" srclang="{{cclang}}" label="{{ 'VIDEO_LOCAL_SUBTITLES_LANGUAGE' | translate }}" default="">
-        </video>
-    </div>
+    <video ng-if="localmode" width="640" height="360" controls="true" enable-poster>
+        <source autostart="false" ng-src="{{vidurl}}" type="video/mp4">
+        <track kind="captions" ng-src="{{vidsubtitles}}" type="text/vtt" srclang="{{currentLanguage}}" label="{{ 'VIDEO_LOCAL_SUBTITLES_LANGUAGE' | translate }}" default="">
+    </video>
 
     <div ng-if="!localmode">
         <span class="screenReadersOnly">{{ 'VIDEO_YOUTUBE_SCREENREADER_MESSAGE' | translate }}</span>

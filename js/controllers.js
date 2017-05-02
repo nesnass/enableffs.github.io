@@ -10,7 +10,7 @@ var enableAppControllers = angular.module('EnableAppControllers', []);
  * Controller for the default page: index.html
  *
  */
-enableAppControllers.controller("MenuCtrl", ['$q', '$scope', '$window', '$rootScope', '$location', '$translate', '$route', '$http', function ($q, $scope, $window, $rootScope, $location, $translate, $route, $http) {
+enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootScope', '$location', '$translate', '$route', '$http', function ($q, $scope, $window, $rootScope, $location, $translate, $route, $http) {
         console.log('--> menu started');
         console.log('--> default language: '+localStorage.lang);
 
