@@ -1,7 +1,7 @@
 /*!
- * angular-translate - v2.7.0 - 2015-05-02
- * http://github.com/angular-translate/angular-translate
- * Copyright (c) 2015 ; Licensed MIT
+ * angular-translate - v2.12.1 - 2016-09-15
+ * 
+ * Copyright (c) 2016 The angular-translate team, Pascal Precht; Licensed MIT
  */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -19,6 +19,7 @@
   }
 }(this, function () {
 
+$translateStaticFilesLoader.$inject = ['$q', '$http'];
 angular.module('pascalprecht.translate')
 /**
  * @ngdoc object
@@ -57,9 +58,7 @@ function $translateStaticFilesLoader($q, $http) {
         throw new Error('Couldn\'t load static file, no prefix or suffix specified!');
       }
 
-      var deferred = $q.defer();
-
-      $http(angular.extend({
+      return $http(angular.extend({
         url: [
           file.prefix,
           options.key,
@@ -67,17 +66,15 @@ function $translateStaticFilesLoader($q, $http) {
         ].join(''),
         method: 'GET',
         params: ''
-      }, options.$http)).success(function (data) {
-        deferred.resolve(data);
-      }).error(function () {
-        deferred.reject(options.key);
-      });
-
-      return deferred.promise;
+      }, options.$http))
+        .then(function(result) {
+          return result.data;
+        }, function () {
+          return $q.reject(options.key);
+        });
     };
 
-    var deferred = $q.defer(),
-        promises = [],
+    var promises = [],
         length = options.files.length;
 
     for (var i = 0; i < length; i++) {
@@ -88,25 +85,21 @@ function $translateStaticFilesLoader($q, $http) {
       }));
     }
 
-    $q.all(promises).then(function (data) {
-      var length = data.length,
-          mergedData = {};
+    return $q.all(promises)
+      .then(function (data) {
+        var length = data.length,
+            mergedData = {};
 
-      for (var i = 0; i < length; i++) {
-        for (var key in data[i]) {
-          mergedData[key] = data[i][key];
+        for (var i = 0; i < length; i++) {
+          for (var key in data[i]) {
+            mergedData[key] = data[i][key];
+          }
         }
-      }
 
-      deferred.resolve(mergedData);
-    }, function (data) {
-      deferred.reject(data);
-    });
-
-    return deferred.promise;
+        return mergedData;
+      });
   };
 }
-$translateStaticFilesLoader.$inject = ['$q', '$http'];
 
 $translateStaticFilesLoader.displayName = '$translateStaticFilesLoader';
 return 'pascalprecht.translate';

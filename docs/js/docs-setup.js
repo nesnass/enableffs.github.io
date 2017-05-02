@@ -1,6 +1,6 @@
 NG_DOCS={
   "sections": {
-    "api": "Enable portal javascript documentation"
+    "api": "API Documentation"
   },
   "pages": [
     {
@@ -29,6 +29,33 @@ NG_DOCS={
       "moduleName": "autoActive",
       "shortDescription": "Function that analyses the current route path versus the a link target.",
       "keywords": "adds analyses api autoactive class current function link matches path removes route setactive sidenavlinksactive target versus"
+    },
+    {
+      "section": "api",
+      "id": "DualCtrl",
+      "shortName": "DualCtrl",
+      "type": "controller",
+      "moduleName": "DualCtrl",
+      "shortDescription": "Controller",
+      "keywords": "api controller dualctrl"
+    },
+    {
+      "section": "api",
+      "id": "DualCtrl.gotoAnchor",
+      "shortName": "DualCtrl.gotoAnchor",
+      "type": "function",
+      "moduleName": "DualCtrl",
+      "shortDescription": "Function that redirects the browser to the provided path",
+      "keywords": "anchor api browser dualctrl function gotoanchor newhash path provided redirect redirects"
+    },
+    {
+      "section": "api",
+      "id": "enable-file-link",
+      "shortName": "enable-file-link",
+      "type": "directive",
+      "moduleName": "enable-file-link",
+      "shortDescription": "Add this attribute to improve on the &#39;&#39; link element showing an external link icon.",
+      "keywords": "add api attribute directive element enable-file-link external href icon improve link showing"
     },
     {
       "section": "api",
@@ -137,6 +164,24 @@ NG_DOCS={
       "moduleName": "enableVideo",
       "shortDescription": "Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.",
       "keywords": "ae api attached based bring cc cclang code creates current directive enablevideo false file image inserted language load local localmode mode paramter player portal poster provided subtitles true video videos vididlc vididyt youtube"
+    },
+    {
+      "section": "api",
+      "id": "HearingCtrl",
+      "shortName": "HearingCtrl",
+      "type": "controller",
+      "moduleName": "HearingCtrl",
+      "shortDescription": "Controller",
+      "keywords": "api controller hearingctrl"
+    },
+    {
+      "section": "api",
+      "id": "HearingCtrl.gotoAnchor",
+      "shortName": "HearingCtrl.gotoAnchor",
+      "type": "function",
+      "moduleName": "HearingCtrl",
+      "shortDescription": "Function that redirects the browser to the provided path",
+      "keywords": "anchor api browser function gotoanchor hearingctrl newhash path provided redirect redirects"
     },
     {
       "section": "api",
@@ -284,6 +329,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "SensoryCtrl",
+      "shortName": "SensoryCtrl",
+      "type": "controller",
+      "moduleName": "SensoryCtrl",
+      "shortDescription": "Controller",
+      "keywords": "api controller sensoryctrl"
+    },
+    {
+      "section": "api",
+      "id": "SensoryCtrl.gotoAnchor",
+      "shortName": "SensoryCtrl.gotoAnchor",
+      "type": "function",
+      "moduleName": "SensoryCtrl",
+      "shortDescription": "Function that redirects the browser to the provided path",
+      "keywords": "anchor api browser function gotoanchor newhash path provided redirect redirects sensoryctrl"
+    },
+    {
+      "section": "api",
       "id": "VisionCtrl",
       "shortName": "VisionCtrl",
       "type": "controller",
@@ -304,11 +367,37 @@ NG_DOCS={
   "apis": {
     "api": true
   },
+  "__file": "_FAKE_DEST_/js/docs-setup.js",
+  "__options": {
+    "startPage": "/api",
+    "scripts": [
+      "js/angular.min.js",
+      "js/angular-animate.min.js",
+      "js/marked.js",
+      "js/bower_components/angular/angular.js",
+      "js/bower_components/angular-animate/angular-animate.js"
+    ],
+    "styles": [],
+    "title": "Enable Project Documentation",
+    "html5Mode": false,
+    "editExample": true,
+    "navTemplate": false,
+    "navContent": "",
+    "navTemplateData": {},
+    "loadDefaults": {
+      "angular": true,
+      "angularAnimate": true,
+      "marked": true
+    }
+  },
   "html5Mode": false,
   "editExample": true,
   "startPage": "/api",
   "scripts": [
-    "angular.js",
-    "angular-animate.js"
+    "js/angular.min.js",
+    "js/angular-animate.min.js",
+    "js/marked.js",
+    "js/bower_components/angular/angular.js",
+    "js/bower_components/angular-animate/angular-animate.js"
   ]
 };

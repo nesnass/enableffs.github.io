@@ -4,8 +4,88 @@ Hearing sidebar definition
 
 -->
 
+<h2 style="margin-left: 10px;">{{'TITLE_HEARING' | translate}}</h2>
 
-<dl>
+<ul class="menusection" style="border: none;">
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s01_l01">{{ 'MENU_HEARING_SECTION01_LINK01' | translate }}</a></li>
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s02_l01">{{ 'MENU_HEARING_SECTION02_LINK01' | translate }}</a></li>
 
+    <li>
+        <div tabindex="0" aria-expanded="{{m3}}" ng-click="m3=!m3" class="submenu">
+            <img ng-src="{{m3 ? 'img/icons/ic_expand_more_48px.svg' : 'img/icons/ic_chevron_right_48px.svg'}}"/>
+            <span>{{ 'MENU_HEARING_SECTION03_TITLE' |  translate }}</span>
+            <span class="screenReadersOnly">{{'MENU_TOGGLES_OPEN_CLOSED' | translate}}</span>
+        </div>
 
-</dl>
+        <ul class="submenuitem menusection" ng-show="m3">
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s03_l01">{{ 'MENU_HEARING_SECTION03_LINK01' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s03_l02">{{ 'MENU_HEARING_SECTION03_LINK02' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s03_l03">{{ 'MENU_HEARING_SECTION03_LINK03' | translate }}</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <div tabindex="0" aria-expanded="{{m4}}" ng-click="m4=!m4" class="submenu">
+            <img ng-src="{{m4 ? 'img/icons/ic_expand_more_48px.svg' : 'img/icons/ic_chevron_right_48px.svg'}}"/>
+            <span>{{ 'MENU_HEARING_SECTION04_TITLE' |  translate }}</span>
+            <span class="screenReadersOnly">{{'MENU_TOGGLES_OPEN_CLOSED' | translate}}</span>
+        </div>
+
+        <ul class="submenuitem menusection" ng-show="m4">
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s04_l01">{{ 'MENU_HEARING_SECTION04_LINK01' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s04_l02">{{ 'MENU_HEARING_SECTION04_LINK02' | translate }}</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <div tabindex="0" aria-expanded="{{m5}}" ng-click="m5=!m5" class="submenu">
+            <img ng-src="{{m5 ? 'img/icons/ic_expand_more_48px.svg' : 'img/icons/ic_chevron_right_48px.svg'}}"/>
+            <span>{{ 'MENU_HEARING_SECTION05_TITLE' |  translate }}</span>
+            <span class="screenReadersOnly">{{'MENU_TOGGLES_OPEN_CLOSED' | translate}}</span>
+        </div>
+
+        <ul class="submenuitem menusection" ng-show="m5">
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l01">{{ 'MENU_HEARING_SECTION05_LINK01' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l02">{{ 'MENU_HEARING_SECTION05_LINK02' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l03">{{ 'MENU_HEARING_SECTION05_LINK03' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l04">{{ 'MENU_HEARING_SECTION05_LINK04' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l05">{{ 'MENU_HEARING_SECTION05_LINK05' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s05_l06">{{ 'MENU_HEARING_SECTION05_LINK06' | translate }}</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <div tabindex="0" aria-expanded="{{m6}}" ng-click="m6=!m6" class="submenu">
+            <img ng-src="{{m6 ? 'img/icons/ic_expand_more_48px.svg' : 'img/icons/ic_chevron_right_48px.svg'}}"/>
+            <span>{{ 'MENU_HEARING_SECTION06_TITLE' |  translate }}</span>
+            <span class="screenReadersOnly">{{'MENU_TOGGLES_OPEN_CLOSED' | translate}}</span>
+        </div>
+
+        <ul class="submenuitem menusection" ng-show="m6">
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s06_l01">{{ 'MENU_HEARING_SECTION06_LINK01' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s06_l02">{{ 'MENU_HEARING_SECTION06_LINK02' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s06_l03">{{ 'MENU_HEARING_SECTION06_LINK03' | translate }}</a></li>
+        </ul>
+    </li>
+
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s07_l01">{{ 'MENU_HEARING_SECTION07_LINK01' | translate }}</a></li>
+
+    <li>
+        <div tabindex="0" aria-expanded="{{m8}}" ng-click="m8=!m8" class="submenu">
+            <img ng-src="{{m8 ? 'img/icons/ic_expand_more_48px.svg' : 'img/icons/ic_chevron_right_48px.svg'}}"/>
+            <span>{{ 'MENU_HEARING_SECTION08_TITLE' |  translate }}</span>
+            <span class="screenReadersOnly">{{'MENU_TOGGLES_OPEN_CLOSED' | translate}}</span>
+        </div>
+
+        <ul class="submenuitem menusection" ng-show="m8">
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s08_l01">{{ 'MENU_HEARING_SECTION08_LINK01' | translate }}</a></li>
+            <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s08_l02">{{ 'MENU_HEARING_SECTION08_LINK02' | translate }}</a></li>
+        </ul>
+    </li>
+
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s09_l01">{{ 'MENU_HEARING_SECTION09_LINK01' | translate }}</a></li>
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s10_l01">{{ 'MENU_HEARING_SECTION10_LINK01' | translate }}</a></li>
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s11_l01">{{ 'MENU_HEARING_SECTION11_LINK01' | translate }}</a></li>
+    <li><a auto-active ng-click="closeMenu()" ng-href="#/hearing/s12_l01">{{ 'MENU_HEARING_SECTION12_LINK01' | translate }}</a></li>
+
+</ul>

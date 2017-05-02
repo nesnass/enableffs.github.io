@@ -1,6 +1,6 @@
 <br>
-    <div class="enablequotebox" layout="column" layout-align="start start">
-        <md-icon ng-if="eType == 'quote'" style="margin: 0; color:black;" md-svg-src="img/icons/directives/greybox/quotation.svg" ng-class="{'widget-icon-small': eType == 'quote', 'widget-icon-very-small' : eType == 'story'}"></md-icon>
+    <div class="enablequotebox" aria-label="{{'QUOTATION_AREA' | translate}}">
+        <img ng-if="eType == 'quote'" style="margin: 0; color:black;" ng-src="img/icons/directives/greybox/quotation.svg" ng-class="{'widget-icon-small': eType == 'quote', 'widget-icon-very-small' : eType == 'story'}" aria-hidden="true"/>
         <div class="enablequotebox-quote" ng-if="eType == 'quote'"><ng-transclude></ng-transclude></div>
         <div class="enablequotebox-story" ng-if="eType == 'story'"><ng-transclude></ng-transclude></div>
     </div>

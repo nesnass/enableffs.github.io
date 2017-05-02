@@ -79,8 +79,8 @@ docsApp.directive.code = function() {
 
 docsApp.directive.sourceEdit = function(getEmbeddedTemplate) {
   return NG_DOCS.editExample ? {
-    template: '<a class="edit-example pull-right" ng-click="plunkr($event)" href>' +
-      '<i class="icon-edit"></i> Edit in Plunkr</a>',
+    template: '<a class="btn pull-right" ng-click="plunkr($event)" href>' +
+      '<i class="icon-pencil"></i> Edit in Plunkr</a>',
     scope: true,
     controller: function($scope, $attrs, openPlunkr) {
       var sources = {
@@ -112,17 +112,20 @@ docsApp.directive.sourceEdit = function(getEmbeddedTemplate) {
 
 docsApp.serviceFactory.loadedUrls = function($document) {
   var urls = {};
+    var tmp = document.createElement ('a');
 
   angular.forEach($document.find('script'), function(script) {
+    tmp.href = script.src;
     var match = script.src.match(/^.*\/([^\/]*\.js)$/);
     if (match) {
-      urls[match[1].replace(/(\-\d.*)?(\.min)?\.js$/, '.js')] = match[0];
+      urls[tmp.pathname] = match[0];
     }
   });
 
   urls.base = [];
   angular.forEach(NG_DOCS.scripts, function(script) {
-    var match = urls[script.replace(/(\-\d.*)?(\.min)?\.js$/, '.js')];
+    tmp.href = script;
+    var match = urls[tmp.pathname];
     if (match) {
       urls.base.push(match);
     }
@@ -199,11 +202,13 @@ docsApp.serviceFactory.sections = function serviceFactory() {
     getPage: function(sectionId, partialId) {
       var pages = sections[sectionId];
 
-      partialId = partialId || 'index';
+      if (pages) {
+        partialId = partialId || 'index';
 
-      for (var i = 0, ii = pages.length; i < ii; i++) {
-        if (pages[i].id == partialId) {
-          return pages[i];
+        for (var i = 0, ii = pages.length; i < ii; i++) {
+          if (pages[i].id == partialId) {
+            return pages[i];
+          }
         }
       }
       return null;
@@ -518,19 +523,7 @@ docsApp.controller.DocsController = function($scope, $location, $window, section
   }
 };
 
-function module(name, modules, optional) {
-  if (optional) {
-    angular.forEach(optional, function(name) {
-      try {
-        angular.module(name);
-        modules.push(name);
-      } catch(e) {}
-    });
-  }
-  return angular.module(name, modules);
-}
-
-module('docsApp', ['bootstrap', 'bootstrapPrettify'], ['ngAnimate']).
+angular.module('docsApp', ['ngAnimate', 'bootstrap', 'bootstrapPrettify']).
   config(function($locationProvider) {
     if (NG_DOCS.html5Mode) {
       $locationProvider.html5Mode(true).hashPrefix('!');

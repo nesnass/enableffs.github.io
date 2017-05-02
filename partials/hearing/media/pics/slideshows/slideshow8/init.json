@@ -1,0 +1,32 @@
+[
+  {
+    "src": "bilde1.jpg",
+    "text_en": "The teacher gives her lesson to the class orally.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "bilde2.jpg",
+    "text_en": "Rose is not perceiving orally what is said.",
+    "text_fr": "Image 1"
+  },
+  {
+    "src": "bilde3.jpg",
+    "text_en": "She is dependent of her classmates interpretation.",
+    "text_fr": "Du texte en francais"
+  },
+  {
+    "src": "bilde4.jpg",
+    "text_en": "Roses classmate is interpreting while the rest of the class are communicating with the teacher.",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "bilde5.jpg",
+    "text_en": "Roses attention is towards the interpreter.",
+    "text_fr": "Image 3"
+  },
+  {
+    "src": "bilde6.jpg",
+    "text_en": "Rose responds to the interpretation",
+    "text_fr": "Image 4"
+  }
+]

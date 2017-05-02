@@ -35,7 +35,7 @@ html {
 
 body {
     margin: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'RobotoDraft', Arial, sans-serif;
 }
 
@@ -63,7 +63,6 @@ a,
 a:visited {
     text-decoration: none;
     color: #000000;
-    display: block;
 }
 
 dt,
@@ -71,24 +70,36 @@ dl a,
 dd a {
     padding-top: 5px;
     padding-bottom: 5px;
+    display: block;
 }
 
 
 a.sidenavlinksactive {
     color: #0000FF;
     text-decoration: none;
+    font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
+}
+
+#container {
+    max-width: 1200px !important;
 }
 
 /** fix for IE which does not adjust toolbar height **/
 md-toolbar {
     min-height: 64px !important;
     max-height: 64px !important;
+    background-color: #FFC107 !important;
 }
 
 footer {
     background-color: #000000;
-    height: 100px;
+    /* height: 100px; */
+    width: 100%;
     color: #000000;
+}
+
+footer img {
+    padding: 20px;
 }
 
 h2 {
@@ -109,13 +120,14 @@ h2 {
     margin-bottom: 50px;
 }
 
-.homeVignetteBar {
-    height: 300px !important;
-}
 
 .homeVignette {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     cursor: pointer;
-    background-size: auto 100%;
+    /*background-size: auto 100%;*/
+    background-size: cover;
     width: 100%;
     height: 300px !important;
     overflow: hidden;
@@ -123,18 +135,30 @@ h2 {
     background-position: center;
 }
 
-.homeVignetteBackdrop {
-    background: rgba(255,193,7, .1);
-    width: 100%;
-    height: 100%;
-    color: transparent;
+.homeVignette:hover {
+    border: solid 5px yellow;
 }
 
-.homeVignetteBackdrop:hover {
-    background: rgba(0, 0, 0, .6);
-    width: 100%;
-    height: 100%;
-    color: #FFFFFF;
+
+.homeVignette h1 {
+    margin-left: 10px;
+    color: white;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+}
+
+
+.languageButton span {
+    color: white;
+    font-size: 2em;
+    text-shadow:
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000;
 }
 
 .homelanguage {
@@ -146,18 +170,68 @@ h2 {
 
 #scrollContainer {
     /*background-color: #000000;*/
+    width: 100%;
 }
 
 .expandButton {
     width: 100%;
     border-radius: 0 !important;
     padding: 0 !important;
-    margin: 6px 0px !important;
+    margin: 0;
+    /*margin: 6px 0px !important;*/
     text-align: left !important;
+    min-height: 50px;
 }
 
 .partial {
     background-color: #FFFFFF;
+}
+
+.menuButtons, .searchAreaContainer {
+   margin: 7px;
+}
+
+.menuButtons button {
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    padding: 0;
+}
+
+.menusection {
+    list-style: none;
+    padding: 10px 12px;
+    margin: 0 0 0 7px;
+    border-left: solid 1px grey;
+}
+
+.menusection li {
+    padding-top: 10px;
+}
+
+.searchArea {
+    font-size: 1.3em;
+    width: 180px;
+}
+
+.searchAreaResults {
+    margin: 20px;
+}
+
+.submenu {
+ /*   margin-top: 10px; */
+    position: relative;
+}
+
+.submenu img {
+    position: absolute;
+    width: 25px;
+    top: -3px;
+    left: -5px;
+}
+
+.submenu span {
+    margin-left: 20px;
 }
 
 .submenuitem {
@@ -168,6 +242,11 @@ h2 {
     -webkit-transition: all linear 0.5s;
     transition: all linear 0.5s;
 }
+
+.expandButton img {
+    float: left;
+}
+
 
 .openclosesidebar,
 .slideshowicons {
@@ -200,7 +279,7 @@ h2 {
 }
 
 #searchWidget {
-    width: 250px;
+  /*  width: 250px; */
 }
 
 #searchWidget md-content form {
@@ -222,20 +301,17 @@ h2 {
 }
 
 .sectionBanner {
-    color: #FFFFFF;
-    background-color: #000000;
-    /*background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Safari 5.1 to 6.0 *!/
-    background: -o-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Opera 11.1 to 12.0 *!/
-    background: -moz-linear-gradient(bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* For Firefox 3.6 to 15 *!/
-    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,9,9,9), rgba(1,1,1,1)); /!* Standard syntax (must be last) *!/*/
+   background-color: grey;
+}
+
+.sectionBanner img {
     width: 100%;
-    opacity: 0.7;
-    /*padding-bottom: 10px;*/
 }
 
 .more {
     padding: 20px;
     background-color: #EEEEEE;
+    margin-bottom: 20px;
 }
 
 .sectionLink {
@@ -250,17 +326,32 @@ h2 {
     position: relative;
     width: 100%;
     overflow: hidden;
+    background-color: black;
 }
 
 .slidercontrol {
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
+    min-height: 63px;
     background-color: #000000;
-    opacity: .9;
     color: #FFFFFF;
+    position: relative;
+}
+
+.slidercontrol button.left {
+    position: absolute;
+    top: 0;
+    left: 3px;
+}
+
+
+.slidercontrol button.right {
+    position: absolute;
+    top: 0;
+    right: 3px;
+}
+
+.slideText {
+    padding: 5px 15%;
 }
 
 .sliderimage {
@@ -321,8 +412,8 @@ ul.dashlist li:before, ol.dashlist li:before {
     font-family:"HelveticaNeueW01-45Ligh", "Arial", sans-serif;
     color: black;
     margin-bottom: 100px;
-    max-width: 900px !important;
-    padding: 50px 100px 50px 100px;
+    max-width: 1000px !important;
+    padding: 25px 50px 25px 50px;
 }
 .partialContent html {
     margin: auto;
@@ -439,6 +530,7 @@ ul.dashlist li:before, ol.dashlist li:before {
     border-bottom: thin solid lightgrey;
 }
 .enablegreybox {
+    min-height: 30px;
     background-color: #f5f5f5;
     padding: 15px;
     font-family: "HelveticaNeueW01-55Roma", Arial, sans-serif;
@@ -450,7 +542,7 @@ ul.dashlist li:before, ol.dashlist li:before {
 .enablequotebox {
     background-color: #FFFFFF;
     padding: 15px;
-    margin: 0 25% 0 15%;
+    margin: 0 15% 0 15%;
 }
 .enablequotebox-quote {
     font-family:"HelveticaNeueW01-75Bold", "Arial", sans-serif;
@@ -501,11 +593,64 @@ ul.dashlist li:before, ol.dashlist li:before {
 .partialContent .enablequiz p {
     margin: 5px 0;
 }
+/* ================================= V2 ================================ */
+
+button {
+    margin: 3px;
+}
+
+button span {
+    font-size: 2em;
+}
+
+#hamburgerButton {
+    position: fixed;
+    z-index: 10;
+    opacity: 0.8;
+    margin-left: 8px;
+}
+
+.enable-menu {
+    position: fixed;
+    background-color: lightgrey;
+    z-index: 10;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.enable-main {
+    margin-left: 10px;
+}
+
+.quizAnswerRadio {
+    margin: 10px;
+}
+
+.quizAnswerCheckbox {
+    margin: 10px;
+}
+
+.quizButton {
+    font-size: 1.2em;
+    margin: 20px 20px 20px 0;
+}
+
 
 /* ==================================================================== */
 
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
+
+    .enable-menu {
+        width: 200px;
+        float: left;
+    }
+
+    .enable-main {
+        width: 100%;
+        margin-left: 5px;
+    }
 
     /** fix for IE which does not adjust toolbar height **/
     md-toolbar {
@@ -536,6 +681,7 @@ ul.dashlist li:before, ol.dashlist li:before {
 
     .homeText {
         /*margin-bottom: -50px;*/
+        padding: 10px;
     }
 
     .partialContent {
@@ -544,8 +690,14 @@ ul.dashlist li:before, ol.dashlist li:before {
     }
 }
 
-@media (max-width: 800px) {
-    .partialContent {
-        padding: 50px 7% 50px 7%;
+@media (min-width: 601px) {
+
+    .enable-menu {
+        width: 200px;
+        float: left;
+    }
+
+    .enable-main {
+        margin-left: 200px;
     }
 }
