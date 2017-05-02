@@ -41,7 +41,7 @@ enableAppDirectives.directive('autoActive', ['$location', '$timeout', function (
             }
 
             //initiate after 500msec to make sure that element is built
-            $timeout(function(){
+            $timeout(function() {
                 setActive();
             }, 500);
 
