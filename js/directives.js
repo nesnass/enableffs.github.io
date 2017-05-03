@@ -120,6 +120,7 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
 		    $scope.localmode = false;
 
 		    if ($scope.$parent.localmode) {
+
                 $scope.localmode = true;
 			    $scope.vidtrack = '';
 			    if ($scope.localSubtitles !== '') {
@@ -132,7 +133,7 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
 			    $scope.vidurl = $sce.trustAsResourceUrl(videoUrl);
 		    }
 		    else {
-			    $scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.youtubeId + "?html5=1&controls=1&autohide=0&rel=0&showinfo=0&vq=small&hl=" + $scope.currentLanguage + "&cc_load_policy=1");
+			    $scope.vidurl = $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + $scope.youtubeId + "?html5=1&controls=1&autohide=0&rel=0&showinfo=0&hl=" + $scope.currentLanguage + "&cc_load_policy=1");
 		    }
 	    }
     }
