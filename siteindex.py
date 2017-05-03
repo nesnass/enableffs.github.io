@@ -39,7 +39,9 @@ class MyHTMLParser(HTMLParser):
 			for idx, word in enumerate(wordlist):
 				if len(word) >= minWordLength:
 					extract = self.create_extract(word, idx, wordlist)
-					self.add_to_freetext_dictionary(word, extract)
+					trimmedWord = word.strip("0123456789=.,;: \n\t\r")
+					trimmedWord = trimmedWord.lower()
+					self.add_to_freetext_dictionary(trimmedWord, extract)
 		self.takeTheData = False
 
 	def add_to_freetext_dictionary(self, word, extract):
@@ -98,9 +100,8 @@ for x in fList:
 
 #write out to a JSON file
 
-#currently disabled!
-#with open('freetext_dictionary.json', 'w') as fp:
-#    json.dump(freetext_dictionary, fp)
+with open('freetext_dictionary.json', 'w') as fp:
+    json.dump(freetext_dictionary, fp)
 
 with open('meta_dictionary.json', 'w') as fp:
     json.dump(meta_dictionary, fp)

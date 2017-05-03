@@ -10,7 +10,7 @@ var enableAppControllers = angular.module('EnableAppControllers', []);
  * Controller for the default page: index.html
  *
  */
-enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootScope', '$location', '$translate', '$route', '$http', function ($q, $scope, $window, $rootScope, $location, $translate, $route, $http) {
+enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootScope', '$location', '$translate', '$route', '$http', '$routeParams', function ($q, $scope, $window, $rootScope, $location, $translate, $route, $http, $routeParams) {
         console.log('--> menu started');
         console.log('--> default language: ' + localStorage.lang);
 
@@ -42,7 +42,21 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
             $scope.$apply();
         });
 
-    $scope.goToSection = function(category, path) {
+        //when the view is finished loaded, focus on the top
+        $rootScope.$on('$viewContentLoaded', function () {
+            var myEl = angular.element( document.querySelector( '#scrollContainer' ) );
+            myEl.scrollTop = 0;
+            myEl[0].focus();
+
+            if ($scope.menuInclude === '' && $routeParams.hasOwnProperty('level') && $routeParams.hasOwnProperty('page')) {
+	            var currentLevel = $routeParams['level'];
+	            var currentPage = $routeParams['page'];
+                $scope.goToSection(currentLevel, currentLevel + '/' + currentPage);
+            }
+
+        });
+
+        $scope.goToSection = function(category, path) {
             //controls which menu template is included in the sidenav
             $scope.showVision = false;
             $scope.showHearing = false;
@@ -146,7 +160,7 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
             //update the localstorage value (in case of a page reload)
             localStorage.lang = lang;
             //update the translation module with the new value
-            $translate.use(localStorage.lang);
+            $translate.use(lang);
             //force a reload of the current page
             $route.reload();
         };
@@ -215,7 +229,7 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
         $scope.loadSearchTags = function() {
             //loads the JSON formatted search dictionary
             return $q(function(resolve, reject) {
-                $http.get('meta_dictionary.json').
+                $http.get('freetext_dictionary.json').
                 success(function (data) {
                     resolve(data);
                 }).
@@ -386,7 +400,7 @@ enableAppControllers.controller("SearchCtrl", ['$scope', '$rootScope', '$locatio
          * @param {string} path the path to the result item
          */
         $scope.getFormattedUrl = function(path) {
-            return path.replace('partials', '#').replace('_en.html', '').replace('_fr.html', '');
+            return path.replace('content', '#').replace('_en.html', '').replace('_fr.html', '');
         };
 
         /**
@@ -400,7 +414,7 @@ enableAppControllers.controller("SearchCtrl", ['$scope', '$rootScope', '$locatio
          * @param {string} path the path to the result item
          */
         $scope.getFormattedLink = function(path) {
-            return path.replace('partials/', '').replace('_en.html', '').replace('_fr.html', '');
+            return path.replace('content/', '').replace('_en.html', '').replace('_fr.html', '');
         };
 
         /**
