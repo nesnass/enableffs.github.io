@@ -9,8 +9,16 @@
   "private": true,
   "version": "0.0.1",
   "description": "A starter project for Enable",
+  "dependencies": {
+    "angular": "1.4.12",
+    "angular-route": "1.4.12",
+    "angular-aria": "1.4.12",
+    "angular-animate": "1.4.12",
+    "angular-translate": "2.12.1",
+    "angular-translate-loader-static-files": "2.12.1",
+    "angucomplete-alt": "3.0.x"
+  },
   "devDependencies": {
-    "bower": "^1.7.9",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-jshint": "^2.0.1",
