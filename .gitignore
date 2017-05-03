@@ -1,9 +1,10 @@
 .idea/*
 node_modules/*
-!node_modules/angucomplete-alt
-!node_modules/angular
-!node_modules/angular-animate
-!node_modules/angular-aria
-!node_modules/angular-route
-!node_modules/angular-translate
-!node_modules/angular-translate-loader-static-files
+!node_modules/angucomplete-alt/angucomplete-alt.css
+!node_modules/angucomplete-alt/dist/angucomplete-alt.min.js
+!node_modules/angular/angular.min.js
+!node_modules/angular-animate/angular-animate.min.js
+!node_modules/angular-aria/angular-aria.min.js
+!node_modules/angular-route/angular-route.min.js
+!node_modules/angular-translate/dist/angular-translate.min.js
+!node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js

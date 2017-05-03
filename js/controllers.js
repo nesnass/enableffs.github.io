@@ -42,30 +42,7 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
             $scope.$apply();
         });
 
-        /**
-         * @ngdoc function
-         * @name VisionCtrl.gotoAnchor
-         * @kind function
-         *
-         * @description
-         * Function that redirects the browser to the provided path
-         *
-         * @param {string} newHash the anchor path to redirect to
-         */
-        $scope.gotoAnchor = function(newHash) {
-
-            if ($location.hash() !== newHash) {
-                // set the $location.hash to `newHash` and
-                // $anchorScroll will automatically scroll to it
-                $location.hash(newHash);
-            } else {
-                // call $anchorScroll() explicitly,
-                // since $location.hash hasn't changed
-                $anchorScroll();
-            }
-        };
-
-	    $scope.goToSection = function(category, path) {
+    $scope.goToSection = function(category, path) {
             //controls which menu template is included in the sidenav
             $scope.showVision = false;
             $scope.showHearing = false;
@@ -78,39 +55,38 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
                     //  $scope.showHamburger = false;
                     $scope.showHomeButton = false;
                     $scope.menuInclude = '';
-	                $rootScope.roottitle = "Enable home page";
+                    $rootScope.roottitle = "Enable home page";
                     break;
                 case 'search':
-	                $rootScope.roottitle = "Enable search results";
                     //  $scope.showHamburger = false;
+	                $rootScope.roottitle = "Enable search results";
                     break;
                 case 'vision':
                     //   $scope.showHamburger = true;
-
                     $scope.showVision = true;
                     $scope.menuInclude = 'vision';
-	                $rootScope.roottitle = "Enable. Vision";
+                    $rootScope.roottitle = "Enable. Vision";
                     break;
                 case 'hearing':
                     //   $scope.showHamburger = true;
                     $scope.showHearing = true;
                     $scope.menuInclude = 'hearing';
-	                $rootScope.roottitle = "Enable. Hearing";
+                    $rootScope.roottitle = "Enable. Hearing";
                     break;
                 case 'dual':
                     //  $scope.showHamburger = true;
                     $scope.showDual = true;
                     $scope.menuInclude = 'dual';
-	                $rootScope.roottitle = "Enable. Dual impairment";
+                    $rootScope.roottitle = "Enable. Dual impairment";
                     break;
                 case 'sensory':
                     //  $scope.showHamburger = true;
                     $scope.showSensory = true;
                     $scope.menuInclude = 'sensory';
-	                $rootScope.roottitle = "Enable. Sensory impairment";
+                    $rootScope.roottitle = "Enable. Sensory impairment";
                     break;
             }
-		    $location.path(path);
+            $location.path(path);
         };
 
         /**
@@ -251,6 +227,31 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
 
         };
 
+
+
+        /**
+         * @ngdoc function
+         * @name SensoryCtrl.gotoAnchor
+         * @kind function
+         *
+         * @description
+         * Function that redirects the browser to the provided path
+         *
+         * @param {string} newHash the anchor path to redirect to
+         */
+        $scope.gotoAnchor = function(newHash) {
+
+            if ($location.hash() !== newHash) {
+                // set the $location.hash to `newHash` and
+                // $anchorScroll will automatically scroll to it
+                $location.hash(newHash);
+            } else {
+                // call $anchorScroll() explicitly,
+                // since $location.hash hasn't changed
+                $anchorScroll();
+            }
+        };
+
         /**
          * @ngdoc function
          * @name MenuCtrl.initMenuController
@@ -353,6 +354,7 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
 );
 
 
+
 /**
  *
  * @ngdoc controller
@@ -421,5 +423,25 @@ enableAppControllers.controller("SearchCtrl", ['$scope', '$rootScope', '$locatio
             }
         };
 
+    }]
+);
+
+
+
+
+
+/**
+ *
+ * @ngdoc controller
+ * @name AdvCtrl
+ * @description
+ * Controller
+ *
+ */
+enableAppControllers.controller("AdvCtrl", ['$rootScope', function ($rootScope) {
+
+        console.log('--> adv started');
+
+        $rootScope.roottitle = "Enable advanced page";
     }]
 );
