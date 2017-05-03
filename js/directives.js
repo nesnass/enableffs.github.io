@@ -73,10 +73,10 @@ enableAppDirectives.directive('enableSectionHeader', ['$sce','$route', function(
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/enable-section-header-template.html',
+        templateUrl: 'templates/enable-section-header-template.html',
 
         link: function(scope) {
-            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picpath);
+            scope.picsrc = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/pics/'+scope.picpath);
         }
     };
 }]);
@@ -113,7 +113,7 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
 	    },
 	    restrict: 'AE',
 	    replace: 'true',
-	    templateUrl: 'partials/templates/enable-video-template.html',
+	    templateUrl: 'templates/enable-video-template.html',
 
 	    controller: function ($scope) {
 		    $scope.currentLanguage = $translate.use();
@@ -124,12 +124,12 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
                 $scope.localmode = true;
 			    $scope.vidtrack = '';
 			    if ($scope.localSubtitles !== '') {
-				    $scope.vidsubtitles = $sce.trustAsResourceUrl('partials/' + $route.current.params.level + '/media/vids/' + $scope.localSubtitles);
+				    $scope.vidsubtitles = $sce.trustAsResourceUrl('content/' + $route.current.params.level + '/media/vids/' + $scope.localSubtitles);
 			    }
 			    if ($scope.localPoster !== '') {
-				    $scope.poster = 'partials/' + $route.current.params.level + '/media/pics/' + $scope.localPoster;
+				    $scope.poster = 'content/' + $route.current.params.level + '/media/pics/' + $scope.localPoster;
 			    }
-			    var videoUrl = 'partials/' + $route.current.params.level + '/media/vids/' + $scope.localFilename;
+			    var videoUrl = 'content/' + $route.current.params.level + '/media/vids/' + $scope.localFilename;
 			    $scope.vidurl = $sce.trustAsResourceUrl(videoUrl);
 		    }
 		    else {
@@ -177,10 +177,10 @@ enableAppDirectives.directive('enableAudio', ['$sce','$route', function($sce, $r
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/enable-audio-template.html',
+        templateUrl: 'templates/enable-audio-template.html',
         link: function(scope) {
-            scope.audiourlm4a = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.m4a');
-            scope.audiourlogg = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
+            scope.audiourlm4a = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.m4a');
+            scope.audiourlogg = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
         }
     };
 }]);
@@ -208,7 +208,7 @@ enableAppDirectives.directive('enableImage', ['$sce','$route', function($sce, $r
         replace: 'true',
         template: '<img src="{{picsrc}}" width="100%" alt="{{picalt}}">',
         link: function(scope) {
-            scope.picsrc = $sce.trustAsResourceUrl('partials/'+$route.current.params.level+'/media/pics/'+scope.picname);
+            scope.picsrc = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/pics/'+scope.picname);
         }
     };
 }]);
@@ -233,13 +233,13 @@ enableAppDirectives.directive('enableSlideshow', ['$http', '$route', function($h
         },
         restrict: 'E',
         replace: 'true',
-        templateUrl: 'partials/templates/enable-slideshow-template.html',
+        templateUrl: 'templates/enable-slideshow-template.html',
 
         link: function(scope) {
             scope.currentIndex = 0; // Initially the index is at the first image
             scope.images = [];
 
-            scope.abspath = 'partials/'+$route.current.params.level+'/media/pics/slideshows/'+scope.path;
+            scope.abspath = 'content/'+$route.current.params.level+'/media/pics/slideshows/'+scope.path;
 
             $http.get(scope.abspath+'/init.json').then(function(res) {
                 res.data.forEach(function (slide) {
@@ -304,7 +304,7 @@ enableAppDirectives.directive('enableReadMore', [function() {
         restrict: 'E',
         replace: 'true',
         transclude: true,
-        templateUrl: 'partials/templates/enable-read-more-template.html',
+        templateUrl: 'templates/enable-read-more-template.html',
         link: function(scope) {
             scope.openState = false;
 
@@ -349,7 +349,7 @@ enableAppDirectives.directive("enableGreyBox", function() {
             }
         };
         return {
-            templateUrl: "partials/templates/enable-greybox-template.html",
+            templateUrl: "templates/enable-greybox-template.html",
             link: linker,
             restrict: 'E',
             transclude : true,
@@ -378,7 +378,7 @@ enableAppDirectives.directive("enableQuickQuestion", function() {
         };
     };
     return {
-        templateUrl: "partials/templates/enable-quick-question-template.html",
+        templateUrl: "templates/enable-quick-question-template.html",
         restrict: 'E',
         transclude : true,
         link: linker,
@@ -423,7 +423,7 @@ enableAppDirectives.directive("enableLink", function() {
  */
 enableAppDirectives.directive("enableQuotebox", function() {
     return {
-        templateUrl: "partials/templates/enable-quotebox-template.html",
+        templateUrl: "templates/enable-quotebox-template.html",
         restrict: 'E',
         transclude : true,
         scope: {
@@ -453,7 +453,7 @@ enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sc
         scope.inSecondLanguage = false;
         scope.incorrectAnswers = [];
 
-        scope.abspath = 'partials/'+$route.current.params.level+'/quiz/'+scope.path;
+        scope.abspath = 'content/'+$route.current.params.level+'/quiz/'+scope.path;
 
         $http.get(scope.abspath+'/init.json').then(function(res) {
 
@@ -596,7 +596,7 @@ enableAppDirectives.directive("enableQuiz", ['$http', '$route', '$timeout', '$sc
     return {
         restrict: 'E',
         link: linker,
-        templateUrl: "partials/templates/enable-quiz-template.html",
+        templateUrl: "templates/enable-quiz-template.html",
         scope:{
             path: '@'
         },
@@ -616,7 +616,7 @@ enableAppDirectives.directive("enableFileLink", function() {
         scope.linkiconpath = "img/icons/directives/link/702-share@2x.svg";
     };
     return {
-        template: '<a class="enablelink" href="partials/files/{{href}}" target="_blank"><ng-transclude></ng-transclude><ng-include src="linkiconpath"></ng-include></a>',
+        template: '<a class="enablelink" href="content/files/{{href}}" target="_blank"><ng-transclude></ng-transclude><ng-include src="linkiconpath"></ng-include></a>',
         restrict: 'E',
         transclude : true,
         link : linker,
