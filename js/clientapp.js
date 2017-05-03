@@ -31,7 +31,7 @@ enableApp.config(['$routeProvider', function($routeProvider) {
             }).
             when('/home', {
                 templateUrl: function() {
-                    return 'partials/templates/home_'+localStorage.lang+'.html';
+                    return 'partials/templates/home_' + localStorage.lang + '.html';
                 }
             }).
             when('/:page', {

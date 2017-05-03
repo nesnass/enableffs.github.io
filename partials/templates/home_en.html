@@ -1,4 +1,4 @@
-<div ng-controller="HomeCtrl" class="partial">
+<div class="partial">
 
     <!-- ng-style="{'height': windowHeight+'px', 'width': windowWidth+'px', 'background-color': '#FFFFFF'}" autoresize -->
 
@@ -14,19 +14,19 @@
                     The information goes from simple to more complex and may therefore be useful for everyone.</p>
             </div>
             <div class="homeVignette" ng-style="{'background-image': 'url(img/visionnew.jpg)'}" role="button"
-                 aria-label="Click to go to vision impairment" ng-click="goToSection('/vision/s01_l01')">
+                 aria-label="Click to go to vision impairment" ng-click="goToSection('vision', '/vision/s01_l01')">
                 <h1>{{'TITLE_VISION' | translate}}</h1>
             </div>
             <div class="homeVignette" ng-style="{'background-image': 'url(img/hearingmenu.jpg)'}" role="button"
-                 aria-label="Click to go to hearing impairment" ng-click="goToSection('/hearing/s01_l01')">
+                 aria-label="Click to go to hearing impairment" ng-click="goToSection('hearing', '/hearing/s01_l01')">
                 <h1>{{'TITLE_HEARING' | translate}}</h1>
             </div>
             <div class="homeVignette" ng-style="{'background-image': 'url(img/dualnew.jpg)'}" role="button"
-                 aria-label="Click to go to combined impairment" ng-click="goToSection('/dual/s01_l01')">
+                 aria-label="Click to go to combined impairment" ng-click="goToSection('dual', '/dual/s01_l01')">
                 <h1>{{'TITLE_DUAL' | translate}}</h1>
             </div>
             <div class="homeVignette" ng-style="{'background-image': 'url(img/om.jpg)'}" role="button"
-                 aria-label="Click to go to about this website" ng-click="goToSection('/sensory/s01_l01')">
+                 aria-label="Click to go to about this website" ng-click="goToSection('sensory', '/sensory/s01_l01')">
                 <h1>{{'TITLE_SENSORY' | translate}}</h1>
             </div>
             <div class="" style="font-size: 1.3em;" role="note">
