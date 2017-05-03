@@ -16,7 +16,9 @@
     "angular-animate": "1.4.12",
     "angular-translate": "2.12.1",
     "angular-translate-loader-static-files": "2.12.1",
-    "angucomplete-alt": "3.0.x"
+    "angucomplete-alt": "3.0.x",
+    "juxtaposejs": "1.1.x",
+    "ng-juxtapose" : "1.0.x"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
@@ -31,7 +33,6 @@
     "jshint-stylish": "^2.2.1"
   },
   "scripts": {
-    "postinstall": "bower install",
     "prestart": "npm install; grunt default",
     "start": "http-server -a localhost -p 8000 -c-1",
     "pretest": "npm install"
