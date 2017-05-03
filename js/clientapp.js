@@ -36,12 +36,12 @@ enableApp.config(['$routeProvider', function($routeProvider) {
             }).
             when('/:page', {
                 templateUrl: function(routeParams) {
-                    return 'partials/'+routeParams.page+'_'+localStorage.lang+'.html';
+                    return 'partials/'+routeParams.page + '_' + localStorage.lang + '.html';
                 }
             }).
             when('/:level/:page', {
                 templateUrl: function(routeParams) {
-                    return 'partials/'+routeParams.level+'/'+routeParams.page+'_'+localStorage.lang+'.html';
+                    return 'partials/' + routeParams.level + '/' + routeParams.page + '_' + localStorage.lang+'.html';
                 }
             }).
             otherwise({

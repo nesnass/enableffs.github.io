@@ -1,2 +1,9 @@
 .idea/*
 node_modules/*
+!node_modules/angucomplete-alt
+!node_modules/angular
+!node_modules/angular-animate
+!node_modules/angular-aria
+!node_modules/angular-route
+!node_modules/angular-translate
+!node_modules/angular-translate-loader-static-files
