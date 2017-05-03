@@ -108,7 +108,8 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
 	    scope: {
 		    localPoster: '@',
 		    localFilename: '@',
-		    localSubtitles: '@'
+		    localSubtitles: '@',
+            youtubeId: '@'
 	    },
 	    restrict: 'AE',
 	    replace: 'true',
