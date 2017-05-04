@@ -179,7 +179,7 @@ enableAppDirectives.directive('enableAudio', ['$sce','$route', function($sce, $r
         replace: 'true',
         templateUrl: 'templates/enable-audio-template.html',
         link: function(scope) {
-            scope.audiourlm4a = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.m4a');
+            scope.audiourlm4a = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.mp3');
             scope.audiourlogg = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
         }
     };
