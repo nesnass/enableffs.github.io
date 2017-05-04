@@ -121,16 +121,17 @@ h2 {
 .mainScrollDisabled {
     overflow: hidden !important;
 }
-.small{
-    font-size: 20px;
-}
-.medium{
-    font-size: 28px;
-}
-.large {
 
-    font-size: 36px;
+.defaultFontSize {
+    font-size: 1em;
 }
+.mediumFontSize {
+    font-size: 1.2em;
+}
+.largeFontSize {
+    font-size: 1.5em;
+}
+
 .homeText {
     overflow: hidden;
         margin-bottom: 50px;
@@ -206,7 +207,7 @@ h2 {
 }
 
 .menuButtons, .searchAreaContainer {
-   padding: 20px 7px;
+    padding: 20px 7px;
     margin-right: 7px;
 }
 

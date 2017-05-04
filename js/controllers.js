@@ -28,6 +28,9 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
         $scope.windowWidth = 100;
         $scope.menuInclude = '';
 
+        $scope.customFontSize = 'defaultFontSize';
+        $scope.fontSizeIconPath = 'img/font-size-up.png';
+
         $scope.showVision = false;
         $scope.showHearing = false;
         $scope.showDual = false;
@@ -115,6 +118,19 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
          */
         $scope.openMenu = function() {
             $scope.menuOpen = true;
+        };
+
+        $scope.resizePageFont = function() {
+            if ($scope.customFontSize === 'defaultFontSize') {
+	            $scope.fontSizeIconPath = 'img/font-size-up.png';
+                $scope.customFontSize = 'mediumFontSize';
+            } else if ($scope.customFontSize === 'mediumFontSize') {
+	            $scope.fontSizeIconPath = 'img/font-size-down.png';
+	            $scope.customFontSize = 'largeFontSize';
+            } else {
+	            $scope.fontSizeIconPath = 'img/font-size-up.png';
+	            $scope.customFontSize = 'defaultFontSize';
+            }
         };
 
         /**

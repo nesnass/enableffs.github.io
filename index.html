@@ -67,6 +67,13 @@
                         style="background: url('img/icons/ic_home_48px.svg'); background-size: contain;">
                     <span aria-hidden="true">&nbsp;</span>
                 </button>
+                <button class="languageButton" aria-label="{{ 'FONT_SIZE_BUTTON' | translate }}" role="button" ng-click="resizePageFont()"
+                        ng-style="{ 'background': 'url(' + fontSizeIconPath + ')', 'backgroundSize': 'contain'}">
+                    <span aria-hidden="true">&nbsp;</span>
+                </button>
+            </div>
+
+            <div>
                 <button ng-disabled="getLangButtonState('sw')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_SW' | translate }}" class="languageButton" ng-click="setLang('sw')"
                         style="background: url('img/flag-east-africa.png'); background-size: contain;">
                     <span aria-hidden="true">SW</span>
@@ -76,19 +83,15 @@
                     <span aria-hidden="true">EN</span>
                 </button>
             </div>
-            <div>
 
-                <input id="smallbtn" type="button" value="Small" ng-click="myVar='small'">
-                <input id="clearbtn" type="button" value="medium" ng-click="myVar='medium'">
-                <input id="setbtn" type="button" value="large" ng-click="myVar='large'">
-            </div>
+
         </div>
 
     </div>
     <!-- END navigation menu -->
 
     <!-- START main content -->
-    <div class="enable-main" tabindex="-1" role="main" ng-class="myVar">
+    <div class="enable-main" tabindex="-1" role="main" ng-class="customFontSize">
         <!-- START main header -->
         <div>
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
