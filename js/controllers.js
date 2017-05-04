@@ -73,6 +73,7 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
                     break;
                 case 'search':
                     //  $scope.showHamburger = false;
+	                $scope.showHomeButton = true;
 	                $rootScope.roottitle = "Enable search results";
                     break;
                 case 'vision':
@@ -213,7 +214,9 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
             console.log('--> Item changed to ' + JSON.stringify(item.description.value));
             if(item !== undefined) {
                 //if item, direct the browser to the search page and pass it the item label as a url parameter
-                $location.path("/search").search("s", item.description.value);
+	            $scope.closeMenu();
+	            $scope.showHomeButton = true;
+	            $location.path("/search").search("s", item.description.value);
             }
         };
 
@@ -286,7 +289,7 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
                 $scope.showHamburger = true;
             }
 
-            $scope.showHomeButton = $location.path() === '/home';
+            $scope.showHomeButton = $location.path() !== '/home';
 
             console.log('--> running in localmode: '+$scope.localmode);
 
