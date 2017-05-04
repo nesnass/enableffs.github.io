@@ -114,11 +114,20 @@ h2 {
 .mainScrollDisabled {
     overflow: hidden !important;
 }
+.small{
+    font-size: 20px;
+}
+.medium{
+    font-size: 28px;
+}
+.large {
 
+    font-size: 36px;
+}
 .homeText {
     overflow: hidden;
-    margin-bottom: 50px;
-}
+        margin-bottom: 50px;
+    }
 
 
 .homeVignette {
@@ -301,7 +310,8 @@ h2 {
 }
 
 .sectionBanner {
-   background-color: grey;
+   background-color:#333333 ;
+   color: #ffffff ;
 }
 
 .sectionBanner img {

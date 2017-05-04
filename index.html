@@ -24,10 +24,15 @@
 </head>
 
 
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl" class="base-class" >
 
 <div id="container">
     <!-- START navigation menu -->
+
+
+
+
+
 
     <button ng-if="showHamburger" id="hamburgerButton" accesskey="1" title="toggleMenuButton" tabindex="-1" role="button" ng-click="openMenu()" translate-attr="{ 'aria-label': 'OPEN_SIDEPANEL_BUTTON' }">
         <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
@@ -76,13 +81,19 @@
                     <img class="openclosesidebar" src="img/icons/ic_home_48px.svg" aria-hidden="true"/>
                 </button>
             </div>
+            <div>
+
+                <input id="smallbtn" type="button" value="Small" ng-click="myVar='small'">
+                <input id="clearbtn" type="button" value="medium" ng-click="myVar='medium'">
+                <input id="setbtn" type="button" value="large" ng-click="myVar='large'">
+            </div>
         </div>
 
     </div>
     <!-- END navigation menu -->
 
     <!-- START main content -->
-    <div class="enable-main" tabindex="-1" role="main">
+    <div class="enable-main" tabindex="-1" role="main" ng-class="myVar">
         <!-- START main header -->
         <div>
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
