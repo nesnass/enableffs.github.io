@@ -8,3 +8,6 @@ node_modules/*
 !node_modules/angular-route/angular-route.min.js
 !node_modules/angular-translate/dist/angular-translate.min.js
 !node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js
+!node_modules/juxtaposejs/build/js/juxtapose.min.js
+!node_modules/juxtaposejs/build/css/juxtapose.css
+!node_modules/ng-juxtapose/dist/ng-juxtapose.min.js

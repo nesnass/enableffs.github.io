@@ -173,14 +173,14 @@ enableAppDirectives.directive('enablePoster', [function() {
 enableAppDirectives.directive('enableAudio', ['$sce','$route', function($sce, $route) {
     return {
         scope:{
-            sndid: '@'
+            soundFilename: '@'
         },
         restrict: 'E',
         replace: 'true',
         templateUrl: 'templates/enable-audio-template.html',
         link: function(scope) {
-            scope.audiourlm4a = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.mp3');
-            scope.audiourlogg = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
+            scope.audiourlmp3 = $sce.trustAsResourceUrl('content/' + $route.current.params.level + '/media/snds/' + scope.soundFilename);
+            //scope.audiourlogg = $sce.trustAsResourceUrl('content/'+$route.current.params.level+'/media/snds/'+scope.sndid+'.ogg');
         }
     };
 }]);

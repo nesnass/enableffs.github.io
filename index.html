@@ -20,6 +20,7 @@
     <!--link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="node_modules/angucomplete-alt/angucomplete-alt.css">
+    <link rel="stylesheet" href="node_modules/juxtaposejs/build/css/juxtapose.css">
 </head>
 
 
@@ -33,6 +34,10 @@
     </button>
 
     <div class="enable-menu" tabindex="-1" aria-hidden="!menuOpen" ng-show="menuOpen || windowWidth > 600" role="menubar">
+
+        <button title="toggleMenuButton" class="" role="button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
+            <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
+        </button>
 
         <nav role="navigation" aria-label="{{'NAVIGATION' | translate}}">
             <div ng-include="'content/menu.html'"></div>
@@ -58,6 +63,10 @@
 
         <div style="width: 100%" class="menuButtons">
             <div>
+                <button ng-if="showHomeButton" class="languageButton" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('home', '/home')"
+                        style="background: url('img/icons/ic_home_48px.svg'); background-size: contain;">
+                    <span aria-hidden="true">&nbsp;</span>
+                </button>
                 <button ng-disabled="getLangButtonState('sw')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_SW' | translate }}" class="languageButton" ng-click="setLang('sw')"
                         style="background: url('img/flag-east-africa.png'); background-size: contain;">
                     <span aria-hidden="true">SW</span>
@@ -65,14 +74,6 @@
                 <button ng-disabled="getLangButtonState('en')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="languageButton" ng-click="setLang('en')"
                         style="background: url('img/flag-english.png'); background-size: contain;">
                     <span aria-hidden="true">EN</span>
-                </button>
-            </div>
-            <div>
-                <button title="toggleMenuButton" class="" role="button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
-                    <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
-                </button>
-                <button ng-if="showHomeButton" class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('/home')">
-                    <img class="openclosesidebar" src="img/icons/ic_home_48px.svg" aria-hidden="true"/>
                 </button>
             </div>
         </div>
@@ -101,18 +102,20 @@
 
 
 <!-- Framework libraries -->
-<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-animate/angular-animate.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-aria/angular-aria.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
-<script type="text/javascript" src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
-<script type="application/javascript" src="node_modules/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+<script src="node_modules/juxtaposejs/build/js/juxtapose.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-route/angular-route.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+<script src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
+<script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<script src="node_modules/angucomplete-alt/dist/angucomplete-alt.min.js"></script>
+<script src="node_modules/ng-juxtapose/dist/ng-juxtapose.min.js"></script>
 
 <!-- Application files  -->
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/utils.js"></script>
-<script type="text/javascript" src="js/controllers.js"></script>
-<script type="text/javascript" src="js/directives.js"></script>
+<script src="js/app.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/directives.js"></script>
 
 </html>
