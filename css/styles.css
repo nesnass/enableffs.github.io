@@ -61,6 +61,13 @@ video {
 
 a,
 a:visited {
+    /*
+    text-decoration: none;
+    color: #000000;
+    */
+}
+
+.menusection li a, .menusection li a:visited {
     text-decoration: none;
     color: #000000;
 }
@@ -152,11 +159,12 @@ h2 {
 .homeVignette h1 {
     margin-left: 10px;
     color: white;
+    font-size: 2em;
     text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
+            -2px -2px 0 #000,
+            2px -2px 0 #000,
+            -2px 2px 0 #000,
+            2px 2px 0 #000;
 }
 
 
@@ -180,6 +188,7 @@ h2 {
 #scrollContainer {
     /*background-color: #000000;*/
     width: 100%;
+    display: flex;
 }
 
 .expandButton {
@@ -197,7 +206,8 @@ h2 {
 }
 
 .menuButtons, .searchAreaContainer {
-   margin: 7px;
+   padding: 20px 7px;
+    margin-right: 7px;
 }
 
 .menuButtons button {
@@ -220,7 +230,7 @@ h2 {
 
 .searchArea {
     font-size: 1.3em;
-    width: 180px;
+    width: 100%;
 }
 
 .searchAreaResults {
@@ -337,6 +347,8 @@ h2 {
     width: 100%;
     overflow: hidden;
     background-color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 .slidercontrol {
@@ -345,8 +357,11 @@ h2 {
     background-color: #000000;
     color: #FFFFFF;
     position: relative;
+    display: inline-block;
+    flex-direction: row;
+    justify-content: space-between;
 }
-
+/*
 .slidercontrol button.left {
     position: absolute;
     top: 0;
@@ -359,9 +374,24 @@ h2 {
     top: 0;
     right: 3px;
 }
-
+*/
 .slideText {
-    padding: 5px 15%;
+    /*padding: 5px 15%;*/
+    display: flex;
+    justify-content: center;
+}
+.slideText p {
+    width: 60%;
+    text-align: center;
+}
+
+.slideButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.slideButtons button {
+    min-height: 40px;
 }
 
 .sliderimage {
@@ -498,8 +528,8 @@ ul.dashlist li:before, ol.dashlist li:before {
     margin: 0 0 1em;
 }
 .partialContent a:link {
-    color: black;
-    text-decoration: none;
+    /*color: black;
+    text-decoration: none;*/
 }
 .partialContent .hmsquiz a:link {
     text-decoration: underline;
@@ -508,12 +538,12 @@ ul.dashlist li:before, ol.dashlist li:before {
     border-radius: 0;
 }
 .partialContent a:visited {
-    color: black;
-    text-decoration: none;
+    /*color: black;
+    text-decoration: none;*/
 }
 .partialContent a:hover {
     color: rgb(63,81,181);
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 .slideable_content > img {
     max-width: 100%;
@@ -569,7 +599,7 @@ ul.dashlist li:before, ol.dashlist li:before {
 .enablelink {
     line-height: 1.55em;
     margin: 0 0 1em;
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 .enablelink span {
     text-decoration: underline;
@@ -616,8 +646,12 @@ button span {
 #hamburgerButton {
     position: fixed;
     z-index: 10;
-    opacity: 0.8;
-    margin-left: 8px;
+    margin-left: 5px;
+    margin-top: 5px;
+    min-height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255,255,255,0.75);
 }
 
 .enable-menu {
@@ -647,19 +681,26 @@ button span {
 }
 
 
+
+
 /* ==================================================================== */
 
 /*** for all mobile only css ***/
 @media (max-width: 600px) {
 
     .enable-menu {
-        width: 200px;
+        width: 350px;
         float: left;
+        font-size: 1.5em;
     }
 
     .enable-main {
         width: 100%;
-        margin-left: 5px;
+        margin-left: 0px;
+    }
+
+    .menusection li {
+        padding-top: 20px;
     }
 
     /** fix for IE which does not adjust toolbar height **/
@@ -689,6 +730,10 @@ button span {
         height: 100% !important;
     }
 
+    .homeVignette h1 {
+        font-size: 1.8em;
+    }
+
     .homeText {
         /*margin-bottom: -50px;*/
         padding: 10px;
@@ -698,16 +743,22 @@ button span {
         margin-bottom: 100px;
         padding: 50px 3% 50px 3%;
     }
+
+    .slidercontrol {
+        flex-direction: column;
+    }
+
 }
 
 @media (min-width: 601px) {
 
     .enable-menu {
-        width: 200px;
+        width: 220px;
         float: left;
+        font-size: 1em;
     }
 
     .enable-main {
-        margin-left: 200px;
+        margin-left: 220px;
     }
 }

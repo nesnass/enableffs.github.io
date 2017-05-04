@@ -29,16 +29,15 @@
 <div id="container">
     <!-- START navigation menu -->
 
-
-
-
-
-
     <button ng-if="showHamburger" id="hamburgerButton" accesskey="1" title="toggleMenuButton" tabindex="-1" role="button" ng-click="openMenu()" translate-attr="{ 'aria-label': 'OPEN_SIDEPANEL_BUTTON' }">
         <img class="openclosesidebar" src="img/icons/ic_menu_48px.svg" aria-hidden="true"/>
     </button>
 
     <div class="enable-menu" tabindex="-1" aria-hidden="!menuOpen" ng-show="menuOpen || windowWidth > 600" role="menubar">
+
+        <button title="toggleMenuButton" class="" role="button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
+            <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
+        </button>
 
         <nav role="navigation" aria-label="{{'NAVIGATION' | translate}}">
             <div ng-include="'content/menu.html'"></div>
@@ -64,6 +63,10 @@
 
         <div style="width: 100%" class="menuButtons">
             <div>
+                <button ng-if="showHomeButton" class="languageButton" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('home', '/home')"
+                        style="background: url('img/icons/ic_home_48px.svg'); background-size: contain;">
+                    <span aria-hidden="true">&nbsp;</span>
+                </button>
                 <button ng-disabled="getLangButtonState('sw')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_SW' | translate }}" class="languageButton" ng-click="setLang('sw')"
                         style="background: url('img/flag-east-africa.png'); background-size: contain;">
                     <span aria-hidden="true">SW</span>
@@ -71,14 +74,6 @@
                 <button ng-disabled="getLangButtonState('en')" role="button" aria-label="{{ 'LANGUAGE_BUTTON_EN' | translate }}" class="languageButton" ng-click="setLang('en')"
                         style="background: url('img/flag-english.png'); background-size: contain;">
                     <span aria-hidden="true">EN</span>
-                </button>
-            </div>
-            <div>
-                <button title="toggleMenuButton" class="" role="button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
-                    <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
-                </button>
-                <button ng-if="showHomeButton" class="" aria-label="{{ 'HOME_BUTTON' | translate }}" role="button" ng-click="closeMenu(); goToSection('home', '/home')">
-                    <img class="openclosesidebar" src="img/icons/ic_home_48px.svg" aria-hidden="true"/>
                 </button>
             </div>
             <div>
