@@ -24,7 +24,7 @@
 </head>
 
 
-<body ng-controller="MainCtrl">
+<body ng-controller="MainCtrl" class="base-class" >
 
 <div id="container">
     <!-- START navigation menu -->
@@ -76,13 +76,19 @@
                     <span aria-hidden="true">EN</span>
                 </button>
             </div>
+            <div>
+
+                <input id="smallbtn" type="button" value="Small" ng-click="myVar='small'">
+                <input id="clearbtn" type="button" value="medium" ng-click="myVar='medium'">
+                <input id="setbtn" type="button" value="large" ng-click="myVar='large'">
+            </div>
         </div>
 
     </div>
     <!-- END navigation menu -->
 
     <!-- START main content -->
-    <div class="enable-main" tabindex="-1" role="main">
+    <div class="enable-main" tabindex="-1" role="main" ng-class="myVar">
         <!-- START main header -->
         <div>
             <span class="screenReadersOnly">{{ 'KEYBOARD_MENU_SHORTCUT' | translate }}</span>
