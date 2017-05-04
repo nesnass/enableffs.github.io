@@ -4,7 +4,7 @@ from os.path import join
 from os import walk
 import json
 
-fPath = 'partials/'
+fPath = 'content/'
 fList = []
 metaTags = ['meta']
 dataTags = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'section', 'aside', 'header', 'footer']
