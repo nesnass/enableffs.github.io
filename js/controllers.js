@@ -232,9 +232,8 @@ enableAppControllers.controller("MainCtrl", ['$q', '$scope', '$window', '$rootSc
                 $http.get('freetext_dictionary.json').
                 success(function (data) {
                     resolve(data);
-                }).
-                error(function () {
-                    reject(null);
+                }, function(error) {
+                    reject(error);
                 });
             });
 
