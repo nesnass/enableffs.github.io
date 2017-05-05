@@ -35,9 +35,14 @@
 
     <div class="enable-menu" tabindex="-1" aria-hidden="!menuOpen" ng-show="menuOpen || windowWidth > 600" role="menubar">
 
+
         <button title="toggleMenuButton" id="closeMenuButton" role="button" aria-label="{{ 'CLOSE_SIDEPANEL_BUTTON' | translate }}" ng-click="closeMenu()" ng-show="menuOpen && windowWidth < 600">
             <img class="openclosesidebar" src="img/icons/ic_close_48px.svg" aria-hidden="true"/>
         </button>
+        <div>
+
+
+        </div>
 
         <nav role="navigation" aria-label="{{'NAVIGATION' | translate}}">
             <div ng-include="'content/menu.html'"></div>
