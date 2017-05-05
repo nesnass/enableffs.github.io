@@ -68,8 +68,11 @@ a:visited {
 }
 
 .menusection li a, .menusection li a:visited {
-    text-decoration: none;
-    color: #000000;
+    text-decoration: underline;
+    color: #0044cc;
+    padding-right: 5px;
+
+
 }
 
 dt,
@@ -223,10 +226,14 @@ h2 {
     padding: 10px 12px;
     margin: 0 0 0 7px;
     border-left: solid 1px grey;
+
+
 }
 
 .menusection li {
     padding-top: 10px;
+    color: #0044cc;
+
 }
 
 .searchArea {
@@ -607,6 +614,14 @@ ul.dashlist li:before, ol.dashlist li:before {
 .enablelink span {
     text-decoration: underline;
 }
+.enablemenulink {
+    line-height: 1.55em;
+    margin: 0 0 1em;
+    /*text-decoration: none;*/
+}
+.enablemenulink span {
+    text-decoration: non;
+}
 .widget-icon {
     padding-right: 10px;
     width: 36px;
@@ -668,6 +683,7 @@ button span {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+
 }
 
 .enable-main {
@@ -708,6 +724,7 @@ button span {
 
     .menusection li {
         padding-top: 20px;
+
     }
 
     /** fix for IE which does not adjust toolbar height **/
