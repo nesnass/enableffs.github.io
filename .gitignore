@@ -1,4 +1,7 @@
-.idea/*
+content/dual/media/vids
+content/hearing/media/vids
+content/sensory/media/vids
+content/vision/media/vids
 node_modules/*
 !node_modules/angucomplete-alt/angucomplete-alt.css
 !node_modules/angucomplete-alt/dist/angucomplete-alt.min.js
@@ -11,3 +14,4 @@ node_modules/*
 !node_modules/juxtaposejs/build/js/juxtapose.min.js
 !node_modules/juxtaposejs/build/css/juxtapose.css
 !node_modules/ng-juxtapose/dist/ng-juxtapose.min.js
+.idea/

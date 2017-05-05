@@ -40,7 +40,7 @@ Add this element anywhere to create a header for a section. This includes a back
 Add this element anywhere to create a videoplayer.
 
 ```html
-<enable-video local-filename="" local-poster="" local-subtitles="" youtube-id="" youtubeId="AZhcZ7AILf0" ></enable-video>
+<enable-video youtube-id="AZhcZ7AILf0" ></enable-video>
 ```
 
 * localFilename:      the filename of the local video file (NOTE: this will also load the matching poster and subtitles), see exmaple below:
