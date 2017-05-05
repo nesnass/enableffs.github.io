@@ -88,16 +88,9 @@ enableAppDirectives.directive('enableSectionHeader', ['$sce','$route', function(
  * @scope true
  * @restrict AE
  * @param {string} youtubeId The id of the youtube video. This will bring up the youtube video player , as well as the CC attached to that video
- * @param {string} localFilename The id (file name) of the local video file. This id will be used for the poster image and the subtitles
- * @param {string} cclang The current language code. This will load the subtitles in the current portal language.
- * @param {boolean} localmode The mode that needs to be inserted in the page, true => local videos, false => youtube videos
  * @description
  *
- * Example: <enable-video local-filename="xyz.mp4" local-poster="xyz.jpg" local-subtitles="xyz.srt" youtube-id="abcdefg"></enable-video>
- *
- *  video should be in .mp4 format
- *  subtitles should be in .srt format
- *  poster should be in .jpg format
+ * Example: <enable-video youtube-id="abcdefg"></enable-video>
  *
  * Directive that creates a local video player based on the localmode paramter with the video id provided and the language for the subtitles.
  *
@@ -106,9 +99,6 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
 
     return {
 	    scope: {
-		    localPoster: '@',
-		    localFilename: '@',
-		    localSubtitles: '@',
             youtubeId: '@'
 	    },
 	    restrict: 'AE',
@@ -118,18 +108,21 @@ enableAppDirectives.directive('enableVideo', ['$sce','$route', '$translate', fun
 	    controller: function ($scope) {
 		    $scope.currentLanguage = $translate.use();
 		    $scope.localmode = false;
+		    var localPoster = $scope.youtubeId + '.jpg';
+			var localFilename = $scope.youtubeId + '.mp4';
+            var localSubtitles = $scope.youtubeId + '.' + $scope.currentLanguage + '.vtt';
 
 		    if ($scope.$parent.localmode) {
 
                 $scope.localmode = true;
 			    $scope.vidtrack = '';
-			    if ($scope.localSubtitles !== '') {
-				    $scope.vidsubtitles = $sce.trustAsResourceUrl('content/' + $route.current.params.level + '/media/vids/' + $scope.localSubtitles);
+			    if (localSubtitles !== '') {
+				    $scope.vidsubtitles = $sce.trustAsResourceUrl('content/' + $route.current.params.level + '/media/vids/' + localSubtitles);
 			    }
-			    if ($scope.localPoster !== '') {
-				    $scope.poster = 'content/' + $route.current.params.level + '/media/pics/' + $scope.localPoster;
+			    if (localPoster !== '') {
+				    $scope.poster = 'content/' + $route.current.params.level + '/media/pics/' + localPoster;
 			    }
-			    var videoUrl = 'content/' + $route.current.params.level + '/media/vids/' + $scope.localFilename;
+			    var videoUrl = 'content/' + $route.current.params.level + '/media/vids/' + localFilename;
 			    $scope.vidurl = $sce.trustAsResourceUrl(videoUrl);
 		    }
 		    else {
