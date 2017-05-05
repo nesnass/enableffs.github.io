@@ -404,7 +404,28 @@ enableAppDirectives.directive("enableLink", function() {
         }
     };
 });
-
+/**
+ * @ngdoc directive
+ * @name enable-menu-link
+ * @restrict E
+ * @description
+ * Add this attribute to improve on the '<a>' link element showing an external link icon.
+ * <pre><enable-link href="..."></enable-link></pre>
+ */
+enableAppDirectives.directive("enableMenuLink", function() {
+    var linker = function(scope) {
+        scope.linkiconpath = "img/icons/directives/link/702-share@2x.svg";
+    };
+    return {
+        template: '<a class="enablemenulink" href="{{href}}" ><ng-transclude></ng-transclude><ng-include src="linkiconpath"></ng-include></a>',
+        restrict: 'E',
+        transclude : true,
+        link : linker,
+        scope : {
+            href : '@'
+        }
+    };
+});
 /**
  * @ngdoc directive
  * @name enableQuotebox
